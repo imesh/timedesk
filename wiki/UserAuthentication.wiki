@@ -13,8 +13,11 @@ entity Role
 entity User
 {
     string username;
+
     string password;
+
     boolean enabled;
+
     set<Role> roles;
 }
 
@@ -23,6 +26,7 @@ These two entities will create 3 database tables, namely user, role and user_rol
 = Details =
 
 File applicationContext-security.xml will be modified as below to add JDBC User Service:
+{
 <!-- Configure Authentication mechanism -->
 <authentication-manager alias="authenticationManager">
     <authentication-provider>
@@ -32,3 +36,4 @@ File applicationContext-security.xml will be modified as below to add JDBC User 
 	 authorities-by-username-query="SELECT u.username, r.name as authority FROM users u, users_roles ur, roles r WHERE u.id = ur.Users_id AND ur.roles_id AND u.username = ?" />
     </authentication-provider>
 </authentication-manager>
+}
