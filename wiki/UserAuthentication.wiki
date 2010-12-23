@@ -5,6 +5,7 @@
 
 User Authentication of Time Desk is handled by Spring Security 3.0. It will make use of two entities, namely User and Role.
 
+{{{
 entity Role
 {
     string name;
@@ -20,13 +21,13 @@ entity User
 
     set<Role> roles;
 }
-
+}}}
 These two entities will create 3 database tables, namely user, role and user_role.
 
 = Details =
 
 File applicationContext-security.xml will be modified as below to add JDBC User Service:
-{
+{{{
 <!-- Configure Authentication mechanism -->
 <authentication-manager alias="authenticationManager">
     <authentication-provider>
@@ -36,4 +37,4 @@ File applicationContext-security.xml will be modified as below to add JDBC User 
 	 authorities-by-username-query="SELECT u.username, r.name as authority FROM users u, users_roles ur, roles r WHERE u.id = ur.Users_id AND ur.roles_id AND u.username = ?" />
     </authentication-provider>
 </authentication-manager>
-}
+}}}
