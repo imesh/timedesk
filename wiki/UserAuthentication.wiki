@@ -14,11 +14,8 @@ entity Role
 entity User
 {
     string username;
-
     string password;
-
     boolean enabled;
-
     set<Role> roles;
 }
 }}}
