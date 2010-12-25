@@ -4,7 +4,7 @@
 
 === Step 1: Download Springsource Tool Suite ===
 
-Springsource Tool Suite (STS) is needed as the IDE. Please download version 2.5.1 (zip) from: http://www.springsource.com/developer/sts. It is recommended to download the zip file and it will be easier to install.
+Springsource Tool Suite (STS) is needed as the IDE. Please download version 2.5.1 (zip) from: http://www.springsource.com/developer/sts. It is recommended to download the zip file as it will be easier to install and re-use.
 
 This will include:
 
