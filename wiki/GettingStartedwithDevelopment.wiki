@@ -20,9 +20,13 @@ If you have not already install JDK 1.6 please download and install version 1.6.
 
 Extract STS 2.5.1 to a new folder in your local drive.
 
-* Windows
+ * Windows
 
-Example: D:\Development\sts-2.5.1\
+ Example: D:\Development\sts-2.5.1\
+
+ * Linux
+
+ To be updated...
 
 === Step 4: Set Maven and Roo Paths ===
 
@@ -42,4 +46,4 @@ Maven and Spring Roo paths should be added to the Operating System global PATH v
 
  * Linux:
 
- [To be updated]
+ To be updated...
