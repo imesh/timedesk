@@ -41,3 +41,12 @@ Maven and Spring Roo paths should be added to the Operating System global PATH v
  * Linux:
 
  To be updated...
+
+=== Step 5: Update STS.ini File ===
+
+Open STS.ini file which can be found inside ..\sts-2.5.1\sts-2.5.1.RELEASE and add the below line just before --vmargs.
+
+-vm
+C:\Program Files (x86)\Java\jdk1.6.0_23\bin\javaw.exe
+
+This is the path to the Java Virtual Machine. Check your JVM installed location and use that accordingly.
