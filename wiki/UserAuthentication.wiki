@@ -24,6 +24,8 @@ Above two entities will be mapped to 3 database tables, namely user, role and us
 
 === Security Configuration === 
 
+The below security configuration settings will be used to define access permissions for different sections of the system.
+
 {{{
 <!-- HTTP security configurations -->
     <http auto-config="true" use-expressions="true">
@@ -41,7 +43,8 @@ Above two entities will be mapped to 3 database tables, namely user, role and us
 
 === Authentication Manager ===
 
-File applicationContext-security.xml will be modified as below to add JDBC User Service:
+File applicationContext-security.xml will be used to define the JDBC User Service. It will provide one SQL query to list out Users and another to list out Authorities. Spring Security will make use of those two queries to handle access permissions.
+
 {{{
 <!-- Configure Authentication mechanism -->
 <authentication-manager alias="authenticationManager">
