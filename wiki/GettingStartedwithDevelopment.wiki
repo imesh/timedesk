@@ -34,7 +34,6 @@ Maven and Spring Roo paths should be added to the Operating System global PATH v
 
  * Windows
 
-
   1. Add a new Environment Variable called MVN_HOME and set the value to Maven path.
   Example: %MVN_HOME% = D:\Development\sts-2.5.1\maven-2.2.1.RELEASE
 
