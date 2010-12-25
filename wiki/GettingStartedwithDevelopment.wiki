@@ -44,9 +44,23 @@ Maven and Spring Roo paths should be added to the Operating System global PATH v
 
 === Step 5: Update STS.ini File ===
 
-Open STS.ini file which can be found inside ..\sts-2.5.1\sts-2.5.1.RELEASE and add the below line just before --vmargs.
+Open STS.ini file which can be found inside ..\sts-2.5.1\sts-2.5.1.RELEASE folder and add the below line just before --vmargs.
 
+{{{
 -vm
 C:\Program Files (x86)\Java\jdk1.6.0_23\bin\javaw.exe
+}}}
 
 This is the path to the Java Virtual Machine. Check your JVM installed location and use that accordingly.
+
+So now it should looks like this:
+
+{{{
+...
+--launcher.XXMaxPermSize
+256M
+-vm
+C:\Program Files (x86)\Java\jdk1.6.0_23\bin\javaw.exe
+-vmargs
+...
+}}}
