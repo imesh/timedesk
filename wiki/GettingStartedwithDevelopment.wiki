@@ -64,3 +64,7 @@ C:\Program Files (x86)\Java\jdk1.6.0_23\bin\javaw.exe
 -vmargs
 ...
 }}}
+
+=== Step 6: Run STS ===
+
+Now you are ready to go, please run STS.
