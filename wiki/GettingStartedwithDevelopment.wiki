@@ -5,13 +5,16 @@
 === Step 1: Download Springsource Tool Suite ===
 
 Springsource Tool Suite (STS) is needed as the IDE. Please download version 2.5.1 from: http://www.springsource.com/developer/sts
-* This will include Maven 2.2.1, Roo 1.1.0, TC Server Developer 2.1.0 (Tomcat 6.0.29).
+
+This will include:
+
+ * Maven 2.2.1
+ * Roo 1.1.0
+ * TC Server Developer 2.1.0 (Tomcat 6.0.29)
 
 === Step 2: Download Java Development Kit ==
 
 If you have not already install JDK 1.6 please download version 1.6.0_23 from: http://www.oracle.com/technetwork/java/javase/downloads/index.html
-
-
 
 
 
