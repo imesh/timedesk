@@ -33,14 +33,10 @@ Extract STS 2.5.1 to a new folder in your local drive.
 Maven and Spring Roo paths should be added to the Operating System global PATH variable. This may differ from Windows to Linux.
 
  * Windows
-   1. Add a new Environment Variable called MVN_HOME and set the value to Maven path.
-   {{{Example: %MVN_HOME% = D:\Development\sts-2.5.1\maven-2.2.1.RELEASE}}}
-
-   2. Add a new Environment Variable called ROO_HOME and set the value to Spring Roo path.
-   {{{Example: %ROO_HOME% = D:\Development\sts-2.5.1\roo-1.1.0.RELEASE}}}
-
-   3. Add both variables to PATH.
-   {{{Example: %PATH% = %PATH%; %MVN_HOME%\bin; %ROO_HOME%\bin;}}}
+   
+   # Add a new Environment Variable called MVN_HOME and set the value to Maven path. {{{Example: %MVN_HOME% = D:\Development\sts-2.5.1\maven-2.2.1.RELEASE}}}
+   # Add a new Environment Variable called ROO_HOME and set the value to Spring Roo path. {{{Example: %ROO_HOME% = D:\Development\sts-2.5.1\roo-1.1.0.RELEASE}}}
+   # Add both variables to the global PATH variable. {{{Example: %PATH% = %PATH%; %MVN_HOME%\bin; %ROO_HOME%\bin;}}}
 
  * Linux:
 
