@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_timedesk_entity_Project" items="${projects}" z="r+3lNDJgMEywfMfsMFouZnTGMqg=">
+        <table:table data="${projects}" id="l_org_timedesk_entity_Project" path="/projects" z="QVC2twZAMUzOCVs35dBRHXVanlk=">
+            
+            <table:column id="c_org_timedesk_entity_Project_name" property="name" z="ODDxb2hNrv6qFPaP6fQhe+b2B+M="/>
+            <table:column id="c_org_timedesk_entity_Project_description" property="description" z="E88+TGz+Qay+r9x5HGn0/PZGLb8="/>
+            <table:column id="c_org_timedesk_entity_Project_startDate" property="startDate" z="D7zzWsvmzqgSkUhZFCEVAcgEhQM="/>
+            <table:column id="c_org_timedesk_entity_Project_endDate" property="endDate" z="vkAiHisMswhdp5IutKh3JzGz+3Y="/>
+            <table:column id="c_org_timedesk_entity_Project_members" property="members" z="N3MbP4220KpvfmcgpkJuwuBJ1x4="/>
+        <table:column id="c_org_timedesk_entity_Project_prijectId" property="prijectId" z="juRetRJELtn6kbMNT0oxwSNDR0A="/>
+        </table:table>
+    </page:list>
+</div>
