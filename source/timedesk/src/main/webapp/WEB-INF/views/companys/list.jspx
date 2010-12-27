@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_timedesk_entity_Company" items="${companys}" z="uP3s8LbL7VRMEDcTDDrht4E4CgI=">
+        <table:table data="${companys}" id="l_org_timedesk_entity_Company" path="/companys" z="3fs/kukikP1wE7Zkh0rlvSOaAN0=">
+            
+            <table:column id="c_org_timedesk_entity_Company_name" property="name" z="TP+LWErjVi5bOyK44a3hyqKRqE0="/>
+            <table:column id="c_org_timedesk_entity_Company_sites" property="sites" z="Vj3c2AvY7OGkM8bAbBy39+C1DJ4="/>
+        <table:column id="c_org_timedesk_entity_Company_companyId" property="companyId" z="zE+fLtOu7S/1MOlD+0Z1bfv0hhI="/>
+        </table:table>
+    </page:list>
+</div>
