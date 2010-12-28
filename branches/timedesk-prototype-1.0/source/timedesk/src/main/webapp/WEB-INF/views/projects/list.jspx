@@ -9,7 +9,8 @@
             <table:column id="c_org_timedesk_entity_Project_startDate" property="startDate" z="D7zzWsvmzqgSkUhZFCEVAcgEhQM="/>
             <table:column id="c_org_timedesk_entity_Project_endDate" property="endDate" z="vkAiHisMswhdp5IutKh3JzGz+3Y="/>
             <table:column id="c_org_timedesk_entity_Project_members" property="members" z="N3MbP4220KpvfmcgpkJuwuBJ1x4="/>
-        <table:column id="c_org_timedesk_entity_Project_prijectId" property="prijectId" z="juRetRJELtn6kbMNT0oxwSNDR0A="/>
+        
+        <table:column id="c_org_timedesk_entity_Project_projectId" property="projectId" z="LpwSKkxy4l77OaBDEhZD2hmCaBs="/>
         </table:table>
     </page:list>
 </div>

@@ -4,8 +4,9 @@
     <form:create id="fc_org_timedesk_entity_Company" modelAttribute="company" path="/companys" render="${empty dependencies}" z="QZh2Y6woD4ig/CHmZnP8rC29ubw=">
         
         <field:input field="name" id="c_org_timedesk_entity_Company_name" z="QZ49xBWbpKz/aQc3z59pCyme8co="/>
-        <field:select field="sites" id="c_org_timedesk_entity_Company_sites" itemValue="id" items="${sites}" multiple="true" path="/sites" z="opi0DGl8laexvve4jwFF/Weoefg="/>
-    <field:input field="companyId" id="c_org_timedesk_entity_Company_companyId" z="cbcaXMR2bqsRANrilD1N+f28jVM="/>
+        
+    <field:input field="companyId" id="c_org_timedesk_entity_Company_companyId" required="true" z="mo02AxHYK5jjxQGaIpoAr8JvD+4="/>
+    <field:select field="companySites" id="c_org_timedesk_entity_Company_companySites" itemValue="id" items="${companysites}" multiple="true" path="/companysites" z="FJ0Q77kvTiBCa5p1dyoGGO3Vj5k="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_timedesk_entity_Company" render="${not empty dependencies}" z="v2+0NYWh2QvIFbaaYv5GAoce2j0="/>
 </div>

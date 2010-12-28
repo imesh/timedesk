@@ -4,6 +4,6 @@
     <form:update id="fu_org_timedesk_entity_Feedback" modelAttribute="feedback" path="/feedbacks" z="RDRfvV7X2xMipOdIj7hyLI8Llv8=">
         
         <field:input field="description" id="c_org_timedesk_entity_Feedback_description" z="d1jRlodxsT/cpuNHPXG5fhNnlu4="/>
-    <field:input field="feedbackId" id="c_org_timedesk_entity_Feedback_feedbackId" z="cwt3X6dgVAR9v9vFs02rXCH+qpA="/>
+    <field:input field="feedbackId" id="c_org_timedesk_entity_Feedback_feedbackId" required="true" z="QmrIQj4yjTAdRAyVhVpljtvjwjY="/>
     </form:update>
 </div>

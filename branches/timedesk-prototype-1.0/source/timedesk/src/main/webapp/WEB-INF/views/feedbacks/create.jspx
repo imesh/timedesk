@@ -4,7 +4,7 @@
     <form:create id="fc_org_timedesk_entity_Feedback" modelAttribute="feedback" path="/feedbacks" render="${empty dependencies}" z="kcdRqPChubVhJ2fjMJXXiNh+jY0=">
         
         <field:input field="description" id="c_org_timedesk_entity_Feedback_description" z="d1jRlodxsT/cpuNHPXG5fhNnlu4="/>
-    <field:input field="feedbackId" id="c_org_timedesk_entity_Feedback_feedbackId" z="cwt3X6dgVAR9v9vFs02rXCH+qpA="/>
+    <field:input field="feedbackId" id="c_org_timedesk_entity_Feedback_feedbackId" required="true" z="QmrIQj4yjTAdRAyVhVpljtvjwjY="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_timedesk_entity_Feedback" render="${not empty dependencies}" z="HFze2KZACAOpZY/d8sYwbU0/ym4="/>
 </div>

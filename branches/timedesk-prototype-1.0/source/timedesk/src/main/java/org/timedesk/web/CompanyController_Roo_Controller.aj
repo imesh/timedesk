@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 import org.timedesk.entity.Company;
-import org.timedesk.entity.Site;
+import org.timedesk.entity.CompanySite;
 
 privileged aspect CompanyController_Roo_Controller {
     
@@ -90,9 +90,9 @@ privileged aspect CompanyController_Roo_Controller {
         return "redirect:/companys?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
-    @ModelAttribute("sites")
-    public Collection<Site> CompanyController.populateSites() {
-        return Site.findAllSites();
+    @ModelAttribute("companysites")
+    public Collection<CompanySite> CompanyController.populateCompanySites() {
+        return CompanySite.findAllCompanySites();
     }
     
     Converter<Company, String> CompanyController.getCompanyConverter() {
@@ -103,10 +103,10 @@ privileged aspect CompanyController_Roo_Controller {
         };
     }
     
-    Converter<Site, String> CompanyController.getSiteConverter() {
-        return new Converter<Site, String>() {
-            public String convert(Site site) {
-                return new StringBuilder().append(site.getSiteId()).append(" ").append(site.getLocation()).append(" ").append(site.getCity()).toString();
+    Converter<CompanySite, String> CompanyController.getCompanySiteConverter() {
+        return new Converter<CompanySite, String>() {
+            public String convert(CompanySite companySite) {
+                return new StringBuilder().append(companySite.getSiteId()).append(" ").append(companySite.getLocation()).append(" ").append(companySite.getCity()).toString();
             }
         };
     }
@@ -114,7 +114,7 @@ privileged aspect CompanyController_Roo_Controller {
     @PostConstruct
     void CompanyController.registerConverters() {
         conversionService.addConverter(getCompanyConverter());
-        conversionService.addConverter(getSiteConverter());
+        conversionService.addConverter(getCompanySiteConverter());
     }
     
     private String CompanyController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {

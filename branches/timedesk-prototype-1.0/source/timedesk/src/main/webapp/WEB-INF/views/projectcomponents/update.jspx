@@ -6,6 +6,6 @@
         <field:input field="name" id="c_org_timedesk_entity_ProjectComponent_name" z="Mjvl4vBB9+zO3MiGuqISvFGc6fs="/>
         <field:input field="description" id="c_org_timedesk_entity_ProjectComponent_description" z="RfIDuMgxJKSQJ9xhaYfNJ04bX+Y="/>
         <field:select field="tasks" id="c_org_timedesk_entity_ProjectComponent_tasks" itemValue="id" items="${tasks}" multiple="true" path="/tasks" z="/GbON3biA8S9yoTzkL4+dt+hN/o="/>
-    <field:input field="componentId" id="c_org_timedesk_entity_ProjectComponent_componentId" z="SF5bG4XcJFgrxLTmDgGBfmDYi/E="/>
+    <field:input field="componentId" id="c_org_timedesk_entity_ProjectComponent_componentId" required="true" z="UTXJD6aYR7uOR10hU7ckbnRURNk="/>
     </form:update>
 </div>
