@@ -98,22 +98,26 @@ sudo apt-get install subversion
 Create a new folder to manage the development workspace.
 
 * Windows:
+
 Example: D:\Development\TimeDesk\Work\
 
 * Linux:
+{{{
 Example: /home/<user_name>/Development/TimeDesk/Work
-
+}}}
 === Step 8: Checkout Source Files from SVN ===
 
 Check out source files from SVN based on the current application version you are working on. Each application version will have a separate branch. Please have a look at the branches available at: https://timedesk.googlecode.com/svn/branches/
-
+{{{
 Example: https://timedesk.googlecode.com/svn/branches/timedesk-prototype-1.0/
+}}}
 
 === Step 9: Build and Run the Application ===
 
 As the next step try to build and run the application using Maven.
 
 * Windows:
+
 1. Open command prompt.
 2. Go to timedesk source folder. Example: D:\Development\Time Desk\Work\timedesk-prototype-1.0.
 3. Run the following command:
