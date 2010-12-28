@@ -77,6 +77,21 @@ C:\Program Files (x86)\Java\jdk1.6.0_23\bin\javaw.exe
 
 To be updated...
 
+=== Step 7: Install a Subversion Client ===
+
+* Windows:
+
+Install Tortoise SVN Client. It can be downloaded from http://tortoisesvn.net/downloads.html.
+
+* Linux (Ubuntu 10.10):
+
+Install Subversion using the following command. If available please install a Subversion GUI Client to make easier to work with the source control system.
+
+{{{
+sudo apt-get install subversion
+}}}
+
+
 === Step 6: Run STS ===
 
 Now you are ready to go, please run STS.
