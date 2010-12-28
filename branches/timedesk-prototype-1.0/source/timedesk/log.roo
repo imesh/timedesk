@@ -77,3 +77,4 @@ controller all --package ~.web
 entity --class ~.entity.CompanySite
 field set --class ~.entity.Company --fieldName companySites --element ~.entity.CompanySite
 controller all --package ~.web
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2010-12-28 15:01:11
