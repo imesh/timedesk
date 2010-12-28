@@ -1,25 +1,35 @@
 package org.timedesk.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.tostring.RooToString;
 import org.springframework.roo.addon.entity.RooEntity;
-import java.util.Set;
-import org.timedesk.entity.Employee;
-import java.util.HashSet;
-import javax.persistence.ManyToMany;
-import javax.persistence.CascadeType;
 
 @RooJavaBean
 @RooToString
 @RooEntity
-public class Site {
+@Table(name = "COMPANY_SITE")
+public class CompanySite 
+{
+	@NotNull
+	@Column(name = "site_id")
+	private String siteId;
 
-    private String siteId;
-
+	@Column(name = "location")
     private String location;
 
+	@Column(name = "city")
     private String city;
 
+	@Column(name = "country")
     private String country;
 
     @ManyToMany(cascade = CascadeType.ALL)

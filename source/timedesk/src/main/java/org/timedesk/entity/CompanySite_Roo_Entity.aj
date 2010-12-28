@@ -15,92 +15,92 @@ import javax.persistence.Id;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Version;
 import org.springframework.transaction.annotation.Transactional;
-import org.timedesk.entity.Site;
+import org.timedesk.entity.CompanySite;
 
-privileged aspect Site_Roo_Entity {
+privileged aspect CompanySite_Roo_Entity {
     
-    declare @type: Site: @Entity;
+    declare @type: CompanySite: @Entity;
     
     @PersistenceContext
-    transient EntityManager Site.entityManager;
+    transient EntityManager CompanySite.entityManager;
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private Long Site.id;
+    private Long CompanySite.id;
     
     @Version
     @Column(name = "version")
-    private Integer Site.version;
+    private Integer CompanySite.version;
     
-    public Long Site.getId() {
+    public Long CompanySite.getId() {
         return this.id;
     }
     
-    public void Site.setId(Long id) {
+    public void CompanySite.setId(Long id) {
         this.id = id;
     }
     
-    public Integer Site.getVersion() {
+    public Integer CompanySite.getVersion() {
         return this.version;
     }
     
-    public void Site.setVersion(Integer version) {
+    public void CompanySite.setVersion(Integer version) {
         this.version = version;
     }
     
     @Transactional
-    public void Site.persist() {
+    public void CompanySite.persist() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.persist(this);
     }
     
     @Transactional
-    public void Site.remove() {
+    public void CompanySite.remove() {
         if (this.entityManager == null) this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
-            Site attached = this.entityManager.find(this.getClass(), this.id);
+            CompanySite attached = this.entityManager.find(this.getClass(), this.id);
             this.entityManager.remove(attached);
         }
     }
     
     @Transactional
-    public void Site.flush() {
+    public void CompanySite.flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();
     }
     
     @Transactional
-    public Site Site.merge() {
+    public CompanySite CompanySite.merge() {
         if (this.entityManager == null) this.entityManager = entityManager();
-        Site merged = this.entityManager.merge(this);
+        CompanySite merged = this.entityManager.merge(this);
         this.entityManager.flush();
         return merged;
     }
     
-    public static final EntityManager Site.entityManager() {
-        EntityManager em = new Site().entityManager;
+    public static final EntityManager CompanySite.entityManager() {
+        EntityManager em = new CompanySite().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
         return em;
     }
     
-    public static long Site.countSites() {
-        return entityManager().createQuery("select count(o) from Site o", Long.class).getSingleResult();
+    public static long CompanySite.countCompanySites() {
+        return entityManager().createQuery("select count(o) from CompanySite o", Long.class).getSingleResult();
     }
     
-    public static List<Site> Site.findAllSites() {
-        return entityManager().createQuery("select o from Site o", Site.class).getResultList();
+    public static List<CompanySite> CompanySite.findAllCompanySites() {
+        return entityManager().createQuery("select o from CompanySite o", CompanySite.class).getResultList();
     }
     
-    public static Site Site.findSite(Long id) {
+    public static CompanySite CompanySite.findCompanySite(Long id) {
         if (id == null) return null;
-        return entityManager().find(Site.class, id);
+        return entityManager().find(CompanySite.class, id);
     }
     
-    public static List<Site> Site.findSiteEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("select o from Site o", Site.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    public static List<CompanySite> CompanySite.findCompanySiteEntries(int firstResult, int maxResults) {
+        return entityManager().createQuery("select o from CompanySite o", CompanySite.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
 }
