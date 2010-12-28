@@ -10,12 +10,12 @@ import org.timedesk.entity.ProjectMember;
 
 privileged aspect Project_Roo_JavaBean {
     
-    public String Project.getPrijectId() {
-        return this.prijectId;
+    public String Project.getProjectId() {
+        return this.projectId;
     }
     
-    public void Project.setPrijectId(String prijectId) {
-        this.prijectId = prijectId;
+    public void Project.setProjectId(String projectId) {
+        this.projectId = projectId;
     }
     
     public String Project.getName() {

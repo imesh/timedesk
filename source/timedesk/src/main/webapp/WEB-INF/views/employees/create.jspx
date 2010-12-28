@@ -15,7 +15,7 @@
         <field:input field="officeExtension" id="c_org_timedesk_entity_Employee_officeExtension" z="YMmNbGXrTN2CJ+CMQntcn1UQj04="/>
         <field:select field="employeeSkills" id="c_org_timedesk_entity_Employee_employeeSkills" itemValue="id" items="${employeeskills}" multiple="true" path="/employeeskills" z="vtzgXGvyxgqm+KVrNLmSLm/YBug="/>
         <field:select field="employeeRoles" id="c_org_timedesk_entity_Employee_employeeRoles" itemValue="id" items="${employeeroles}" multiple="true" path="/employeeroles" z="3iadrAtyPLUJB7DbB+tnD/PVb0o="/>
-    <field:input field="employeeId" id="c_org_timedesk_entity_Employee_employeeId" z="ZpVerfxfpQ+r2wJUCONecIpHH9U="/>
+    <field:input field="employeeId" id="c_org_timedesk_entity_Employee_employeeId" required="true" z="UbDLzycm3YwdM3WSR71LfyrO09w="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_timedesk_entity_Employee" render="${not empty dependencies}" z="PIuFLMXamnfqSE9VLsY7U3hiTn4="/>
 </div>

@@ -48,5 +48,9 @@
             <menu:item id="i_task_new" messageCode="global_menu_new" url="/tasks?form" z="YotbILlsjTB2PtR5PNSnTnvYdJ4="/>
         <menu:item id="i_task_list" messageCode="global_menu_list" url="/tasks?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="xEhnZSL1vTk7LN2+wWpHvSC2mFA="/>
         </menu:category>
+    <menu:category id="c_companysite" z="GwQVQ1OmOWBGpffFDSo4o+A0NYs=">
+            <menu:item id="i_companysite_new" messageCode="global_menu_new" url="/companysites?form" z="0MC/6U0MIfAsiW7+OrjOBagFK2Y="/>
+        <menu:item id="i_companysite_list" messageCode="global_menu_list" url="/companysites?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="LfnXfQiaHWdZ1z51IoJCFVEtWzY="/>
+        </menu:category>
     </menu:menu>
 </div>

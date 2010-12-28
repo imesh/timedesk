@@ -3,7 +3,7 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_org_timedesk_entity_EmployeeRole" modelAttribute="employeeRole" path="/employeeroles" z="PFCRRxH9s2VOt/dW4ebe18nnu40=">
         
-        <field:input field="name" id="c_org_timedesk_entity_EmployeeRole_name" z="o0xaBN9P0u+jpklp86cFDWHpFxw="/>
-    <field:input field="employeeRoleId" id="c_org_timedesk_entity_EmployeeRole_employeeRoleId" z="uZUA1tj/6Z6l00G0PG233n/T0K4="/>
+        <field:input field="name" id="c_org_timedesk_entity_EmployeeRole_name" required="true" z="HK0Ih8us0IJ5XpvUWnbcFOyZ5Hs="/>
+    <field:input field="employeeRoleId" id="c_org_timedesk_entity_EmployeeRole_employeeRoleId" required="true" z="rZ8ERtlTOEZfos4Z/H8MTB9IlMw="/>
     </form:update>
 </div>

@@ -106,7 +106,7 @@ privileged aspect ProjectController_Roo_Controller {
     Converter<Project, String> ProjectController.getProjectConverter() {
         return new Converter<Project, String>() {
             public String convert(Project project) {
-                return new StringBuilder().append(project.getPrijectId()).append(" ").append(project.getName()).append(" ").append(project.getDescription()).toString();
+                return new StringBuilder().append(project.getProjectId()).append(" ").append(project.getName()).append(" ").append(project.getDescription()).toString();
             }
         };
     }

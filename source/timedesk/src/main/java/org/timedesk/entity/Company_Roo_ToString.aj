@@ -13,7 +13,7 @@ privileged aspect Company_Roo_ToString {
         sb.append("Version: ").append(getVersion()).append(", ");
         sb.append("CompanyId: ").append(getCompanyId()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");
-        sb.append("Sites: ").append(getSites() == null ? "null" : getSites().size());
+        sb.append("CompanySites: ").append(getCompanySites() == null ? "null" : getCompanySites().size());
         return sb.toString();
     }
     

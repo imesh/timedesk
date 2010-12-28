@@ -3,8 +3,8 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_timedesk_entity_EmployeeSkill" modelAttribute="employeeSkill" path="/employeeskills" render="${empty dependencies}" z="0hJY4USq8CRTTNmZmw0aBiBRin4=">
         
-        <field:input field="description" id="c_org_timedesk_entity_EmployeeSkill_description" z="f9jg84teREhC4QcX9jxhnC+y9Nc="/>
-    <field:input field="employeeSkillId" id="c_org_timedesk_entity_EmployeeSkill_employeeSkillId" z="yLcmVz+sgjpO9IVHsm5WDshqoro="/>
+        <field:input field="description" id="c_org_timedesk_entity_EmployeeSkill_description" required="true" z="j1EUH1zJsG+Gh1+y2Sz/RQen8JY="/>
+    <field:input field="employeeSkillId" id="c_org_timedesk_entity_EmployeeSkill_employeeSkillId" required="true" z="nWYXf5lqb+6AeN+8Us+FH1rrizI="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_timedesk_entity_EmployeeSkill" render="${not empty dependencies}" z="UZ5aTG57Agx6jZ2nghq5rfokEP8="/>
 </div>

@@ -8,6 +8,7 @@
         <field:display date="true" dateTimePattern="${project_startdate_date_format}" field="startDate" id="s_org_timedesk_entity_Project_startDate" object="${project}" z="Bepl4r2HUDnglgXv8nNGzlJ2rQ8="/>
         <field:display date="true" dateTimePattern="${project_enddate_date_format}" field="endDate" id="s_org_timedesk_entity_Project_endDate" object="${project}" z="8DYLvPcH8Z0LdQnhthEfDshLI2M="/>
         <field:display field="members" id="s_org_timedesk_entity_Project_members" object="${project}" z="+MZ+RDK4QGmFPSktVHjUKElQgHw="/>
-    <field:display field="prijectId" id="s_org_timedesk_entity_Project_prijectId" object="${project}" z="7B0BTSHrX449eZfz7kNEJMWTvMA="/>
+    
+    <field:display field="projectId" id="s_org_timedesk_entity_Project_projectId" object="${project}" z="E1/fkHXeMcqXXIXtTLpFED3e3+s="/>
     </page:show>
 </div>

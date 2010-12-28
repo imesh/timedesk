@@ -5,7 +5,7 @@
         
         <field:input field="name" id="c_org_timedesk_entity_Task_name" z="CQLrzFeRlccID3a7zt3fkCjA+Sw="/>
         <field:input field="description" id="c_org_timedesk_entity_Task_description" z="c/RuE9HNvr8OHPRkV1aqjJXTPx8="/>
-    <field:input field="taskId" id="c_org_timedesk_entity_Task_taskId" z="t1rewn1m1mRL8IQL2SNdkue2J74="/>
+    <field:input field="taskId" id="c_org_timedesk_entity_Task_taskId" required="true" z="jaYqtiFj4HTDdaVL+82XcUCrz2Y="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_timedesk_entity_Task" render="${not empty dependencies}" z="Xf/gRHM2XDk1RooxRVIfZN/DmpU="/>
 </div>

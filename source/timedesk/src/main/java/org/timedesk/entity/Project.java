@@ -1,9 +1,26 @@
+/*
+ *  Time Desk
+ *  Project Resource Management System
+ *  http://code.google.com/p/timedesk
+ *   
+ *  Masters in Enterprise Applications Development
+ *  Sri Lanka Institute of Information Technology, Sri Lanka
+ *  Sheffield Hallam University, United Kingdom
+ *  
+ *  History:
+ *  2010 Dec 27 - Imesh - Created
+ *
+ */
+
 package org.timedesk.entity;
 
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.tostring.RooToString;
 import org.springframework.roo.addon.entity.RooEntity;
 import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -12,24 +29,32 @@ import org.timedesk.entity.ProjectMember;
 import java.util.HashSet;
 import javax.persistence.ManyToMany;
 import javax.persistence.CascadeType;
+import javax.validation.constraints.NotNull;
 
 @RooJavaBean
 @RooToString
 @RooEntity
-public class Project {
+@Table(name = "PROJECT")
+public class Project 
+{
+	@NotNull
+	@Column(name = "project_id")
+    private String projectId;
 
-    private String prijectId;
-
+	@Column(name = "name")
     private String name;
 
+	@Column(name = "description")
     private String description;
-
+	
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "S-")
+    @Column(name = "start_date")
     private Date startDate;
 
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "S-")
+    @Column(name = "end_date")
     private Date endDate;
 
     @ManyToMany(cascade = CascadeType.ALL)

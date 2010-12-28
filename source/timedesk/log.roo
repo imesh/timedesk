@@ -73,3 +73,7 @@ controller all --package ~.web
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2010-12-27 10:31:39
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2010-12-27 13:20:13
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2010-12-27 15:28:19
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2010-12-28 12:45:35
+entity --class ~.entity.CompanySite
+field set --class ~.entity.Company --fieldName companySites --element ~.entity.CompanySite
+controller all --package ~.web

@@ -8,6 +8,7 @@
         <field:datetime dateTimePattern="${project_startdate_date_format}" field="startDate" id="c_org_timedesk_entity_Project_startDate" z="mlHQ/n9426MnzI6Ybimm3nKMAIc="/>
         <field:datetime dateTimePattern="${project_enddate_date_format}" field="endDate" id="c_org_timedesk_entity_Project_endDate" z="JGQaC8CYDK8p9+inBKtntJk4hE0="/>
         <field:select field="members" id="c_org_timedesk_entity_Project_members" itemValue="id" items="${projectmembers}" multiple="true" path="/projectmembers" z="c2pO/SDIcK0mhqOkcObc2jWcgQY="/>
-    <field:input field="prijectId" id="c_org_timedesk_entity_Project_prijectId" z="PYCU7ERbtEGwvCdkE9aSUmw7H7o="/>
+    
+    <field:input field="projectId" id="c_org_timedesk_entity_Project_projectId" required="true" z="nWLGWFr5w95eM4PIV1IE618bebY="/>
     </form:update>
 </div>
