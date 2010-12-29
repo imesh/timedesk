@@ -26,7 +26,7 @@ Extract STS 2.5.1 to a new folder in your local drive.
 
  * Linux
 
- To be updated...
+  {{{Example: /home/user/sts-2.5.1/}}}
 
 === Step 4: Set Maven and Roo Paths ===
 
@@ -40,7 +40,11 @@ Maven and Spring Roo paths should be added to the Operating System global PATH v
 
  * Linux:
 
- To be updated...
+   Open user bash profile ( .bash_profile - which locate in user home as a hidden file) file. Add following entries in to the file.
+
+  # Add a new Environment Variable called MVN_HOME {{{Example: export MVN_HOME = /opt/sts-2.5.1/maven-2.2.1.RELEASE}}}
+  # Add a new Environment Variable called ROO_HOME {{{Example: export ROO_HOME = /opt/sts-2.5.1/roo-1.1.0.RELEASE}}}
+  # Add both variables to the global PATH variable. {{{Example: export PATH = $MVN_HOME/bin: $ROO_HOME/bin:$PATH}}}
 
 === Step 5: Update STS.ini File ===
 
