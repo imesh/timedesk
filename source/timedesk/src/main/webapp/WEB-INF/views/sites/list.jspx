@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_timedesk_entity_Site" items="${sites}" z="v5RLGXbms03tn/PXwqHBFv8hW+U=">
+        <p>The following sites were found in the system.</p>
+        <table:table data="${sites}" id="l_org_timedesk_entity_Site" path="/sites" z="3gykonVHMmRTYCPdQiCgTNFwndM=">
+            <table:column id="c_org_timedesk_entity_Site_siteId" property="siteId" z="N3y5YodOc3vzMQ//HkuVOLoMZoc="/>
+            <table:column id="c_org_timedesk_entity_Site_location" property="location" z="UItNAN9jNirKa+agvaNC0CEg550="/>
+            <table:column id="c_org_timedesk_entity_Site_city" property="city" z="b6oCIYeRGUiaUEWg9LycERfXqiM="/>
+            <table:column id="c_org_timedesk_entity_Site_country" property="country" z="1091uGnEglJIXmMQgAiDWe0va1E="/>
+            <table:column id="c_org_timedesk_entity_Site_employees" property="employees" z="74FwJVQ5HwVv6yjRMZiMn6GH9A4="/>
+        </table:table>
+    </page:list>
+</div>
