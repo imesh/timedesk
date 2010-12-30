@@ -26,7 +26,7 @@ public class ProjectMember {
 
     @NotNull
     @Column(name = "member_id")
-    private int memberId;
+    private String memberId;
 
     @Column(name = "allocation")
     private int allocation;

@@ -3,7 +3,7 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_org_timedesk_entity_Company" items="${companys}" z="uP3s8LbL7VRMEDcTDDrht4E4CgI=">
         
-        <p>The following companies were found in the system.</p>
+        <p>The following companies were found:</p>
         <table:table data="${companys}" id="l_org_timedesk_entity_Company" path="/companys" z="3fs/kukikP1wE7Zkh0rlvSOaAN0=">            
         	<table:column id="c_org_timedesk_entity_Company_name" property="name" z="TP+LWErjVi5bOyK44a3hyqKRqE0="/>            
         	<table:column id="c_org_timedesk_entity_Company_companyId" property="companyId" z="zE+fLtOu7S/1MOlD+0Z1bfv0hhI="/>

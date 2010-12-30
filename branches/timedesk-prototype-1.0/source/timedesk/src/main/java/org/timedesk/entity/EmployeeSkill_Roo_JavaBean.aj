@@ -7,11 +7,11 @@ import java.lang.String;
 
 privileged aspect EmployeeSkill_Roo_JavaBean {
     
-    public int EmployeeSkill.getEmployeeSkillId() {
+    public String EmployeeSkill.getEmployeeSkillId() {
         return this.employeeSkillId;
     }
     
-    public void EmployeeSkill.setEmployeeSkillId(int employeeSkillId) {
+    public void EmployeeSkill.setEmployeeSkillId(String employeeSkillId) {
         this.employeeSkillId = employeeSkillId;
     }
     

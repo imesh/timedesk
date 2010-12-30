@@ -30,7 +30,7 @@ public class EmployeeSkill
 {
 	@NotNull
 	@Column(name = "employee_skill_id")
-    private int employeeSkillId;
+    private String employeeSkillId;
 
 	@NotNull
 	@Column(name = "description")
