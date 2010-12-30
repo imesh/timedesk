@@ -5,9 +5,9 @@ package org.timedesk.entity;
 
 import java.lang.String;
 
-privileged aspect CompanySite_Roo_ToString {
+privileged aspect Site_Roo_ToString {
     
-    public String CompanySite.toString() {
+    public String Site.toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Version: ").append(getVersion()).append(", ");

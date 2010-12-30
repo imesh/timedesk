@@ -8,7 +8,7 @@
  *  Sheffield Hallam University, United Kingdom
  *  
  *  History:
- *  2010 Dec 28 - Imesh - Created
+ *  2010 Dec 30 - Imesh - Created
  *
  */
 
@@ -20,7 +20,6 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ManyToMany;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.javabean.RooJavaBean;
@@ -30,8 +29,7 @@ import org.springframework.roo.addon.entity.RooEntity;
 @RooJavaBean
 @RooToString
 @RooEntity
-@Table(name = "COMPANY_SITE")
-public class CompanySite 
+public class Site 
 {
 	@NotNull
 	@Column(name = "site_id")

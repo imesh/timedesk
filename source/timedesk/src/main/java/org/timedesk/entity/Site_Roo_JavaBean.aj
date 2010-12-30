@@ -7,45 +7,45 @@ import java.lang.String;
 import java.util.Set;
 import org.timedesk.entity.Employee;
 
-privileged aspect CompanySite_Roo_JavaBean {
+privileged aspect Site_Roo_JavaBean {
     
-    public String CompanySite.getSiteId() {
+    public String Site.getSiteId() {
         return this.siteId;
     }
     
-    public void CompanySite.setSiteId(String siteId) {
+    public void Site.setSiteId(String siteId) {
         this.siteId = siteId;
     }
     
-    public String CompanySite.getLocation() {
+    public String Site.getLocation() {
         return this.location;
     }
     
-    public void CompanySite.setLocation(String location) {
+    public void Site.setLocation(String location) {
         this.location = location;
     }
     
-    public String CompanySite.getCity() {
+    public String Site.getCity() {
         return this.city;
     }
     
-    public void CompanySite.setCity(String city) {
+    public void Site.setCity(String city) {
         this.city = city;
     }
     
-    public String CompanySite.getCountry() {
+    public String Site.getCountry() {
         return this.country;
     }
     
-    public void CompanySite.setCountry(String country) {
+    public void Site.setCountry(String country) {
         this.country = country;
     }
     
-    public Set<Employee> CompanySite.getEmployees() {
+    public Set<Employee> Site.getEmployees() {
         return this.employees;
     }
     
-    public void CompanySite.setEmployees(Set<Employee> employees) {
+    public void Site.setEmployees(Set<Employee> employees) {
         this.employees = employees;
     }
     

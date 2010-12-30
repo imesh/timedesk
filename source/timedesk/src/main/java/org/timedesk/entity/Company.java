@@ -8,7 +8,8 @@
  *  Sheffield Hallam University, United Kingdom
  *  
  *  History:
- *  2010 Dec 27 - Imesh - Created
+ *  2010 Dec 27 - Imesh  - Created
+ *  2010 Dec 30 - Imesh  - Renamed CompanySite to Site.
  *
  */
 
@@ -16,6 +17,7 @@ package org.timedesk.entity;
 
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ManyToMany;
@@ -25,7 +27,6 @@ import javax.validation.constraints.NotNull;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.tostring.RooToString;
-import org.timedesk.entity.CompanySite;
 
 @RooJavaBean
 @RooToString
@@ -41,5 +42,5 @@ public class Company
     private String name;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private Set<CompanySite> companySites = new HashSet<CompanySite>();
+    private Set<Site> companySites = new HashSet<Site>();
 }
