@@ -5,6 +5,8 @@ package org.timedesk.entity;
 
 import java.util.Date;
 import java.util.Set;
+import org.timedesk.entity.Employee;
+import org.timedesk.entity.Feedback;
 import org.timedesk.entity.ProjectMemberRole;
 
 privileged aspect ProjectMember_Roo_JavaBean {
@@ -41,12 +43,28 @@ privileged aspect ProjectMember_Roo_JavaBean {
         this.endDate = endDate;
     }
     
+    public Employee ProjectMember.getEmployee() {
+        return this.employee;
+    }
+    
+    public void ProjectMember.setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+    
     public Set<ProjectMemberRole> ProjectMember.getMemberRoles() {
         return this.memberRoles;
     }
     
     public void ProjectMember.setMemberRoles(Set<ProjectMemberRole> memberRoles) {
         this.memberRoles = memberRoles;
+    }
+    
+    public Set<Feedback> ProjectMember.getFeedbacks() {
+        return this.feedbacks;
+    }
+    
+    public void ProjectMember.setFeedbacks(Set<Feedback> feedbacks) {
+        this.feedbacks = feedbacks;
     }
     
 }
