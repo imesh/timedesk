@@ -54,5 +54,5 @@
         <menu:item id="i_feedback_new" messageCode="global_menu_new" url="/feedbacks?form" z="xEgd7/pyR/SQ73uHnpE4PkiPiuI="/>
         <menu:item id="i_feedback_list" messageCode="global_menu_list" url="/feedbacks?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="gAbZN/iW+x5tall1bTTwAv96cG4="/>
     </menu:category>
-</menu:menu>
+    </menu:menu>
 </div>
