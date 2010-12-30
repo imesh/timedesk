@@ -30,9 +30,9 @@ body {
 }
 
 #wrapper {
-	width: 900px;
-	min-width: 900px;
-	max-width: 900px;
+	width: 1000px;
+	min-width: 1000px;
+	max-width: 1000px;
 	margin-right: auto;
 	margin-left: auto;
 	/* fix max-width incompatibility in IE6 */
@@ -93,9 +93,9 @@ body {
 }
 
 #footer {
-	width: 900px;
-	min-width: 900px;
-	max-width: 900px;
+	width: 1000px;
+	min-width: 1000px;
+	max-width: 1000px;
 	margin-right: auto;
 	margin-left: auto;
 	/* fix max-width incompatibility in IE6 */
@@ -260,7 +260,6 @@ table {
 	margin: 2px 0 0 0;
 	border: 1px solid #BBBBBB;
 	border-collapse: collapse;
-	width: 100%
 }
 
 table table {
@@ -270,7 +269,9 @@ table table {
 }
 
 table td,table th {
-	padding: 2px;
+	padding: 5px;
+	padding-left: 8px;
+	padding-right: 8px;
 	border: 1px solid #CCCCCC;
 }
 
@@ -285,7 +286,7 @@ table th {
 	text-align: left;
 	font-weight: bold;
 	color: #FFF;
-	background: #999;
+	background: #59A960;
 }
 
 table thead {
@@ -425,16 +426,12 @@ fieldset th {
 	margin: 0px;
 	padding: 0px;
 	padding-top: 45px;
-	/*font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans",
-		"Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica,
-		sans-serif;*/
 	font-size: 16px;
 	font-weight: bold;
 	float: right;
 }
 
 .header_menu ul {
-	/*background: #333333;*/
 	height: 25px;
 	list-style: none;
 	margin: 0;
@@ -475,8 +472,6 @@ fieldset th {
 	position: absolute;
 	width: 225px;
 	z-index: 200;
-	/*top:1em;
-		/*left:0;*/
 }
 
 .header_menu li:hover ul {
