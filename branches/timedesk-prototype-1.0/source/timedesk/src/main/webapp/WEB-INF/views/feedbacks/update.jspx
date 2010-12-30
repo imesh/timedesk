@@ -2,8 +2,7 @@
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_org_timedesk_entity_Feedback" modelAttribute="feedback" path="/feedbacks" z="RDRfvV7X2xMipOdIj7hyLI8Llv8=">
-        
-        <field:input field="description" id="c_org_timedesk_entity_Feedback_description" z="d1jRlodxsT/cpuNHPXG5fhNnlu4="/>
-    <field:input field="feedbackId" id="c_org_timedesk_entity_Feedback_feedbackId" required="true" z="QmrIQj4yjTAdRAyVhVpljtvjwjY="/>
+    	<field:input field="feedbackId" id="c_org_timedesk_entity_Feedback_feedbackId" required="true" z="QmrIQj4yjTAdRAyVhVpljtvjwjY="/>    
+        <field:input field="description" id="c_org_timedesk_entity_Feedback_description" z="d1jRlodxsT/cpuNHPXG5fhNnlu4="/>    
     </form:update>
 </div>

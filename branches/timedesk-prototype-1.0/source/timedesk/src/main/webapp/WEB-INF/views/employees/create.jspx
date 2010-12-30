@@ -3,7 +3,6 @@
     <jsp:output omit-xml-declaration="yes"/>
     
     <form:create id="fc_org_timedesk_entity_Employee" modelAttribute="employee" path="/employees" render="${empty dependencies}" z="6BblmITh7a1qtqu3K0WzoUX/WLE=">
-        <p>Enter below information to create an Employee.</p><br/>
         
         <field:input field="employeeId" id="c_org_timedesk_entity_Employee_employeeId" required="true" z="UbDLzycm3YwdM3WSR71LfyrO09w="/>
         <field:input field="firstName" id="c_org_timedesk_entity_Employee_firstName" z="+6v0dUKEs2+clm11RUA5+oEGPz4="/>

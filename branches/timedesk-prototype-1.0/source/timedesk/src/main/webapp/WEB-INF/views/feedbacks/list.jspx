@@ -2,11 +2,10 @@
 <div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_org_timedesk_entity_Feedback" items="${feedbacks}" z="DSeW7sO/cp/mp7EWhd406NB5tCU=">
-        <p>Following member feedbacks were found:</p>
+
         <table:table data="${feedbacks}" id="l_org_timedesk_entity_Feedback" path="/feedbacks" z="60emb6gB/6/tQiBwvRDNcrneHd0=">
-            
-            <table:column id="c_org_timedesk_entity_Feedback_description" property="description" z="qnfWM5uEq5bN3SVImXe+i5zVzQE="/>
-        <table:column id="c_org_timedesk_entity_Feedback_feedbackId" property="feedbackId" z="R2h61nJ+qD0GoM2SCGNqKQLkFss="/>
+            <table:column id="c_org_timedesk_entity_Feedback_feedbackId" property="feedbackId" z="R2h61nJ+qD0GoM2SCGNqKQLkFss="/>
+            <table:column id="c_org_timedesk_entity_Feedback_description" property="description" z="qnfWM5uEq5bN3SVImXe+i5zVzQE="/>        
         </table:table>
     </page:list>
 </div>

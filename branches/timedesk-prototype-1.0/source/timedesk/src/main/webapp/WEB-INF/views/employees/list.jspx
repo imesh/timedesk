@@ -2,7 +2,6 @@
 <div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_org_timedesk_entity_Employee" items="${employees}" z="m8FdVTWRwrd7NYL2lTQiiXbE6tI=">
-        <p>Below employees were found:</p>
         <table:table data="${employees}" id="l_org_timedesk_entity_Employee" path="/employees" z="VLJhJVFA3KvXd/PLh5gbK6QOb3Y=">
         
         	<table:column id="c_org_timedesk_entity_Employee_employeeId" property="employeeId" z="mbrAFSAUQtqv/yavzmJk1kPFURw="/>    

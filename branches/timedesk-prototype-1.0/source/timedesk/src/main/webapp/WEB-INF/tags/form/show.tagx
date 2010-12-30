@@ -36,12 +36,13 @@
 
     <c:set var="typeName" value="${fn:split(id,'_')[fn:length(fn:split(id,'_')) - 1]}" />
 
-    <spring:message arguments="${label}" code="entity_show" var="title_msg" />
-    <util:panel id="${id}" title="${title_msg}" openPane="${openPane}">
+    <spring:message arguments="${label}" code="entity_show" var="title_msg" />    
+    <util:panel id="${id}" title="" openPane="${openPane}">
+    <h3>${label} Information</h3>
       <c:choose>
         <c:when test="${not empty object}">
           <jsp:doBody />
-          <div class="quicklinks">
+          <div class="quicklinks">          
             <span>
               <c:if test="${delete}">
                 <spring:url value="${path}/${itemId}" var="delete_form_url" />
