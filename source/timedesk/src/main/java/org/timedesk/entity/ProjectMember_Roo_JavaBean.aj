@@ -3,6 +3,7 @@
 
 package org.timedesk.entity;
 
+import java.lang.String;
 import java.util.Date;
 import java.util.Set;
 import org.timedesk.entity.Employee;
@@ -11,11 +12,11 @@ import org.timedesk.entity.ProjectMemberRole;
 
 privileged aspect ProjectMember_Roo_JavaBean {
     
-    public int ProjectMember.getMemberId() {
+    public String ProjectMember.getMemberId() {
         return this.memberId;
     }
     
-    public void ProjectMember.setMemberId(int memberId) {
+    public void ProjectMember.setMemberId(String memberId) {
         this.memberId = memberId;
     }
     

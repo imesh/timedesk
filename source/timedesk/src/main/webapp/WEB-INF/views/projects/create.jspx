@@ -3,13 +3,14 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_timedesk_entity_Project" modelAttribute="project" path="/projects" render="${empty dependencies}" z="lw9d3rtrsii+4+To2hJ8aJTw4Xc=">
         
+        <p>Enter below information to create a new Project.</p><br/>
+        <field:input field="projectId" id="c_org_timedesk_entity_Project_projectId" required="true" z="nWLGWFr5w95eM4PIV1IE618bebY="/>
         <field:input field="name" id="c_org_timedesk_entity_Project_name" z="Tj5IkrpNP8yLYo3PNKIoNQJNgj4="/>
         <field:input field="description" id="c_org_timedesk_entity_Project_description" z="gP0cO0sXRRt0Iw554d6xBZPkqVA="/>
         <field:datetime dateTimePattern="${project_startdate_date_format}" field="startDate" id="c_org_timedesk_entity_Project_startDate" z="mlHQ/n9426MnzI6Ybimm3nKMAIc="/>
         <field:datetime dateTimePattern="${project_enddate_date_format}" field="endDate" id="c_org_timedesk_entity_Project_endDate" z="JGQaC8CYDK8p9+inBKtntJk4hE0="/>
         <field:select field="members" id="c_org_timedesk_entity_Project_members" itemValue="id" items="${projectmembers}" multiple="true" path="/projectmembers" z="c2pO/SDIcK0mhqOkcObc2jWcgQY="/>
     
-    <field:input field="projectId" id="c_org_timedesk_entity_Project_projectId" required="true" z="nWLGWFr5w95eM4PIV1IE618bebY="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_timedesk_entity_Project" render="${not empty dependencies}" z="5y3s/X0Zoa0O0VXCQXrm6k9/80w="/>
 </div>

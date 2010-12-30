@@ -2,6 +2,7 @@
 <div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_org_timedesk_entity_Task" items="${tasks}" z="s1ev6SOkKq9W3BTXjtP6LQM+GSE=">
+        <p>Following sites were found:</p>
         <table:table data="${tasks}" id="l_org_timedesk_entity_Task" path="/tasks" z="dNSJO+EuyMldstVBJPYWx0hnoXY=">
             
             <table:column id="c_org_timedesk_entity_Task_name" property="name" z="mhk4dpBvFer0EAs/LaJkusJGlbU="/>
