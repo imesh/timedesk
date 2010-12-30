@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_org_timedesk_entity_Project" object="${project}" path="/projects" z="f8z6YSdrWYjZkgmoNICWLU//r60=">
-        
+    <page:show id="ps_org_timedesk_entity_Project" object="${project}" path="/projects" z="f8z6YSdrWYjZkgmoNICWLU//r60=">        
         <field:display field="projectId" id="s_org_timedesk_entity_Project_projectId" object="${project}" z="E1/fkHXeMcqXXIXtTLpFED3e3+s="/>
         <field:display field="name" id="s_org_timedesk_entity_Project_name" object="${project}" z="oT6QqafuPTcXYGkZtDqB6oFDiw4="/>
         <field:display field="description" id="s_org_timedesk_entity_Project_description" object="${project}" z="PiZA/nf+ZDza42v3uUbrRU2dRvY="/>
         <field:display date="true" dateTimePattern="${project_startdate_date_format}" field="startDate" id="s_org_timedesk_entity_Project_startDate" object="${project}" z="Bepl4r2HUDnglgXv8nNGzlJ2rQ8="/>
         <field:display date="true" dateTimePattern="${project_enddate_date_format}" field="endDate" id="s_org_timedesk_entity_Project_endDate" object="${project}" z="8DYLvPcH8Z0LdQnhthEfDshLI2M="/>
         <field:display field="members" id="s_org_timedesk_entity_Project_members" object="${project}" z="+MZ+RDK4QGmFPSktVHjUKElQgHw="/>
-
     </page:show>
 </div>

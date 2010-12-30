@@ -3,7 +3,6 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_org_timedesk_entity_EmployeeSkill" object="${employeeskill}" path="/employeeskills" z="h+r0jDRLblbmRwtckdOmQ2m5UcY=">
         
-        <p>Employee Skill Information:</p>
         <field:display field="employeeSkillId" id="s_org_timedesk_entity_EmployeeSkill_employeeSkillId" object="${employeeskill}" z="dDAUMXZmSVTwDyqGVOAV3iSssGQ="/>    
         <field:display field="description" id="s_org_timedesk_entity_EmployeeSkill_description" object="${employeeskill}" z="SKPw//l+w6xP/9/85LBqKUGLfMM="/>
     

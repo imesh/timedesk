@@ -22,9 +22,12 @@
       <c:set value="version" var="versionField" />
     </c:if>
     <spring:message arguments="${label}" code="entity_update" var="title_msg" />
-    <util:panel id="${id}" title="${title_msg}" openPane="${openPane}">
+    <util:panel id="${id}" title="" openPane="${openPane}">
       <spring:url value="${path}" var="form_url" />
       <form:form action="${fn:escapeXml(form_url)}" method="PUT" modelAttribute="${modelAttribute}">
+        
+        <h3>${title_msg}</h3>
+        <p>Update required fields and press the Save button to confirm.</p>
         <form:errors cssClass="errors" delimiter="&lt;p/&gt;" />
         <jsp:doBody />
         <div class="submit" id="${fn:escapeXml(id)}_submit">
@@ -36,6 +39,7 @@
         <c:if test="${versionField ne 'none'}">
           <form:hidden id="_${fn:escapeXml(versionField)}_id" path="${fn:escapeXml(versionField)}" />
         </c:if>
+        
       </form:form>
     </util:panel>
   </c:if>
