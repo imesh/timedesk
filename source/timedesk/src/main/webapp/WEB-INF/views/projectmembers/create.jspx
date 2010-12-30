@@ -8,6 +8,8 @@
         <field:datetime dateTimePattern="${projectMember_enddate_date_format}" field="endDate" id="c_org_timedesk_entity_ProjectMember_endDate" z="F6jYB2WFH9hpRyziwBTlxC3VlTM="/>
         <field:select field="memberRoles" id="c_org_timedesk_entity_ProjectMember_memberRoles" itemValue="id" items="${projectmemberroles}" multiple="true" path="/projectmemberroles" z="DvwH17cHGTkTKCovPDtmVcvyHuc="/>
         
+    <field:select field="feedbacks" id="c_org_timedesk_entity_ProjectMember_feedbacks" itemValue="id" items="${feedbacks}" multiple="true" path="/feedbacks" z="vT64yvCZyA0x9hSA7KmtGO37GmM="/>
+    <field:select field="employee" id="c_org_timedesk_entity_ProjectMember_employee" itemValue="id" items="${employees}" path="/employees" z="CDudXbFAOtENzUQadQ8wDz3A0M4="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_timedesk_entity_ProjectMember" render="${not empty dependencies}" z="h7rM7Y214Qb5BD46ZM8TUNVYfGw="/>
 </div>

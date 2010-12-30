@@ -24,6 +24,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
+import org.timedesk.entity.Employee;
+import org.timedesk.entity.Feedback;
 import org.timedesk.entity.ProjectMember;
 import org.timedesk.entity.ProjectMemberRole;
 
@@ -98,9 +100,35 @@ privileged aspect ProjectMemberController_Roo_Controller {
         return "redirect:/projectmembers?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
+    @ModelAttribute("employees")
+    public Collection<Employee> ProjectMemberController.populateEmployees() {
+        return Employee.findAllEmployees();
+    }
+    
+    @ModelAttribute("feedbacks")
+    public Collection<Feedback> ProjectMemberController.populateFeedbacks() {
+        return Feedback.findAllFeedbacks();
+    }
+    
     @ModelAttribute("projectmemberroles")
     public Collection<ProjectMemberRole> ProjectMemberController.populateProjectMemberRoles() {
         return ProjectMemberRole.findAllProjectMemberRoles();
+    }
+    
+    Converter<Employee, String> ProjectMemberController.getEmployeeConverter() {
+        return new Converter<Employee, String>() {
+            public String convert(Employee employee) {
+                return new StringBuilder().append(employee.getEmployeeId()).append(" ").append(employee.getFirstName()).append(" ").append(employee.getLastName()).toString();
+            }
+        };
+    }
+    
+    Converter<Feedback, String> ProjectMemberController.getFeedbackConverter() {
+        return new Converter<Feedback, String>() {
+            public String convert(Feedback feedback) {
+                return new StringBuilder().append(feedback.getFeedbackId()).append(" ").append(feedback.getDescription()).toString();
+            }
+        };
     }
     
     Converter<ProjectMember, String> ProjectMemberController.getProjectMemberConverter() {
@@ -121,6 +149,8 @@ privileged aspect ProjectMemberController_Roo_Controller {
     
     @PostConstruct
     void ProjectMemberController.registerConverters() {
+        conversionService.addConverter(getEmployeeConverter());
+        conversionService.addConverter(getFeedbackConverter());
         conversionService.addConverter(getProjectMemberConverter());
         conversionService.addConverter(getProjectMemberRoleConverter());
     }
