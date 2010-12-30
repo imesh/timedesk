@@ -5,8 +5,8 @@ package org.timedesk.entity;
 
 import org.springframework.beans.factory.annotation.Configurable;
 
-privileged aspect CompanySite_Roo_Configurable {
+privileged aspect Site_Roo_Configurable {
     
-    declare @type: CompanySite: @Configurable;
+    declare @type: Site: @Configurable;
     
 }
