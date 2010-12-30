@@ -42,8 +42,8 @@ Maven and Spring Roo paths should be added to the Operating System global PATH v
 
    Open .bashrc file found in /home/user/ folder and add following lines at the bottom.
 
-  # Add a new Environment Variable called MVN_HOME {{{Example: export MVN_HOME = /opt/sts-2.5.1/maven-2.2.1.RELEASE}}}
-  # Add a new Environment Variable called ROO_HOME {{{Example: export ROO_HOME = /opt/sts-2.5.1/roo-1.1.0.RELEASE}}}
+  # Add a new Environment Variable called MVN_HOME {{{Example: export MVN_HOME = /home/user/Development/sts-2.5.1/maven-2.2.1.RELEASE}}}
+  # Add a new Environment Variable called ROO_HOME {{{Example: export ROO_HOME = /home/user/Development/sts-2.5.1/roo-1.1.0.RELEASE}}}
   # Add both variables to the global PATH variable. {{{Example: export PATH = $MVN_HOME/bin: $ROO_HOME/bin:$PATH}}}
 
 === Step 5: Update STS.ini File ===
@@ -107,7 +107,7 @@ Example: D:\Development\TimeDesk\Work\
 }}}
 * Linux:
 {{{
-Example: /home/<user_name>/Development/TimeDesk/Work
+Example: /home/user/Development/TimeDesk/Work
 }}}
 === Step 8: Checkout Source Files from SVN ===
 
