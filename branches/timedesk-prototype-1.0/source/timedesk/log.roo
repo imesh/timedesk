@@ -84,3 +84,5 @@ field set --class ~.entity.ProjectMember --fieldName feedbacks --element ~.entit
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2010-12-30 12:13:46
 entity --class ~.entity.Site
 controller all --package ~.web
+// [failed] controller class --class ~.web.AboutController
+controller class --class ~.web.AboutController

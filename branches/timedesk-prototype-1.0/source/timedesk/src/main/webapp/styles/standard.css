@@ -13,7 +13,6 @@
  *  2010 Dec 30 - Imesh - Removed text transformation in #menu h2. 
  *
  */
- 
 body,div,td {
 	font-family: Calibri, Arial, Helvetica, sans-serif;
 	font-size: 14px;
@@ -27,6 +26,7 @@ body {
 
 #header {
 	margin-bottom: 1em;
+	height: 75px;
 }
 
 #wrapper {
@@ -36,7 +36,7 @@ body {
 	margin-right: auto;
 	margin-left: auto;
 	/* fix max-width incompatibility in IE6 */
-	width: expression(document.body.clientWidth >   800 ?   "800px" :   "auto");
+	width: expression(document.body.clientWidth > 800 ? "800px" : "auto");
 	overflow: hidden;
 	display: block;
 }
@@ -75,7 +75,7 @@ body {
 
 #menu h2 {
 	color: #fff;
-	background: #567AA5;
+	background: #2580A2;
 	font-weight: bold;
 	font-size: 12px;
 }
@@ -99,7 +99,7 @@ body {
 	margin-right: auto;
 	margin-left: auto;
 	/* fix max-width incompatibility in IE6 */
-	width: expression(document.body.clientWidth >   800 ?   "800px" :   "auto");
+	width: expression(document.body.clientWidth > 800 ? "800px":"auto");
 	overflow: hidden;
 	display: block;
 	background: #fff;
@@ -396,7 +396,7 @@ fieldset th {
 	width: 16px;
 }
 
-/* Title Blocks */
+/* title blocks */
 .dijitTitlePaneTextNode {
 	font-weight: bold;
 }
@@ -406,4 +406,113 @@ fieldset th {
 	padding-bottom: 10px;
 	padding-left: 10px;
 	padding-right: 10px;
+}
+
+/* master block */
+#master
+{
+    display: block;
+}
+
+/* header menu */
+.header_banner {
+    float: left;
+}
+
+.header_menu {
+	border: none;
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	padding-top: 45px;
+	/*font: 67.5% "Lucida Sans Unicode", "Bitstream Vera Sans",
+		"Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica,
+		sans-serif;*/
+	font-size: 16px;
+	font-weight: bold;
+	float: right;
+}
+
+.header_menu ul {
+	/*background: #333333;*/
+	height: 25px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.header_menu li {
+	float: left;
+	padding: 0px;
+	padding-left: 10px;
+}
+
+.header_menu li a {
+	background: #ACACAC url("images/seperator.gif") bottom right no-repeat;
+	color: #FFFFFF;
+	display: block;
+	font-weight: normal;
+	line-height: 25px;
+	margin: 0px;
+	padding: 0px 25px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.header_menu li a:hover,.header_menu ul li:hover a {
+	background: #2580a2 url("images/hover.gif") bottom center no-repeat;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+.header_menu li ul {
+	background: #333333;
+	display: none;
+	height: auto;
+	padding: 0px;
+	margin: 0px;
+	border: 0px;
+	position: absolute;
+	width: 225px;
+	z-index: 200;
+	/*top:1em;
+		/*left:0;*/
+}
+
+.header_menu li:hover ul {
+	display: block;
+}
+
+.header_menu li li {
+	background: url('images/sub_sep.gif') bottom left no-repeat;
+	display: block;
+	float: none;
+	margin: 0px;
+	padding: 0px;
+	width: 225px;
+}
+
+.header_menu li:hover li a {
+	background: none;
+}
+
+.header_menu li ul a {
+	display: block;
+	height: 25px;
+	font-size: 12px;
+	font-style: normal;
+	margin: 0px;
+	padding: 0px 10px 0px 15px;
+	text-align: left;
+}
+
+.header_menu li ul a:hover,.header_menu li ul li:hover a {
+	background: #2580a2 url('images/hover_sub.gif') center left no-repeat;
+	border: 0px;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+.header_menu p {
+	clear: left;
 }
