@@ -6,6 +6,6 @@
         <field:input field="name" id="c_org_timedesk_entity_Company_name" z="QZ49xBWbpKz/aQc3z59pCyme8co="/>
         
     <field:input field="companyId" id="c_org_timedesk_entity_Company_companyId" required="true" z="mo02AxHYK5jjxQGaIpoAr8JvD+4="/>
-    <field:select field="companySites" id="c_org_timedesk_entity_Company_companySites" itemValue="id" items="${companysites}" multiple="true" path="/companysites" z="FJ0Q77kvTiBCa5p1dyoGGO3Vj5k="/>
+    <field:select field="companySites" id="c_org_timedesk_entity_Company_companySites" itemValue="id" items="${sites}" multiple="true" path="/sites" z="JGxKzv5yFx6huO7GDraTKGvTq+8="/>
     </form:update>
 </div>
