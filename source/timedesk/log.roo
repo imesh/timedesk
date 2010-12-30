@@ -86,3 +86,4 @@ entity --class ~.entity.Site
 controller all --package ~.web
 // [failed] controller class --class ~.web.AboutController
 controller class --class ~.web.AboutController
+controller class --class ~.web.HelpController
