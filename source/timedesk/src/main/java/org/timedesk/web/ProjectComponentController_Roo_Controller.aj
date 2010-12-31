@@ -48,8 +48,10 @@ privileged aspect ProjectComponentController_Roo_Controller {
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String ProjectComponentController.show(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("projectcomponent", ProjectComponent.findProjectComponent(id));
+    	ProjectComponent component = ProjectComponent.findProjectComponent(id);
+        model.addAttribute("projectcomponent", component);
         model.addAttribute("itemId", id);
+        model.addAttribute("tasks", component.getTasks());
         return "projectcomponents/show";
     }
     

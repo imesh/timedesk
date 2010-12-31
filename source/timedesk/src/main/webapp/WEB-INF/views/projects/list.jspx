@@ -8,7 +8,7 @@
             <table:column id="c_org_timedesk_entity_Project_description" property="description" z="E88+TGz+Qay+r9x5HGn0/PZGLb8="/>
             <table:column id="c_org_timedesk_entity_Project_startDate" property="startDate" z="D7zzWsvmzqgSkUhZFCEVAcgEhQM="/>
             <table:column id="c_org_timedesk_entity_Project_endDate" property="endDate" z="vkAiHisMswhdp5IutKh3JzGz+3Y="/>
-            <table:column id="c_org_timedesk_entity_Project_members" property="members" z="N3MbP4220KpvfmcgpkJuwuBJ1x4="/>        
+            <!-- table:column id="c_org_timedesk_entity_Project_members" property="members" z="N3MbP4220KpvfmcgpkJuwuBJ1x4="/ -->        
         </table:table>
     </page:list>
 </div>

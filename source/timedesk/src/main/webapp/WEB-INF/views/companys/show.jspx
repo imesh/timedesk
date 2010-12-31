@@ -23,6 +23,6 @@
 		      <td>${site.country}</td>
 		    </tr>
 		  </c:forEach>
-		</table>    	        
+		</table>            	        
     </page:show>
 </div>
