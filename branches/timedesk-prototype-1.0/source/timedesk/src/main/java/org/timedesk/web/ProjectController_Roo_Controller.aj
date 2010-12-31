@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 import org.timedesk.entity.Project;
+import org.timedesk.entity.ProjectComponent;
 import org.timedesk.entity.ProjectMember;
 
 privileged aspect ProjectController_Roo_Controller {
@@ -57,6 +58,7 @@ privileged aspect ProjectController_Roo_Controller {
         model.addAttribute("project", project);
         model.addAttribute("itemId", id);
         model.addAttribute("members", project.getMembers());
+        model.addAttribute("components", project.getComponents());
         return "projects/show";
     }
     
@@ -100,6 +102,11 @@ privileged aspect ProjectController_Roo_Controller {
         return "redirect:/projects?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
+    @ModelAttribute("projectcomponents")
+    public Collection<ProjectComponent> ProjectController.populateProjectComponents() {
+        return ProjectComponent.findAllProjectComponents();
+    }
+    
     @ModelAttribute("projectmembers")
     public Collection<ProjectMember> ProjectController.populateProjectMembers() {
         return ProjectMember.findAllProjectMembers();
@@ -109,6 +116,14 @@ privileged aspect ProjectController_Roo_Controller {
         return new Converter<Project, String>() {
             public String convert(Project project) {
                 return new StringBuilder().append(project.getProjectId()).append(" ").append(project.getName()).append(" ").append(project.getDescription()).toString();
+            }
+        };
+    }
+    
+    Converter<ProjectComponent, String> ProjectController.getProjectComponentConverter() {
+        return new Converter<ProjectComponent, String>() {
+            public String convert(ProjectComponent projectComponent) {
+                return new StringBuilder().append(projectComponent.getComponentId()).append(" ").append(projectComponent.getName()).append(" ").append(projectComponent.getDescription()).toString();
             }
         };
     }
@@ -124,6 +139,7 @@ privileged aspect ProjectController_Roo_Controller {
     @PostConstruct
     void ProjectController.registerConverters() {
         conversionService.addConverter(getProjectConverter());
+        conversionService.addConverter(getProjectComponentConverter());
         conversionService.addConverter(getProjectMemberConverter());
     }
     
