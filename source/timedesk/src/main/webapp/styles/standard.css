@@ -423,7 +423,7 @@ fieldset th {
 	border: 0px;
 	margin: 0px;
 	padding: 0px;
-	padding-top: 45px;
+	padding-top: 30px;
 	font-size: 16px;
 	font-weight: bold;
 	float: right;
@@ -508,4 +508,18 @@ fieldset th {
 
 .header_menu p {
 	clear: left;
+}
+
+/* header login */
+.header_login{
+	text-align: right;
+	margin-bottom: 5px;
+}
+
+/* user login */
+#user_login{
+}
+
+#user_login .errors{
+	margin-left: 0;	
 }

@@ -88,3 +88,15 @@ controller all --package ~.web
 controller class --class ~.web.AboutController
 controller class --class ~.web.HelpController
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2010-12-31 18:23:42
+// [failed] security setup 
+security setup
+// [failed] entity --class ~.entity.User
+entity --class ~.entity.User --permitReservedWords 
+field string username --NotNull
+field string password --NotNull
+field boolean enabled
+entity --class ~.entity.UserRole
+field string name --NotNull
+field set --class ~.entity.User --fieldName userRoles --element ~.entity.UserRole
+controller all --package ~.web
+controller class --class ~.web.ChangePasswordController
