@@ -48,8 +48,10 @@ privileged aspect CompanyController_Roo_Controller {
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String CompanyController.show(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("company", Company.findCompany(id));
+    	Company company = Company.findCompany(id);
+        model.addAttribute("company", company);
         model.addAttribute("itemId", id);
+        model.addAttribute("sites", company.getCompanySites());
         return "companys/show";
     }
     

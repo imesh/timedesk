@@ -523,3 +523,7 @@ fieldset th {
 #user_login .errors{
 	margin-left: 0;	
 }
+
+/* data grid */
+.data-grid-label, .data-grid{
+	margin-left: 5px;
