@@ -3,8 +3,8 @@
     <jsp:output omit-xml-declaration="yes"/>    
     
     <page:show id="ps_org_timedesk_entity_Company" object="${company}" path="/companys" z="EC2P0lfpgk+ZdPBgVbhYPLkD6MA=">    
-        <field:display field="name" id="s_org_timedesk_entity_Company_name" object="${company}" z="+FmHSUL9z1dBHyLVUqcvvOQCt5s="/>        
-    	<field:display field="companyId" id="s_org_timedesk_entity_Company_companyId" object="${company}" z="oRi9GO4HInEPcLfnfZKeWWjcGxU="/>
+        <field:display field="companyId" id="s_org_timedesk_entity_Company_companyId" object="${company}" z="oRi9GO4HInEPcLfnfZKeWWjcGxU="/>
+        <field:display field="name" id="s_org_timedesk_entity_Company_name" object="${company}" z="+FmHSUL9z1dBHyLVUqcvvOQCt5s="/>   	
     	<!-- field:display field="companySites" id="s_org_timedesk_entity_Company_companySites" object="${company}" z="bfKsvc8oqkCVVf3AmUZNUgd0yBU="/ -->    	        
         
         <p class="data-grid-label">Company Sites:</p>
