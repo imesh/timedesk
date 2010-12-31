@@ -54,16 +54,13 @@
         <menu:item id="i_feedback_new" messageCode="global_menu_new" url="/feedbacks?form" z="xEgd7/pyR/SQ73uHnpE4PkiPiuI="/>
         <menu:item id="i_feedback_list" messageCode="global_menu_list" url="/feedbacks?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="gAbZN/iW+x5tall1bTTwAv96cG4="/>
     </menu:category>
-    <menu:category id="c_user" z="uoTSf/uIZ821ZppidzS9aO776yk=">
-            <menu:item id="i_user_new" messageCode="global_menu_new" url="/users?form" z="Zv1m8u2rG+JFKcvJ+AHVVK0ey24="/>
+    
+    <!-- User Management -->
+    <menu:category id="c_user_management" label="User Management">
+        <menu:item id="i_user_new" messageCode="global_menu_new" url="/users?form" z="Zv1m8u2rG+JFKcvJ+AHVVK0ey24="/>
         <menu:item id="i_user_list" messageCode="global_menu_list" url="/users?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="YXGkaJQ0/0BeZ8fX5CQWSaUUEk0="/>
-        </menu:category>
-    <menu:category id="c_userrole" z="C4C1ZBdes4PUIjEM3Ajwwhn1EwA=">
-            <menu:item id="i_userrole_new" messageCode="global_menu_new" url="/userroles?form" z="qYpuuJuPupoYjD8LM0ISnxylj4o="/>
+        <menu:item id="i_userrole_new" messageCode="global_menu_new" url="/userroles?form" z="qYpuuJuPupoYjD8LM0ISnxylj4o="/>
         <menu:item id="i_userrole_list" messageCode="global_menu_list" url="/userroles?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="sCvJOd+LK/eeJ3dwemFk89uWPeU="/>
-        </menu:category>
-    <menu:category id="c_controller" z="nj8Dm3hojIyIEyPkwE1UMDIs+K8=">
-            <menu:item id="i_controller__changepasswordindex_id" messageCode="global_generic" url="/changepassword/index" z="eBD9/49VxrD7yaj3J5UNCyYZQCQ="/>
-        </menu:category>
-    </menu:menu>
+   </menu:category>
+</menu:menu>
 </div>
