@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:c="http://java.sun.com/jsp/jstl/core" version="2.0">
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_org_timedesk_entity_Project" object="${project}" path="/projects" z="f8z6YSdrWYjZkgmoNICWLU//r60=">        
         <field:display field="projectId" id="s_org_timedesk_entity_Project_projectId" object="${project}" z="E1/fkHXeMcqXXIXtTLpFED3e3+s="/>
@@ -23,6 +23,24 @@
 		      <td>${member.allocation}%</td>
 		      <td>${member.startDate}</td>
 		      <td>${member.endDate}</td>
+		    </tr>
+		  </c:forEach>
+		</table>
+		
+		<p class="data-grid-label">Project Components:</p>
+        <table class="data-grid">
+		  <tr>
+		   <th>Component ID</th>
+		   <th>Name</th>
+		   <th>Description</th>
+		   <th/>
+		  </tr>
+		  <c:forEach items="${components}" var="component" varStatus="row">
+		    <tr>
+		      <td>${component.componentId}</td>
+		      <td>${component.name}%</td>
+		      <td>${component.description}</td>
+		      <td><a title="Show ProjectComponent" alt="Show ProjectComponent" href="/timedesk/projectcomponents/${component.id}"><img title="Show ProjectComponent" src="/timedesk/resources/images/show.png" class="image" alt="Show ProjectComponent"/></a></td>
 		    </tr>
 		  </c:forEach>
 		</table>

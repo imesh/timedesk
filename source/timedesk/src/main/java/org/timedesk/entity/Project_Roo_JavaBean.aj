@@ -6,6 +6,7 @@ package org.timedesk.entity;
 import java.lang.String;
 import java.util.Date;
 import java.util.Set;
+import org.timedesk.entity.ProjectComponent;
 import org.timedesk.entity.ProjectMember;
 
 privileged aspect Project_Roo_JavaBean {
@@ -56,6 +57,14 @@ privileged aspect Project_Roo_JavaBean {
     
     public void Project.setMembers(Set<ProjectMember> members) {
         this.members = members;
+    }
+    
+    public Set<ProjectComponent> Project.getComponents() {
+        return this.components;
+    }
+    
+    public void Project.setComponents(Set<ProjectComponent> components) {
+        this.components = components;
     }
     
 }

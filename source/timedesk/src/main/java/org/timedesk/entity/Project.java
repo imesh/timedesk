@@ -1,24 +1,9 @@
-/*
- *  Time Desk
- *  Project Resource Management System
- *  http://code.google.com/p/timedesk
- *   
- *  Masters in Enterprise Applications Development
- *  Sri Lanka Institute of Information Technology, Sri Lanka
- *  Sheffield Hallam University, United Kingdom
- *  
- *  History:
- *  2010 Dec 27 - Imesh - Created
- *
- */
-
 package org.timedesk.entity;
 
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.tostring.RooToString;
 import org.springframework.roo.addon.entity.RooEntity;
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -30,23 +15,24 @@ import java.util.HashSet;
 import javax.persistence.ManyToMany;
 import javax.persistence.CascadeType;
 import javax.validation.constraints.NotNull;
+import org.timedesk.entity.ProjectComponent;
 
 @RooJavaBean
 @RooToString
 @RooEntity
 @Table(name = "PROJECT")
-public class Project 
-{
-	@NotNull
-	@Column(name = "project_id")
+public class Project {
+
+    @NotNull
+    @Column(name = "project_id")
     private String projectId;
 
-	@Column(name = "name")
+    @Column(name = "name")
     private String name;
 
-	@Column(name = "description")
+    @Column(name = "description")
     private String description;
-	
+
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "S-")
     @Column(name = "start_date")
@@ -59,4 +45,7 @@ public class Project
 
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<ProjectMember> members = new HashSet<ProjectMember>();
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<ProjectComponent> components = new HashSet<ProjectComponent>();
 }

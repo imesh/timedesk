@@ -100,3 +100,4 @@ field string name --NotNull
 field set --class ~.entity.User --fieldName userRoles --element ~.entity.UserRole
 controller all --package ~.web
 controller class --class ~.web.ChangePasswordController
+field set --class ~.entity.Project --fieldName projectComponents --element ~.entity.ProjectComponent
