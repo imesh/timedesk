@@ -101,3 +101,4 @@ field set --class ~.entity.User --fieldName userRoles --element ~.entity.UserRol
 controller all --package ~.web
 controller class --class ~.web.ChangePasswordController
 field set --class ~.entity.Project --fieldName projectComponents --element ~.entity.ProjectComponent
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2010-12-31 22:35:52
