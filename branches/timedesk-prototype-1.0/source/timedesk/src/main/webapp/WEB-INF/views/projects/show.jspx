@@ -16,6 +16,7 @@
 		   <th>Allocation</th>
 		   <th>Start Date</th>
 		   <th>End Date</th>
+		   <th></th>
 		  </tr>
 		  <c:forEach items="${members}" var="member" varStatus="row">
 		    <tr>
@@ -23,6 +24,7 @@
 		      <td>${member.allocation}%</td>
 		      <td>${member.startDate}</td>
 		      <td>${member.endDate}</td>
+		      <td><a title="Show ProjectMember" alt="Show ProjectMember" href="/timedesk/projectmembers/${member.id}"><img title="Show ProjectMember" src="/timedesk/resources/images/show.png" class="image" alt="Show ProjectMember"/></a></td>
 		    </tr>
 		  </c:forEach>
 		</table>

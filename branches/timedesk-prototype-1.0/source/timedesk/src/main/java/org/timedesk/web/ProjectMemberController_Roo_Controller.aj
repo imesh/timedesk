@@ -55,8 +55,10 @@ privileged aspect ProjectMemberController_Roo_Controller {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String ProjectMemberController.show(@PathVariable("id") Long id, Model model) {
         addDateTimeFormatPatterns(model);
-        model.addAttribute("projectmember", ProjectMember.findProjectMember(id));
+        ProjectMember member = ProjectMember.findProjectMember(id);
+        model.addAttribute("projectmember", member);
         model.addAttribute("itemId", id);
+        model.addAttribute("memberRoles", member.getMemberRoles());
         return "projectmembers/show";
     }
     
