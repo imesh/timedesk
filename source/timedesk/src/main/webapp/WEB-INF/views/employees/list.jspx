@@ -7,8 +7,8 @@
         	<table:column id="c_org_timedesk_entity_Employee_employeeId" property="employeeId" z="mbrAFSAUQtqv/yavzmJk1kPFURw="/>    
             <table:column id="c_org_timedesk_entity_Employee_firstName" property="firstName" z="+2A1sBRjBYp0Bht6YHGqQakQwzU="/>
             <table:column id="c_org_timedesk_entity_Employee_lastName" property="lastName" z="TUs9R8muBdSdvBqLaGKo0x4b+7c="/>
-            <table:column id="c_org_timedesk_entity_Employee_email" property="email" z="mOhg0bQzxHkEneaVL/Bcjb7pLqc="/>
-            <table:column id="c_org_timedesk_entity_Employee_address" property="address" z="lqdBsqxOIvox4Km23QKw849QtD0="/>
+            <table:column id="c_org_timedesk_entity_Employee_email" property="email" maxLength="200" z="mOhg0bQzxHkEneaVL/Bcjb7pLqc="/>
+            <!-- table:column id="c_org_timedesk_entity_Employee_address" property="address" z="lqdBsqxOIvox4Km23QKw849QtD0="/ -->
             <table:column id="c_org_timedesk_entity_Employee_city" property="city" z="UWYrsbZRQeVevM70hnuoSNDJILY="/>
         
         </table:table>
