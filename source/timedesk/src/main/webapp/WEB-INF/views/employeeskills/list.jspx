@@ -4,7 +4,7 @@
     <page:list id="pl_org_timedesk_entity_EmployeeSkill" items="${employeeskills}" z="ixnPa/OYXe/gHCngvz1sFC3gxYw=">
         <table:table data="${employeeskills}" id="l_org_timedesk_entity_EmployeeSkill" path="/employeeskills" z="oG6Xcd+az2JN6eVP5+2gnhMM/os=">
         	<table:column id="c_org_timedesk_entity_EmployeeSkill_employeeSkillId" property="employeeSkillId" z="hos/ToQYmzFfJZ3SnDZeCMNjgnY="/>    
-            <table:column id="c_org_timedesk_entity_EmployeeSkill_description" maxLength="200" property="description" z="MuhNtMFDsf7JZKKEmZbiTAl8Va8="/>        
+            <table:column id="c_org_timedesk_entity_EmployeeSkill_description" maxLength="200" property="description" z="user-managed"/>        
         </table:table>
     </page:list>
 </div>
