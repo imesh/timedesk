@@ -48,8 +48,10 @@ privileged aspect SiteController_Roo_Controller {
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String SiteController.show(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("site", Site.findSite(id));
+    	Site site = Site.findSite(id);
+        model.addAttribute("site", site);
         model.addAttribute("itemId", id);
+        model.addAttribute("employees", site.getEmployees());
         return "sites/show";
     }
     
