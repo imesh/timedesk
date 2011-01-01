@@ -20,7 +20,7 @@ import org.timedesk.entity.ProjectComponent;
 @RooJavaBean
 @RooToString
 @RooEntity
-@Table(name = "PROJECT")
+@Table(name = "project")
 public class Project {
 
     @NotNull

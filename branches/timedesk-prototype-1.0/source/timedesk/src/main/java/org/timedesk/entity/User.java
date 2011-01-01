@@ -16,7 +16,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooJavaBean
 @RooToString
 @RooEntity
-@Table(name = "USER")
+@Table(name = "user")
 public class User 
 {
     @NotNull

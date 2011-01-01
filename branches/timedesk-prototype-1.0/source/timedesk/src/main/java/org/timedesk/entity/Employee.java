@@ -32,7 +32,7 @@ import org.timedesk.entity.EmployeeRole;
 @RooJavaBean
 @RooToString
 @RooEntity
-@Table(name = "EMPLOYEE")
+@Table(name = "employee")
 public class Employee 
 {
 	@NotNull
