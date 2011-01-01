@@ -25,7 +25,7 @@ import org.springframework.roo.addon.entity.RooEntity;
 @RooJavaBean
 @RooToString
 @RooEntity
-@Table(name = "FEEDBACK")
+@Table(name = "feedback")
 public class Feedback
 {
 	@NotNull

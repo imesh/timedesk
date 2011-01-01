@@ -21,7 +21,7 @@ import org.timedesk.entity.Feedback;
 @RooJavaBean
 @RooToString
 @RooEntity
-@Table(name = "PROJECT_MEMBER")
+@Table(name = "project_member")
 public class ProjectMember {
 
     @NotNull

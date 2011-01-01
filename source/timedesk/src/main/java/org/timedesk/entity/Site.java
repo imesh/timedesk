@@ -20,6 +20,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.javabean.RooJavaBean;
@@ -29,6 +30,7 @@ import org.springframework.roo.addon.entity.RooEntity;
 @RooJavaBean
 @RooToString
 @RooEntity
+@Table(name="site")
 public class Site 
 {
 	@NotNull

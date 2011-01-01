@@ -30,7 +30,7 @@ import javax.validation.constraints.NotNull;
 @RooJavaBean
 @RooToString
 @RooEntity
-@Table(name = "PROJECT_COMPONENT")
+@Table(name = "project_component")
 public class ProjectComponent 
 {
 	@NotNull
