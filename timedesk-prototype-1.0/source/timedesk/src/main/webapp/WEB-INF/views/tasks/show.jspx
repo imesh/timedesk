@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_timedesk_entity_Task" object="${task}" path="/tasks" z="drYJaXw/0uHQg3kk5rUkyuXD5/E=">
+    	<field:display field="taskId" id="s_org_timedesk_entity_Task_taskId" object="${task}" z="FtIoJd0AK+oPYnSol7FyxVacN28="/>    
+        <field:display field="name" id="s_org_timedesk_entity_Task_name" object="${task}" z="I74o3yP3mfN+EHj6I/6eqM+pDzk="/>
+        <field:display field="description" id="s_org_timedesk_entity_Task_description" object="${task}" z="D1HP+01CzVo5hCnjmDweDb8OdqU="/>    
+    </page:show>
+</div>

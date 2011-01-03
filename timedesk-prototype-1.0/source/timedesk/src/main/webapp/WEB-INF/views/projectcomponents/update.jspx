@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_org_timedesk_entity_ProjectComponent" modelAttribute="projectComponent" path="/projectcomponents" z="GOirBcQf9iFNlyQ62lS8ywFyJeM=">
+    	<field:input field="componentId" id="c_org_timedesk_entity_ProjectComponent_componentId" required="true" z="UTXJD6aYR7uOR10hU7ckbnRURNk="/>    
+        <field:input field="name" id="c_org_timedesk_entity_ProjectComponent_name" z="Mjvl4vBB9+zO3MiGuqISvFGc6fs="/>
+        <field:input field="description" id="c_org_timedesk_entity_ProjectComponent_description" z="RfIDuMgxJKSQJ9xhaYfNJ04bX+Y="/>
+        <field:select field="tasks" id="c_org_timedesk_entity_ProjectComponent_tasks" itemValue="id" items="${tasks}" multiple="true" path="/tasks" z="/GbON3biA8S9yoTzkL4+dt+hN/o="/>    
+    </form:update>
+</div>
