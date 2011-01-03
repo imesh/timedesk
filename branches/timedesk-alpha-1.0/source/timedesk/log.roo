@@ -1,0 +1,104 @@
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2010-12-26 20:59:12
+project --topLevelPackage org.timedesk
+persistence setup --provider ECLIPSELINK --database MYSQL
+entity --class ~.entity.Project
+field string prijectID --identifierField
+field string name
+field string description
+field date startDate --type java.util.Date
+field date endDate --type java.util.Date
+entity --class ~.entity.ProjectMember
+hint
+field number memberID --type int
+field number allocation --type int
+field date startDate --type java.util.Date
+field date endDate --type java.util.Date
+field set --class ~.entity.Project --fieldName members --element ~.entity.ProjectMember
+entity --class ~.entity.Feedback
+field number feedbackID --type int
+field string description
+entity --class ~.entity.ProjectComponent
+field string componentID
+field string name
+field string description
+entity --class ~.entity.Task
+field string taskID
+field string name
+field string description
+field set --class ~.entity.ProjectComponent --fieldName tasks --element ~.entity.Task
+perform eclipse
+quit
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2010-12-26 22:34:00
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2010-12-26 22:35:40
+entity --class ~.entity.ProjectMemberRole
+field string roleID
+field string name
+field set --class ~.entity.ProjectMember --fieldName memberRoles --element ~.entity.ProjectMemberRole
+entity --class ~.entity.Employee
+field string employeeID
+field string firstName
+field string lastName
+field string email
+field string address
+field string city
+field string country
+field string postCode
+// [failed] field string phoneResidence
+entity --class ~.entity.EmployeeSkill
+field number employeeSkillID --type int
+field string description
+field set --class ~.entity.Employee --fieldName employeeSkills --element ~.entity.EmployeeSkill
+entity --class ~.entity.EmployeeRole
+field string employeeRoleID
+field string name
+field set --class ~.entity.Employee --fieldName employeeRoles --element ~.entity.EmployeeRole
+entity --class ~.entity.Company
+field string companyID
+field string name
+entity --class ~.entity.Site
+field string siteID
+field string location
+field string country
+field set --class ~.entity.Company --fieldName sites --element ~.entity.Site
+field set --class ~.entity.Site --fieldName employees --element ~.entity.Employee
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2010-12-26 23:00:30
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2010-12-26 23:07:53
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2010-12-26 23:09:02
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2010-12-26 23:09:39
+controller all --package ~.web
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2010-12-26 23:33:26
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2010-12-26 23:43:50
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2010-12-26 23:45:43
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2010-12-27 09:13:00
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2010-12-27 10:31:39
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2010-12-27 13:20:13
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2010-12-27 15:28:19
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2010-12-28 12:45:35
+entity --class ~.entity.CompanySite
+field set --class ~.entity.Company --fieldName companySites --element ~.entity.CompanySite
+controller all --package ~.web
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2010-12-28 15:01:11
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2010-12-28 20:32:51
+field set --class ~.entity.ProjectMember --fieldName feedbacks --element ~.entity.Feedback
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2010-12-29 00:00:29
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2010-12-30 12:13:46
+entity --class ~.entity.Site
+controller all --package ~.web
+// [failed] controller class --class ~.web.AboutController
+controller class --class ~.web.AboutController
+controller class --class ~.web.HelpController
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2010-12-31 18:23:42
+// [failed] security setup 
+security setup
+// [failed] entity --class ~.entity.User
+entity --class ~.entity.User --permitReservedWords 
+field string username --NotNull
+field string password --NotNull
+field boolean enabled
+entity --class ~.entity.UserRole
+field string name --NotNull
+field set --class ~.entity.User --fieldName userRoles --element ~.entity.UserRole
+controller all --package ~.web
+controller class --class ~.web.ChangePasswordController
+field set --class ~.entity.Project --fieldName projectComponents --element ~.entity.ProjectComponent
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2010-12-31 22:35:52

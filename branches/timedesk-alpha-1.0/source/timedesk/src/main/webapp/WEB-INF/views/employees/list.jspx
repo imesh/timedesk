@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_timedesk_entity_Employee" items="${employees}" z="m8FdVTWRwrd7NYL2lTQiiXbE6tI=">
+        <table:table data="${employees}" id="l_org_timedesk_entity_Employee" path="/employees" z="VLJhJVFA3KvXd/PLh5gbK6QOb3Y=">
+        
+        	<table:column id="c_org_timedesk_entity_Employee_employeeId" property="employeeId" z="mbrAFSAUQtqv/yavzmJk1kPFURw="/>    
+            <table:column id="c_org_timedesk_entity_Employee_firstName" property="firstName" z="+2A1sBRjBYp0Bht6YHGqQakQwzU="/>
+            <table:column id="c_org_timedesk_entity_Employee_lastName" property="lastName" z="TUs9R8muBdSdvBqLaGKo0x4b+7c="/>
+            <table:column id="c_org_timedesk_entity_Employee_email" property="email" maxLength="200" z="mOhg0bQzxHkEneaVL/Bcjb7pLqc="/>
+            <!-- table:column id="c_org_timedesk_entity_Employee_address" property="address" z="lqdBsqxOIvox4Km23QKw849QtD0="/ -->
+            <table:column id="c_org_timedesk_entity_Employee_city" property="city" maxLength="100" z="UWYrsbZRQeVevM70hnuoSNDJILY="/>
+        
+        </table:table>
+    </page:list>
+</div>
