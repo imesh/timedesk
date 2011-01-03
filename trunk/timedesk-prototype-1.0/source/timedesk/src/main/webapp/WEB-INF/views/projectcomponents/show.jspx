@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:c="http://java.sun.com/jsp/jstl/core" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_timedesk_entity_ProjectComponent" object="${projectcomponent}" path="/projectcomponents" z="VagcTBQaUuNbVt80Hc3ggK2Hhik=">        
+        <field:display field="componentId" id="s_org_timedesk_entity_ProjectComponent_componentId" object="${projectcomponent}" z="WZVUZT9wKUA91ISk025e2PBg2yg="/>
+        <field:display field="name" id="s_org_timedesk_entity_ProjectComponent_name" object="${projectcomponent}" z="jtbgAEdXuqQEkCEYypSOe0MaUEI="/>
+        <field:display field="description" id="s_org_timedesk_entity_ProjectComponent_description" object="${projectcomponent}" z="oU+Mz8xXJ1fDqYSJC4YdwATMTGY="/>
+        <!-- field:display field="tasks" id="s_org_timedesk_entity_ProjectComponent_tasks" object="${projectcomponent}" z="4E6muCc02axKIzkHp98QzzkyGuA="/ -->    
+    
+        <p class="data-grid-label">Tasks:</p>
+        <table class="data-grid">
+		  <tr>
+		   <th>Task ID</th>
+		   <th>Name</th>
+		   <th>Description</th>
+		  </tr>
+		  <c:forEach items="${tasks}" var="task" varStatus="row">
+		    <tr>
+		      <td>${task.taskId}</td>
+		      <td>${task.name}</td>
+		      <td>${task.description}</td>
+		    </tr>
+		  </c:forEach>
+		</table>
+    </page:show>
+</div>
