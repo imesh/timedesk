@@ -4,25 +4,6 @@
 
   <spring:url value="/" var="home"/>
   <span>
-    <a href="${home}">
-      <spring:message code="button_home"/>
-    </a>
+    <p>Timedesk Alpha Release | Copyright © 2011 Timedesk </p>
   </span>
-  <c:if test="${pageContext['request'].userPrincipal != null}">
-    <c:out value=" | "/>
-    <span>
-      <spring:url value="/resources/j_spring_security_logout" var="logout"/>
-      <a href="${logout}">
-        <spring:message code="security_logout"/>
-      </a>
-    </span>
-  </c:if>
-
-  <span id="language">
-    <c:out value=" | "/>
-    <spring:message code="global_language"/>
-    <c:out value=": "/>
-  <util:language label="English" locale="en"/>
-    </span>
-  <util:theme/>
 </div>

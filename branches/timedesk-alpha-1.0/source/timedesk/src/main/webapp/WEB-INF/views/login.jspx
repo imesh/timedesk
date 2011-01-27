@@ -2,7 +2,7 @@
   <jsp:output omit-xml-declaration="yes" />
   <spring:message code="security_login_title" var="title" />
   <util:panel id="title" title="${title}">
-  <div id="user_login" style="text-align: center;">
+  <div id="user_login">
     <c:if test="${not empty param.login_error}">
       <div class="errors">
         <p>
