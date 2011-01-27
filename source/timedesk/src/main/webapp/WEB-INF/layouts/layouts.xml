@@ -12,8 +12,10 @@
   </definition>
 
   <definition name="public" template="/WEB-INF/layouts/default.jspx">
-    <put-attribute name="header" value="/WEB-INF/views/header_login.jspx" />
-    <put-attribute name="footer" value="/WEB-INF/views/footer_login.jspx" />
   </definition>
-
+  
+  <definition name="public_login" template="/WEB-INF/layouts/default.jspx">
+    <put-attribute name="header" value="/WEB-INF/views/login_header.jspx" />
+    <put-attribute name="footer" value="/WEB-INF/views/footer.jspx" />   
+  </definition>
 </tiles-definitions>
