@@ -3,9 +3,11 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_timedesk_entity_EmployeeLeave" modelAttribute="employeeLeave" path="/employeeleaves" render="${empty dependencies}" z="ITJKoB/D7mSLKldyDttUgVU4vKk=">
         <field:input field="leaveSeqNo" id="c_org_timedesk_entity_EmployeeLeave_leaveSeqNo" required="true" z="7bUme4Ka3aVMQdS65zI82zbje2I="/>
-        <field:input field="employee" id="c_org_timedesk_entity_EmployeeLeave_employee" z="SKdYLixBQOwnXEbzNrN5MQBhnEo="/>
+        
         <field:datetime dateTimePattern="${employeeLeave_fromtime_date_format}" field="fromTime" id="c_org_timedesk_entity_EmployeeLeave_fromTime" required="true" z="40hPKkWGrpzfUXFycghK36h5Ngk="/>
         <field:datetime dateTimePattern="${employeeLeave_totime_date_format}" field="toTime" id="c_org_timedesk_entity_EmployeeLeave_toTime" required="true" z="Hca4AXZFgMUFB6tenUBivswyrrY="/>
+    
+    <field:input field="employee" id="c_org_timedesk_entity_EmployeeLeave_employee" required="true" z="VS5ka29SSDD6m+40anW1R6RZgR8="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_timedesk_entity_EmployeeLeave" render="${not empty dependencies}" z="++rsIVRZJ3lxRrhyaVyN5hra51U="/>
 </div>

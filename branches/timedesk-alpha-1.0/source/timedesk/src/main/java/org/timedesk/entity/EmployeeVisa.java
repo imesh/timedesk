@@ -20,6 +20,7 @@ import org.springframework.roo.addon.entity.RooEntity;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -36,6 +37,10 @@ public class EmployeeVisa
 	@NotNull
 	@Column(name = "employee_visa_id")
     private String employeeVisaId;
+	
+	@NotNull
+	@JoinColumn(name = "employee_id")
+    private Employee employee;
 
 	@NotNull
     @Temporal(TemporalType.TIMESTAMP)

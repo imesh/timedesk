@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 import org.timedesk.entity.Employee;
+import org.timedesk.entity.EmployeeLeave;
 import org.timedesk.entity.EmployeeRole;
 import org.timedesk.entity.EmployeeSkill;
 import org.timedesk.entity.EmployeeVisa;
@@ -92,6 +93,11 @@ privileged aspect EmployeeController_Roo_Controller {
         return "redirect:/employees?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
+    @ModelAttribute("employeeleaves")
+    public Collection<EmployeeLeave> EmployeeController.populateEmployeeLeaves() {
+        return EmployeeLeave.findAllEmployeeLeaves();
+    }
+    
     @ModelAttribute("employeeroles")
     public Collection<EmployeeRole> EmployeeController.populateEmployeeRoles() {
         return EmployeeRole.findAllEmployeeRoles();
@@ -111,6 +117,14 @@ privileged aspect EmployeeController_Roo_Controller {
         return new Converter<Employee, String>() {
             public String convert(Employee employee) {
                 return new StringBuilder().append(employee.getEmployeeId()).append(" ").append(employee.getFirstName()).append(" ").append(employee.getLastName()).toString();
+            }
+        };
+    }
+    
+    Converter<EmployeeLeave, String> EmployeeController.getEmployeeLeaveConverter() {
+        return new Converter<EmployeeLeave, String>() {
+            public String convert(EmployeeLeave employeeLeave) {
+                return new StringBuilder().append(employeeLeave.getLeaveSeqNo()).append(" ").append(employeeLeave.getFromTime()).append(" ").append(employeeLeave.getToTime()).toString();
             }
         };
     }
@@ -142,6 +156,7 @@ privileged aspect EmployeeController_Roo_Controller {
     @PostConstruct
     void EmployeeController.registerConverters() {
         conversionService.addConverter(getEmployeeConverter());
+        conversionService.addConverter(getEmployeeLeaveConverter());
         conversionService.addConverter(getEmployeeRoleConverter());
         conversionService.addConverter(getEmployeeSkillConverter());
         conversionService.addConverter(getEmployeeVisaConverter());

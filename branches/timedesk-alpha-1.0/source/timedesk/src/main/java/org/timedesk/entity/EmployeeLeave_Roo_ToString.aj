@@ -12,6 +12,7 @@ privileged aspect EmployeeLeave_Roo_ToString {
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Version: ").append(getVersion()).append(", ");
         sb.append("LeaveSeqNo: ").append(getLeaveSeqNo()).append(", ");
+        sb.append("Employee: ").append(getEmployee()).append(", ");
         sb.append("FromTime: ").append(getFromTime()).append(", ");
         sb.append("ToTime: ").append(getToTime());
         return sb.toString();

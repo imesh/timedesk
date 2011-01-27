@@ -5,6 +5,7 @@ package org.timedesk.entity;
 
 import java.lang.String;
 import java.util.Set;
+import org.timedesk.entity.EmployeeLeave;
 import org.timedesk.entity.EmployeeRole;
 import org.timedesk.entity.EmployeeSkill;
 import org.timedesk.entity.EmployeeVisa;
@@ -129,6 +130,14 @@ privileged aspect Employee_Roo_JavaBean {
     
     public void Employee.setEmployeeVisas(Set<EmployeeVisa> employeeVisas) {
         this.employeeVisas = employeeVisas;
+    }
+    
+    public Set<EmployeeLeave> Employee.getEmployeeLeaves() {
+        return this.employeeLeaves;
+    }
+    
+    public void Employee.setEmployeeLeaves(Set<EmployeeLeave> employeeLeaves) {
+        this.employeeLeaves = employeeLeaves;
     }
     
 }

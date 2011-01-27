@@ -15,7 +15,15 @@ privileged aspect EmployeeLeave_Roo_JavaBean {
     public void EmployeeLeave.setLeaveSeqNo(int leaveSeqNo) {
         this.leaveSeqNo = leaveSeqNo;
     }
-        
+    
+    public Employee EmployeeLeave.getEmployee() {
+        return this.employee;
+    }
+    
+    public void EmployeeLeave.setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+    
     public Date EmployeeLeave.getFromTime() {
         return this.fromTime;
     }
@@ -30,5 +38,6 @@ privileged aspect EmployeeLeave_Roo_JavaBean {
     
     public void EmployeeLeave.setToTime(Date toTime) {
         this.toTime = toTime;
-    }    
+    }
+    
 }

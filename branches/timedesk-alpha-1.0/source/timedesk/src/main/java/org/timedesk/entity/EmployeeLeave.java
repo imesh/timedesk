@@ -23,6 +23,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.tostring.RooToString;
@@ -38,12 +39,18 @@ public class EmployeeLeave
 	private int leaveSeqNo;
 	
 	@NotNull
+	@JoinColumn(name = "employee_id")
+    private Employee employee;
+	
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(style = "MS")
 	@Column(name = "from_time")
 	private Date fromTime;
 	
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(style = "MS")
 	@Column(name = "to_time")
 	private Date toTime;
 }

@@ -5,6 +5,7 @@ package org.timedesk.entity;
 
 import java.lang.String;
 import java.util.Date;
+import org.timedesk.entity.Employee;
 
 privileged aspect EmployeeVisa_Roo_JavaBean {
     
@@ -14,6 +15,14 @@ privileged aspect EmployeeVisa_Roo_JavaBean {
     
     public void EmployeeVisa.setEmployeeVisaId(String employeeVisaId) {
         this.employeeVisaId = employeeVisaId;
+    }
+    
+    public Employee EmployeeVisa.getEmployee() {
+        return this.employee;
+    }
+    
+    public void EmployeeVisa.setEmployee(Employee employee) {
+        this.employee = employee;
     }
     
     public Date EmployeeVisa.getValidFrom() {

@@ -7,6 +7,7 @@
             <table:column id="c_org_timedesk_entity_EmployeeVisa_validFrom" property="validFrom" z="VACNfhTtmW72fLJ0We9JgeQ8Wd8="/>
             <table:column id="c_org_timedesk_entity_EmployeeVisa_validTo" property="validTo" z="X9tEQjADGSImc4FEK94lSbvrgm8="/>
             <table:column id="c_org_timedesk_entity_EmployeeVisa_country" property="country" z="PG9C+Gdp6G/bTNe1r91ffRsEoEg="/>
+        <table:column id="c_org_timedesk_entity_EmployeeVisa_employee" property="employee" z="cQGbJYgFis6XvbS4ZdVka90SL7U="/>
         </table:table>
     </page:list>
 </div>

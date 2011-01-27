@@ -15,6 +15,7 @@
 package org.timedesk.entity;
 
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -31,7 +32,7 @@ public class EmployeeSkill
 	@NotNull
 	@Column(name = "employee_skill_id")
     private String employeeSkillId;
-
+	
 	@NotNull
 	@Column(name = "description")
     private String description;

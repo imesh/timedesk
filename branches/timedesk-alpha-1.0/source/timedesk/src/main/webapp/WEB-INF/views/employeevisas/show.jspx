@@ -6,5 +6,6 @@
         <field:display date="true" dateTimePattern="${employeeVisa_validfrom_date_format}" field="validFrom" id="s_org_timedesk_entity_EmployeeVisa_validFrom" object="${employeevisa}" z="VZLTBU3Fb87d6G65rNueaeco7hs="/>
         <field:display date="true" dateTimePattern="${employeeVisa_validto_date_format}" field="validTo" id="s_org_timedesk_entity_EmployeeVisa_validTo" object="${employeevisa}" z="gms7/M3pUFcR8aZ6JVwR7KkSEG0="/>
         <field:display field="country" id="s_org_timedesk_entity_EmployeeVisa_country" object="${employeevisa}" z="miBbEZWGkQU+0V6tsj1GHK4pGak="/>
+    <field:display field="employee" id="s_org_timedesk_entity_EmployeeVisa_employee" object="${employeevisa}" z="A5D2xL8I4HPZ/XWtXQhogr363Jw="/>
     </page:show>
 </div>
