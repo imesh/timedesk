@@ -6,6 +6,9 @@ package org.timedesk.web;
 import java.io.UnsupportedEncodingException;
 import java.lang.Long;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -16,12 +19,14 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.support.GenericConversionService;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
+import org.timedesk.entity.Employee;
 import org.timedesk.entity.EmployeeVisa;
 
 privileged aspect EmployeeVisaController_Roo_Controller {
@@ -44,6 +49,11 @@ privileged aspect EmployeeVisaController_Roo_Controller {
     public String EmployeeVisaController.createForm(Model model) {
         model.addAttribute("employeeVisa", new EmployeeVisa());
         addDateTimeFormatPatterns(model);
+        List dependencies = new ArrayList();
+        if (Employee.countEmployees() == 0) {
+            dependencies.add(new String[]{"employee", "employees"});
+        }
+        model.addAttribute("dependencies", dependencies);
         return "employeevisas/create";
     }
     
@@ -95,6 +105,19 @@ privileged aspect EmployeeVisaController_Roo_Controller {
         return "redirect:/employeevisas?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
+    @ModelAttribute("employees")
+    public Collection<Employee> EmployeeVisaController.populateEmployees() {
+        return Employee.findAllEmployees();
+    }
+    
+    Converter<Employee, String> EmployeeVisaController.getEmployeeConverter() {
+        return new Converter<Employee, String>() {
+            public String convert(Employee employee) {
+                return new StringBuilder().append(employee.getEmployeeId()).append(" ").append(employee.getFirstName()).append(" ").append(employee.getLastName()).toString();
+            }
+        };
+    }
+    
     Converter<EmployeeVisa, String> EmployeeVisaController.getEmployeeVisaConverter() {
         return new Converter<EmployeeVisa, String>() {
             public String convert(EmployeeVisa employeeVisa) {
@@ -105,6 +128,7 @@ privileged aspect EmployeeVisaController_Roo_Controller {
     
     @PostConstruct
     void EmployeeVisaController.registerConverters() {
+        conversionService.addConverter(getEmployeeConverter());
         conversionService.addConverter(getEmployeeVisaConverter());
     }
     

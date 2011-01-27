@@ -126,3 +126,11 @@ controller all --package ~.web
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-01-27 11:23:05
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-01-27 11:24:22
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-01-27 11:43:22
+// Spring Roo UNKNOWN VERSION log opened at 2011-01-27 22:47:17
+controller all --package ~.web
+// [failed] quit
+// [failed] exit
+exit
+// Spring Roo UNKNOWN VERSION log closed at 2011-01-27 22:47:59
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-01-27 22:52:34
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-01-27 22:59:53

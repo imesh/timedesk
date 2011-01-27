@@ -6,7 +6,9 @@ package org.timedesk.web;
 import java.io.UnsupportedEncodingException;
 import java.lang.Long;
 import java.lang.String;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -43,6 +45,11 @@ privileged aspect EmployeeLeaveController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String EmployeeLeaveController.createForm(Model model) {
         model.addAttribute("employeeLeave", new EmployeeLeave());
+        List dependencies = new ArrayList();
+        if (Employee.countEmployees() == 0) {
+            dependencies.add(new String[]{"employee", "employees"});
+        }
+        model.addAttribute("dependencies", dependencies);
         return "employeeleaves/create";
     }
     

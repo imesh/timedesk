@@ -19,5 +19,6 @@
     
     <field:display field="preEmployeeRoles" id="s_org_timedesk_entity_Employee_preEmployeeRoles" object="${employee}" z="Z4tolQT2Da0bG5mIMarAwbD2zDw="/>
     <field:display field="employeeVisas" id="s_org_timedesk_entity_Employee_employeeVisas" object="${employee}" z="Q4teubiYPpgvU7DOtF1/q7IoJlE="/>
+    <field:display field="employeeLeaves" id="s_org_timedesk_entity_Employee_employeeLeaves" object="${employee}" z="kTvCWGz+SsQlK05UoAxKhc9tKjo="/>
     </page:show>
 </div>
