@@ -25,8 +25,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 import org.timedesk.entity.Project;
-import org.timedesk.entity.ProjectComponent;
 import org.timedesk.entity.ProjectMember;
+import org.timedesk.entity.ProjectPhase;
 
 privileged aspect ProjectController_Roo_Controller {
     
@@ -54,11 +54,8 @@ privileged aspect ProjectController_Roo_Controller {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String ProjectController.show(@PathVariable("id") Long id, Model model) {
         addDateTimeFormatPatterns(model);
-        Project project = Project.findProject(id);
-        model.addAttribute("project", project);
+        model.addAttribute("project", Project.findProject(id));
         model.addAttribute("itemId", id);
-        model.addAttribute("members", project.getMembers());
-        model.addAttribute("components", project.getComponents());
         return "projects/show";
     }
     
@@ -102,14 +99,14 @@ privileged aspect ProjectController_Roo_Controller {
         return "redirect:/projects?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
-    @ModelAttribute("projectcomponents")
-    public Collection<ProjectComponent> ProjectController.populateProjectComponents() {
-        return ProjectComponent.findAllProjectComponents();
-    }
-    
     @ModelAttribute("projectmembers")
     public Collection<ProjectMember> ProjectController.populateProjectMembers() {
         return ProjectMember.findAllProjectMembers();
+    }
+    
+    @ModelAttribute("projectphases")
+    public Collection<ProjectPhase> ProjectController.populateProjectPhases() {
+        return ProjectPhase.findAllProjectPhases();
     }
     
     Converter<Project, String> ProjectController.getProjectConverter() {
@@ -120,18 +117,18 @@ privileged aspect ProjectController_Roo_Controller {
         };
     }
     
-    Converter<ProjectComponent, String> ProjectController.getProjectComponentConverter() {
-        return new Converter<ProjectComponent, String>() {
-            public String convert(ProjectComponent projectComponent) {
-                return new StringBuilder().append(projectComponent.getComponentId()).append(" ").append(projectComponent.getName()).append(" ").append(projectComponent.getDescription()).toString();
+    Converter<ProjectMember, String> ProjectController.getProjectMemberConverter() {
+        return new Converter<ProjectMember, String>() {
+            public String convert(ProjectMember projectMember) {
+                return new StringBuilder().append(projectMember.getMemberId()).toString();
             }
         };
     }
     
-    Converter<ProjectMember, String> ProjectController.getProjectMemberConverter() {
-        return new Converter<ProjectMember, String>() {
-            public String convert(ProjectMember projectMember) {
-                return new StringBuilder().append(projectMember.getMemberId()).append(" ").append(projectMember.getAllocation()).append(" ").append(projectMember.getStartDate()).toString();
+    Converter<ProjectPhase, String> ProjectController.getProjectPhaseConverter() {
+        return new Converter<ProjectPhase, String>() {
+            public String convert(ProjectPhase projectPhase) {
+                return new StringBuilder().append(projectPhase.getPhaseId()).append(" ").append(projectPhase.getDescription()).append(" ").append(projectPhase.getStartDate()).toString();
             }
         };
     }
@@ -139,8 +136,8 @@ privileged aspect ProjectController_Roo_Controller {
     @PostConstruct
     void ProjectController.registerConverters() {
         conversionService.addConverter(getProjectConverter());
-        conversionService.addConverter(getProjectComponentConverter());
         conversionService.addConverter(getProjectMemberConverter());
+        conversionService.addConverter(getProjectPhaseConverter());
     }
     
     void ProjectController.addDateTimeFormatPatterns(Model model) {

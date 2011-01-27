@@ -18,6 +18,8 @@
         <field:select field="employeeSkills" id="c_org_timedesk_entity_Employee_employeeSkills" itemValue="id" items="${employeeskills}" multiple="true" path="/employeeskills" z="vtzgXGvyxgqm+KVrNLmSLm/YBug="/>
         <field:select field="employeeRoles" id="c_org_timedesk_entity_Employee_employeeRoles" itemValue="id" items="${employeeroles}" multiple="true" path="/employeeroles" z="3iadrAtyPLUJB7DbB+tnD/PVb0o="/>
         
+    <field:select field="preEmployeeRoles" id="c_org_timedesk_entity_Employee_preEmployeeRoles" itemValue="id" items="${employeeroles}" multiple="true" path="/employeeroles" z="ug64NB81SKiea7Bc2HHUZ7GVyu0="/>
+    <field:select field="employeeVisas" id="c_org_timedesk_entity_Employee_employeeVisas" itemValue="id" items="${employeevisas}" multiple="true" path="/employeevisas" z="oCCmqVmcTVMpnwxhXCBOmm7hBrA="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_timedesk_entity_Employee" render="${not empty dependencies}" z="PIuFLMXamnfqSE9VLsY7U3hiTn4="/>
 </div>

@@ -7,6 +7,7 @@
             <table:column id="c_org_timedesk_entity_User_password" property="password" z="bjdeIcZ1n/9YxiN5gfwt3IFya04="/>
             <table:column id="c_org_timedesk_entity_User_enabled" property="enabled" z="y1wB7hSmFsCD35oRq4NkaVVv1Pg="/>
             <!-- table:column id="c_org_timedesk_entity_User_userRoles" property="userRoles" z="HaBeDOWMUCGRUmJxCrKGwEY+Ic0="/ -->
+        <table:column id="c_org_timedesk_entity_User_userRoles" property="userRoles" z="HaBeDOWMUCGRUmJxCrKGwEY+Ic0="/>
         </table:table>
     </page:list>
 </div>

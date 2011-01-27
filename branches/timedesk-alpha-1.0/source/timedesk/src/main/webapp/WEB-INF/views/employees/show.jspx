@@ -17,5 +17,7 @@
         <field:display field="employeeSkills" id="s_org_timedesk_entity_Employee_employeeSkills" object="${employee}" z="obs1XA1+Uek4fmq1A/YuxFgxMFo="/>
         <field:display field="employeeRoles" id="s_org_timedesk_entity_Employee_employeeRoles" object="${employee}" z="FOwcOLm5gyJgKQR7M9X+4LZ9yZ4="/>
     
+    <field:display field="preEmployeeRoles" id="s_org_timedesk_entity_Employee_preEmployeeRoles" object="${employee}" z="Z4tolQT2Da0bG5mIMarAwbD2zDw="/>
+    <field:display field="employeeVisas" id="s_org_timedesk_entity_Employee_employeeVisas" object="${employee}" z="Q4teubiYPpgvU7DOtF1/q7IoJlE="/>
     </page:show>
 </div>

@@ -22,7 +22,7 @@ import org.timedesk.entity.EmployeeSkill;
 import java.util.HashSet;
 
 import javax.persistence.Column;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -69,9 +69,18 @@ public class Employee
 	@Column(name = "office_extension")
     private String officeExtension;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     private Set<EmployeeSkill> employeeSkills = new HashSet<EmployeeSkill>();
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     private Set<EmployeeRole> employeeRoles = new HashSet<EmployeeRole>();
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<EmployeeRole> preEmployeeRoles = new HashSet<EmployeeRole>();
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<EmployeeVisa> employeeVisas = new HashSet<EmployeeVisa>();
+    
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<EmployeeLeave> employeeLeaves = new HashSet<EmployeeLeave>();
 }

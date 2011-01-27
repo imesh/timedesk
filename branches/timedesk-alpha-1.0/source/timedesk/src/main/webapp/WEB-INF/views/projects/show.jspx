@@ -16,7 +16,7 @@
 		   <th>Allocation</th>
 		   <th>Start Date</th>
 		   <th>End Date</th>
-		   <th></th>
+		   <th/>
 		  </tr>
 		  <c:forEach items="${members}" var="member" varStatus="row">
 		    <tr>
@@ -24,7 +24,11 @@
 		      <td>${member.allocation}%</td>
 		      <td>${member.startDate}</td>
 		      <td>${member.endDate}</td>
-		      <td><a title="Show ProjectMember" alt="Show ProjectMember" href="/timedesk/projectmembers/${member.id}"><img title="Show ProjectMember" src="/timedesk/resources/images/show.png" class="image" alt="Show ProjectMember"/></a></td>
+		      <td>
+                        <a alt="Show ProjectMember" href="/timedesk/projectmembers/${member.id}" title="Show ProjectMember">
+                            <img alt="Show ProjectMember" class="image" src="/timedesk/resources/images/show.png" title="Show ProjectMember"/>
+                        </a>
+                    </td>
 		    </tr>
 		  </c:forEach>
 		</table>
@@ -42,9 +46,15 @@
 		      <td>${component.componentId}</td>
 		      <td>${component.name}%</td>
 		      <td>${component.description}</td>
-		      <td><a title="Show ProjectComponent" alt="Show ProjectComponent" href="/timedesk/projectcomponents/${component.id}"><img title="Show ProjectComponent" src="/timedesk/resources/images/show.png" class="image" alt="Show ProjectComponent"/></a></td>
+		      <td>
+                        <a alt="Show ProjectComponent" href="/timedesk/projectcomponents/${component.id}" title="Show ProjectComponent">
+                            <img alt="Show ProjectComponent" class="image" src="/timedesk/resources/images/show.png" title="Show ProjectComponent"/>
+                        </a>
+                    </td>
 		    </tr>
 		  </c:forEach>
 		</table>
+    <field:display field="members" id="s_org_timedesk_entity_Project_members" object="${project}" z="+MZ+RDK4QGmFPSktVHjUKElQgHw="/>
+        <field:display field="components" id="s_org_timedesk_entity_Project_components" object="${project}" z="e6UqSgSQSFGDJjXruaNUI5TEhMQ="/>
     </page:show>
 </div>

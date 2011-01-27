@@ -25,6 +25,7 @@ import org.springframework.web.util.WebUtils;
 import org.timedesk.entity.Employee;
 import org.timedesk.entity.EmployeeRole;
 import org.timedesk.entity.EmployeeSkill;
+import org.timedesk.entity.EmployeeVisa;
 
 privileged aspect EmployeeController_Roo_Controller {
     
@@ -101,6 +102,11 @@ privileged aspect EmployeeController_Roo_Controller {
         return EmployeeSkill.findAllEmployeeSkills();
     }
     
+    @ModelAttribute("employeevisas")
+    public Collection<EmployeeVisa> EmployeeController.populateEmployeeVisas() {
+        return EmployeeVisa.findAllEmployeeVisas();
+    }
+    
     Converter<Employee, String> EmployeeController.getEmployeeConverter() {
         return new Converter<Employee, String>() {
             public String convert(Employee employee) {
@@ -125,11 +131,20 @@ privileged aspect EmployeeController_Roo_Controller {
         };
     }
     
+    Converter<EmployeeVisa, String> EmployeeController.getEmployeeVisaConverter() {
+        return new Converter<EmployeeVisa, String>() {
+            public String convert(EmployeeVisa employeeVisa) {
+                return new StringBuilder().append(employeeVisa.getEmployeeVisaId()).append(" ").append(employeeVisa.getValidFrom()).append(" ").append(employeeVisa.getValidTo()).toString();
+            }
+        };
+    }
+    
     @PostConstruct
     void EmployeeController.registerConverters() {
         conversionService.addConverter(getEmployeeConverter());
         conversionService.addConverter(getEmployeeRoleConverter());
         conversionService.addConverter(getEmployeeSkillConverter());
+        conversionService.addConverter(getEmployeeVisaConverter());
     }
     
     private String EmployeeController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {

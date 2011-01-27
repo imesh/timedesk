@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
+import org.timedesk.entity.SecurityRole;
 import org.timedesk.entity.User;
-import org.timedesk.entity.UserRole;
 
 privileged aspect UserController_Roo_Controller {
     
@@ -90,9 +90,17 @@ privileged aspect UserController_Roo_Controller {
         return "redirect:/users?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
-    @ModelAttribute("userroles")
-    public Collection<UserRole> UserController.populateUserRoles() {
-        return UserRole.findAllUserRoles();
+    @ModelAttribute("securityroles")
+    public Collection<SecurityRole> UserController.populateSecurityRoles() {
+        return SecurityRole.findAllSecurityRoles();
+    }
+    
+    Converter<SecurityRole, String> UserController.getSecurityRoleConverter() {
+        return new Converter<SecurityRole, String>() {
+            public String convert(SecurityRole securityRole) {
+                return new StringBuilder().append(securityRole.getSecurityRoleId()).append(" ").append(securityRole.getName()).toString();
+            }
+        };
     }
     
     Converter<User, String> UserController.getUserConverter() {
@@ -103,18 +111,10 @@ privileged aspect UserController_Roo_Controller {
         };
     }
     
-    Converter<UserRole, String> UserController.getUserRoleConverter() {
-        return new Converter<UserRole, String>() {
-            public String convert(UserRole userRole) {
-                return new StringBuilder().append(userRole.getName()).toString();
-            }
-        };
-    }
-    
     @PostConstruct
     void UserController.registerConverters() {
+        conversionService.addConverter(getSecurityRoleConverter());
         conversionService.addConverter(getUserConverter());
-        conversionService.addConverter(getUserRoleConverter());
     }
     
     private String UserController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {

@@ -102,3 +102,27 @@ controller all --package ~.web
 controller class --class ~.web.ChangePasswordController
 field set --class ~.entity.Project --fieldName projectComponents --element ~.entity.ProjectComponent
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2010-12-31 22:35:52
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-01-21 00:56:20
+entity --class ~.entity.ProjectPhaseMember
+controller all --package ~.web
+entity --class ~.entity.EmployeeVisa
+field string employeeVisaId
+field date validFrom --type java.util.Date
+field date validTo --type java.util.Date
+field string country
+controller all --package ~.web
+entity --class ~.entity.ApplicationFeature
+field string featureId
+field string name
+field string description
+controller all --package ~.web
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-01-21 02:14:06
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-01-27 11:04:40
+// [failed] entity --class ~.entity.Leave
+entity --class ~.entity.Leave --permitReservedWords 
+entity --class ~.entity.EmployeeLeave
+controller all --package ~.web
+controller all --package ~.web
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-01-27 11:23:05
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-01-27 11:24:22
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-01-27 11:43:22

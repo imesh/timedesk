@@ -31,5 +31,5 @@ public class User
     private Boolean enabled;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private Set<UserRole> userRoles = new HashSet<UserRole>();
+    private Set<SecurityRole> userRoles = new HashSet<SecurityRole>();
 }

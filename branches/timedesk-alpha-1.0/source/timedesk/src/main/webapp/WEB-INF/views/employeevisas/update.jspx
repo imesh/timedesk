@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_org_timedesk_entity_EmployeeVisa" modelAttribute="employeeVisa" path="/employeevisas" z="uJwCibjutnZ07R29+swiqvfxCFw=">
+        <field:input field="employeeVisaId" id="c_org_timedesk_entity_EmployeeVisa_employeeVisaId" required="true" z="IIOlirr+d1H50dRoLA/1Yf+ZQVc="/>
+        <field:datetime dateTimePattern="${employeeVisa_validfrom_date_format}" field="validFrom" id="c_org_timedesk_entity_EmployeeVisa_validFrom" required="true" z="CmK+wSTAnWQVIHkzw4rCotwFEpk="/>
+        <field:datetime dateTimePattern="${employeeVisa_validto_date_format}" field="validTo" id="c_org_timedesk_entity_EmployeeVisa_validTo" required="true" z="9HfbqSMXbrtgAvs+jGb6KWwQe0Q="/>
+        <field:input field="country" id="c_org_timedesk_entity_EmployeeVisa_country" required="true" z="25DjkMQ/4n49HeR5H0nz1hoYN5w="/>
+    </form:update>
+</div>
