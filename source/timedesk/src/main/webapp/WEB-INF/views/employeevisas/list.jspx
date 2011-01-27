@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_timedesk_entity_EmployeeVisa" items="${employeevisas}" z="ghag1JdALHC4BqXyUlbQi8qo2S0=">
+        <table:table data="${employeevisas}" id="l_org_timedesk_entity_EmployeeVisa" path="/employeevisas" z="SFixZdqQAJOAO0LiXMYXccC6HkI=">
+            <table:column id="c_org_timedesk_entity_EmployeeVisa_employeeVisaId" property="employeeVisaId" z="68i4q7YDvMYal5o7ITarPn+0IJI="/>
+            <table:column id="c_org_timedesk_entity_EmployeeVisa_validFrom" property="validFrom" z="VACNfhTtmW72fLJ0We9JgeQ8Wd8="/>
+            <table:column id="c_org_timedesk_entity_EmployeeVisa_validTo" property="validTo" z="X9tEQjADGSImc4FEK94lSbvrgm8="/>
+            <table:column id="c_org_timedesk_entity_EmployeeVisa_country" property="country" z="PG9C+Gdp6G/bTNe1r91ffRsEoEg="/>
+        </table:table>
+    </page:list>
+</div>

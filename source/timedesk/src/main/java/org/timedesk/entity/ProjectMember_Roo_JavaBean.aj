@@ -4,7 +4,6 @@
 package org.timedesk.entity;
 
 import java.lang.String;
-import java.util.Date;
 import java.util.Set;
 import org.timedesk.entity.Employee;
 import org.timedesk.entity.Feedback;
@@ -18,30 +17,6 @@ privileged aspect ProjectMember_Roo_JavaBean {
     
     public void ProjectMember.setMemberId(String memberId) {
         this.memberId = memberId;
-    }
-    
-    public int ProjectMember.getAllocation() {
-        return this.allocation;
-    }
-    
-    public void ProjectMember.setAllocation(int allocation) {
-        this.allocation = allocation;
-    }
-    
-    public Date ProjectMember.getStartDate() {
-        return this.startDate;
-    }
-    
-    public void ProjectMember.setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-    
-    public Date ProjectMember.getEndDate() {
-        return this.endDate;
-    }
-    
-    public void ProjectMember.setEndDate(Date endDate) {
-        this.endDate = endDate;
     }
     
     public Employee ProjectMember.getEmployee() {

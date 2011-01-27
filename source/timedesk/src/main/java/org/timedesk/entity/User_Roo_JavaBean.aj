@@ -6,7 +6,7 @@ package org.timedesk.entity;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Set;
-import org.timedesk.entity.UserRole;
+import org.timedesk.entity.SecurityRole;
 
 privileged aspect User_Roo_JavaBean {
     
@@ -34,11 +34,11 @@ privileged aspect User_Roo_JavaBean {
         this.enabled = enabled;
     }
     
-    public Set<UserRole> User.getUserRoles() {
+    public Set<SecurityRole> User.getUserRoles() {
         return this.userRoles;
     }
     
-    public void User.setUserRoles(Set<UserRole> userRoles) {
+    public void User.setUserRoles(Set<SecurityRole> userRoles) {
         this.userRoles = userRoles;
     }
     

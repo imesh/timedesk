@@ -10,9 +10,7 @@ import java.util.Collection;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import org.joda.time.format.DateTimeFormat;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.support.GenericConversionService;
 import org.springframework.ui.Model;
@@ -38,7 +36,6 @@ privileged aspect ProjectMemberController_Roo_Controller {
     public String ProjectMemberController.create(@Valid ProjectMember projectMember, BindingResult result, Model model, HttpServletRequest request) {
         if (result.hasErrors()) {
             model.addAttribute("projectMember", projectMember);
-            addDateTimeFormatPatterns(model);
             return "projectmembers/create";
         }
         projectMember.persist();
@@ -48,17 +45,13 @@ privileged aspect ProjectMemberController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String ProjectMemberController.createForm(Model model) {
         model.addAttribute("projectMember", new ProjectMember());
-        addDateTimeFormatPatterns(model);
         return "projectmembers/create";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String ProjectMemberController.show(@PathVariable("id") Long id, Model model) {
-        addDateTimeFormatPatterns(model);
-        ProjectMember member = ProjectMember.findProjectMember(id);
-        model.addAttribute("projectmember", member);
+        model.addAttribute("projectmember", ProjectMember.findProjectMember(id));
         model.addAttribute("itemId", id);
-        model.addAttribute("memberRoles", member.getMemberRoles());
         return "projectmembers/show";
     }
     
@@ -72,7 +65,6 @@ privileged aspect ProjectMemberController_Roo_Controller {
         } else {
             model.addAttribute("projectmembers", ProjectMember.findAllProjectMembers());
         }
-        addDateTimeFormatPatterns(model);
         return "projectmembers/list";
     }
     
@@ -80,7 +72,6 @@ privileged aspect ProjectMemberController_Roo_Controller {
     public String ProjectMemberController.update(@Valid ProjectMember projectMember, BindingResult result, Model model, HttpServletRequest request) {
         if (result.hasErrors()) {
             model.addAttribute("projectMember", projectMember);
-            addDateTimeFormatPatterns(model);
             return "projectmembers/update";
         }
         projectMember.merge();
@@ -90,7 +81,6 @@ privileged aspect ProjectMemberController_Roo_Controller {
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
     public String ProjectMemberController.updateForm(@PathVariable("id") Long id, Model model) {
         model.addAttribute("projectMember", ProjectMember.findProjectMember(id));
-        addDateTimeFormatPatterns(model);
         return "projectmembers/update";
     }
     
@@ -136,7 +126,7 @@ privileged aspect ProjectMemberController_Roo_Controller {
     Converter<ProjectMember, String> ProjectMemberController.getProjectMemberConverter() {
         return new Converter<ProjectMember, String>() {
             public String convert(ProjectMember projectMember) {
-                return new StringBuilder().append(projectMember.getMemberId()).append(" ").append(projectMember.getAllocation()).append(" ").append(projectMember.getStartDate()).toString();
+                return new StringBuilder().append(projectMember.getMemberId()).toString();
             }
         };
     }
@@ -155,11 +145,6 @@ privileged aspect ProjectMemberController_Roo_Controller {
         conversionService.addConverter(getFeedbackConverter());
         conversionService.addConverter(getProjectMemberConverter());
         conversionService.addConverter(getProjectMemberRoleConverter());
-    }
-    
-    void ProjectMemberController.addDateTimeFormatPatterns(Model model) {
-        model.addAttribute("projectMember_startdate_date_format", DateTimeFormat.patternForStyle("S-", LocaleContextHolder.getLocale()));
-        model.addAttribute("projectMember_enddate_date_format", DateTimeFormat.patternForStyle("S-", LocaleContextHolder.getLocale()));
     }
     
     private String ProjectMemberController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {

@@ -3,9 +3,9 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_timedesk_entity_ProjectMember" modelAttribute="projectMember" path="/projectmembers" render="${empty dependencies}" z="Q2W8Mga2mvl4uMaJF5NkKyKHnJ4=">
         <field:input field="memberId" id="c_org_timedesk_entity_ProjectMember_memberId" required="true" z="a21yyrvNfZeEAqvCSDEliGscMaI="/>
-        <field:input field="allocation" id="c_org_timedesk_entity_ProjectMember_allocation" z="bdsSU1rBMO7hMZ5RyLgCnLWwnyI="/>
-        <field:datetime dateTimePattern="${projectMember_startdate_date_format}" field="startDate" id="c_org_timedesk_entity_ProjectMember_startDate" z="2Y6tub/jbg5eOEg8R1/g3x63xgw="/>
-        <field:datetime dateTimePattern="${projectMember_enddate_date_format}" field="endDate" id="c_org_timedesk_entity_ProjectMember_endDate" z="F6jYB2WFH9hpRyziwBTlxC3VlTM="/>
+        
+        
+        
         <field:select field="employee" id="c_org_timedesk_entity_ProjectMember_employee" itemValue="id" items="${employees}" path="/employees" z="CDudXbFAOtENzUQadQ8wDz3A0M4="/>
         <field:select field="memberRoles" id="c_org_timedesk_entity_ProjectMember_memberRoles" itemValue="id" items="${projectmemberroles}" multiple="true" path="/projectmemberroles" z="DvwH17cHGTkTKCovPDtmVcvyHuc="/>        
         <field:select field="feedbacks" id="c_org_timedesk_entity_ProjectMember_feedbacks" itemValue="id" items="${feedbacks}" multiple="true" path="/feedbacks" z="vT64yvCZyA0x9hSA7KmtGO37GmM="/>        

@@ -17,24 +17,41 @@
         <!-- Employees -->
         <menu:item id="i_employee_new" messageCode="global_menu_new" url="/employees?form" z="+S/pgOAdANt9JPGnS20kM8qTu00="/>
         <menu:item id="i_employee_list" messageCode="global_menu_list" url="/employees?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="YzmRBI+yzLifxZxrpgFQqxwsG0g="/>
+        
         <!-- Employee Roles -->
         <menu:item id="i_employeerole_new" messageCode="global_menu_new" url="/employeeroles?form" z="TosdHfP5Gmd4sIgnBYDrpwbmpqA="/>
         <menu:item id="i_employeerole_list" messageCode="global_menu_list" url="/employeeroles?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="E39253JqHBzoc57UQvjdvR5WsfQ="/>
+        
         <!-- Employee Skills -->
         <menu:item id="i_employeeskill_new" messageCode="global_menu_new" url="/employeeskills?form" z="A40H+Xj2xsNte/3S07wohtJ8yk4="/>
-        <menu:item id="i_employeeskill_list" messageCode="global_menu_list" url="/employeeskills?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="IQvLqTM6JmTveVQmoRZKCo7u+t0="/>        
+        <menu:item id="i_employeeskill_list" messageCode="global_menu_list" url="/employeeskills?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="IQvLqTM6JmTveVQmoRZKCo7u+t0="/>
+                       
+        <!-- Employee Visa -->
+        <menu:item id="i_employeevisa_new" messageCode="global_menu_new" url="/employeevisas?form" z="pneRGp+Sztc3AN/3tZ/YlyRMSiM="/>
+        <menu:item id="i_employeevisa_list" messageCode="global_menu_list" url="/employeevisas?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="8KtkpSIjUL5EhxG3N4dKXRInGRo="/>                
     </menu:category>
     
-    <!-- Project Information -->
+    <!-- Employee Leave Management -->
+     <menu:category id="c_employeeleave" z="K9Egl0Dni4GOzx/+5IStNcz0ymo=">
+        <!-- Employee Leave Information -->
+        <menu:item id="i_employeeleave_new" messageCode="global_menu_new" url="/employeeleaves?form" z="9UZmmFoJSMBMrI1IxINalD+SjVs="/>
+        <menu:item id="i_employeeleave_list" messageCode="global_menu_list" url="/employeeleaves?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="uT/H/ed3R3FxDK6qgYi5i41pDIU="/>        
+     </menu:category>
+    
+    <!-- Project Management -->
     <menu:category id="c_project" label="Project Information" z="user-managed">
         <!-- Projects -->
         <menu:item id="i_project_new" messageCode="global_menu_new" url="/projects?form" z="1BazRC1rLnod0a+MpP1flWTvehA="/>
-        <menu:item id="i_project_list" messageCode="global_menu_list" url="/projects?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="edE+fukZ/0U9dbZhEdhY4tgH6qI="/>
+        <menu:item id="i_project_list" messageCode="global_menu_list" url="/projects?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="edE+fukZ/0U9dbZhEdhY4tgH6qI="/>    	
     	
-    	<!-- Project Components -->
-    	<menu:item id="i_projectcomponent_new" messageCode="global_menu_new" url="/projectcomponents?form" z="vKvXLb5PCbrq7KKyTQNRDhxmvJ0="/>
-        <menu:item id="i_projectcomponent_list" messageCode="global_menu_list" url="/projectcomponents?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="MRzeWjEy3BEqj66njlrzWgyqafw="/>
+    	<!-- Project Phases -->
+    	<menu:item id="i_projectphase_new" messageCode="global_menu_new" url="/projectphases?form" z="yQ7quSe/s+Z33oofflYqSsT4vcI="/>
+        <menu:item id="i_projectphase_list" messageCode="global_menu_list" url="/projectphases?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="xLJFcNbFVoNUw0Ed2lqb04Mt5a0="/>        
     	
+    	<!-- Project Phase Members -->
+    	<menu:item id="i_projectphasemember_new" messageCode="global_menu_new" url="/projectphasemembers?form" z="GdganXYP9utrJavw4CG7iCDVjzo="/>
+        <menu:item id="i_projectphasemember_list" messageCode="global_menu_list" url="/projectphasemembers?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="tGtJ382bMObjLEHA9t0zFT2F0Uw="/>
+        
     	<!-- Project Tasks -->
     	<menu:item id="i_task_new" messageCode="global_menu_new" url="/tasks?form" z="YotbILlsjTB2PtR5PNSnTnvYdJ4="/>
         <menu:item id="i_task_list" messageCode="global_menu_list" url="/tasks?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="xEhnZSL1vTk7LN2+wWpHvSC2mFA="/>
@@ -61,6 +78,15 @@
         <menu:item id="i_user_list" messageCode="global_menu_list" url="/users?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="YXGkaJQ0/0BeZ8fX5CQWSaUUEk0="/>
         <menu:item id="i_userrole_new" messageCode="global_menu_new" url="/userroles?form" z="qYpuuJuPupoYjD8LM0ISnxylj4o="/>
         <menu:item id="i_userrole_list" messageCode="global_menu_list" url="/userroles?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="sCvJOd+LK/eeJ3dwemFk89uWPeU="/>
+        
+        <!-- Security Roles -->
+        <menu:item id="i_securityrole_new" messageCode="global_menu_new" url="/userroles?form" z="bdk0LTXqWpGdVUI3G5h/ueDth8k="/>
+        <menu:item id="i_securityrole_list" messageCode="global_menu_list" url="/userroles?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="7ifEig/qBlvChVhhXs9dQBke5jg="/>
+        
+        <!-- Application Features -->
+        <menu:item id="i_applicationfeature_new" messageCode="global_menu_new" url="/applicationfeatures?form" z="rc/0pIFFGv02ajie1HKBf9TtttI="/>
+        <menu:item id="i_applicationfeature_list" messageCode="global_menu_list" url="/applicationfeatures?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="BbqwS5iNL7J59e6T6T5MUTUeFg0="/>
    </menu:category>
-</menu:menu>
+    <menu:category id="c_projectphase" z="96VTO1mgkpDihLGWVGJxyvYgPnw="/>
+    </menu:menu>
 </div>

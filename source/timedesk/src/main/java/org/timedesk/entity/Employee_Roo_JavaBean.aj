@@ -7,6 +7,7 @@ import java.lang.String;
 import java.util.Set;
 import org.timedesk.entity.EmployeeRole;
 import org.timedesk.entity.EmployeeSkill;
+import org.timedesk.entity.EmployeeVisa;
 
 privileged aspect Employee_Roo_JavaBean {
     
@@ -112,6 +113,22 @@ privileged aspect Employee_Roo_JavaBean {
     
     public void Employee.setEmployeeRoles(Set<EmployeeRole> employeeRoles) {
         this.employeeRoles = employeeRoles;
+    }
+    
+    public Set<EmployeeRole> Employee.getPreEmployeeRoles() {
+        return this.preEmployeeRoles;
+    }
+    
+    public void Employee.setPreEmployeeRoles(Set<EmployeeRole> preEmployeeRoles) {
+        this.preEmployeeRoles = preEmployeeRoles;
+    }
+    
+    public Set<EmployeeVisa> Employee.getEmployeeVisas() {
+        return this.employeeVisas;
+    }
+    
+    public void Employee.setEmployeeVisas(Set<EmployeeVisa> employeeVisas) {
+        this.employeeVisas = employeeVisas;
     }
     
 }

@@ -1,5 +1,5 @@
 /*
- *  Time Desk
+ *  Timedesk
  *  Project Resource Management System
  *  http://code.google.com/p/timedesk
  *   

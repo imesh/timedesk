@@ -9,6 +9,6 @@
         <field:datetime dateTimePattern="${project_enddate_date_format}" field="endDate" id="c_org_timedesk_entity_Project_endDate" z="JGQaC8CYDK8p9+inBKtntJk4hE0="/>
         <field:select field="members" id="c_org_timedesk_entity_Project_members" itemValue="id" items="${projectmembers}" multiple="true" path="/projectmembers" z="c2pO/SDIcK0mhqOkcObc2jWcgQY="/>    
     
-    <field:select field="components" id="c_org_timedesk_entity_Project_components" itemValue="id" items="${projectcomponents}" multiple="true" path="/projectcomponents" z="VXtlO5qWhFqgtUIVnPfj6TT9MBA="/>
+    <field:select field="components" id="c_org_timedesk_entity_Project_components" itemValue="id" items="${projectphases}" multiple="true" path="/projectphases" z="qAvNdoyuNrxI0WcdYGDIIh/SL8Y="/>
     </form:update>
 </div>

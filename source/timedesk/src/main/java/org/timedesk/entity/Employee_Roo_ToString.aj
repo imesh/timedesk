@@ -23,7 +23,9 @@ privileged aspect Employee_Roo_ToString {
         sb.append("PhoneMobile: ").append(getPhoneMobile()).append(", ");
         sb.append("OfficeExtension: ").append(getOfficeExtension()).append(", ");
         sb.append("EmployeeSkills: ").append(getEmployeeSkills() == null ? "null" : getEmployeeSkills().size()).append(", ");
-        sb.append("EmployeeRoles: ").append(getEmployeeRoles() == null ? "null" : getEmployeeRoles().size());
+        sb.append("EmployeeRoles: ").append(getEmployeeRoles() == null ? "null" : getEmployeeRoles().size()).append(", ");
+        sb.append("PreEmployeeRoles: ").append(getPreEmployeeRoles() == null ? "null" : getPreEmployeeRoles().size()).append(", ");
+        sb.append("EmployeeVisas: ").append(getEmployeeVisas() == null ? "null" : getEmployeeVisas().size());
         return sb.toString();
     }
     

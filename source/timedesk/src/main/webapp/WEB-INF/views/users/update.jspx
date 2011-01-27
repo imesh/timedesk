@@ -5,6 +5,6 @@
         <field:input field="username" id="c_org_timedesk_entity_User_username" required="true" z="5KBxwAqX5lxbKqj9ZUVwkXTYUYI="/>
         <field:input field="password" id="c_org_timedesk_entity_User_password" required="true" z="H3At8CG5JV94XoOHmnGDOugRlL0="/>
         <field:checkbox field="enabled" id="c_org_timedesk_entity_User_enabled" z="kJf+lQ21nYMRUg6ybptqDZXvySk="/>
-        <field:select field="userRoles" id="c_org_timedesk_entity_User_userRoles" itemValue="id" items="${userroles}" multiple="true" path="/userroles" z="/WwI1cWuNzorLz+mutMa9677wuI="/>
+        <field:select field="userRoles" id="c_org_timedesk_entity_User_userRoles" itemValue="id" items="${securityroles}" multiple="true" path="/securityroles" z="XFEml1odBYKZsiGNNwAWcxXzugY="/>
     </form:update>
 </div>

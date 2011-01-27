@@ -15,7 +15,7 @@ import java.util.HashSet;
 import javax.persistence.ManyToMany;
 import javax.persistence.CascadeType;
 import javax.validation.constraints.NotNull;
-import org.timedesk.entity.ProjectComponent;
+import org.timedesk.entity.ProjectPhase;
 
 @RooJavaBean
 @RooToString
@@ -47,5 +47,5 @@ public class Project {
     private Set<ProjectMember> members = new HashSet<ProjectMember>();
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private Set<ProjectComponent> components = new HashSet<ProjectComponent>();
+    private Set<ProjectPhase> components = new HashSet<ProjectPhase>();
 }

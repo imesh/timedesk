@@ -6,6 +6,7 @@
         	<table:column id="c_org_timedesk_entity_Company_companyId" property="companyId" z="zE+fLtOu7S/1MOlD+0Z1bfv0hhI="/>
         	<table:column id="c_org_timedesk_entity_Company_name" maxLength="200" property="name" z="user-managed"/>        	
         	<!-- table:column id="c_org_timedesk_entity_Company_companySites" maxLength="200" property="companySites" z="user-managed"/ -->
+        <table:column id="c_org_timedesk_entity_Company_companySites" property="companySites" z="JNCBsY/pRaBqh2bW1XxKXR3po2o="/>
         </table:table>
     </page:list>
 </div>
