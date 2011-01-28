@@ -6,7 +6,9 @@ package org.timedesk.web;
 import java.io.UnsupportedEncodingException;
 import java.lang.Long;
 import java.lang.String;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -23,9 +25,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 import org.timedesk.entity.Employee;
-import org.timedesk.entity.Feedback;
+import org.timedesk.entity.Project;
 import org.timedesk.entity.ProjectMember;
-import org.timedesk.entity.ProjectMemberRole;
+import org.timedesk.entity.ProjectMemberFeedback;
+import org.timedesk.entity.Role;
 
 privileged aspect ProjectMemberController_Roo_Controller {
     
@@ -45,6 +48,11 @@ privileged aspect ProjectMemberController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String ProjectMemberController.createForm(Model model) {
         model.addAttribute("projectMember", new ProjectMember());
+        List dependencies = new ArrayList();
+        if (Project.countProjects() == 0) {
+            dependencies.add(new String[]{"project", "projects"});
+        }
+        model.addAttribute("dependencies", dependencies);
         return "projectmembers/create";
     }
     
@@ -97,14 +105,19 @@ privileged aspect ProjectMemberController_Roo_Controller {
         return Employee.findAllEmployees();
     }
     
-    @ModelAttribute("feedbacks")
-    public Collection<Feedback> ProjectMemberController.populateFeedbacks() {
-        return Feedback.findAllFeedbacks();
+    @ModelAttribute("projects")
+    public Collection<Project> ProjectMemberController.populateProjects() {
+        return Project.findAllProjects();
     }
     
-    @ModelAttribute("projectmemberroles")
-    public Collection<ProjectMemberRole> ProjectMemberController.populateProjectMemberRoles() {
-        return ProjectMemberRole.findAllProjectMemberRoles();
+    @ModelAttribute("projectmemberfeedbacks")
+    public Collection<ProjectMemberFeedback> ProjectMemberController.populateProjectMemberFeedbacks() {
+        return ProjectMemberFeedback.findAllProjectMemberFeedbacks();
+    }
+    
+    @ModelAttribute("roles")
+    public Collection<Role> ProjectMemberController.populateRoles() {
+        return Role.findAllRoles();
     }
     
     Converter<Employee, String> ProjectMemberController.getEmployeeConverter() {
@@ -115,10 +128,10 @@ privileged aspect ProjectMemberController_Roo_Controller {
         };
     }
     
-    Converter<Feedback, String> ProjectMemberController.getFeedbackConverter() {
-        return new Converter<Feedback, String>() {
-            public String convert(Feedback feedback) {
-                return new StringBuilder().append(feedback.getFeedbackId()).append(" ").append(feedback.getDescription()).toString();
+    Converter<Project, String> ProjectMemberController.getProjectConverter() {
+        return new Converter<Project, String>() {
+            public String convert(Project project) {
+                return new StringBuilder().append(project.getProjectId()).append(" ").append(project.getName()).append(" ").append(project.getDescription()).toString();
             }
         };
     }
@@ -131,10 +144,18 @@ privileged aspect ProjectMemberController_Roo_Controller {
         };
     }
     
-    Converter<ProjectMemberRole, String> ProjectMemberController.getProjectMemberRoleConverter() {
-        return new Converter<ProjectMemberRole, String>() {
-            public String convert(ProjectMemberRole projectMemberRole) {
-                return new StringBuilder().append(projectMemberRole.getRoleId()).append(" ").append(projectMemberRole.getName()).toString();
+    Converter<ProjectMemberFeedback, String> ProjectMemberController.getProjectMemberFeedbackConverter() {
+        return new Converter<ProjectMemberFeedback, String>() {
+            public String convert(ProjectMemberFeedback projectMemberFeedback) {
+                return new StringBuilder().append(projectMemberFeedback.getFeedbackId()).append(" ").append(projectMemberFeedback.getDescription()).toString();
+            }
+        };
+    }
+    
+    Converter<Role, String> ProjectMemberController.getRoleConverter() {
+        return new Converter<Role, String>() {
+            public String convert(Role role) {
+                return new StringBuilder().append(role.getRoleId()).append(" ").append(role.getName()).toString();
             }
         };
     }
@@ -142,9 +163,10 @@ privileged aspect ProjectMemberController_Roo_Controller {
     @PostConstruct
     void ProjectMemberController.registerConverters() {
         conversionService.addConverter(getEmployeeConverter());
-        conversionService.addConverter(getFeedbackConverter());
+        conversionService.addConverter(getProjectConverter());
         conversionService.addConverter(getProjectMemberConverter());
-        conversionService.addConverter(getProjectMemberRoleConverter());
+        conversionService.addConverter(getProjectMemberFeedbackConverter());
+        conversionService.addConverter(getRoleConverter());
     }
     
     private String ProjectMemberController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {

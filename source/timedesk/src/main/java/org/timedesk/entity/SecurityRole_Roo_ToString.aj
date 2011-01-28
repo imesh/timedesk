@@ -13,7 +13,7 @@ privileged aspect SecurityRole_Roo_ToString {
         sb.append("Version: ").append(getVersion()).append(", ");
         sb.append("SecurityRoleId: ").append(getSecurityRoleId()).append(", ");
         sb.append("Name: ").append(getName()).append(", ");
-        sb.append("Tasks: ").append(getTasks() == null ? "null" : getTasks().size());
+        sb.append("ApplicationFeatures: ").append(getApplicationFeatures() == null ? "null" : getApplicationFeatures().size());
         return sb.toString();
     }
     

@@ -6,9 +6,18 @@ package org.timedesk.entity;
 import java.lang.String;
 import java.util.Date;
 import java.util.Set;
+import org.timedesk.entity.Project;
 import org.timedesk.entity.ProjectPhaseMember;
 
 privileged aspect ProjectPhase_Roo_JavaBean {
+    
+    public Project ProjectPhase.getProject() {
+        return this.project;
+    }
+    
+    public void ProjectPhase.setProject(Project project) {
+        this.project = project;
+    }
     
     public String ProjectPhase.getPhaseId() {
         return this.phaseId;
@@ -42,12 +51,12 @@ privileged aspect ProjectPhase_Roo_JavaBean {
         this.endDate = endDate;
     }
     
-    public Set<ProjectPhaseMember> ProjectPhase.getPhaseMembers() {
-        return this.phaseMembers;
+    public Set<ProjectPhaseMember> ProjectPhase.getProjectPhaseMembers() {
+        return this.projectPhaseMembers;
     }
     
-    public void ProjectPhase.setPhaseMembers(Set<ProjectPhaseMember> phaseMembers) {
-        this.phaseMembers = phaseMembers;
+    public void ProjectPhase.setProjectPhaseMembers(Set<ProjectPhaseMember> projectPhaseMembers) {
+        this.projectPhaseMembers = projectPhaseMembers;
     }
     
 }

@@ -34,23 +34,23 @@ privileged aspect CompanyController_Roo_Controller {
     public String CompanyController.create(@Valid Company company, BindingResult result, Model model, HttpServletRequest request) {
         if (result.hasErrors()) {
             model.addAttribute("company", company);
-            return "companys/create";
+            return "companies/create";
         }
         company.persist();
-        return "redirect:/companys/" + encodeUrlPathSegment(company.getId().toString(), request);
+        return "redirect:/companies/" + encodeUrlPathSegment(company.getId().toString(), request);
     }
     
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String CompanyController.createForm(Model model) {
         model.addAttribute("company", new Company());
-        return "companys/create";
+        return "companies/create";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String CompanyController.show(@PathVariable("id") Long id, Model model) {
         model.addAttribute("company", Company.findCompany(id));
         model.addAttribute("itemId", id);
-        return "companys/show";
+        return "companies/show";
     }
     
     @RequestMapping(method = RequestMethod.GET)
@@ -63,23 +63,23 @@ privileged aspect CompanyController_Roo_Controller {
         } else {
             model.addAttribute("companys", Company.findAllCompanys());
         }
-        return "companys/list";
+        return "companies/list";
     }
     
     @RequestMapping(method = RequestMethod.PUT)
     public String CompanyController.update(@Valid Company company, BindingResult result, Model model, HttpServletRequest request) {
         if (result.hasErrors()) {
             model.addAttribute("company", company);
-            return "companys/update";
+            return "companies/update";
         }
         company.merge();
-        return "redirect:/companys/" + encodeUrlPathSegment(company.getId().toString(), request);
+        return "redirect:/companies/" + encodeUrlPathSegment(company.getId().toString(), request);
     }
     
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
     public String CompanyController.updateForm(@PathVariable("id") Long id, Model model) {
         model.addAttribute("company", Company.findCompany(id));
-        return "companys/update";
+        return "companies/update";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
@@ -87,7 +87,7 @@ privileged aspect CompanyController_Roo_Controller {
         Company.findCompany(id).remove();
         model.addAttribute("page", (page == null) ? "1" : page.toString());
         model.addAttribute("size", (size == null) ? "10" : size.toString());
-        return "redirect:/companys?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
+        return "redirect:/companies?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
     @ModelAttribute("sites")

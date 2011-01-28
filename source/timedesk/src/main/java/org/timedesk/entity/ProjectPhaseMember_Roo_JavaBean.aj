@@ -3,10 +3,20 @@
 
 package org.timedesk.entity;
 
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Date;
+import org.timedesk.entity.ProjectPhase;
 
 privileged aspect ProjectPhaseMember_Roo_JavaBean {
+    
+    public ProjectPhase ProjectPhaseMember.getProjectPhase() {
+        return this.projectPhase;
+    }
+    
+    public void ProjectPhaseMember.setProjectPhase(ProjectPhase projectPhase) {
+        this.projectPhase = projectPhase;
+    }
     
     public String ProjectPhaseMember.getPhaseMemberId() {
         return this.phaseMemberId;
@@ -32,11 +42,11 @@ privileged aspect ProjectPhaseMember_Roo_JavaBean {
         this.endDate = endDate;
     }
     
-    public int ProjectPhaseMember.getAllocation() {
+    public Integer ProjectPhaseMember.getAllocation() {
         return this.allocation;
     }
     
-    public void ProjectPhaseMember.setAllocation(int allocation) {
+    public void ProjectPhaseMember.setAllocation(Integer allocation) {
         this.allocation = allocation;
     }
     

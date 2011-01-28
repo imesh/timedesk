@@ -11,6 +11,7 @@ privileged aspect ProjectPhaseMember_Roo_ToString {
         StringBuilder sb = new StringBuilder();
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Version: ").append(getVersion()).append(", ");
+        sb.append("ProjectPhase: ").append(getProjectPhase()).append(", ");
         sb.append("PhaseMemberId: ").append(getPhaseMemberId()).append(", ");
         sb.append("StartDate: ").append(getStartDate()).append(", ");
         sb.append("EndDate: ").append(getEndDate()).append(", ");

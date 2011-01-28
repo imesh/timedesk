@@ -11,6 +11,7 @@ privileged aspect Site_Roo_ToString {
         StringBuilder sb = new StringBuilder();
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Version: ").append(getVersion()).append(", ");
+        sb.append("Company: ").append(getCompany()).append(", ");
         sb.append("SiteId: ").append(getSiteId()).append(", ");
         sb.append("Location: ").append(getLocation()).append(", ");
         sb.append("City: ").append(getCity()).append(", ");

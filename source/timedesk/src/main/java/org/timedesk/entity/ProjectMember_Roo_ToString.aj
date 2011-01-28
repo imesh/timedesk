@@ -11,9 +11,10 @@ privileged aspect ProjectMember_Roo_ToString {
         StringBuilder sb = new StringBuilder();
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Version: ").append(getVersion()).append(", ");
+        sb.append("Project: ").append(getProject()).append(", ");
         sb.append("MemberId: ").append(getMemberId()).append(", ");
         sb.append("Employee: ").append(getEmployee()).append(", ");
-        sb.append("MemberRoles: ").append(getMemberRoles() == null ? "null" : getMemberRoles().size()).append(", ");
+        sb.append("Roles: ").append(getRoles() == null ? "null" : getRoles().size()).append(", ");
         sb.append("Feedbacks: ").append(getFeedbacks() == null ? "null" : getFeedbacks().size());
         return sb.toString();
     }

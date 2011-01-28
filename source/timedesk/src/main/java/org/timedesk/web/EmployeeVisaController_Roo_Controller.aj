@@ -121,7 +121,7 @@ privileged aspect EmployeeVisaController_Roo_Controller {
     Converter<EmployeeVisa, String> EmployeeVisaController.getEmployeeVisaConverter() {
         return new Converter<EmployeeVisa, String>() {
             public String convert(EmployeeVisa employeeVisa) {
-                return new StringBuilder().append(employeeVisa.getEmployeeVisaId()).append(" ").append(employeeVisa.getValidFrom()).append(" ").append(employeeVisa.getValidTo()).toString();
+                return new StringBuilder().append(employeeVisa.getVisaId()).append(" ").append(employeeVisa.getValidFrom()).append(" ").append(employeeVisa.getValidTo()).toString();
             }
         };
     }

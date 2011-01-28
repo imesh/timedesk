@@ -8,14 +8,6 @@ import org.timedesk.entity.Employee;
 
 privileged aspect EmployeeLeave_Roo_JavaBean {
     
-    public int EmployeeLeave.getLeaveSeqNo() {
-        return this.leaveSeqNo;
-    }
-    
-    public void EmployeeLeave.setLeaveSeqNo(int leaveSeqNo) {
-        this.leaveSeqNo = leaveSeqNo;
-    }
-    
     public Employee EmployeeLeave.getEmployee() {
         return this.employee;
     }

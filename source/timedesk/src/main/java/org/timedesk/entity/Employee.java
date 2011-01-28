@@ -18,17 +18,19 @@ import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.tostring.RooToString;
 import org.springframework.roo.addon.entity.RooEntity;
 import java.util.Set;
-import org.timedesk.entity.EmployeeSkill;
+import org.timedesk.entity.Skill;
 import java.util.HashSet;
 
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToMany;
 import javax.persistence.CascadeType;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import org.timedesk.entity.EmployeeRole;
+import org.timedesk.entity.Role;
 
 @RooJavaBean
 @RooToString
@@ -36,6 +38,11 @@ import org.timedesk.entity.EmployeeRole;
 @Table(name = "employee")
 public class Employee 
 {
+	@NotNull
+	@ManyToOne
+    @JoinColumn(name = "site_id", referencedColumnName = "site_id")
+	private Site site;
+	
 	@NotNull
 	@Column(name = "employee_id")
     private String employeeId;
@@ -71,17 +78,17 @@ public class Employee
     private String officeExtension;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private Set<EmployeeSkill> employeeSkills = new HashSet<EmployeeSkill>();
+    private Set<Skill> employeeSkills = new HashSet<Skill>();
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private Set<EmployeeRole> employeeRoles = new HashSet<EmployeeRole>();
+    private Set<Role> employeeRoles = new HashSet<Role>();
     
     @ManyToMany(cascade = CascadeType.ALL)
-    private Set<EmployeeRole> preEmployeeRoles = new HashSet<EmployeeRole>();
+    private Set<Role> preEmployeeRoles = new HashSet<Role>();
     
-    @OneToMany(cascade = CascadeType.ALL)
-    private Set<EmployeeVisa> employeeVisas = new HashSet<EmployeeVisa>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
+    private Set<EmployeeVisa> visas = new HashSet<EmployeeVisa>();
     
-    @OneToMany(cascade = CascadeType.ALL)
-    private Set<EmployeeLeave> employeeLeaves = new HashSet<EmployeeLeave>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
+    private Set<EmployeeLeave> leaves = new HashSet<EmployeeLeave>();
 }

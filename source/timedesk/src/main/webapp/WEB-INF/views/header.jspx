@@ -22,7 +22,7 @@
 	  	   </c:if>
 		   <ul>
 				<li><a href="/timedesk/" id="current">Home</a></li>
-				<li><a href="/timedesk/companys" >Company</a></li>	  
+				<li><a href="/timedesk/companies" >Company</a></li>	  
 				<li><a href="/timedesk/projects">Projects</a></li>
 				<li><a href="/timedesk/help">Help</a></li>
 				<li><a href="/timedesk/about">About</a></li>

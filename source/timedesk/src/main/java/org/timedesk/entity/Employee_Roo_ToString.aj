@@ -11,6 +11,7 @@ privileged aspect Employee_Roo_ToString {
         StringBuilder sb = new StringBuilder();
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Version: ").append(getVersion()).append(", ");
+        sb.append("Site: ").append(getSite()).append(", ");
         sb.append("EmployeeId: ").append(getEmployeeId()).append(", ");
         sb.append("FirstName: ").append(getFirstName()).append(", ");
         sb.append("LastName: ").append(getLastName()).append(", ");
@@ -25,8 +26,8 @@ privileged aspect Employee_Roo_ToString {
         sb.append("EmployeeSkills: ").append(getEmployeeSkills() == null ? "null" : getEmployeeSkills().size()).append(", ");
         sb.append("EmployeeRoles: ").append(getEmployeeRoles() == null ? "null" : getEmployeeRoles().size()).append(", ");
         sb.append("PreEmployeeRoles: ").append(getPreEmployeeRoles() == null ? "null" : getPreEmployeeRoles().size()).append(", ");
-        sb.append("EmployeeVisas: ").append(getEmployeeVisas() == null ? "null" : getEmployeeVisas().size()).append(", ");
-        sb.append("EmployeeLeaves: ").append(getEmployeeLeaves() == null ? "null" : getEmployeeLeaves().size());
+        sb.append("Visas: ").append(getVisas() == null ? "null" : getVisas().size()).append(", ");
+        sb.append("Leaves: ").append(getLeaves() == null ? "null" : getLeaves().size());
         return sb.toString();
     }
     
