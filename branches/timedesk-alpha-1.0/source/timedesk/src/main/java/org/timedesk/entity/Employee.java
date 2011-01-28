@@ -22,6 +22,7 @@ import org.timedesk.entity.Skill;
 import java.util.HashSet;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;

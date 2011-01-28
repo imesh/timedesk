@@ -29,6 +29,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.tostring.RooToString;
@@ -52,10 +53,12 @@ public class ProjectPhase
     private String description;
 	
 	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(style = "S-")
 	@Column(name = "start_date")
     private Date startDate;
 	
 	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(style = "S-")
 	@Column(name = "end_date")
     private Date endDate;
 

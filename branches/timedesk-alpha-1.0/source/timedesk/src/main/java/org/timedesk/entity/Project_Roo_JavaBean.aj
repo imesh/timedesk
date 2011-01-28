@@ -6,10 +6,19 @@ package org.timedesk.entity;
 import java.lang.String;
 import java.util.Date;
 import java.util.Set;
+import org.timedesk.entity.Company;
 import org.timedesk.entity.ProjectMember;
 import org.timedesk.entity.ProjectPhase;
 
 privileged aspect Project_Roo_JavaBean {
+    
+    public Company Project.getCompany() {
+        return this.company;
+    }
+    
+    public void Project.setCompany(Company company) {
+        this.company = company;
+    }
     
     public String Project.getProjectId() {
         return this.projectId;

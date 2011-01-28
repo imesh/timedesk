@@ -12,7 +12,9 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.support.GenericConversionService;
 import org.springframework.ui.Model;
@@ -37,6 +39,7 @@ privileged aspect ProjectPhaseController_Roo_Controller {
     public String ProjectPhaseController.create(@Valid ProjectPhase projectPhase, BindingResult result, Model model, HttpServletRequest request) {
         if (result.hasErrors()) {
             model.addAttribute("projectPhase", projectPhase);
+            addDateTimeFormatPatterns(model);
             return "projectphases/create";
         }
         projectPhase.persist();
@@ -46,6 +49,7 @@ privileged aspect ProjectPhaseController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String ProjectPhaseController.createForm(Model model) {
         model.addAttribute("projectPhase", new ProjectPhase());
+        addDateTimeFormatPatterns(model);
         List dependencies = new ArrayList();
         if (Project.countProjects() == 0) {
             dependencies.add(new String[]{"project", "projects"});
@@ -56,6 +60,7 @@ privileged aspect ProjectPhaseController_Roo_Controller {
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String ProjectPhaseController.show(@PathVariable("id") Long id, Model model) {
+        addDateTimeFormatPatterns(model);
         model.addAttribute("projectphase", ProjectPhase.findProjectPhase(id));
         model.addAttribute("itemId", id);
         return "projectphases/show";
@@ -71,6 +76,7 @@ privileged aspect ProjectPhaseController_Roo_Controller {
         } else {
             model.addAttribute("projectphases", ProjectPhase.findAllProjectPhases());
         }
+        addDateTimeFormatPatterns(model);
         return "projectphases/list";
     }
     
@@ -78,6 +84,7 @@ privileged aspect ProjectPhaseController_Roo_Controller {
     public String ProjectPhaseController.update(@Valid ProjectPhase projectPhase, BindingResult result, Model model, HttpServletRequest request) {
         if (result.hasErrors()) {
             model.addAttribute("projectPhase", projectPhase);
+            addDateTimeFormatPatterns(model);
             return "projectphases/update";
         }
         projectPhase.merge();
@@ -87,6 +94,7 @@ privileged aspect ProjectPhaseController_Roo_Controller {
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
     public String ProjectPhaseController.updateForm(@PathVariable("id") Long id, Model model) {
         model.addAttribute("projectPhase", ProjectPhase.findProjectPhase(id));
+        addDateTimeFormatPatterns(model);
         return "projectphases/update";
     }
     
@@ -137,6 +145,11 @@ privileged aspect ProjectPhaseController_Roo_Controller {
         conversionService.addConverter(getProjectConverter());
         conversionService.addConverter(getProjectPhaseConverter());
         conversionService.addConverter(getProjectPhaseMemberConverter());
+    }
+    
+    void ProjectPhaseController.addDateTimeFormatPatterns(Model model) {
+        model.addAttribute("projectPhase_startdate_date_format", DateTimeFormat.patternForStyle("S-", LocaleContextHolder.getLocale()));
+        model.addAttribute("projectPhase_enddate_date_format", DateTimeFormat.patternForStyle("S-", LocaleContextHolder.getLocale()));
     }
     
     private String ProjectPhaseController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {

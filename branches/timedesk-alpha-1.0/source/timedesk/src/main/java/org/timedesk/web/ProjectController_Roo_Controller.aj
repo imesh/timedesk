@@ -6,7 +6,9 @@ package org.timedesk.web;
 import java.io.UnsupportedEncodingException;
 import java.lang.Long;
 import java.lang.String;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -24,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
+import org.timedesk.entity.Company;
 import org.timedesk.entity.Project;
 import org.timedesk.entity.ProjectMember;
 import org.timedesk.entity.ProjectPhase;
@@ -48,6 +51,11 @@ privileged aspect ProjectController_Roo_Controller {
     public String ProjectController.createForm(Model model) {
         model.addAttribute("project", new Project());
         addDateTimeFormatPatterns(model);
+        List dependencies = new ArrayList();
+        if (Company.countCompanys() == 0) {
+            dependencies.add(new String[]{"company", "companys"});
+        }
+        model.addAttribute("dependencies", dependencies);
         return "projects/create";
     }
     
@@ -99,6 +107,11 @@ privileged aspect ProjectController_Roo_Controller {
         return "redirect:/projects?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
+    @ModelAttribute("companys")
+    public Collection<Company> ProjectController.populateCompanys() {
+        return Company.findAllCompanys();
+    }
+    
     @ModelAttribute("projectmembers")
     public Collection<ProjectMember> ProjectController.populateProjectMembers() {
         return ProjectMember.findAllProjectMembers();
@@ -107,6 +120,14 @@ privileged aspect ProjectController_Roo_Controller {
     @ModelAttribute("projectphases")
     public Collection<ProjectPhase> ProjectController.populateProjectPhases() {
         return ProjectPhase.findAllProjectPhases();
+    }
+    
+    Converter<Company, String> ProjectController.getCompanyConverter() {
+        return new Converter<Company, String>() {
+            public String convert(Company company) {
+                return new StringBuilder().append(company.getCompanyId()).append(" ").append(company.getName()).toString();
+            }
+        };
     }
     
     Converter<Project, String> ProjectController.getProjectConverter() {
@@ -135,6 +156,7 @@ privileged aspect ProjectController_Roo_Controller {
     
     @PostConstruct
     void ProjectController.registerConverters() {
+        conversionService.addConverter(getCompanyConverter());
         conversionService.addConverter(getProjectConverter());
         conversionService.addConverter(getProjectMemberConverter());
         conversionService.addConverter(getProjectPhaseConverter());

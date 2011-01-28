@@ -91,6 +91,13 @@
         <menu:item id="i_skill_list" messageCode="global_menu_list" url="/skills?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
    </menu:category>
       
-   <menu:category id="c_securityrole" z="user-managed" render="false"/>
-   </menu:menu>
+   <menu:category id="c_securityrole" render="false" z="user-managed"/>
+   <menu:category id="c_projectphase" render="false" z="user-managed"/>
+   <menu:category id="c_projectmember" render="false" z="user-managed"/>
+   <menu:category id="c_applicationfeature" render="false" z="user-managed"/>
+   <menu:category id="c_projectmemberfeedback" render="false" z="user-managed"/>
+   <menu:category id="c_employeevisa" render="false" z="user-managed"/>
+   <menu:category id="c_projectphasemember" render="false" z="user-managed"/>
+   <menu:category id="c_site" render="false" z="user-managed"/>
+  </menu:menu>
 </div>

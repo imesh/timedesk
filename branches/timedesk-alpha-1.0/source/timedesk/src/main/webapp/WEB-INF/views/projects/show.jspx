@@ -7,24 +7,21 @@
         <field:display field="description" id="s_org_timedesk_entity_Project_description" object="${project}" z="PiZA/nf+ZDza42v3uUbrRU2dRvY="/>
         <field:display date="true" dateTimePattern="${project_startdate_date_format}" field="startDate" id="s_org_timedesk_entity_Project_startDate" object="${project}" z="Bepl4r2HUDnglgXv8nNGzlJ2rQ8="/>
         <field:display date="true" dateTimePattern="${project_enddate_date_format}" field="endDate" id="s_org_timedesk_entity_Project_endDate" object="${project}" z="8DYLvPcH8Z0LdQnhthEfDshLI2M="/>        
-        <field:display field="projectMembers" id="s_org_timedesk_entity_Project_projectMembers" object="${project}" z="user-managed" render="false"/>
-        <field:display field="projectPhases" id="s_org_timedesk_entity_Project_projectPhases" object="${project}" z="user-managed" render="false"/>
+        <field:display field="projectMembers" id="s_org_timedesk_entity_Project_projectMembers" object="${project}" render="false" z="user-managed"/>
+        <field:display field="projectPhases" id="s_org_timedesk_entity_Project_projectPhases" object="${project}" render="false" z="user-managed"/>
+        <field:display field="company" id="s_org_timedesk_entity_Project_company" object="${project}" render="false" z="user-managed"/>
         
         <p class="data-grid-label">Project Members:</p>
         <table class="data-grid">
 		  <tr>
 		   <th>Member ID</th>
-		   <th>Allocation</th>
-		   <th>Start Date</th>
-		   <th>End Date</th>
+		   <th>Name</th>
 		   <th/>
 		  </tr>
-		  <c:forEach items="${members}" var="member" varStatus="row">
+		  <c:forEach items="${project.projectMembers}" var="member" varStatus="row">
 		    <tr>
 		      <td>${member.memberId}</td>
-		      <td>${member.allocation}%</td>
-		      <td>${member.startDate}</td>
-		      <td>${member.endDate}</td>
+		      <td>${member.employee.firstName} ${member.employee.lastName}</td>
 		      <td>
                         <a alt="Show ProjectMember" href="/timedesk/projectmembers/${member.id}" title="Show ProjectMember">
                             <img alt="Show ProjectMember" class="image" src="/timedesk/resources/images/show.png" title="Show ProjectMember"/>
@@ -43,7 +40,7 @@
 		   <th>End Date</th>
 		   <th/>
 		  </tr>
-		  <c:forEach items="${phases}" var="phase" varStatus="row">
+		  <c:forEach items="${project.projectPhases}" var="phase" varStatus="row">
 		    <tr>
 		      <td>${phase.phaseId}</td>
 		      <td>${phase.description}</td>
@@ -56,6 +53,6 @@
                     </td>
 		    </tr>
 		  </c:forEach>
-		</table>
+		</table>    
     </page:show>
 </div>
