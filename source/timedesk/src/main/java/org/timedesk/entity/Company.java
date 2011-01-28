@@ -43,4 +43,7 @@ public class Company
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "company")    
     private Set<Site> companySites = new HashSet<Site>();
+    
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company")    
+    private Set<Project> projects = new HashSet<Project>();
 }

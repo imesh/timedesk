@@ -33,6 +33,7 @@ public class ProjectMember
     private String memberId;
     
     @OneToOne
+    @JoinColumn(name = "employee_id", referencedColumnName = "employee_id")
     private Employee employee;
 
     @ManyToMany(cascade = CascadeType.ALL)

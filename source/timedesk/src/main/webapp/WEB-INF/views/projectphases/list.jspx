@@ -4,14 +4,12 @@
     <page:list id="pl_org_timedesk_entity_ProjectPhase" items="${projectphases}" z="LU+V0uXQpTf3YZwUAjBn+L4ED2c=">
         <table:table data="${projectphases}" id="l_org_timedesk_entity_ProjectPhase" path="/projectphases" z="ds/aPEHMeCxgqwo9ZJRr+Hb2N5Q=">
             <table:column id="c_org_timedesk_entity_ProjectPhase_phaseId" property="phaseId" z="OmKNjJU3Jh2uCwJP+ROE5Q9x7Xw="/>
-            <table:column id="c_org_timedesk_entity_ProjectPhase_description" property="description" z="VV6NLK6GyIzgWNASIUJLE5z1kL4="/>
+            <table:column id="c_org_timedesk_entity_ProjectPhase_description" property="description" maxLength="200" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_ProjectPhase_startDate" property="startDate" z="F3LA8gQT0jvAtFRJchxgtekO0JE="/>
             <table:column id="c_org_timedesk_entity_ProjectPhase_endDate" property="endDate" z="szxiu3urGIlkPtEFRRaJmbVg5GY="/>
-            
-        
-        
-        <table:column id="c_org_timedesk_entity_ProjectPhase_project" property="project" z="UGFBUAlg5XDlPjbjr7AMRtMaZQg="/>
-        <table:column id="c_org_timedesk_entity_ProjectPhase_projectPhaseMembers" property="projectPhaseMembers" z="fO1AIlGn8HPP7au7mifUfZCV7b4="/>
+                   
+        	<table:column id="c_org_timedesk_entity_ProjectPhase_project" property="project" render="false" z="user-managed"/>
+        	<table:column id="c_org_timedesk_entity_ProjectPhase_projectPhaseMembers" property="projectPhaseMembers" render="false" z="user-managed"/>
         </table:table>
     </page:list>
 </div>

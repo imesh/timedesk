@@ -5,6 +5,8 @@ import org.springframework.roo.addon.tostring.RooToString;
 import org.springframework.roo.addon.entity.RooEntity;
 import java.util.Date;
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,6 +25,11 @@ import org.timedesk.entity.ProjectPhase;
 @Table(name = "project")
 public class Project 
 {
+	@NotNull
+	@ManyToOne
+	@JoinColumn(name = "company_id", referencedColumnName = "company_id")
+	private Company company;
+	
     @NotNull
     @Column(name = "project_id")
     private String projectId;

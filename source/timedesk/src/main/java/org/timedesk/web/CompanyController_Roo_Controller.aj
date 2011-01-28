@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 import org.timedesk.entity.Company;
+import org.timedesk.entity.Project;
 import org.timedesk.entity.Site;
 
 privileged aspect CompanyController_Roo_Controller {
@@ -90,6 +91,11 @@ privileged aspect CompanyController_Roo_Controller {
         return "redirect:/companies?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
+    @ModelAttribute("projects")
+    public Collection<Project> CompanyController.populateProjects() {
+        return Project.findAllProjects();
+    }
+    
     @ModelAttribute("sites")
     public Collection<Site> CompanyController.populateSites() {
         return Site.findAllSites();
@@ -99,6 +105,14 @@ privileged aspect CompanyController_Roo_Controller {
         return new Converter<Company, String>() {
             public String convert(Company company) {
                 return new StringBuilder().append(company.getCompanyId()).append(" ").append(company.getName()).toString();
+            }
+        };
+    }
+    
+    Converter<Project, String> CompanyController.getProjectConverter() {
+        return new Converter<Project, String>() {
+            public String convert(Project project) {
+                return new StringBuilder().append(project.getProjectId()).append(" ").append(project.getName()).append(" ").append(project.getDescription()).toString();
             }
         };
     }
@@ -114,6 +128,7 @@ privileged aspect CompanyController_Roo_Controller {
     @PostConstruct
     void CompanyController.registerConverters() {
         conversionService.addConverter(getCompanyConverter());
+        conversionService.addConverter(getProjectConverter());
         conversionService.addConverter(getSiteConverter());
     }
     

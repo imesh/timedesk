@@ -7,6 +7,6 @@
         <field:input field="location" id="c_org_timedesk_entity_Site_location" z="eXAnpU+uzjgRqPGN9bUjVlga3Ks="/>
         <field:input field="city" id="c_org_timedesk_entity_Site_city" z="IxekJboZ+YW71Dnmsbeln5sG3Hg="/>
         <field:input field="country" id="c_org_timedesk_entity_Site_country" z="KT4buULMEAR9bqZVmAaFIYlvI0I="/>
-        <field:simple field="employees" id="c_org_timedesk_entity_Site_employees" messageCode="entity_reference_not_managed" messageCodeAttribute="Employee" z="sCFuGeeHAzcmE4IZq+uOLgVBbLE="/> 
+        <field:simple field="employees" id="c_org_timedesk_entity_Site_employees" messageCode="entity_reference_not_managed" messageCodeAttribute="Employee" render="false" z="user-managed"/> 
     </form:update>
 </div>
