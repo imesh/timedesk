@@ -20,7 +20,10 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -37,6 +40,11 @@ import org.springframework.roo.addon.tostring.RooToString;
 public class ProjectPhase 
 {
 	@NotNull
+	@ManyToOne
+	@JoinColumn(name = "project_id", referencedColumnName = "project_id")
+	private Project project;
+	
+	@NotNull
 	@Column(name = "phase_id")
     private String phaseId;
 
@@ -51,6 +59,6 @@ public class ProjectPhase
 	@Column(name = "end_date")
     private Date endDate;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    private Set<ProjectPhaseMember> phaseMembers = new HashSet<ProjectPhaseMember>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "projectPhase")
+    private Set<ProjectPhaseMember> projectPhaseMembers = new HashSet<ProjectPhaseMember>();
 }

@@ -6,11 +6,20 @@ package org.timedesk.entity;
 import java.lang.String;
 import java.util.Set;
 import org.timedesk.entity.EmployeeLeave;
-import org.timedesk.entity.EmployeeRole;
-import org.timedesk.entity.EmployeeSkill;
 import org.timedesk.entity.EmployeeVisa;
+import org.timedesk.entity.Role;
+import org.timedesk.entity.Site;
+import org.timedesk.entity.Skill;
 
 privileged aspect Employee_Roo_JavaBean {
+    
+    public Site Employee.getSite() {
+        return this.site;
+    }
+    
+    public void Employee.setSite(Site site) {
+        this.site = site;
+    }
     
     public String Employee.getEmployeeId() {
         return this.employeeId;
@@ -100,44 +109,44 @@ privileged aspect Employee_Roo_JavaBean {
         this.officeExtension = officeExtension;
     }
     
-    public Set<EmployeeSkill> Employee.getEmployeeSkills() {
+    public Set<Skill> Employee.getEmployeeSkills() {
         return this.employeeSkills;
     }
     
-    public void Employee.setEmployeeSkills(Set<EmployeeSkill> employeeSkills) {
+    public void Employee.setEmployeeSkills(Set<Skill> employeeSkills) {
         this.employeeSkills = employeeSkills;
     }
     
-    public Set<EmployeeRole> Employee.getEmployeeRoles() {
+    public Set<Role> Employee.getEmployeeRoles() {
         return this.employeeRoles;
     }
     
-    public void Employee.setEmployeeRoles(Set<EmployeeRole> employeeRoles) {
+    public void Employee.setEmployeeRoles(Set<Role> employeeRoles) {
         this.employeeRoles = employeeRoles;
     }
     
-    public Set<EmployeeRole> Employee.getPreEmployeeRoles() {
+    public Set<Role> Employee.getPreEmployeeRoles() {
         return this.preEmployeeRoles;
     }
     
-    public void Employee.setPreEmployeeRoles(Set<EmployeeRole> preEmployeeRoles) {
+    public void Employee.setPreEmployeeRoles(Set<Role> preEmployeeRoles) {
         this.preEmployeeRoles = preEmployeeRoles;
     }
     
-    public Set<EmployeeVisa> Employee.getEmployeeVisas() {
-        return this.employeeVisas;
+    public Set<EmployeeVisa> Employee.getVisas() {
+        return this.visas;
     }
     
-    public void Employee.setEmployeeVisas(Set<EmployeeVisa> employeeVisas) {
-        this.employeeVisas = employeeVisas;
+    public void Employee.setVisas(Set<EmployeeVisa> visas) {
+        this.visas = visas;
     }
     
-    public Set<EmployeeLeave> Employee.getEmployeeLeaves() {
-        return this.employeeLeaves;
+    public Set<EmployeeLeave> Employee.getLeaves() {
+        return this.leaves;
     }
     
-    public void Employee.setEmployeeLeaves(Set<EmployeeLeave> employeeLeaves) {
-        this.employeeLeaves = employeeLeaves;
+    public void Employee.setLeaves(Set<EmployeeLeave> leaves) {
+        this.leaves = leaves;
     }
     
 }

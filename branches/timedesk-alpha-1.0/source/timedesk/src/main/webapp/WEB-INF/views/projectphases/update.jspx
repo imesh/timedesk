@@ -8,6 +8,8 @@
         <field:datetime dateTimePattern="${projectPhase_enddate_date_format}" field="endDate" id="c_org_timedesk_entity_ProjectPhase_endDate" z="+tx8yqyoT4ZK+OF55tFNnrsmUz8="/>
         
     
-    <field:select field="phaseMembers" id="c_org_timedesk_entity_ProjectPhase_phaseMembers" itemValue="id" items="${projectphasemembers}" multiple="true" path="/projectphasemembers" z="aSZWFErYwlOKt/S6zkDnBJD9apw="/>
+    
+    <field:select field="project" id="c_org_timedesk_entity_ProjectPhase_project" itemValue="id" items="${projects}" path="/projects" required="true" z="pD4sSeHWCPSLGlw11QAGdGwZMJw="/>
+    <field:simple field="projectPhaseMembers" id="c_org_timedesk_entity_ProjectPhase_projectPhaseMembers" messageCode="entity_reference_not_managed" messageCodeAttribute="Project Phase Member" z="NlPDPTepFAkD3LBem39iR14Uqa8="/>
     </form:update>
 </div>

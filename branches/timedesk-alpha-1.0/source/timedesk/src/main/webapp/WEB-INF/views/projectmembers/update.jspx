@@ -7,9 +7,11 @@
         
         
         
-        <field:select field="memberRoles" id="c_org_timedesk_entity_ProjectMember_memberRoles" itemValue="id" items="${projectmemberroles}" multiple="true" path="/projectmemberroles" z="DvwH17cHGTkTKCovPDtmVcvyHuc="/>
+        
     	<field:select field="employee" id="c_org_timedesk_entity_ProjectMember_employee" itemValue="id" items="${employees}" path="/employees" z="CDudXbFAOtENzUQadQ8wDz3A0M4="/>    	
-    	<field:select field="feedbacks" id="c_org_timedesk_entity_ProjectMember_feedbacks" itemValue="id" items="${feedbacks}" multiple="true" path="/feedbacks" z="vT64yvCZyA0x9hSA7KmtGO37GmM="/>
+    	<field:simple field="feedbacks" id="c_org_timedesk_entity_ProjectMember_feedbacks" messageCode="entity_reference_not_managed" messageCodeAttribute="Project Member Feedback" z="b21cCRIWKz6DRbqUXRLpUJDyupA="/>
     
+    <field:select field="project" id="c_org_timedesk_entity_ProjectMember_project" itemValue="id" items="${projects}" path="/projects" required="true" z="/0RV0P6ZfanlaR41ge5zeFDiC88="/>
+    <field:select field="roles" id="c_org_timedesk_entity_ProjectMember_roles" itemValue="id" items="${roles}" multiple="true" path="/roles" z="exGWZ7nvULlf9gL2HM6cUEqkOtc="/>
     </form:update>
 </div>

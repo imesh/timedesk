@@ -11,8 +11,8 @@ privileged aspect EmployeeVisa_Roo_ToString {
         StringBuilder sb = new StringBuilder();
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Version: ").append(getVersion()).append(", ");
-        sb.append("EmployeeVisaId: ").append(getEmployeeVisaId()).append(", ");
         sb.append("Employee: ").append(getEmployee()).append(", ");
+        sb.append("VisaId: ").append(getVisaId()).append(", ");
         sb.append("ValidFrom: ").append(getValidFrom()).append(", ");
         sb.append("ValidTo: ").append(getValidTo()).append(", ");
         sb.append("Country: ").append(getCountry());

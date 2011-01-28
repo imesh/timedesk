@@ -6,7 +6,9 @@ package org.timedesk.web;
 import java.io.UnsupportedEncodingException;
 import java.lang.Long;
 import java.lang.String;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -24,9 +26,10 @@ import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 import org.timedesk.entity.Employee;
 import org.timedesk.entity.EmployeeLeave;
-import org.timedesk.entity.EmployeeRole;
-import org.timedesk.entity.EmployeeSkill;
 import org.timedesk.entity.EmployeeVisa;
+import org.timedesk.entity.Role;
+import org.timedesk.entity.Site;
+import org.timedesk.entity.Skill;
 
 privileged aspect EmployeeController_Roo_Controller {
     
@@ -46,6 +49,11 @@ privileged aspect EmployeeController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String EmployeeController.createForm(Model model) {
         model.addAttribute("employee", new Employee());
+        List dependencies = new ArrayList();
+        if (Site.countSites() == 0) {
+            dependencies.add(new String[]{"site", "sites"});
+        }
+        model.addAttribute("dependencies", dependencies);
         return "employees/create";
     }
     
@@ -98,19 +106,24 @@ privileged aspect EmployeeController_Roo_Controller {
         return EmployeeLeave.findAllEmployeeLeaves();
     }
     
-    @ModelAttribute("employeeroles")
-    public Collection<EmployeeRole> EmployeeController.populateEmployeeRoles() {
-        return EmployeeRole.findAllEmployeeRoles();
-    }
-    
-    @ModelAttribute("employeeskills")
-    public Collection<EmployeeSkill> EmployeeController.populateEmployeeSkills() {
-        return EmployeeSkill.findAllEmployeeSkills();
-    }
-    
     @ModelAttribute("employeevisas")
     public Collection<EmployeeVisa> EmployeeController.populateEmployeeVisas() {
         return EmployeeVisa.findAllEmployeeVisas();
+    }
+    
+    @ModelAttribute("roles")
+    public Collection<Role> EmployeeController.populateRoles() {
+        return Role.findAllRoles();
+    }
+    
+    @ModelAttribute("sites")
+    public Collection<Site> EmployeeController.populateSites() {
+        return Site.findAllSites();
+    }
+    
+    @ModelAttribute("skills")
+    public Collection<Skill> EmployeeController.populateSkills() {
+        return Skill.findAllSkills();
     }
     
     Converter<Employee, String> EmployeeController.getEmployeeConverter() {
@@ -124,23 +137,7 @@ privileged aspect EmployeeController_Roo_Controller {
     Converter<EmployeeLeave, String> EmployeeController.getEmployeeLeaveConverter() {
         return new Converter<EmployeeLeave, String>() {
             public String convert(EmployeeLeave employeeLeave) {
-                return new StringBuilder().append(employeeLeave.getLeaveSeqNo()).append(" ").append(employeeLeave.getFromTime()).append(" ").append(employeeLeave.getToTime()).toString();
-            }
-        };
-    }
-    
-    Converter<EmployeeRole, String> EmployeeController.getEmployeeRoleConverter() {
-        return new Converter<EmployeeRole, String>() {
-            public String convert(EmployeeRole employeeRole) {
-                return new StringBuilder().append(employeeRole.getEmployeeRoleId()).append(" ").append(employeeRole.getName()).toString();
-            }
-        };
-    }
-    
-    Converter<EmployeeSkill, String> EmployeeController.getEmployeeSkillConverter() {
-        return new Converter<EmployeeSkill, String>() {
-            public String convert(EmployeeSkill employeeSkill) {
-                return new StringBuilder().append(employeeSkill.getEmployeeSkillId()).append(" ").append(employeeSkill.getDescription()).toString();
+                return new StringBuilder().append(employeeLeave.getFromTime()).append(" ").append(employeeLeave.getToTime()).toString();
             }
         };
     }
@@ -148,7 +145,31 @@ privileged aspect EmployeeController_Roo_Controller {
     Converter<EmployeeVisa, String> EmployeeController.getEmployeeVisaConverter() {
         return new Converter<EmployeeVisa, String>() {
             public String convert(EmployeeVisa employeeVisa) {
-                return new StringBuilder().append(employeeVisa.getEmployeeVisaId()).append(" ").append(employeeVisa.getValidFrom()).append(" ").append(employeeVisa.getValidTo()).toString();
+                return new StringBuilder().append(employeeVisa.getVisaId()).append(" ").append(employeeVisa.getValidFrom()).append(" ").append(employeeVisa.getValidTo()).toString();
+            }
+        };
+    }
+    
+    Converter<Role, String> EmployeeController.getRoleConverter() {
+        return new Converter<Role, String>() {
+            public String convert(Role role) {
+                return new StringBuilder().append(role.getRoleId()).append(" ").append(role.getName()).toString();
+            }
+        };
+    }
+    
+    Converter<Site, String> EmployeeController.getSiteConverter() {
+        return new Converter<Site, String>() {
+            public String convert(Site site) {
+                return new StringBuilder().append(site.getSiteId()).append(" ").append(site.getLocation()).append(" ").append(site.getCity()).toString();
+            }
+        };
+    }
+    
+    Converter<Skill, String> EmployeeController.getSkillConverter() {
+        return new Converter<Skill, String>() {
+            public String convert(Skill skill) {
+                return new StringBuilder().append(skill.getSkillId()).append(" ").append(skill.getDescription()).toString();
             }
         };
     }
@@ -157,9 +178,10 @@ privileged aspect EmployeeController_Roo_Controller {
     void EmployeeController.registerConverters() {
         conversionService.addConverter(getEmployeeConverter());
         conversionService.addConverter(getEmployeeLeaveConverter());
-        conversionService.addConverter(getEmployeeRoleConverter());
-        conversionService.addConverter(getEmployeeSkillConverter());
         conversionService.addConverter(getEmployeeVisaConverter());
+        conversionService.addConverter(getRoleConverter());
+        conversionService.addConverter(getSiteConverter());
+        conversionService.addConverter(getSkillConverter());
     }
     
     private String EmployeeController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {

@@ -28,6 +28,6 @@ public class SecurityRole
     private String name;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
-    private Set<ApplicationFeature> tasks = new HashSet<ApplicationFeature>();
+    private Set<ApplicationFeature> applicationFeatures = new HashSet<ApplicationFeature>();
 
 }

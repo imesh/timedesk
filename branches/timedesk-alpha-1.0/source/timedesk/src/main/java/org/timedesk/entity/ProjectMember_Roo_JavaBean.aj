@@ -6,10 +6,19 @@ package org.timedesk.entity;
 import java.lang.String;
 import java.util.Set;
 import org.timedesk.entity.Employee;
-import org.timedesk.entity.Feedback;
-import org.timedesk.entity.ProjectMemberRole;
+import org.timedesk.entity.Project;
+import org.timedesk.entity.ProjectMemberFeedback;
+import org.timedesk.entity.Role;
 
 privileged aspect ProjectMember_Roo_JavaBean {
+    
+    public Project ProjectMember.getProject() {
+        return this.project;
+    }
+    
+    public void ProjectMember.setProject(Project project) {
+        this.project = project;
+    }
     
     public String ProjectMember.getMemberId() {
         return this.memberId;
@@ -27,19 +36,19 @@ privileged aspect ProjectMember_Roo_JavaBean {
         this.employee = employee;
     }
     
-    public Set<ProjectMemberRole> ProjectMember.getMemberRoles() {
-        return this.memberRoles;
+    public Set<Role> ProjectMember.getRoles() {
+        return this.roles;
     }
     
-    public void ProjectMember.setMemberRoles(Set<ProjectMemberRole> memberRoles) {
-        this.memberRoles = memberRoles;
+    public void ProjectMember.setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
     
-    public Set<Feedback> ProjectMember.getFeedbacks() {
+    public Set<ProjectMemberFeedback> ProjectMember.getFeedbacks() {
         return this.feedbacks;
     }
     
-    public void ProjectMember.setFeedbacks(Set<Feedback> feedbacks) {
+    public void ProjectMember.setFeedbacks(Set<ProjectMemberFeedback> feedbacks) {
         this.feedbacks = feedbacks;
     }
     

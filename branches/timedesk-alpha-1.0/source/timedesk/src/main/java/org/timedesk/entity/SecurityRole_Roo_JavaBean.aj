@@ -25,12 +25,12 @@ privileged aspect SecurityRole_Roo_JavaBean {
         this.name = name;
     }
     
-    public Set<ApplicationFeature> SecurityRole.getTasks() {
-        return this.tasks;
+    public Set<ApplicationFeature> SecurityRole.getApplicationFeatures() {
+        return this.applicationFeatures;
     }
     
-    public void SecurityRole.setTasks(Set<ApplicationFeature> tasks) {
-        this.tasks = tasks;
+    public void SecurityRole.setApplicationFeatures(Set<ApplicationFeature> applicationFeatures) {
+        this.applicationFeatures = applicationFeatures;
     }
     
 }

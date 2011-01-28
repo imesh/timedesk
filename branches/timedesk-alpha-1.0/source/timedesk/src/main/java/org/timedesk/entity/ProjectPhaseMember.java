@@ -3,6 +3,8 @@ package org.timedesk.entity;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -19,6 +21,11 @@ import org.springframework.roo.addon.entity.RooEntity;
 @Table(name = "project_phase_member")
 public class ProjectPhaseMember 
 {
+	@NotNull
+	@ManyToOne
+	@JoinColumn(name = "phase_id", referencedColumnName = "phase_id")
+	private ProjectPhase projectPhase;
+	
 	@NotNull
 	@Column(name = "phase_member_id")
 	private String phaseMemberId;
@@ -37,5 +44,5 @@ public class ProjectPhaseMember
 	
 	@NotNull
 	@Column(name = "allocation")
-    private int allocation;
+    private Integer allocation;
 }

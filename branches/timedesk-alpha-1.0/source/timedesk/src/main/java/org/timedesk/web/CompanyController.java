@@ -19,8 +19,8 @@ import org.timedesk.entity.Company;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.stereotype.Controller;
 
-@RooWebScaffold(path = "companys", formBackingObject = Company.class)
-@RequestMapping("/companys")
+@RooWebScaffold(path = "companies", formBackingObject = Company.class)
+@RequestMapping("/companies")
 @Controller
 public class CompanyController {
 }

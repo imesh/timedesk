@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
-    <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_org_timedesk_entity_Feedback" object="${feedback}" path="/feedbacks" z="5dC4R5Kp3hLxIQCUk6S0YI5M0nY=">
-    	<field:display field="feedbackId" id="s_org_timedesk_entity_Feedback_feedbackId" object="${feedback}" z="/tjZHZ0/NQZV0DRZQihBNo5eWeY="/>    
-        <field:display field="description" id="s_org_timedesk_entity_Feedback_description" object="${feedback}" z="Tf+hCXm/Sco/XYSSpGC2fV7GDwQ="/>    
-    </page:show>
-</div>

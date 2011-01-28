@@ -51,20 +51,20 @@ privileged aspect Project_Roo_JavaBean {
         this.endDate = endDate;
     }
     
-    public Set<ProjectMember> Project.getMembers() {
-        return this.members;
+    public Set<ProjectMember> Project.getProjectMembers() {
+        return this.projectMembers;
     }
     
-    public void Project.setMembers(Set<ProjectMember> members) {
-        this.members = members;
+    public void Project.setProjectMembers(Set<ProjectMember> projectMembers) {
+        this.projectMembers = projectMembers;
     }
     
-    public Set<ProjectPhase> Project.getComponents() {
-        return this.components;
+    public Set<ProjectPhase> Project.getProjectPhases() {
+        return this.projectPhases;
     }
     
-    public void Project.setComponents(Set<ProjectPhase> components) {
-        this.components = components;
+    public void Project.setProjectPhases(Set<ProjectPhase> projectPhases) {
+        this.projectPhases = projectPhases;
     }
     
 }

@@ -5,9 +5,18 @@ package org.timedesk.entity;
 
 import java.lang.String;
 import java.util.Set;
+import org.timedesk.entity.Company;
 import org.timedesk.entity.Employee;
 
 privileged aspect Site_Roo_JavaBean {
+    
+    public Company Site.getCompany() {
+        return this.company;
+    }
+    
+    public void Site.setCompany(Company company) {
+        this.company = company;
+    }
     
     public String Site.getSiteId() {
         return this.siteId;

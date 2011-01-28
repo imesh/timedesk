@@ -9,7 +9,9 @@
             <table:column id="c_org_timedesk_entity_ProjectPhase_endDate" property="endDate" z="szxiu3urGIlkPtEFRRaJmbVg5GY="/>
             
         
-        <table:column id="c_org_timedesk_entity_ProjectPhase_phaseMembers" property="phaseMembers" z="BkAU7OOAIXJxd8jymaLN5DioQXM="/>
+        
+        <table:column id="c_org_timedesk_entity_ProjectPhase_project" property="project" z="UGFBUAlg5XDlPjbjr7AMRtMaZQg="/>
+        <table:column id="c_org_timedesk_entity_ProjectPhase_projectPhaseMembers" property="projectPhaseMembers" z="fO1AIlGn8HPP7au7mifUfZCV7b4="/>
         </table:table>
     </page:list>
 </div>

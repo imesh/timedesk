@@ -9,20 +9,20 @@ import org.timedesk.entity.Employee;
 
 privileged aspect EmployeeVisa_Roo_JavaBean {
     
-    public String EmployeeVisa.getEmployeeVisaId() {
-        return this.employeeVisaId;
-    }
-    
-    public void EmployeeVisa.setEmployeeVisaId(String employeeVisaId) {
-        this.employeeVisaId = employeeVisaId;
-    }
-    
     public Employee EmployeeVisa.getEmployee() {
         return this.employee;
     }
     
     public void EmployeeVisa.setEmployee(Employee employee) {
         this.employee = employee;
+    }
+    
+    public String EmployeeVisa.getVisaId() {
+        return this.visaId;
+    }
+    
+    public void EmployeeVisa.setVisaId(String visaId) {
+        this.visaId = visaId;
     }
     
     public Date EmployeeVisa.getValidFrom() {

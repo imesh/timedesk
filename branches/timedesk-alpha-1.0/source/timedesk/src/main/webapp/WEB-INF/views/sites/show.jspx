@@ -6,7 +6,8 @@
         <field:display field="location" id="s_org_timedesk_entity_Site_location" object="${site}" z="E2QHI5fGLlgw+phXpUpc/aDxpxE="/>
         <field:display field="city" id="s_org_timedesk_entity_Site_city" object="${site}" z="z6xo2FriY2wQ+isJBj1DEfy7x8c="/>
         <field:display field="country" id="s_org_timedesk_entity_Site_country" object="${site}" z="+iNzM74ZlrYuoZ7ReCMz0K7gcfE="/>
-        <!-- field:display field="employees" id="s_org_timedesk_entity_Site_employees" object="${site}" z="9gRWRfO2HCvygBLkEmzXL/PyGzU="/ -->
+        <field:display field="employees" id="s_org_timedesk_entity_Site_employees" object="${site}" z="user-managed" render="false"/>    
+    	<field:display field="company" id="s_org_timedesk_entity_Site_company" object="${site}" z="user-managed" render="false"/>
     
     	<p class="data-grid-label">Employees:</p>
         <table class="data-grid">
@@ -27,6 +28,5 @@
 		    </tr>
 		  </c:forEach>
 		</table>
-    <field:display field="employees" id="s_org_timedesk_entity_Site_employees" object="${site}" z="9gRWRfO2HCvygBLkEmzXL/PyGzU="/>
     </page:show>
 </div>

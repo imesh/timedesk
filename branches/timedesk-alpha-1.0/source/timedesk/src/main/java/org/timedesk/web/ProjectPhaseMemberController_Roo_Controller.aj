@@ -6,6 +6,9 @@ package org.timedesk.web;
 import java.io.UnsupportedEncodingException;
 import java.lang.Long;
 import java.lang.String;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -16,12 +19,14 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.support.GenericConversionService;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
+import org.timedesk.entity.ProjectPhase;
 import org.timedesk.entity.ProjectPhaseMember;
 
 privileged aspect ProjectPhaseMemberController_Roo_Controller {
@@ -44,6 +49,11 @@ privileged aspect ProjectPhaseMemberController_Roo_Controller {
     public String ProjectPhaseMemberController.createForm(Model model) {
         model.addAttribute("projectPhaseMember", new ProjectPhaseMember());
         addDateTimeFormatPatterns(model);
+        List dependencies = new ArrayList();
+        if (ProjectPhase.countProjectPhases() == 0) {
+            dependencies.add(new String[]{"projectPhase", "projectphases"});
+        }
+        model.addAttribute("dependencies", dependencies);
         return "projectphasemembers/create";
     }
     
@@ -95,6 +105,19 @@ privileged aspect ProjectPhaseMemberController_Roo_Controller {
         return "redirect:/projectphasemembers?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
+    @ModelAttribute("projectphases")
+    public Collection<ProjectPhase> ProjectPhaseMemberController.populateProjectPhases() {
+        return ProjectPhase.findAllProjectPhases();
+    }
+    
+    Converter<ProjectPhase, String> ProjectPhaseMemberController.getProjectPhaseConverter() {
+        return new Converter<ProjectPhase, String>() {
+            public String convert(ProjectPhase projectPhase) {
+                return new StringBuilder().append(projectPhase.getPhaseId()).append(" ").append(projectPhase.getDescription()).append(" ").append(projectPhase.getStartDate()).toString();
+            }
+        };
+    }
+    
     Converter<ProjectPhaseMember, String> ProjectPhaseMemberController.getProjectPhaseMemberConverter() {
         return new Converter<ProjectPhaseMember, String>() {
             public String convert(ProjectPhaseMember projectPhaseMember) {
@@ -105,6 +128,7 @@ privileged aspect ProjectPhaseMemberController_Roo_Controller {
     
     @PostConstruct
     void ProjectPhaseMemberController.registerConverters() {
+        conversionService.addConverter(getProjectPhaseConverter());
         conversionService.addConverter(getProjectPhaseMemberConverter());
     }
     

@@ -134,3 +134,18 @@ exit
 // Spring Roo UNKNOWN VERSION log closed at 2011-01-27 22:47:59
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-01-27 22:52:34
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-01-27 22:59:53
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-01-28 20:08:16
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-01-28 21:16:25
+// Spring Roo UNKNOWN VERSION log opened at 2011-01-28 21:17:01
+exit
+// Spring Roo UNKNOWN VERSION log closed at 2011-01-28 21:18:32
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-01-28 21:18:43
+// [failed] controller scaffold --entity SecurityRole --class ~.web.SecurityRoleController
+// [failed] controller scaffold --entity ~.entity.SecurityRole --class ~.web.SecurityRoleController
+controller all --package ~.web
+controller all --package ~.web
+controller all --package ~.web
+controller all --package ~.web
+enum type --class SampleEnum
+hint
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-01-28 23:07:21

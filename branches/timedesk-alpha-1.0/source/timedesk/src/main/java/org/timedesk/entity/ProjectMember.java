@@ -5,7 +5,10 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -20,6 +23,11 @@ import org.springframework.roo.addon.tostring.RooToString;
 @Table(name = "project_member")
 public class ProjectMember 
 {
+	@NotNull
+	@ManyToOne
+	@JoinColumn(name = "project_id", referencedColumnName = "project_id")
+	private Project project;
+	
     @NotNull
     @Column(name = "member_id")
     private String memberId;
@@ -28,8 +36,8 @@ public class ProjectMember
     private Employee employee;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private Set<ProjectMemberRole> memberRoles = new HashSet<ProjectMemberRole>();
+    private Set<Role> roles = new HashSet<Role>();
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    private Set<Feedback> feedbacks = new HashSet<Feedback>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "projectMember")
+    private Set<ProjectMemberFeedback> feedbacks = new HashSet<ProjectMemberFeedback>();
 }

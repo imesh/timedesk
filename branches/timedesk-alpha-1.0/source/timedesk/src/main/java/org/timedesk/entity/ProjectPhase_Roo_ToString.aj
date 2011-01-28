@@ -11,11 +11,12 @@ privileged aspect ProjectPhase_Roo_ToString {
         StringBuilder sb = new StringBuilder();
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Version: ").append(getVersion()).append(", ");
+        sb.append("Project: ").append(getProject()).append(", ");
         sb.append("PhaseId: ").append(getPhaseId()).append(", ");
         sb.append("Description: ").append(getDescription()).append(", ");
         sb.append("StartDate: ").append(getStartDate()).append(", ");
         sb.append("EndDate: ").append(getEndDate()).append(", ");
-        sb.append("PhaseMembers: ").append(getPhaseMembers() == null ? "null" : getPhaseMembers().size());
+        sb.append("ProjectPhaseMembers: ").append(getProjectPhaseMembers() == null ? "null" : getProjectPhaseMembers().size());
         return sb.toString();
     }
     

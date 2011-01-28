@@ -16,8 +16,8 @@ privileged aspect Project_Roo_ToString {
         sb.append("Description: ").append(getDescription()).append(", ");
         sb.append("StartDate: ").append(getStartDate()).append(", ");
         sb.append("EndDate: ").append(getEndDate()).append(", ");
-        sb.append("Members: ").append(getMembers() == null ? "null" : getMembers().size()).append(", ");
-        sb.append("Components: ").append(getComponents() == null ? "null" : getComponents().size());
+        sb.append("ProjectMembers: ").append(getProjectMembers() == null ? "null" : getProjectMembers().size()).append(", ");
+        sb.append("ProjectPhases: ").append(getProjectPhases() == null ? "null" : getProjectPhases().size());
         return sb.toString();
     }
     

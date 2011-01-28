@@ -12,7 +12,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Set;
 import org.timedesk.entity.ProjectMember;
 import java.util.HashSet;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.CascadeType;
 import javax.validation.constraints.NotNull;
 import org.timedesk.entity.ProjectPhase;
@@ -21,8 +21,8 @@ import org.timedesk.entity.ProjectPhase;
 @RooToString
 @RooEntity
 @Table(name = "project")
-public class Project {
-
+public class Project 
+{
     @NotNull
     @Column(name = "project_id")
     private String projectId;
@@ -43,9 +43,9 @@ public class Project {
     @Column(name = "end_date")
     private Date endDate;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    private Set<ProjectMember> members = new HashSet<ProjectMember>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "project")
+    private Set<ProjectMember> projectMembers = new HashSet<ProjectMember>();
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    private Set<ProjectPhase> components = new HashSet<ProjectPhase>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "project")
+    private Set<ProjectPhase> projectPhases = new HashSet<ProjectPhase>();
 }

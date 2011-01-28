@@ -6,7 +6,9 @@ package org.timedesk.web;
 import java.io.UnsupportedEncodingException;
 import java.lang.Long;
 import java.lang.String;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
+import org.timedesk.entity.Project;
 import org.timedesk.entity.ProjectPhase;
 import org.timedesk.entity.ProjectPhaseMember;
 
@@ -43,6 +46,11 @@ privileged aspect ProjectPhaseController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String ProjectPhaseController.createForm(Model model) {
         model.addAttribute("projectPhase", new ProjectPhase());
+        List dependencies = new ArrayList();
+        if (Project.countProjects() == 0) {
+            dependencies.add(new String[]{"project", "projects"});
+        }
+        model.addAttribute("dependencies", dependencies);
         return "projectphases/create";
     }
     
@@ -90,9 +98,22 @@ privileged aspect ProjectPhaseController_Roo_Controller {
         return "redirect:/projectphases?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
+    @ModelAttribute("projects")
+    public Collection<Project> ProjectPhaseController.populateProjects() {
+        return Project.findAllProjects();
+    }
+    
     @ModelAttribute("projectphasemembers")
     public Collection<ProjectPhaseMember> ProjectPhaseController.populateProjectPhaseMembers() {
         return ProjectPhaseMember.findAllProjectPhaseMembers();
+    }
+    
+    Converter<Project, String> ProjectPhaseController.getProjectConverter() {
+        return new Converter<Project, String>() {
+            public String convert(Project project) {
+                return new StringBuilder().append(project.getProjectId()).append(" ").append(project.getName()).append(" ").append(project.getDescription()).toString();
+            }
+        };
     }
     
     Converter<ProjectPhase, String> ProjectPhaseController.getProjectPhaseConverter() {
@@ -113,6 +134,7 @@ privileged aspect ProjectPhaseController_Roo_Controller {
     
     @PostConstruct
     void ProjectPhaseController.registerConverters() {
+        conversionService.addConverter(getProjectConverter());
         conversionService.addConverter(getProjectPhaseConverter());
         conversionService.addConverter(getProjectPhaseMemberConverter());
     }

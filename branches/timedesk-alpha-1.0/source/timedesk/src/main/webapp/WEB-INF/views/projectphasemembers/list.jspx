@@ -7,6 +7,7 @@
             <table:column id="c_org_timedesk_entity_ProjectPhaseMember_startDate" property="startDate" z="tZ9Xft2R/x4LUXULsFY/cB8E2Kc="/>
             <table:column id="c_org_timedesk_entity_ProjectPhaseMember_endDate" property="endDate" z="xjFm9DIZPG3sizbAdRYZsL4LwLs="/>
             <table:column id="c_org_timedesk_entity_ProjectPhaseMember_allocation" property="allocation" z="QWnq010KBxfzLmlzTmzBkJ8Qg34="/>
+        <table:column id="c_org_timedesk_entity_ProjectPhaseMember_projectPhase" property="projectPhase" z="2rZIwn6vavsJMtL75Hv4+LTxTeg="/>
         </table:table>
     </page:list>
 </div>

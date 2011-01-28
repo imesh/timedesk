@@ -6,7 +6,9 @@ package org.timedesk.web;
 import java.io.UnsupportedEncodingException;
 import java.lang.Long;
 import java.lang.String;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
+import org.timedesk.entity.Company;
 import org.timedesk.entity.Employee;
 import org.timedesk.entity.Site;
 
@@ -43,6 +46,11 @@ privileged aspect SiteController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String SiteController.createForm(Model model) {
         model.addAttribute("site", new Site());
+        List dependencies = new ArrayList();
+        if (Company.countCompanys() == 0) {
+            dependencies.add(new String[]{"company", "companys"});
+        }
+        model.addAttribute("dependencies", dependencies);
         return "sites/create";
     }
     
@@ -90,9 +98,22 @@ privileged aspect SiteController_Roo_Controller {
         return "redirect:/sites?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
+    @ModelAttribute("companys")
+    public Collection<Company> SiteController.populateCompanys() {
+        return Company.findAllCompanys();
+    }
+    
     @ModelAttribute("employees")
     public Collection<Employee> SiteController.populateEmployees() {
         return Employee.findAllEmployees();
+    }
+    
+    Converter<Company, String> SiteController.getCompanyConverter() {
+        return new Converter<Company, String>() {
+            public String convert(Company company) {
+                return new StringBuilder().append(company.getCompanyId()).append(" ").append(company.getName()).toString();
+            }
+        };
     }
     
     Converter<Employee, String> SiteController.getEmployeeConverter() {
@@ -113,6 +134,7 @@ privileged aspect SiteController_Roo_Controller {
     
     @PostConstruct
     void SiteController.registerConverters() {
+        conversionService.addConverter(getCompanyConverter());
         conversionService.addConverter(getEmployeeConverter());
         conversionService.addConverter(getSiteConverter());
     }

@@ -3,14 +3,11 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_org_timedesk_entity_ProjectMember" items="${projectmembers}" z="OD6DYHZBrpgNLYsLBDiHyQbA7zk=">
         <table:table data="${projectmembers}" id="l_org_timedesk_entity_ProjectMember" path="/projectmembers" z="yniSmwfkPTFmZLD7xyXtn/tnoC8=">            
-            <table:column id="c_org_timedesk_entity_ProjectMember_memberId" property="memberId" z="cl2W837skYTxdu6OcjR/20BGEPs="/>
-            
-            
-            
-                                            
-        <table:column id="c_org_timedesk_entity_ProjectMember_employee" property="employee" z="pP3mI3dDW6B3cZLm/ho/uq7xZN0="/>
-            <table:column id="c_org_timedesk_entity_ProjectMember_memberRoles" property="memberRoles" z="rMdEYhoQ4+4Ji1YWeZ8YotNn4ew="/>
-        <table:column id="c_org_timedesk_entity_ProjectMember_feedbacks" property="feedbacks" z="MlCa6BO7lHJKjOHZHnFV/9D45LA="/>
+        	<table:column id="c_org_timedesk_entity_ProjectMember_memberId" property="memberId" z="cl2W837skYTxdu6OcjR/20BGEPs="/>                                         
+        	<table:column id="c_org_timedesk_entity_ProjectMember_employee" property="employee" z="pP3mI3dDW6B3cZLm/ho/uq7xZN0="/>            
+        	<table:column id="c_org_timedesk_entity_ProjectMember_feedbacks" property="feedbacks" z="user-managed" render="false"/>
+        	<table:column id="c_org_timedesk_entity_ProjectMember_project" property="project" z="7Nhvu/fbFBoHL+usmeyiF+cUKN0="/>
+        	<table:column id="c_org_timedesk_entity_ProjectMember_roles" property="roles" z="1qCAFrP4lE9h6PIcu0txSLz33+w="/>
         </table:table>
     </page:list>
 </div>

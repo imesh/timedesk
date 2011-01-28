@@ -7,8 +7,10 @@
         <field:input field="description" id="c_org_timedesk_entity_Project_description" z="gP0cO0sXRRt0Iw554d6xBZPkqVA="/>
         <field:datetime dateTimePattern="${project_startdate_date_format}" field="startDate" id="c_org_timedesk_entity_Project_startDate" z="mlHQ/n9426MnzI6Ybimm3nKMAIc="/>
         <field:datetime dateTimePattern="${project_enddate_date_format}" field="endDate" id="c_org_timedesk_entity_Project_endDate" z="JGQaC8CYDK8p9+inBKtntJk4hE0="/>
-        <field:select field="members" id="c_org_timedesk_entity_Project_members" itemValue="id" items="${projectmembers}" multiple="true" path="/projectmembers" z="c2pO/SDIcK0mhqOkcObc2jWcgQY="/>    
+            
     
-    <field:select field="components" id="c_org_timedesk_entity_Project_components" itemValue="id" items="${projectphases}" multiple="true" path="/projectphases" z="qAvNdoyuNrxI0WcdYGDIIh/SL8Y="/>
+    
+    <field:simple field="projectMembers" id="c_org_timedesk_entity_Project_projectMembers" messageCode="entity_reference_not_managed" messageCodeAttribute="Project Member" z="CVyUobHf99r5odCZEsHWMRasBbw="/>
+        <field:simple field="projectPhases" id="c_org_timedesk_entity_Project_projectPhases" messageCode="entity_reference_not_managed" messageCodeAttribute="Project Phase" z="lW2RAEdA47a+ZisZL9k67Gan3sw="/>
     </form:update>
 </div>

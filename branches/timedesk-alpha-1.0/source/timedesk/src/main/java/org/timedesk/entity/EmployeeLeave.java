@@ -18,6 +18,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -35,13 +36,10 @@ import org.springframework.roo.addon.tostring.RooToString;
 public class EmployeeLeave 
 {
 	@NotNull
-	@Column(name = "leave_seq_no")
-	private int leaveSeqNo;
-	
-	@NotNull
-	@JoinColumn(name = "employee_id")
+	@ManyToOne
+	@JoinColumn(name = "employee_id", referencedColumnName = "employee_id")
     private Employee employee;
-	
+		
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(style = "MS")

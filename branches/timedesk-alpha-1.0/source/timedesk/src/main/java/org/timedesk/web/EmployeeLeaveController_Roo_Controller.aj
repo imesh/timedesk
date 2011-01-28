@@ -12,7 +12,9 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import org.joda.time.format.DateTimeFormat;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.support.GenericConversionService;
 import org.springframework.ui.Model;
@@ -36,6 +38,7 @@ privileged aspect EmployeeLeaveController_Roo_Controller {
     public String EmployeeLeaveController.create(@Valid EmployeeLeave employeeLeave, BindingResult result, Model model, HttpServletRequest request) {
         if (result.hasErrors()) {
             model.addAttribute("employeeLeave", employeeLeave);
+            addDateTimeFormatPatterns(model);
             return "employeeleaves/create";
         }
         employeeLeave.persist();
@@ -45,6 +48,7 @@ privileged aspect EmployeeLeaveController_Roo_Controller {
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String EmployeeLeaveController.createForm(Model model) {
         model.addAttribute("employeeLeave", new EmployeeLeave());
+        addDateTimeFormatPatterns(model);
         List dependencies = new ArrayList();
         if (Employee.countEmployees() == 0) {
             dependencies.add(new String[]{"employee", "employees"});
@@ -55,6 +59,7 @@ privileged aspect EmployeeLeaveController_Roo_Controller {
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String EmployeeLeaveController.show(@PathVariable("id") Long id, Model model) {
+        addDateTimeFormatPatterns(model);
         model.addAttribute("employeeleave", EmployeeLeave.findEmployeeLeave(id));
         model.addAttribute("itemId", id);
         return "employeeleaves/show";
@@ -70,6 +75,7 @@ privileged aspect EmployeeLeaveController_Roo_Controller {
         } else {
             model.addAttribute("employeeleaves", EmployeeLeave.findAllEmployeeLeaves());
         }
+        addDateTimeFormatPatterns(model);
         return "employeeleaves/list";
     }
     
@@ -77,6 +83,7 @@ privileged aspect EmployeeLeaveController_Roo_Controller {
     public String EmployeeLeaveController.update(@Valid EmployeeLeave employeeLeave, BindingResult result, Model model, HttpServletRequest request) {
         if (result.hasErrors()) {
             model.addAttribute("employeeLeave", employeeLeave);
+            addDateTimeFormatPatterns(model);
             return "employeeleaves/update";
         }
         employeeLeave.merge();
@@ -86,6 +93,7 @@ privileged aspect EmployeeLeaveController_Roo_Controller {
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
     public String EmployeeLeaveController.updateForm(@PathVariable("id") Long id, Model model) {
         model.addAttribute("employeeLeave", EmployeeLeave.findEmployeeLeave(id));
+        addDateTimeFormatPatterns(model);
         return "employeeleaves/update";
     }
     
@@ -113,7 +121,7 @@ privileged aspect EmployeeLeaveController_Roo_Controller {
     Converter<EmployeeLeave, String> EmployeeLeaveController.getEmployeeLeaveConverter() {
         return new Converter<EmployeeLeave, String>() {
             public String convert(EmployeeLeave employeeLeave) {
-                return new StringBuilder().append(employeeLeave.getLeaveSeqNo()).append(" ").append(employeeLeave.getFromTime()).append(" ").append(employeeLeave.getToTime()).toString();
+                return new StringBuilder().append(employeeLeave.getFromTime()).append(" ").append(employeeLeave.getToTime()).toString();
             }
         };
     }
@@ -122,6 +130,11 @@ privileged aspect EmployeeLeaveController_Roo_Controller {
     void EmployeeLeaveController.registerConverters() {
         conversionService.addConverter(getEmployeeConverter());
         conversionService.addConverter(getEmployeeLeaveConverter());
+    }
+    
+    void EmployeeLeaveController.addDateTimeFormatPatterns(Model model) {
+        model.addAttribute("employeeLeave_fromtime_date_format", DateTimeFormat.patternForStyle("MS", LocaleContextHolder.getLocale()));
+        model.addAttribute("employeeLeave_totime_date_format", DateTimeFormat.patternForStyle("MS", LocaleContextHolder.getLocale()));
     }
     
     private String EmployeeLeaveController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {
