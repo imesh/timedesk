@@ -4,7 +4,6 @@
     <page:show id="ps_org_timedesk_entity_SecurityRole" object="${securityrole}" path="/securityroles" z="5NL4EAa8Kstu3Uu2RPyxYkq45rE=">
         <field:display field="securityRoleId" id="s_org_timedesk_entity_SecurityRole_securityRoleId" object="${securityrole}" z="hyfuWgo4iziQnhEa4PKRG4D+/hM="/>
         <field:display field="name" id="s_org_timedesk_entity_SecurityRole_name" object="${securityrole}" z="eVOrc7v4dEPQycuTy7Tpxriv35g="/>
-        
-    <field:display field="applicationFeatures" id="s_org_timedesk_entity_SecurityRole_applicationFeatures" object="${securityrole}" z="JQ8J+mP9fo1pkvcCBjlRDgFeLDQ="/>
+        <field:display field="applicationFeatures" id="s_org_timedesk_entity_SecurityRole_applicationFeatures" object="${securityrole}" z="user-managed" render="false"/>
     </page:show>
 </div>
