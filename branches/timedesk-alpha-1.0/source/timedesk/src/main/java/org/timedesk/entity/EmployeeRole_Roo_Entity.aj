@@ -15,92 +15,92 @@ import javax.persistence.Id;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Version;
 import org.springframework.transaction.annotation.Transactional;
-import org.timedesk.entity.Role;
+import org.timedesk.entity.EmployeeRole;
 
-privileged aspect Role_Roo_Entity {
+privileged aspect EmployeeRole_Roo_Entity {
     
-    declare @type: Role: @Entity;
+    declare @type: EmployeeRole: @Entity;
     
     @PersistenceContext
-    transient EntityManager Role.entityManager;
+    transient EntityManager EmployeeRole.entityManager;
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private Long Role.id;
+    private Long EmployeeRole.id;
     
     @Version
     @Column(name = "version")
-    private Integer Role.version;
+    private Integer EmployeeRole.version;
     
-    public Long Role.getId() {
+    public Long EmployeeRole.getId() {
         return this.id;
     }
     
-    public void Role.setId(Long id) {
+    public void EmployeeRole.setId(Long id) {
         this.id = id;
     }
     
-    public Integer Role.getVersion() {
+    public Integer EmployeeRole.getVersion() {
         return this.version;
     }
     
-    public void Role.setVersion(Integer version) {
+    public void EmployeeRole.setVersion(Integer version) {
         this.version = version;
     }
     
     @Transactional
-    public void Role.persist() {
+    public void EmployeeRole.persist() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.persist(this);
     }
     
     @Transactional
-    public void Role.remove() {
+    public void EmployeeRole.remove() {
         if (this.entityManager == null) this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
-            Role attached = this.entityManager.find(this.getClass(), this.id);
+            EmployeeRole attached = this.entityManager.find(this.getClass(), this.id);
             this.entityManager.remove(attached);
         }
     }
     
     @Transactional
-    public void Role.flush() {
+    public void EmployeeRole.flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();
     }
     
     @Transactional
-    public Role Role.merge() {
+    public EmployeeRole EmployeeRole.merge() {
         if (this.entityManager == null) this.entityManager = entityManager();
-        Role merged = this.entityManager.merge(this);
+        EmployeeRole merged = this.entityManager.merge(this);
         this.entityManager.flush();
         return merged;
     }
     
-    public static final EntityManager Role.entityManager() {
-        EntityManager em = new Role().entityManager;
+    public static final EntityManager EmployeeRole.entityManager() {
+        EntityManager em = new EmployeeRole().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
         return em;
     }
     
-    public static long Role.countRoles() {
-        return entityManager().createQuery("select count(o) from Role o", Long.class).getSingleResult();
+    public static long EmployeeRole.countEmployeeRoles() {
+        return entityManager().createQuery("select count(o) from EmployeeRole o", Long.class).getSingleResult();
     }
     
-    public static List<Role> Role.findAllRoles() {
-        return entityManager().createQuery("select o from Role o", Role.class).getResultList();
+    public static List<EmployeeRole> EmployeeRole.findAllEmployeeRoles() {
+        return entityManager().createQuery("select o from EmployeeRole o", EmployeeRole.class).getResultList();
     }
     
-    public static Role Role.findRole(Long id) {
+    public static EmployeeRole EmployeeRole.findEmployeeRole(Long id) {
         if (id == null) return null;
-        return entityManager().find(Role.class, id);
+        return entityManager().find(EmployeeRole.class, id);
     }
     
-    public static List<Role> Role.findRoleEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("select o from Role o", Role.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    public static List<EmployeeRole> EmployeeRole.findEmployeeRoleEntries(int firstResult, int maxResults) {
+        return entityManager().createQuery("select o from EmployeeRole o", EmployeeRole.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
 }

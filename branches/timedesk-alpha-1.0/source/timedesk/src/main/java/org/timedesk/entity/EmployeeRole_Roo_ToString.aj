@@ -5,15 +5,14 @@ package org.timedesk.entity;
 
 import java.lang.String;
 
-privileged aspect Role_Roo_ToString {
+privileged aspect EmployeeRole_Roo_ToString {
     
-    public String Role.toString() {
+    public String EmployeeRole.toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Version: ").append(getVersion()).append(", ");
         sb.append("RoleId: ").append(getRoleId()).append(", ");
-        sb.append("Name: ").append(getName()).append(", ");
-        sb.append("RoleType: ").append(getRoleType());
+        sb.append("Name: ").append(getName());
         return sb.toString();
     }
     

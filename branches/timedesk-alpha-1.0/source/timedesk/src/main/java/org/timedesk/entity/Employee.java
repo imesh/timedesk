@@ -14,28 +14,22 @@
 
 package org.timedesk.entity;
 
-import org.springframework.roo.addon.javabean.RooJavaBean;
-import org.springframework.roo.addon.tostring.RooToString;
-import org.springframework.roo.addon.entity.RooEntity;
-import org.springframework.web.bind.annotation.Mapping;
-
-import java.util.Set;
-import org.timedesk.entity.Skill;
 import java.util.HashSet;
+import java.util.Set;
 
-import javax.persistence.AssociationOverride;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.ManyToMany;
-import javax.persistence.CascadeType;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import org.timedesk.entity.Role;
+import org.springframework.roo.addon.entity.RooEntity;
+import org.springframework.roo.addon.javabean.RooJavaBean;
+import org.springframework.roo.addon.tostring.RooToString;
 
 @RooJavaBean
 @RooToString
@@ -86,11 +80,11 @@ public class Employee
     private Set<Skill> employeeSkills = new HashSet<Skill>();
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private Set<Role> employeeRoles = new HashSet<Role>();
+    private Set<EmployeeRole> employeeRoles = new HashSet<EmployeeRole>();
     
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "pre_employee_role")
-    private Set<Role> preEmployeeRoles = new HashSet<Role>();
+    @JoinTable(name = "employee_pre_em_role")
+    private Set<EmployeeRole> preEmployeeRoles = new HashSet<EmployeeRole>();
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
     private Set<EmployeeVisa> visas = new HashSet<EmployeeVisa>();

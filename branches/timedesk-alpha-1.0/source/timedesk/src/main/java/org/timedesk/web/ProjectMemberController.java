@@ -22,5 +22,6 @@ import org.springframework.stereotype.Controller;
 @RooWebScaffold(path = "projectmembers", formBackingObject = ProjectMember.class)
 @RequestMapping("/projectmembers")
 @Controller
-public class ProjectMemberController {
+public class ProjectMemberController 
+{
 }

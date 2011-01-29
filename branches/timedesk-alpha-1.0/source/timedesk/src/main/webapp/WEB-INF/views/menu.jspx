@@ -62,25 +62,29 @@
         <menu:item id="i_user_new" messageCode="global_menu_new" url="/users?form" z="Zv1m8u2rG+JFKcvJ+AHVVK0ey24="/>
         <menu:item id="i_user_list" messageCode="global_menu_list" url="/users?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="YXGkaJQ0/0BeZ8fX5CQWSaUUEk0="/>
         
+   </menu:category>
+   
+   <!-- Basic Information -->    
+   <menu:category id="c_role" label="Basic Information" z="user-managed">
+        <!-- Employee Roles -->
+        <menu:item id="i_employeerole_new" messageCode="global_menu_new" url="/employeeroles?form" z="TosdHfP5Gmd4sIgnBYDrpwbmpqA="/>
+        <menu:item id="i_employeerole_list" messageCode="global_menu_list" url="/employeeroles?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="E39253JqHBzoc57UQvjdvR5WsfQ="/>
+        
+        <!-- Employee Skills -->
+        <menu:item id="i_skill_new" messageCode="global_menu_new" url="/skills?form" z="user-managed"/>
+        <menu:item id="i_skill_list" messageCode="global_menu_list" url="/skills?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+        
+        <!-- Project Member Roles -->
+        <menu:item id="i_projectmemberrole_new" messageCode="global_menu_new" url="/projectmemberroles?form" z="WyTQxBcTQpvBtunAszQmiEk1z7c="/>
+        <menu:item id="i_projectmemberrole_list" messageCode="global_menu_list" url="/projectmemberroles?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="SqFIK2OUW2vatXmSCi5zV4K1Wbg="/>
+        
         <!-- Security Roles -->
         <menu:item id="i_securityrole_new" messageCode="global_menu_new" url="/securityroles?form" z="user-managed"/>
         <menu:item id="i_securityrole_list" messageCode="global_menu_list" url="/securityroles?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
         
-        <!-- Application Features -->
+         <!-- Application Features -->
         <menu:item id="i_applicationfeature_new" messageCode="global_menu_new" url="/applicationfeatures?form" z="rc/0pIFFGv02ajie1HKBf9TtttI="/>
         <menu:item id="i_applicationfeature_list" messageCode="global_menu_list" url="/applicationfeatures?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="BbqwS5iNL7J59e6T6T5MUTUeFg0="/>
-   </menu:category>
-   
-   <!-- Role Information -->    
-   <menu:category id="c_role" z="LPygIx2EuEArCzqsfpQQev0lHyc=">
-        <menu:item id="i_role_new" messageCode="global_menu_new" url="/roles?form" z="user-managed"/>
-        <menu:item id="i_role_list" messageCode="global_menu_list" url="/roles?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
-   </menu:category>
-   
-   <!-- Skill Information -->
-   <menu:category id="c_skill" z="Iaylqb/Nl/Uig1wNeJAoQWYI/lI=">
-        <menu:item id="i_skill_new" messageCode="global_menu_new" url="/skills?form" z="user-managed"/>
-        <menu:item id="i_skill_list" messageCode="global_menu_list" url="/skills?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
    </menu:category>
       
    <menu:category id="c_securityrole" render="false" z="user-managed"/>
@@ -91,6 +95,8 @@
    <menu:category id="c_employeevisa" render="false" z="user-managed"/>
    <menu:category id="c_projectphasemember" render="false" z="user-managed"/>
    <menu:category id="c_site" render="false" z="user-managed"/>
-   <menu:category id="c_companysite" render="false" z="user-managed" />
-   </menu:menu>
+   <menu:category id="c_companysite" render="false" z="user-managed"/>
+   <menu:category id="c_projectmemberrole" render="false" z="user-managed"/>
+   <menu:category id="c_employeerole" render="false" z="user-managed"/>
+ </menu:menu>
 </div>

@@ -34,12 +34,12 @@ privileged aspect User_Roo_JavaBean {
         this.enabled = enabled;
     }
     
-    public Set<SecurityRole> User.getUserRoles() {
-        return this.userRoles;
+    public Set<SecurityRole> User.getSecurityRoles() {
+        return this.securityRoles;
     }
     
-    public void User.setUserRoles(Set<SecurityRole> userRoles) {
-        this.userRoles = userRoles;
+    public void User.setSecurityRoles(Set<SecurityRole> securityRoles) {
+        this.securityRoles = securityRoles;
     }
     
 }

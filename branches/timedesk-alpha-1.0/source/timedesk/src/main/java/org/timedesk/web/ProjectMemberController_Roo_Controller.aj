@@ -28,7 +28,7 @@ import org.timedesk.entity.Employee;
 import org.timedesk.entity.Project;
 import org.timedesk.entity.ProjectMember;
 import org.timedesk.entity.ProjectMemberFeedback;
-import org.timedesk.entity.Role;
+import org.timedesk.entity.ProjectMemberRole;
 
 privileged aspect ProjectMemberController_Roo_Controller {
     
@@ -115,9 +115,9 @@ privileged aspect ProjectMemberController_Roo_Controller {
         return ProjectMemberFeedback.findAllProjectMemberFeedbacks();
     }
     
-    @ModelAttribute("roles")
-    public Collection<Role> ProjectMemberController.populateRoles() {
-        return Role.findAllRoles();
+    @ModelAttribute("projectmemberroles")
+    public Collection<ProjectMemberRole> ProjectMemberController.populateProjectMemberRoles() {
+        return ProjectMemberRole.findAllProjectMemberRoles();
     }
     
     Converter<Employee, String> ProjectMemberController.getEmployeeConverter() {
@@ -152,10 +152,10 @@ privileged aspect ProjectMemberController_Roo_Controller {
         };
     }
     
-    Converter<Role, String> ProjectMemberController.getRoleConverter() {
-        return new Converter<Role, String>() {
-            public String convert(Role role) {
-                return new StringBuilder().append(role.getRoleId()).append(" ").append(role.getName()).toString();
+    Converter<ProjectMemberRole, String> ProjectMemberController.getProjectMemberRoleConverter() {
+        return new Converter<ProjectMemberRole, String>() {
+            public String convert(ProjectMemberRole projectMemberRole) {
+                return new StringBuilder().append(projectMemberRole.getRoleId()).append(" ").append(projectMemberRole.getName()).toString();
             }
         };
     }
@@ -166,7 +166,7 @@ privileged aspect ProjectMemberController_Roo_Controller {
         conversionService.addConverter(getProjectConverter());
         conversionService.addConverter(getProjectMemberConverter());
         conversionService.addConverter(getProjectMemberFeedbackConverter());
-        conversionService.addConverter(getRoleConverter());
+        conversionService.addConverter(getProjectMemberRoleConverter());
     }
     
     private String ProjectMemberController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {
