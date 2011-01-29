@@ -55,4 +55,11 @@ public class Project
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "project")
     private Set<ProjectPhase> projectPhases = new HashSet<ProjectPhase>();
+    
+    public String toString() 
+    {
+        StringBuilder sb = new StringBuilder();        
+        sb.append(getName());        
+        return sb.toString();
+    }
 }

@@ -37,8 +37,16 @@ public class ProjectMember
     private Employee employee;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private Set<Role> roles = new HashSet<Role>();
+    private Set<ProjectMemberRole> roles = new HashSet<ProjectMemberRole>();
 
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "projectMember")
     private Set<ProjectMemberFeedback> feedbacks = new HashSet<ProjectMemberFeedback>();
+    
+    public String toString() 
+    {
+        StringBuilder sb = new StringBuilder();        
+        sb.append(getMemberId());        
+        return sb.toString();
+    }
 }

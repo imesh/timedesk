@@ -167,3 +167,6 @@ controller all --package ~.web
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-01-29 18:30:07
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-01-29 18:30:32
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-01-29 19:26:09
+entity --class ~.entity.EmployeeRole
+entity --class ~.entity.ProjectMemberRole
+controller all --package ~.web

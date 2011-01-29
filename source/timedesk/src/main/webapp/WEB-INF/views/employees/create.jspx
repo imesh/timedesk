@@ -15,8 +15,8 @@
         <field:input field="phoneMobile" id="c_org_timedesk_entity_Employee_phoneMobile" z="5zYfgzb/8c0QyTUxKIl/R2mPk3I="/>
         <field:input field="officeExtension" id="c_org_timedesk_entity_Employee_officeExtension" z="YMmNbGXrTN2CJ+CMQntcn1UQj04="/>
         <field:select field="employeeSkills" id="c_org_timedesk_entity_Employee_employeeSkills" itemValue="id" items="${skills}" multiple="true" path="/skills" z="3VnCHj6eRCxXVqMKt3flTNXdvKE="/>
-        <field:select field="employeeRoles" id="c_org_timedesk_entity_Employee_employeeRoles" itemValue="id" items="${roles}" multiple="true" path="/roles" z="FiGjnh1bOb8plgsOVPYhBPPCM1M="/>
-        <field:select field="preEmployeeRoles" id="c_org_timedesk_entity_Employee_preEmployeeRoles" itemValue="id" items="${roles}" multiple="true" path="/roles" z="XsAz9+vb0IbkzbV9En4xCTG/cYQ="/>
+        <field:select field="employeeRoles" id="c_org_timedesk_entity_Employee_employeeRoles" itemValue="id" items="${employeeroles}" multiple="true" path="/employeeroles" z="3iadrAtyPLUJB7DbB+tnD/PVb0o="/>
+        <field:select field="preEmployeeRoles" id="c_org_timedesk_entity_Employee_preEmployeeRoles" itemValue="id" items="${employeeroles}" multiple="true" path="/employeeroles" z="ug64NB81SKiea7Bc2HHUZ7GVyu0="/>
         <field:simple field="visas" id="c_org_timedesk_entity_Employee_visas" messageCode="entity_reference_not_managed" messageCodeAttribute="Employee Visa" render="false" z="user-managed"/>
         <field:simple field="leaves" id="c_org_timedesk_entity_Employee_leaves" messageCode="entity_reference_not_managed" messageCodeAttribute="Employee Leave" render="false" z="user-managed"/>
     </form:create>

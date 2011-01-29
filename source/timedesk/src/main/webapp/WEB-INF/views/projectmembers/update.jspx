@@ -12,6 +12,6 @@
     	<field:simple field="feedbacks" id="c_org_timedesk_entity_ProjectMember_feedbacks" messageCode="entity_reference_not_managed" messageCodeAttribute="Project Member Feedback" z="b21cCRIWKz6DRbqUXRLpUJDyupA="/>
     
     <field:select field="project" id="c_org_timedesk_entity_ProjectMember_project" itemValue="id" items="${projects}" path="/projects" required="true" z="/0RV0P6ZfanlaR41ge5zeFDiC88="/>
-    <field:select field="roles" id="c_org_timedesk_entity_ProjectMember_roles" itemValue="id" items="${roles}" multiple="true" path="/roles" z="exGWZ7nvULlf9gL2HM6cUEqkOtc="/>
+    <field:select field="roles" id="c_org_timedesk_entity_ProjectMember_roles" itemValue="id" items="${projectmemberroles}" multiple="true" path="/projectmemberroles" z="O6rJ8U2gWWqss7yK6M/ph2obTCQ="/>
     </form:update>
 </div>

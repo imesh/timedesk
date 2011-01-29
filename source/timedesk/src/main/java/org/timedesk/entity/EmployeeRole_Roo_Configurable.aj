@@ -5,8 +5,8 @@ package org.timedesk.entity;
 
 import org.springframework.beans.factory.annotation.Configurable;
 
-privileged aspect Role_Roo_Configurable {
+privileged aspect EmployeeRole_Roo_Configurable {
     
-    declare @type: Role: @Configurable;
+    declare @type: EmployeeRole: @Configurable;
     
 }
