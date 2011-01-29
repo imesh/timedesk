@@ -11,6 +11,7 @@ import org.timedesk.entity.EmployeeLeave;
 import org.timedesk.entity.EmployeeRole;
 import org.timedesk.entity.EmployeeVisa;
 import org.timedesk.entity.Skill;
+import org.timedesk.entity.User;
 
 privileged aspect Employee_Roo_JavaBean {
     
@@ -28,6 +29,14 @@ privileged aspect Employee_Roo_JavaBean {
     
     public void Employee.setEmployeeId(String employeeId) {
         this.employeeId = employeeId;
+    }
+    
+    public User Employee.getUser() {
+        return this.user;
+    }
+    
+    public void Employee.setUser(User user) {
+        this.user = user;
     }
     
     public String Employee.getFirstName() {

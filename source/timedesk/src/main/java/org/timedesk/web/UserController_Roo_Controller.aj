@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
+import org.timedesk.entity.Employee;
 import org.timedesk.entity.SecurityRole;
 import org.timedesk.entity.User;
 
@@ -90,9 +91,22 @@ privileged aspect UserController_Roo_Controller {
         return "redirect:/users?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
+    @ModelAttribute("employees")
+    public Collection<Employee> UserController.populateEmployees() {
+        return Employee.findAllEmployees();
+    }
+    
     @ModelAttribute("securityroles")
     public Collection<SecurityRole> UserController.populateSecurityRoles() {
         return SecurityRole.findAllSecurityRoles();
+    }
+    
+    Converter<Employee, String> UserController.getEmployeeConverter() {
+        return new Converter<Employee, String>() {
+            public String convert(Employee employee) {
+                return new StringBuilder().append(employee.getEmployeeId()).append(" ").append(employee.getFirstName()).append(" ").append(employee.getLastName()).toString();
+            }
+        };
     }
     
     Converter<SecurityRole, String> UserController.getSecurityRoleConverter() {
@@ -113,6 +127,7 @@ privileged aspect UserController_Roo_Controller {
     
     @PostConstruct
     void UserController.registerConverters() {
+        conversionService.addConverter(getEmployeeConverter());
         conversionService.addConverter(getSecurityRoleConverter());
         conversionService.addConverter(getUserConverter());
     }
