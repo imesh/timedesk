@@ -19,6 +19,8 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -61,8 +63,9 @@ public class Employee
 	@Column(name = "city")
     private String city;
 
+	@Enumerated(EnumType.STRING)
 	@Column(name = "country")
-    private String country;
+    private CountryEnum country;
 
 	@Column(name = "post_code")
     private String postCode;

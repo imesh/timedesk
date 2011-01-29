@@ -9,7 +9,7 @@
         <field:input field="email" id="c_org_timedesk_entity_Employee_email" validationMessageCode="field_invalid_email" z="9D9+nveCSTH+j/8326xuLMS2yfA="/>
         <field:input field="address" id="c_org_timedesk_entity_Employee_address" z="FDfxDwP3vQik578rNbq7Fwioauo="/>
         <field:input field="city" id="c_org_timedesk_entity_Employee_city" z="dPlnakWwNVhtJDRCtErZ2PoaBA8="/>
-        <field:input field="country" id="c_org_timedesk_entity_Employee_country" z="Dr3jKRdyQ/W5uO2BzpCmodABYZE="/>
+        <field:select field="country" id="c_org_timedesk_entity_Employee_country" items="${countryenums}" path="countryenums" z="lU6BF90ofhKhN9565fu2jNENUsE="/>
         <field:input field="postCode" id="c_org_timedesk_entity_Employee_postCode" z="a/QbF8e5RxwvRsZqLbbmonlToqg="/>
         <field:input field="phoneResidence" id="c_org_timedesk_entity_Employee_phoneResidence" z="zboGuKr87uPC+0iiwKaxQxWdF1I="/>
         <field:input field="phoneMobile" id="c_org_timedesk_entity_Employee_phoneMobile" z="5zYfgzb/8c0QyTUxKIl/R2mPk3I="/>
