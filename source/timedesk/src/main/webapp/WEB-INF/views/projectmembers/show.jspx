@@ -14,7 +14,7 @@
 		   <th>ID</th>
 		   <th>Member Role</th>
 		  </tr>
-		  <c:forEach items="${memberRoles}" var="role" varStatus="row">
+		  <c:forEach items="${projectmember.roles}" var="role" varStatus="row">
 		    <tr>
 		      <td>${role.id}</td>
 		      <td>${role.name}</td>
