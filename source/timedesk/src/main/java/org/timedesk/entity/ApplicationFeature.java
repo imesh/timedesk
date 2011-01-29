@@ -2,6 +2,7 @@ package org.timedesk.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.javabean.RooJavaBean;
@@ -11,7 +12,7 @@ import org.springframework.roo.addon.entity.RooEntity;
 @RooJavaBean
 @RooToString
 @RooEntity
-@Table(name = "application_feature")
+@Table(name = "application_feature", uniqueConstraints = @UniqueConstraint(columnNames = "feature_id"))
 public class ApplicationFeature 
 {
 	@NotNull
@@ -24,4 +25,11 @@ public class ApplicationFeature
 
 	@Column(name = "description")
     private String description;
+	
+    public String toString() 
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getName());
+        return sb.toString();
+    }
 }

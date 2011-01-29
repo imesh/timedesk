@@ -8,8 +8,8 @@
         <menu:item id="i_company_new" messageCode="global_menu_new" url="/companies?form" z="user-managed"/>
         <menu:item id="i_company_list" messageCode="global_menu_list" url="/companies?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
         
-        <menu:item id="i_site_new" messageCode="global_menu_new" url="/sites?form" z="ewAqg8Z+CTUpvmsxXaCRBnq6+TU="/>
-        <menu:item id="i_site_list" messageCode="global_menu_list" url="/sites?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="u5xLq9HpvmwbLGC6ujSh5lLa9dU="/>
+        <menu:item id="i_companysite_new" messageCode="global_menu_new" url="/companysites?form" z="user-managed"/>
+        <menu:item id="i_companysite_list" messageCode="global_menu_list" url="/companysites?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
         </menu:category>
         
     <!-- Employee Information -->
@@ -17,15 +17,7 @@
         <!-- Employees -->
         <menu:item id="i_employee_new" messageCode="global_menu_new" url="/employees?form" z="+S/pgOAdANt9JPGnS20kM8qTu00="/>
         <menu:item id="i_employee_list" messageCode="global_menu_list" url="/employees?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="YzmRBI+yzLifxZxrpgFQqxwsG0g="/>
-        
-        <!-- Employee Roles -->
-        <menu:item id="i_employeerole_new" messageCode="global_menu_new" url="/employeeroles?form" z="TosdHfP5Gmd4sIgnBYDrpwbmpqA="/>
-        <menu:item id="i_employeerole_list" messageCode="global_menu_list" url="/employeeroles?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="E39253JqHBzoc57UQvjdvR5WsfQ="/>
-        
-        <!-- Employee Skills -->
-        <menu:item id="i_employeeskill_new" messageCode="global_menu_new" url="/employeeskills?form" z="A40H+Xj2xsNte/3S07wohtJ8yk4="/>
-        <menu:item id="i_employeeskill_list" messageCode="global_menu_list" url="/employeeskills?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="IQvLqTM6JmTveVQmoRZKCo7u+t0="/>
-                       
+                     
         <!-- Employee Visa -->
         <menu:item id="i_employeevisa_new" messageCode="global_menu_new" url="/employeevisas?form" z="pneRGp+Sztc3AN/3tZ/YlyRMSiM="/>
         <menu:item id="i_employeevisa_list" messageCode="global_menu_list" url="/employeevisas?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="8KtkpSIjUL5EhxG3N4dKXRInGRo="/>                
@@ -99,5 +91,6 @@
    <menu:category id="c_employeevisa" render="false" z="user-managed"/>
    <menu:category id="c_projectphasemember" render="false" z="user-managed"/>
    <menu:category id="c_site" render="false" z="user-managed"/>
-  </menu:menu>
+   <menu:category id="c_companysite" render="false" z="user-managed" />
+   </menu:menu>
 </div>

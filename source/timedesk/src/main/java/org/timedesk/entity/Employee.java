@@ -17,13 +17,17 @@ package org.timedesk.entity;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.tostring.RooToString;
 import org.springframework.roo.addon.entity.RooEntity;
+import org.springframework.web.bind.annotation.Mapping;
+
 import java.util.Set;
 import org.timedesk.entity.Skill;
 import java.util.HashSet;
 
+import javax.persistence.AssociationOverride;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.ManyToMany;
@@ -42,7 +46,7 @@ public class Employee
 	@NotNull
 	@ManyToOne
     @JoinColumn(name = "site_id", referencedColumnName = "site_id")
-	private Site site;
+	private CompanySite companySite;
 	
 	@NotNull
 	@Column(name = "employee_id")
@@ -85,6 +89,7 @@ public class Employee
     private Set<Role> employeeRoles = new HashSet<Role>();
     
     @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "pre_employee_role")
     private Set<Role> preEmployeeRoles = new HashSet<Role>();
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
@@ -92,4 +97,12 @@ public class Employee
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
     private Set<EmployeeLeave> leaves = new HashSet<EmployeeLeave>();
+    
+    public String toString() 
+    {
+        StringBuilder sb = new StringBuilder();        
+        sb.append(getFirstName()).append(" ");
+        sb.append(getLastName());       
+        return sb.toString();
+    }
 }

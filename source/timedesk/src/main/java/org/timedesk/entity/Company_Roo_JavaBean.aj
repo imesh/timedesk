@@ -5,8 +5,8 @@ package org.timedesk.entity;
 
 import java.lang.String;
 import java.util.Set;
+import org.timedesk.entity.CompanySite;
 import org.timedesk.entity.Project;
-import org.timedesk.entity.Site;
 
 privileged aspect Company_Roo_JavaBean {
     
@@ -26,11 +26,11 @@ privileged aspect Company_Roo_JavaBean {
         this.name = name;
     }
     
-    public Set<Site> Company.getCompanySites() {
+    public Set<CompanySite> Company.getCompanySites() {
         return this.companySites;
     }
     
-    public void Company.setCompanySites(Set<Site> companySites) {
+    public void Company.setCompanySites(Set<CompanySite> companySites) {
         this.companySites = companySites;
     }
     

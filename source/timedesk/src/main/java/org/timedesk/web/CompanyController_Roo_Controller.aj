@@ -23,23 +23,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 import org.timedesk.entity.Company;
+import org.timedesk.entity.CompanySite;
 import org.timedesk.entity.Project;
-import org.timedesk.entity.Site;
 
 privileged aspect CompanyController_Roo_Controller {
     
     @Autowired
     private GenericConversionService CompanyController.conversionService;
-    
-    @RequestMapping(method = RequestMethod.POST)
-    public String CompanyController.create(@Valid Company company, BindingResult result, Model model, HttpServletRequest request) {
-        if (result.hasErrors()) {
-            model.addAttribute("company", company);
-            return "companies/create";
-        }
-        company.persist();
-        return "redirect:/companies/" + encodeUrlPathSegment(company.getId().toString(), request);
-    }
     
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String CompanyController.createForm(Model model) {
@@ -91,20 +81,28 @@ privileged aspect CompanyController_Roo_Controller {
         return "redirect:/companies?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
+    @ModelAttribute("companysites")
+    public Collection<CompanySite> CompanyController.populateCompanySites() {
+        return CompanySite.findAllCompanySites();
+    }
+    
     @ModelAttribute("projects")
     public Collection<Project> CompanyController.populateProjects() {
         return Project.findAllProjects();
-    }
-    
-    @ModelAttribute("sites")
-    public Collection<Site> CompanyController.populateSites() {
-        return Site.findAllSites();
     }
     
     Converter<Company, String> CompanyController.getCompanyConverter() {
         return new Converter<Company, String>() {
             public String convert(Company company) {
                 return new StringBuilder().append(company.getCompanyId()).append(" ").append(company.getName()).toString();
+            }
+        };
+    }
+    
+    Converter<CompanySite, String> CompanyController.getCompanySiteConverter() {
+        return new Converter<CompanySite, String>() {
+            public String convert(CompanySite companySite) {
+                return new StringBuilder().append(companySite.getSiteId()).append(" ").append(companySite.getLocation()).append(" ").append(companySite.getCity()).toString();
             }
         };
     }
@@ -117,19 +115,11 @@ privileged aspect CompanyController_Roo_Controller {
         };
     }
     
-    Converter<Site, String> CompanyController.getSiteConverter() {
-        return new Converter<Site, String>() {
-            public String convert(Site site) {
-                return new StringBuilder().append(site.getSiteId()).append(" ").append(site.getLocation()).append(" ").append(site.getCity()).toString();
-            }
-        };
-    }
-    
     @PostConstruct
     void CompanyController.registerConverters() {
         conversionService.addConverter(getCompanyConverter());
+        conversionService.addConverter(getCompanySiteConverter());
         conversionService.addConverter(getProjectConverter());
-        conversionService.addConverter(getSiteConverter());
     }
     
     private String CompanyController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {

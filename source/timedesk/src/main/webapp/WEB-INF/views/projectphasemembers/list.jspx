@@ -8,6 +8,7 @@
             <table:column id="c_org_timedesk_entity_ProjectPhaseMember_endDate" property="endDate" z="xjFm9DIZPG3sizbAdRYZsL4LwLs="/>
             <table:column id="c_org_timedesk_entity_ProjectPhaseMember_allocation" property="allocation" z="QWnq010KBxfzLmlzTmzBkJ8Qg34="/>
         <table:column id="c_org_timedesk_entity_ProjectPhaseMember_projectPhase" property="projectPhase" z="2rZIwn6vavsJMtL75Hv4+LTxTeg="/>
+        <table:column id="c_org_timedesk_entity_ProjectPhaseMember_projectMember" property="projectMember" z="UadAUXq7DOj1x5/skisaPn03Tt0="/>
         </table:table>
     </page:list>
 </div>

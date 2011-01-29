@@ -19,10 +19,12 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.entity.RooEntity;
@@ -32,8 +34,8 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooJavaBean
 @RooToString
 @RooEntity
-@Table(name="site")
-public class Site 
+@Table(name="company_site", uniqueConstraints = @UniqueConstraint(columnNames = "company_id,site_id"))
+public class CompanySite 
 {
 	@NotNull
 	@ManyToOne
@@ -53,6 +55,13 @@ public class Site
 	@Column(name = "country")
     private String country;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy="site")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="companySite")
     private Set<Employee> employees = new HashSet<Employee>();
+    
+    public String toString() 
+    {
+        StringBuilder sb = new StringBuilder();        
+        sb.append(getSiteId());        
+        return sb.toString();
+    }
 }

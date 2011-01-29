@@ -22,6 +22,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.entity.RooEntity;
@@ -31,7 +32,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooJavaBean
 @RooToString
 @RooEntity
-@Table(name = "company")
+@Table(name = "company", uniqueConstraints = @UniqueConstraint(columnNames = "company_id"))
 public class Company 
 {
 	@NotNull
@@ -42,8 +43,15 @@ public class Company
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "company")    
-    private Set<Site> companySites = new HashSet<Site>();
+    private Set<CompanySite> companySites = new HashSet<CompanySite>();
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "company")    
     private Set<Project> projects = new HashSet<Project>();
+
+    public String toString() 
+    {
+        StringBuilder sb = new StringBuilder();        
+        sb.append(getName());     
+        return sb.toString();
+    }
 }

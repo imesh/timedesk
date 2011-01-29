@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,6 +30,10 @@ public class ProjectPhaseMember
 	@NotNull
 	@Column(name = "phase_member_id")
 	private String phaseMemberId;
+	
+	@OneToOne
+	@JoinColumn(name = "member_id", referencedColumnName = "member_id")
+	private ProjectMember projectMember;
 	
 	@NotNull
     @Temporal(TemporalType.TIMESTAMP)

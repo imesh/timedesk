@@ -150,3 +150,20 @@ enum type --class SampleEnum
 hint
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-01-28 23:07:21
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-01-28 23:42:25
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-01-29 07:48:15
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-01-29 08:43:00
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-01-29 13:01:23
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-01-29 16:58:25
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-01-29 17:13:45
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-01-29 17:14:25
+controller all --package ~.web
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-01-29 17:34:04
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-01-29 17:35:36
+// [failed] controller all --package ~.web
+// [failed] controller all --package ~.web
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-01-29 17:37:11
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-01-29 17:37:45
+controller all --package ~.web
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-01-29 18:30:07
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-01-29 18:30:32
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-01-29 19:26:09
