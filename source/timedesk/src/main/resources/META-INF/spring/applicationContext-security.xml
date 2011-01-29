@@ -25,7 +25,7 @@
 			<!-- password-encoder hash="md5"/ -->
 			<jdbc-user-service data-source-ref="dataSource"
 			users-by-username-query="SELECT username, password, enabled FROM user WHERE username=?"
-			authorities-by-username-query="SELECT u.username, r.name as authority FROM user u, user_security_role ur, security_role r WHERE u.id = ur.User_id AND ur.userRoles_id AND u.username = ?" />
+			authorities-by-username-query="SELECT u.username, r.name as authority FROM user u, user_security_role ur, security_role r WHERE u.id = ur.User_id AND ur.securityRoles_id AND u.username = ?" />
 		</authentication-provider>
 	</authentication-manager>
 
