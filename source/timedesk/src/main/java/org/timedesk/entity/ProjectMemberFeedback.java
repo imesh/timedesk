@@ -41,4 +41,11 @@ public class ProjectMemberFeedback
 
 	@Column(name = "description")
     private String description;
+	
+    public String toString() 
+    {
+        StringBuilder sb = new StringBuilder();       
+        sb.append(getFeedbackId());
+        return sb.toString();
+    }
 }

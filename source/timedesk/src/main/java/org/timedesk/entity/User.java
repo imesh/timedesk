@@ -46,4 +46,11 @@ public class User
 
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<SecurityRole> securityRoles = new HashSet<SecurityRole>();
+    
+    public String toString() 
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getUsername());
+        return sb.toString();
+    }
 }

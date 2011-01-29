@@ -37,4 +37,11 @@ public class ProjectMemberRole
 	@NotNull
 	@Column(name = "name")
     private String name;
+	
+    public String toString() 
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getName());
+        return sb.toString();
+    }
 }

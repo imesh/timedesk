@@ -35,4 +35,11 @@ public class Skill
 	@NotNull
 	@Column(name = "description")
     private String description;
+	
+    public String toString() 
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getSkillId());
+        return sb.toString();
+    }
 }

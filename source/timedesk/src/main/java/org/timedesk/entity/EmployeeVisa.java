@@ -59,4 +59,11 @@ public class EmployeeVisa
     @NotNull
     @Column(name = "country")
     private String country;
+    
+    public String toString() 
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getVisaId());
+        return sb.toString();
+    }
 }
