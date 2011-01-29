@@ -7,5 +7,6 @@
         <field:datetime dateTimePattern="${projectPhaseMember_enddate_date_format}" field="endDate" id="c_org_timedesk_entity_ProjectPhaseMember_endDate" required="true" z="UqtmJbS65P/JhOfDvWQ4UGZg64A="/>
         <field:input field="allocation" id="c_org_timedesk_entity_ProjectPhaseMember_allocation" required="true" validationMessageCode="field_invalid_integer" z="iDUi6xo8ZgsLVvWUUtPLvssQTDM="/>
     <field:select field="projectPhase" id="c_org_timedesk_entity_ProjectPhaseMember_projectPhase" itemValue="id" items="${projectphases}" path="/projectphases" required="true" z="dzlAIkzHorXlU2NYSo4zmlbOcz8="/>
+    <field:select field="projectMember" id="c_org_timedesk_entity_ProjectPhaseMember_projectMember" itemValue="id" items="${projectmembers}" path="/projectmembers" z="VbWjaAbuwD4Bca5sE1UPYPUDpDE="/>
     </form:update>
 </div>

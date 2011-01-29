@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
+import org.timedesk.entity.ProjectMember;
 import org.timedesk.entity.ProjectPhase;
 import org.timedesk.entity.ProjectPhaseMember;
 
@@ -105,9 +106,22 @@ privileged aspect ProjectPhaseMemberController_Roo_Controller {
         return "redirect:/projectphasemembers?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
+    @ModelAttribute("projectmembers")
+    public Collection<ProjectMember> ProjectPhaseMemberController.populateProjectMembers() {
+        return ProjectMember.findAllProjectMembers();
+    }
+    
     @ModelAttribute("projectphases")
     public Collection<ProjectPhase> ProjectPhaseMemberController.populateProjectPhases() {
         return ProjectPhase.findAllProjectPhases();
+    }
+    
+    Converter<ProjectMember, String> ProjectPhaseMemberController.getProjectMemberConverter() {
+        return new Converter<ProjectMember, String>() {
+            public String convert(ProjectMember projectMember) {
+                return new StringBuilder().append(projectMember.getMemberId()).toString();
+            }
+        };
     }
     
     Converter<ProjectPhase, String> ProjectPhaseMemberController.getProjectPhaseConverter() {
@@ -128,6 +142,7 @@ privileged aspect ProjectPhaseMemberController_Roo_Controller {
     
     @PostConstruct
     void ProjectPhaseMemberController.registerConverters() {
+        conversionService.addConverter(getProjectMemberConverter());
         conversionService.addConverter(getProjectPhaseConverter());
         conversionService.addConverter(getProjectPhaseMemberConverter());
     }

@@ -130,7 +130,7 @@ table.navigation {
 }
 
 label {
-	width: 120px;
+	width: 125px;
 	float: left;
 	margin-left: 5px;
 	margin-top: 0px;
@@ -207,7 +207,8 @@ h4 {
 	color: red;
 	font-weight: bold;
 	display: block;
-	margin-left: 105px;
+	margin-left: 5px;
+	padding-bottom: 15px;
 }
 
 a {

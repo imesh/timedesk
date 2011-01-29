@@ -24,11 +24,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
+import org.timedesk.entity.CompanySite;
 import org.timedesk.entity.Employee;
 import org.timedesk.entity.EmployeeLeave;
 import org.timedesk.entity.EmployeeVisa;
 import org.timedesk.entity.Role;
-import org.timedesk.entity.Site;
 import org.timedesk.entity.Skill;
 
 privileged aspect EmployeeController_Roo_Controller {
@@ -50,8 +50,8 @@ privileged aspect EmployeeController_Roo_Controller {
     public String EmployeeController.createForm(Model model) {
         model.addAttribute("employee", new Employee());
         List dependencies = new ArrayList();
-        if (Site.countSites() == 0) {
-            dependencies.add(new String[]{"site", "sites"});
+        if (CompanySite.countCompanySites() == 0) {
+            dependencies.add(new String[]{"companySite", "companysites"});
         }
         model.addAttribute("dependencies", dependencies);
         return "employees/create";
@@ -101,6 +101,11 @@ privileged aspect EmployeeController_Roo_Controller {
         return "redirect:/employees?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
+    @ModelAttribute("companysites")
+    public Collection<CompanySite> EmployeeController.populateCompanySites() {
+        return CompanySite.findAllCompanySites();
+    }
+    
     @ModelAttribute("employeeleaves")
     public Collection<EmployeeLeave> EmployeeController.populateEmployeeLeaves() {
         return EmployeeLeave.findAllEmployeeLeaves();
@@ -116,14 +121,17 @@ privileged aspect EmployeeController_Roo_Controller {
         return Role.findAllRoles();
     }
     
-    @ModelAttribute("sites")
-    public Collection<Site> EmployeeController.populateSites() {
-        return Site.findAllSites();
-    }
-    
     @ModelAttribute("skills")
     public Collection<Skill> EmployeeController.populateSkills() {
         return Skill.findAllSkills();
+    }
+    
+    Converter<CompanySite, String> EmployeeController.getCompanySiteConverter() {
+        return new Converter<CompanySite, String>() {
+            public String convert(CompanySite companySite) {
+                return new StringBuilder().append(companySite.getSiteId()).append(" ").append(companySite.getLocation()).append(" ").append(companySite.getCity()).toString();
+            }
+        };
     }
     
     Converter<Employee, String> EmployeeController.getEmployeeConverter() {
@@ -158,14 +166,6 @@ privileged aspect EmployeeController_Roo_Controller {
         };
     }
     
-    Converter<Site, String> EmployeeController.getSiteConverter() {
-        return new Converter<Site, String>() {
-            public String convert(Site site) {
-                return new StringBuilder().append(site.getSiteId()).append(" ").append(site.getLocation()).append(" ").append(site.getCity()).toString();
-            }
-        };
-    }
-    
     Converter<Skill, String> EmployeeController.getSkillConverter() {
         return new Converter<Skill, String>() {
             public String convert(Skill skill) {
@@ -176,11 +176,11 @@ privileged aspect EmployeeController_Roo_Controller {
     
     @PostConstruct
     void EmployeeController.registerConverters() {
+        conversionService.addConverter(getCompanySiteConverter());
         conversionService.addConverter(getEmployeeConverter());
         conversionService.addConverter(getEmployeeLeaveConverter());
         conversionService.addConverter(getEmployeeVisaConverter());
         conversionService.addConverter(getRoleConverter());
-        conversionService.addConverter(getSiteConverter());
         conversionService.addConverter(getSkillConverter());
     }
     

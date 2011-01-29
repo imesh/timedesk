@@ -25,90 +25,80 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 import org.timedesk.entity.Company;
+import org.timedesk.entity.CompanySite;
 import org.timedesk.entity.Employee;
-import org.timedesk.entity.Site;
 
-privileged aspect SiteController_Roo_Controller {
+privileged aspect CompanySiteController_Roo_Controller {
     
     @Autowired
-    private GenericConversionService SiteController.conversionService;
-    
-    @RequestMapping(method = RequestMethod.POST)
-    public String SiteController.create(@Valid Site site, BindingResult result, Model model, HttpServletRequest request) {
-        if (result.hasErrors()) {
-            model.addAttribute("site", site);
-            return "sites/create";
-        }
-        site.persist();
-        return "redirect:/sites/" + encodeUrlPathSegment(site.getId().toString(), request);
-    }
+    private GenericConversionService CompanySiteController.conversionService;
     
     @RequestMapping(params = "form", method = RequestMethod.GET)
-    public String SiteController.createForm(Model model) {
-        model.addAttribute("site", new Site());
+    public String CompanySiteController.createForm(Model model) {
+        model.addAttribute("companySite", new CompanySite());
         List dependencies = new ArrayList();
         if (Company.countCompanys() == 0) {
             dependencies.add(new String[]{"company", "companys"});
         }
         model.addAttribute("dependencies", dependencies);
-        return "sites/create";
+        return "companysites/create";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public String SiteController.show(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("site", Site.findSite(id));
+    public String CompanySiteController.show(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("companysite", CompanySite.findCompanySite(id));
         model.addAttribute("itemId", id);
-        return "sites/show";
+        return "companysites/show";
     }
     
     @RequestMapping(method = RequestMethod.GET)
-    public String SiteController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model) {
+    public String CompanySiteController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model) {
         if (page != null || size != null) {
             int sizeNo = size == null ? 10 : size.intValue();
-            model.addAttribute("sites", Site.findSiteEntries(page == null ? 0 : (page.intValue() - 1) * sizeNo, sizeNo));
-            float nrOfPages = (float) Site.countSites() / sizeNo;
+            model.addAttribute("companysites", CompanySite.findCompanySiteEntries(page == null ? 0 : (page.intValue() - 1) * sizeNo, sizeNo));
+            float nrOfPages = (float) CompanySite.countCompanySites() / sizeNo;
             model.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
         } else {
-            model.addAttribute("sites", Site.findAllSites());
+            model.addAttribute("companysites", CompanySite.findAllCompanySites());
         }
-        return "sites/list";
+        return "companysites/list";
     }
     
     @RequestMapping(method = RequestMethod.PUT)
-    public String SiteController.update(@Valid Site site, BindingResult result, Model model, HttpServletRequest request) {
+    public String CompanySiteController.update(@Valid CompanySite companySite, BindingResult result, Model model, HttpServletRequest request) {
         if (result.hasErrors()) {
-            model.addAttribute("site", site);
-            return "sites/update";
+            model.addAttribute("companySite", companySite);
+            return "companysites/update";
         }
-        site.merge();
-        return "redirect:/sites/" + encodeUrlPathSegment(site.getId().toString(), request);
+        companySite.merge();
+        return "redirect:/companysites/" + encodeUrlPathSegment(companySite.getId().toString(), request);
     }
     
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
-    public String SiteController.updateForm(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("site", Site.findSite(id));
-        return "sites/update";
+    public String CompanySiteController.updateForm(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("companySite", CompanySite.findCompanySite(id));
+        return "companysites/update";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public String SiteController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model) {
-        Site.findSite(id).remove();
+    public String CompanySiteController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model) {
+        CompanySite.findCompanySite(id).remove();
         model.addAttribute("page", (page == null) ? "1" : page.toString());
         model.addAttribute("size", (size == null) ? "10" : size.toString());
-        return "redirect:/sites?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
+        return "redirect:/companysites?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
     @ModelAttribute("companys")
-    public Collection<Company> SiteController.populateCompanys() {
+    public Collection<Company> CompanySiteController.populateCompanys() {
         return Company.findAllCompanys();
     }
     
     @ModelAttribute("employees")
-    public Collection<Employee> SiteController.populateEmployees() {
+    public Collection<Employee> CompanySiteController.populateEmployees() {
         return Employee.findAllEmployees();
     }
     
-    Converter<Company, String> SiteController.getCompanyConverter() {
+    Converter<Company, String> CompanySiteController.getCompanyConverter() {
         return new Converter<Company, String>() {
             public String convert(Company company) {
                 return new StringBuilder().append(company.getCompanyId()).append(" ").append(company.getName()).toString();
@@ -116,7 +106,15 @@ privileged aspect SiteController_Roo_Controller {
         };
     }
     
-    Converter<Employee, String> SiteController.getEmployeeConverter() {
+    Converter<CompanySite, String> CompanySiteController.getCompanySiteConverter() {
+        return new Converter<CompanySite, String>() {
+            public String convert(CompanySite companySite) {
+                return new StringBuilder().append(companySite.getSiteId()).append(" ").append(companySite.getLocation()).append(" ").append(companySite.getCity()).toString();
+            }
+        };
+    }
+    
+    Converter<Employee, String> CompanySiteController.getEmployeeConverter() {
         return new Converter<Employee, String>() {
             public String convert(Employee employee) {
                 return new StringBuilder().append(employee.getEmployeeId()).append(" ").append(employee.getFirstName()).append(" ").append(employee.getLastName()).toString();
@@ -124,22 +122,14 @@ privileged aspect SiteController_Roo_Controller {
         };
     }
     
-    Converter<Site, String> SiteController.getSiteConverter() {
-        return new Converter<Site, String>() {
-            public String convert(Site site) {
-                return new StringBuilder().append(site.getSiteId()).append(" ").append(site.getLocation()).append(" ").append(site.getCity()).toString();
-            }
-        };
-    }
-    
     @PostConstruct
-    void SiteController.registerConverters() {
+    void CompanySiteController.registerConverters() {
         conversionService.addConverter(getCompanyConverter());
+        conversionService.addConverter(getCompanySiteConverter());
         conversionService.addConverter(getEmployeeConverter());
-        conversionService.addConverter(getSiteConverter());
     }
     
-    private String SiteController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {
+    private String CompanySiteController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {
         String enc = request.getCharacterEncoding();
         if (enc == null) {
             enc = WebUtils.DEFAULT_CHARACTER_ENCODING;

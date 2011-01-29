@@ -51,4 +51,12 @@ public class EmployeeLeave
 	@DateTimeFormat(style = "MS")
 	@Column(name = "to_time")
 	private Date toTime;
+	
+    public String toString() 
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getFromTime()).append(" - ");
+        sb.append(getToTime());
+        return sb.toString();
+    }
 }

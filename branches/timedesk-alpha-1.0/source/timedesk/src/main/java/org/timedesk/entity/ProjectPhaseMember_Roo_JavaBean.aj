@@ -6,6 +6,7 @@ package org.timedesk.entity;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Date;
+import org.timedesk.entity.ProjectMember;
 import org.timedesk.entity.ProjectPhase;
 
 privileged aspect ProjectPhaseMember_Roo_JavaBean {
@@ -24,6 +25,14 @@ privileged aspect ProjectPhaseMember_Roo_JavaBean {
     
     public void ProjectPhaseMember.setPhaseMemberId(String phaseMemberId) {
         this.phaseMemberId = phaseMemberId;
+    }
+    
+    public ProjectMember ProjectPhaseMember.getProjectMember() {
+        return this.projectMember;
+    }
+    
+    public void ProjectPhaseMember.setProjectMember(ProjectMember projectMember) {
+        this.projectMember = projectMember;
     }
     
     public Date ProjectPhaseMember.getStartDate() {

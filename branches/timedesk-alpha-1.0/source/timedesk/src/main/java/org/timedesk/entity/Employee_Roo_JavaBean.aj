@@ -5,20 +5,20 @@ package org.timedesk.entity;
 
 import java.lang.String;
 import java.util.Set;
+import org.timedesk.entity.CompanySite;
 import org.timedesk.entity.EmployeeLeave;
 import org.timedesk.entity.EmployeeVisa;
 import org.timedesk.entity.Role;
-import org.timedesk.entity.Site;
 import org.timedesk.entity.Skill;
 
 privileged aspect Employee_Roo_JavaBean {
     
-    public Site Employee.getSite() {
-        return this.site;
+    public CompanySite Employee.getCompanySite() {
+        return this.companySite;
     }
     
-    public void Employee.setSite(Site site) {
-        this.site = site;
+    public void Employee.setCompanySite(CompanySite companySite) {
+        this.companySite = companySite;
     }
     
     public String Employee.getEmployeeId() {

@@ -8,53 +8,53 @@ import java.util.Set;
 import org.timedesk.entity.Company;
 import org.timedesk.entity.Employee;
 
-privileged aspect Site_Roo_JavaBean {
+privileged aspect CompanySite_Roo_JavaBean {
     
-    public Company Site.getCompany() {
+    public Company CompanySite.getCompany() {
         return this.company;
     }
     
-    public void Site.setCompany(Company company) {
+    public void CompanySite.setCompany(Company company) {
         this.company = company;
     }
     
-    public String Site.getSiteId() {
+    public String CompanySite.getSiteId() {
         return this.siteId;
     }
     
-    public void Site.setSiteId(String siteId) {
+    public void CompanySite.setSiteId(String siteId) {
         this.siteId = siteId;
     }
     
-    public String Site.getLocation() {
+    public String CompanySite.getLocation() {
         return this.location;
     }
     
-    public void Site.setLocation(String location) {
+    public void CompanySite.setLocation(String location) {
         this.location = location;
     }
     
-    public String Site.getCity() {
+    public String CompanySite.getCity() {
         return this.city;
     }
     
-    public void Site.setCity(String city) {
+    public void CompanySite.setCity(String city) {
         this.city = city;
     }
     
-    public String Site.getCountry() {
+    public String CompanySite.getCountry() {
         return this.country;
     }
     
-    public void Site.setCountry(String country) {
+    public void CompanySite.setCountry(String country) {
         this.country = country;
     }
     
-    public Set<Employee> Site.getEmployees() {
+    public Set<Employee> CompanySite.getEmployees() {
         return this.employees;
     }
     
-    public void Site.setEmployees(Set<Employee> employees) {
+    public void CompanySite.setEmployees(Set<Employee> employees) {
         this.employees = employees;
     }
     
