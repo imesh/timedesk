@@ -8,8 +8,6 @@
         <field:datetime dateTimePattern="${projectPhaseMember_startdate_date_format}" field="startDate" id="c_org_timedesk_entity_ProjectPhaseMember_startDate" required="true" z="q0ZSisKGVipyScQq11w7tU6Tkw4="/>
         <field:datetime dateTimePattern="${projectPhaseMember_enddate_date_format}" field="endDate" id="c_org_timedesk_entity_ProjectPhaseMember_endDate" required="true" z="UqtmJbS65P/JhOfDvWQ4UGZg64A="/>
         <field:input field="allocation" id="c_org_timedesk_entity_ProjectPhaseMember_allocation" required="true" validationMessageCode="field_invalid_integer" z="iDUi6xo8ZgsLVvWUUtPLvssQTDM="/>
-    
-    
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_timedesk_entity_ProjectPhaseMember" render="${not empty dependencies}" z="7h1C3ngoiLg3csgyyQVNR5cg6qs="/>
 </div>

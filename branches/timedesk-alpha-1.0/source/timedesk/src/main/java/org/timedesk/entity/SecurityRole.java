@@ -43,5 +43,11 @@ public class SecurityRole
 	
 	@ManyToMany(cascade = CascadeType.ALL)
     private Set<ApplicationFeature> applicationFeatures = new HashSet<ApplicationFeature>();
-
+	
+    public String toString() 
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append(getName());        
+        return sb.toString();
+    }
 }

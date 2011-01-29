@@ -64,4 +64,11 @@ public class ProjectPhaseMember
 	@NotNull
 	@Column(name = "allocation")
     private Integer allocation;
+	
+    public String toString() 
+    {
+        StringBuilder sb = new StringBuilder();        
+        sb.append(getPhaseMemberId());
+        return sb.toString();
+    }
 }
