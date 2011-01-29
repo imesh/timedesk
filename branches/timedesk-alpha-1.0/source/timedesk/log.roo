@@ -170,3 +170,4 @@ controller all --package ~.web
 entity --class ~.entity.EmployeeRole
 entity --class ~.entity.ProjectMemberRole
 controller all --package ~.web
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-01-29 21:28:03
