@@ -18,278 +18,29 @@ USE `timedesk`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `project_member_role`
+-- Table structure for table `em_role`
 --
 
-DROP TABLE IF EXISTS `project_member_role`;
+DROP TABLE IF EXISTS `em_role`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `project_member_role` (
-  `ProjectMember_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `roles_id` bigint(20) NOT NULL,
-  PRIMARY KEY (`ProjectMember_id`,`roles_id`),
-  KEY `FK_project_member_role_roles_id` (`roles_id`),
-  CONSTRAINT `FK_project_member_role_ProjectMember_id` FOREIGN KEY (`ProjectMember_id`) REFERENCES `project_member` (`id`),
-  CONSTRAINT `FK_project_member_role_roles_id` FOREIGN KEY (`roles_id`) REFERENCES `role` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=203 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `project_member_role`
---
-
-LOCK TABLES `project_member_role` WRITE;
-/*!40000 ALTER TABLE `project_member_role` DISABLE KEYS */;
-INSERT INTO `project_member_role` VALUES (16,9),(202,9),(202,12);
-/*!40000 ALTER TABLE `project_member_role` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `employee_role`
---
-
-DROP TABLE IF EXISTS `employee_role`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `employee_role` (
-  `Employee_id` bigint(20) NOT NULL,
-  `employeeRoles_id` bigint(20) NOT NULL,
-  `preEmployeeRoles_id` bigint(20) NOT NULL,
-  PRIMARY KEY (`Employee_id`,`employeeRoles_id`,`preEmployeeRoles_id`),
-  KEY `FK_employee_role_employeeRoles_id` (`employeeRoles_id`),
-  KEY `FK_employee_role_preEmployeeRoles_id` (`preEmployeeRoles_id`),
-  CONSTRAINT `FK_employee_role_Employee_id` FOREIGN KEY (`Employee_id`) REFERENCES `employee` (`id`),
-  CONSTRAINT `FK_employee_role_employeeRoles_id` FOREIGN KEY (`employeeRoles_id`) REFERENCES `role` (`id`),
-  CONSTRAINT `FK_employee_role_preEmployeeRoles_id` FOREIGN KEY (`preEmployeeRoles_id`) REFERENCES `role` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `employee_role`
---
-
-LOCK TABLES `employee_role` WRITE;
-/*!40000 ALTER TABLE `employee_role` DISABLE KEYS */;
-/*!40000 ALTER TABLE `employee_role` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `sequence`
---
-
-DROP TABLE IF EXISTS `sequence`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `sequence` (
-  `SEQ_NAME` varchar(50) NOT NULL,
-  `SEQ_COUNT` decimal(38,0) DEFAULT NULL,
-  PRIMARY KEY (`SEQ_NAME`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `sequence`
---
-
-LOCK TABLES `sequence` WRITE;
-/*!40000 ALTER TABLE `sequence` DISABLE KEYS */;
-INSERT INTO `sequence` VALUES ('SEQ_GEN','250');
-/*!40000 ALTER TABLE `sequence` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `company`
---
-
-DROP TABLE IF EXISTS `company`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `company` (
+CREATE TABLE `em_role` (
   `id` bigint(20) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `company_id` varchar(255) DEFAULT NULL,
+  `role_id` varchar(255) DEFAULT NULL,
   `version` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `company`
+-- Dumping data for table `em_role`
 --
 
-LOCK TABLES `company` WRITE;
-/*!40000 ALTER TABLE `company` DISABLE KEYS */;
-INSERT INTO `company` VALUES (1,'Apache Software Foundation','APACHE',1),(203,'Red Hat','REDHAT',1);
-/*!40000 ALTER TABLE `company` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `site`
---
-
-DROP TABLE IF EXISTS `site`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `site` (
-  `id` bigint(20) NOT NULL,
-  `site_id` varchar(255) DEFAULT NULL,
-  `location` varchar(255) DEFAULT NULL,
-  `city` varchar(255) DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL,
-  `version` int(11) DEFAULT NULL,
-  `company_id` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `site`
---
-
-LOCK TABLES `site` WRITE;
-/*!40000 ALTER TABLE `site` DISABLE KEYS */;
-INSERT INTO `site` VALUES (2,'CMB','Down Street','Colombo','Sri Lanka',1,'APACHE'),(3,'NY','High Street','New York','United States',1,'APACHE');
-/*!40000 ALTER TABLE `site` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `user`
---
-
-DROP TABLE IF EXISTS `user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `user` (
-  `id` bigint(20) NOT NULL,
-  `enabled` tinyint(1) DEFAULT '0',
-  `username` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `version` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user`
---
-
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (17,1,'admin','admin',2);
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `security_role`
---
-
-DROP TABLE IF EXISTS `security_role`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `security_role` (
-  `id` bigint(20) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `security_role_id` varchar(255) DEFAULT NULL,
-  `version` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `security_role`
---
-
-LOCK TABLES `security_role` WRITE;
-/*!40000 ALTER TABLE `security_role` DISABLE KEYS */;
-INSERT INTO `security_role` VALUES (18,'Administrator','ADMIN',1),(19,'Resource Manager','RM',1),(20,'Project Manager','PM',1);
-/*!40000 ALTER TABLE `security_role` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `skill`
---
-
-DROP TABLE IF EXISTS `skill`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `skill` (
-  `id` bigint(20) NOT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `skill_id` varchar(255) DEFAULT NULL,
-  `version` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `skill`
---
-
-LOCK TABLES `skill` WRITE;
-/*!40000 ALTER TABLE `skill` DISABLE KEYS */;
-INSERT INTO `skill` VALUES (5,'Java Web Development','JAVAWEB',1),(6,'.NET Windows Application Development','DNETWIN',1),(7,'Spring Application Server Development','SPRING',2),(8,'Spring MVC Web Development','SPRINGMVC',1);
-/*!40000 ALTER TABLE `skill` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `project_phase_member`
---
-
-DROP TABLE IF EXISTS `project_phase_member`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `project_phase_member` (
-  `id` bigint(20) NOT NULL,
-  `start_date` datetime DEFAULT NULL,
-  `phase_member_id` varchar(255) DEFAULT NULL,
-  `allocation` int(11) DEFAULT NULL,
-  `end_date` datetime DEFAULT NULL,
-  `version` int(11) DEFAULT NULL,
-  `phase_id` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `project_phase_member`
---
-
-LOCK TABLES `project_phase_member` WRITE;
-/*!40000 ALTER TABLE `project_phase_member` DISABLE KEYS */;
-INSERT INTO `project_phase_member` VALUES (204,'2011-01-15 00:00:00','PM-IM',80,'2011-01-22 00:00:00',1,'P1');
-/*!40000 ALTER TABLE `project_phase_member` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `employee_skill`
---
-
-DROP TABLE IF EXISTS `employee_skill`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `employee_skill` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `description` varchar(255) DEFAULT NULL,
-  `employee_skill_id` varchar(255) DEFAULT NULL,
-  `version` int(11) DEFAULT NULL,
-  `Employee_id` bigint(20) NOT NULL,
-  `employeeSkills_id` bigint(20) NOT NULL,
-  PRIMARY KEY (`id`,`Employee_id`,`employeeSkills_id`),
-  KEY `FK_employee_skill_employeeSkills_id` (`employeeSkills_id`),
-  KEY `FK_employee_skill_Employee_id` (`Employee_id`),
-  CONSTRAINT `FK_employee_skill_employeeSkills_id` FOREIGN KEY (`employeeSkills_id`) REFERENCES `skill` (`id`),
-  CONSTRAINT `FK_employee_skill_Employee_id` FOREIGN KEY (`Employee_id`) REFERENCES `employee` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `employee_skill`
---
-
-LOCK TABLES `employee_skill` WRITE;
-/*!40000 ALTER TABLE `employee_skill` DISABLE KEYS */;
-INSERT INTO `employee_skill` VALUES (1,NULL,NULL,NULL,102,5);
-/*!40000 ALTER TABLE `employee_skill` ENABLE KEYS */;
+LOCK TABLES `em_role` WRITE;
+/*!40000 ALTER TABLE `em_role` DISABLE KEYS */;
+INSERT INTO `em_role` VALUES (51,'Software Engineer','SE',1),(102,'Senior Software Engineer','SSE',1),(103,'Quality Assurance Engineer','QAE',1),(104,'Senior Quality Assurance Engineer','SQAE',1);
+/*!40000 ALTER TABLE `em_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -319,6 +70,299 @@ LOCK TABLES `employee_leave` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `sequence`
+--
+
+DROP TABLE IF EXISTS `sequence`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sequence` (
+  `SEQ_NAME` varchar(50) NOT NULL,
+  `SEQ_COUNT` decimal(38,0) DEFAULT NULL,
+  PRIMARY KEY (`SEQ_NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sequence`
+--
+
+LOCK TABLES `sequence` WRITE;
+/*!40000 ALTER TABLE `sequence` DISABLE KEYS */;
+INSERT INTO `sequence` VALUES ('SEQ_GEN','300');
+/*!40000 ALTER TABLE `sequence` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `company`
+--
+
+DROP TABLE IF EXISTS `company`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `company` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `company_id` varchar(255) DEFAULT NULL,
+  `version` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNQ_company_0` (`company_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `company`
+--
+
+LOCK TABLES `company` WRITE;
+/*!40000 ALTER TABLE `company` DISABLE KEYS */;
+INSERT INTO `company` VALUES (1,'Timedesk Software Foundation','TD',1);
+/*!40000 ALTER TABLE `company` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user` (
+  `id` bigint(20) NOT NULL,
+  `enabled` tinyint(1) DEFAULT '0',
+  `username` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `version` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,1,'admin','admin',2),(153,1,'resourcemanager','resourcemanager',3),(154,1,'projectmanager','projectmanager',3),(201,1,'imesh','imesh',1),(202,1,'chamil','chamil',1),(204,1,'channa','channa',1),(205,1,'thilina','thilina',1),(206,1,'eranga','eranga',1),(207,1,'nilupulee','nilupulee',1);
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `security_role`
+--
+
+DROP TABLE IF EXISTS `security_role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `security_role` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `security_role_id` varchar(255) DEFAULT NULL,
+  `version` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `security_role`
+--
+
+LOCK TABLES `security_role` WRITE;
+/*!40000 ALTER TABLE `security_role` DISABLE KEYS */;
+INSERT INTO `security_role` VALUES (1,'Administrator','ADMIN',1),(109,'Project Manager','PM',2),(110,'Resource Manager','RM',2),(111,'Project Member','PMEM',1),(112,'Training Manager','TM',1);
+/*!40000 ALTER TABLE `security_role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `application_feature`
+--
+
+DROP TABLE IF EXISTS `application_feature`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `application_feature` (
+  `id` bigint(20) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `feature_id` varchar(255) DEFAULT NULL,
+  `version` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNQ_application_feature_0` (`feature_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `application_feature`
+--
+
+LOCK TABLES `application_feature` WRITE;
+/*!40000 ALTER TABLE `application_feature` DISABLE KEYS */;
+INSERT INTO `application_feature` VALUES (113,'This feature will allow employee information management','Employee Management','EMPMGT',3),(151,'This feature will allow employee leave management','Leave Management','LVMMGT',2),(152,'This feature will allow project information management','Project Management','PRMGT',2),(203,'This feature will allow viewing others employee information','View Employee Information','VEMP',1);
+/*!40000 ALTER TABLE `application_feature` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `skill`
+--
+
+DROP TABLE IF EXISTS `skill`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `skill` (
+  `id` bigint(20) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `skill_id` varchar(255) DEFAULT NULL,
+  `version` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `skill`
+--
+
+LOCK TABLES `skill` WRITE;
+/*!40000 ALTER TABLE `skill` DISABLE KEYS */;
+INSERT INTO `skill` VALUES (11,'Java Web Development','JAVAWEB',4),(12,'Spring MVC Web Development','SPRINGMVC',3),(13,'.NET Windows Application Development','DNETWIN',1),(14,'Java Enterprise Edition Development','JAVAEE',2),(15,'Software Designing','SOFTDESIGN',1);
+/*!40000 ALTER TABLE `skill` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `project_phase_member`
+--
+
+DROP TABLE IF EXISTS `project_phase_member`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `project_phase_member` (
+  `id` bigint(20) NOT NULL,
+  `start_date` datetime DEFAULT NULL,
+  `phase_member_id` varchar(255) DEFAULT NULL,
+  `allocation` int(11) DEFAULT NULL,
+  `end_date` datetime DEFAULT NULL,
+  `version` int(11) DEFAULT NULL,
+  `member_id` varchar(255) DEFAULT NULL,
+  `phase_id` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `project_phase_member`
+--
+
+LOCK TABLES `project_phase_member` WRITE;
+/*!40000 ALTER TABLE `project_phase_member` DISABLE KEYS */;
+/*!40000 ALTER TABLE `project_phase_member` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pm_role`
+--
+
+DROP TABLE IF EXISTS `pm_role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pm_role` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `role_id` varchar(255) DEFAULT NULL,
+  `version` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pm_role`
+--
+
+LOCK TABLES `pm_role` WRITE;
+/*!40000 ALTER TABLE `pm_role` DISABLE KEYS */;
+INSERT INTO `pm_role` VALUES (106,'Project Manager','PM',1),(107,'Team Leader','TL',1),(108,'Package Manager','PGM',1);
+/*!40000 ALTER TABLE `pm_role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `employee_em_role`
+--
+
+DROP TABLE IF EXISTS `employee_em_role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `employee_em_role` (
+  `Employee_id` bigint(20) NOT NULL,
+  `employeeRoles_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`Employee_id`,`employeeRoles_id`),
+  KEY `FK_employee_em_role_employeeRoles_id` (`employeeRoles_id`),
+  CONSTRAINT `FK_employee_em_role_Employee_id` FOREIGN KEY (`Employee_id`) REFERENCES `employee` (`id`),
+  CONSTRAINT `FK_employee_em_role_employeeRoles_id` FOREIGN KEY (`employeeRoles_id`) REFERENCES `em_role` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `employee_em_role`
+--
+
+LOCK TABLES `employee_em_role` WRITE;
+/*!40000 ALTER TABLE `employee_em_role` DISABLE KEYS */;
+INSERT INTO `employee_em_role` VALUES (3,102);
+/*!40000 ALTER TABLE `employee_em_role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `project_member_pm_role`
+--
+
+DROP TABLE IF EXISTS `project_member_pm_role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `project_member_pm_role` (
+  `ProjectMember_id` bigint(20) NOT NULL,
+  `roles_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`ProjectMember_id`,`roles_id`),
+  KEY `FK_project_member_pm_role_roles_id` (`roles_id`),
+  CONSTRAINT `FK_project_member_pm_role_ProjectMember_id` FOREIGN KEY (`ProjectMember_id`) REFERENCES `project_member` (`id`),
+  CONSTRAINT `FK_project_member_pm_role_roles_id` FOREIGN KEY (`roles_id`) REFERENCES `pm_role` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `project_member_pm_role`
+--
+
+LOCK TABLES `project_member_pm_role` WRITE;
+/*!40000 ALTER TABLE `project_member_pm_role` DISABLE KEYS */;
+/*!40000 ALTER TABLE `project_member_pm_role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `employee_skill`
+--
+
+DROP TABLE IF EXISTS `employee_skill`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `employee_skill` (
+  `Employee_id` bigint(20) NOT NULL,
+  `employeeSkills_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`Employee_id`,`employeeSkills_id`),
+  KEY `FK_employee_skill_employeeSkills_id` (`employeeSkills_id`),
+  CONSTRAINT `FK_employee_skill_Employee_id` FOREIGN KEY (`Employee_id`) REFERENCES `employee` (`id`),
+  CONSTRAINT `FK_employee_skill_employeeSkills_id` FOREIGN KEY (`employeeSkills_id`) REFERENCES `skill` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `employee_skill`
+--
+
+LOCK TABLES `employee_skill` WRITE;
+/*!40000 ALTER TABLE `employee_skill` DISABLE KEYS */;
+INSERT INTO `employee_skill` VALUES (16,11),(3,12),(16,12),(17,12),(18,12),(3,13),(3,14),(18,15);
+/*!40000 ALTER TABLE `employee_skill` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `project_phase`
 --
 
@@ -343,34 +387,65 @@ CREATE TABLE `project_phase` (
 
 LOCK TABLES `project_phase` WRITE;
 /*!40000 ALTER TABLE `project_phase` DISABLE KEYS */;
-INSERT INTO `project_phase` VALUES (201,'2011-01-08 00:00:00','Initialization','2011-01-15 00:00:00','P1',1,'Black Bird');
+INSERT INTO `project_phase` VALUES (253,'2010-12-18 00:00:00','Designing Phase','2010-12-24 00:00:00','P1',1,'OCEAN');
 /*!40000 ALTER TABLE `project_phase` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `application_feature`
+-- Table structure for table `employee_pre_em_role`
 --
 
-DROP TABLE IF EXISTS `application_feature`;
+DROP TABLE IF EXISTS `employee_pre_em_role`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `application_feature` (
-  `id` bigint(20) NOT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `feature_id` varchar(255) DEFAULT NULL,
-  `version` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `employee_pre_em_role` (
+  `Employee_id` bigint(20) NOT NULL,
+  `preEmployeeRoles_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`Employee_id`,`preEmployeeRoles_id`),
+  KEY `FK_employee_pre_em_role_preEmployeeRoles_id` (`preEmployeeRoles_id`),
+  CONSTRAINT `FK_employee_pre_em_role_preEmployeeRoles_id` FOREIGN KEY (`preEmployeeRoles_id`) REFERENCES `em_role` (`id`),
+  CONSTRAINT `FK_employee_pre_em_role_Employee_id` FOREIGN KEY (`Employee_id`) REFERENCES `employee` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `application_feature`
+-- Dumping data for table `employee_pre_em_role`
 --
 
-LOCK TABLES `application_feature` WRITE;
-/*!40000 ALTER TABLE `application_feature` DISABLE KEYS */;
-/*!40000 ALTER TABLE `application_feature` ENABLE KEYS */;
+LOCK TABLES `employee_pre_em_role` WRITE;
+/*!40000 ALTER TABLE `employee_pre_em_role` DISABLE KEYS */;
+/*!40000 ALTER TABLE `employee_pre_em_role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `company_site`
+--
+
+DROP TABLE IF EXISTS `company_site`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `company_site` (
+  `id` bigint(20) NOT NULL,
+  `site_id` varchar(255) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
+  `city` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `version` int(11) DEFAULT NULL,
+  `company_id` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNQ_company_site_0` (`company_id`,`site_id`),
+  CONSTRAINT `FK_company_site_company_id` FOREIGN KEY (`company_id`) REFERENCES `company` (`company_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `company_site`
+--
+
+LOCK TABLES `company_site` WRITE;
+/*!40000 ALTER TABLE `company_site` DISABLE KEYS */;
+INSERT INTO `company_site` VALUES (2,'CMB','WTC','Colombo','Sri Lanka',1,'TD');
+/*!40000 ALTER TABLE `company_site` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -389,7 +464,9 @@ CREATE TABLE `project` (
   `project_id` varchar(255) DEFAULT NULL,
   `version` int(11) DEFAULT NULL,
   `company_id` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `FK_project_company_id` (`company_id`),
+  CONSTRAINT `FK_project_company_id` FOREIGN KEY (`company_id`) REFERENCES `company` (`company_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -399,7 +476,7 @@ CREATE TABLE `project` (
 
 LOCK TABLES `project` WRITE;
 /*!40000 ALTER TABLE `project` DISABLE KEYS */;
-INSERT INTO `project` VALUES (15,'2010-12-18 00:00:00','Project Resource Management System','Timedesk','2011-02-21 00:00:00','TD',2,'APACHE'),(151,'2011-01-22 00:00:00','Aviation & Defense','Black Bird','2011-01-30 00:00:00','BB',5,'APACHE');
+INSERT INTO `project` VALUES (19,'2010-12-18 00:00:00','Timedesk Version 1','Ocean Blue','2011-02-21 00:00:00','OCEAN',1,'TD');
 /*!40000 ALTER TABLE `project` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -438,11 +515,11 @@ DROP TABLE IF EXISTS `user_security_role`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user_security_role` (
   `User_id` bigint(20) NOT NULL,
-  `userRoles_id` bigint(20) NOT NULL,
-  PRIMARY KEY (`User_id`,`userRoles_id`),
-  KEY `FK_user_security_role_userRoles_id` (`userRoles_id`),
+  `securityRoles_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`User_id`,`securityRoles_id`),
+  KEY `FK_user_security_role_securityRoles_id` (`securityRoles_id`),
   CONSTRAINT `FK_user_security_role_User_id` FOREIGN KEY (`User_id`) REFERENCES `user` (`id`),
-  CONSTRAINT `FK_user_security_role_userRoles_id` FOREIGN KEY (`userRoles_id`) REFERENCES `security_role` (`id`)
+  CONSTRAINT `FK_user_security_role_securityRoles_id` FOREIGN KEY (`securityRoles_id`) REFERENCES `security_role` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -452,35 +529,8 @@ CREATE TABLE `user_security_role` (
 
 LOCK TABLES `user_security_role` WRITE;
 /*!40000 ALTER TABLE `user_security_role` DISABLE KEYS */;
-INSERT INTO `user_security_role` VALUES (17,18);
+INSERT INTO `user_security_role` VALUES (1,1),(154,109),(153,110),(201,111),(202,111),(204,111),(205,111),(206,111),(207,111);
 /*!40000 ALTER TABLE `user_security_role` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `role`
---
-
-DROP TABLE IF EXISTS `role`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `role` (
-  `id` bigint(20) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `role_type` varchar(255) DEFAULT NULL,
-  `role_id` varchar(255) DEFAULT NULL,
-  `version` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `role`
---
-
-LOCK TABLES `role` WRITE;
-/*!40000 ALTER TABLE `role` DISABLE KEYS */;
-INSERT INTO `role` VALUES (9,'Software Engineer','EmployeeRole','SE',1),(10,'Quality Assurance Engineer','EmployeeRole','QAE',1),(11,'Software Architect','EmployeeRole','SA',1),(12,'Team Leader','ProjectMemberRole','TL',1),(13,'Project Manager','ProjectMemberRole','PM',1),(51,'Senior Software Engineer','EmployeeRole','SSE',1);
-/*!40000 ALTER TABLE `role` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -496,8 +546,7 @@ CREATE TABLE `project_member` (
   `version` int(11) DEFAULT NULL,
   `project_id` varchar(255) DEFAULT NULL,
   `employee_id` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK_project_member_EMPLOYEE_id` (`employee_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -507,7 +556,7 @@ CREATE TABLE `project_member` (
 
 LOCK TABLES `project_member` WRITE;
 /*!40000 ALTER TABLE `project_member` DISABLE KEYS */;
-INSERT INTO `project_member` VALUES (16,'IM',1,'TD','IM'),(202,'IM',2,'TD','IM');
+INSERT INTO `project_member` VALUES (20,'IMESH',2,'OCEAN','IMESH');
 /*!40000 ALTER TABLE `project_member` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -543,7 +592,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (4,'IM','Gunaratne','12345',1,'Colombo','Sri Lanka','','First Street','imesh.gunaratne@gmail.com','','Imesh','','CMB'),(14,'CM','Disanayake','12345',1,'Colombo','Sri Lanka','','Second Street','chamil.disanayake@gmail.com','','Chamil','','CMB'),(102,'CHANNA','Seneviratne','',2,'Kandy','Sri Lanka','','New Kandy Road','channa@gmail.com','','Channa','','CMB');
+INSERT INTO `employee` VALUES (3,'IMESH','Gunaratne','',3,'Colombo','Sri Lanka','','First Street','imesh.gunaratne@gmail.com','','Imesh','','CMB'),(16,'CHAMIL','Disanayake','',2,'Colombo','Sri Lanka','','Second Street','chamil.disanayake@gmail.com','','Chamil','','CMB'),(17,'THILINA','Ranaweera','',1,'Piliyandala','Sri Lanka','','First Cross Street','thilina.ranaweera@gmail.com','','Thilina','','CMB'),(18,'CHANNA','Senavirathna','',2,'Kandy','Sri Lanka','','New Kandy Road','channa.senavirathna@gmail.com','','Channa','','CMB');
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -556,10 +605,10 @@ DROP TABLE IF EXISTS `security_role_application_feature`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `security_role_application_feature` (
   `SecurityRole_id` bigint(20) NOT NULL,
-  `tasks_id` bigint(20) NOT NULL,
-  PRIMARY KEY (`SecurityRole_id`,`tasks_id`),
-  KEY `FK_security_role_application_feature_tasks_id` (`tasks_id`),
-  CONSTRAINT `FK_security_role_application_feature_tasks_id` FOREIGN KEY (`tasks_id`) REFERENCES `application_feature` (`id`),
+  `applicationFeatures_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`SecurityRole_id`,`applicationFeatures_id`),
+  KEY `securityroleapplicationfeaturepplicationFeaturesid` (`applicationFeatures_id`),
+  CONSTRAINT `securityroleapplicationfeaturepplicationFeaturesid` FOREIGN KEY (`applicationFeatures_id`) REFERENCES `application_feature` (`id`),
   CONSTRAINT `security_role_application_feature_SecurityRole_id` FOREIGN KEY (`SecurityRole_id`) REFERENCES `security_role` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -570,6 +619,7 @@ CREATE TABLE `security_role_application_feature` (
 
 LOCK TABLES `security_role_application_feature` WRITE;
 /*!40000 ALTER TABLE `security_role_application_feature` DISABLE KEYS */;
+INSERT INTO `security_role_application_feature` VALUES (110,113),(109,152);
 /*!40000 ALTER TABLE `security_role_application_feature` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -581,7 +631,7 @@ DROP TABLE IF EXISTS `employee_visa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `employee_visa` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL,
   `valid_to` datetime DEFAULT NULL,
   `valid_from` datetime DEFAULT NULL,
   `visa_id` varchar(255) DEFAULT NULL,
@@ -610,4 +660,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-01-29  0:48:35
+-- Dump completed on 2011-01-29 21:16:44
