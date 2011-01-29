@@ -98,6 +98,6 @@
    <menu:category id="c_companysite" render="false" z="user-managed"/>
    <menu:category id="c_projectmemberrole" render="false" z="user-managed"/>
    <menu:category id="c_employeerole" render="false" z="user-managed"/>
- <menu:category id="c_skill" z="Iaylqb/Nl/Uig1wNeJAoQWYI/lI="/>
-    </menu:menu>
+   <menu:category id="c_skill" render="false" z="user-managed"/>
+</menu:menu>
 </div>
