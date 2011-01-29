@@ -9,7 +9,7 @@ public class ErrorHandler
 	{
 		if(e.getMessage().indexOf("Duplicate entry") > 0)
     	{
-        	ObjectError error = new ObjectError(entity.toString(),  processClassName(entity.getClass().getSimpleName()) + " already exists! Try again with a different key value.");
+        	ObjectError error = new ObjectError(entity.toString(),  processClassName(entity.getClass().getSimpleName()) + " already exists! Try again with a different value.");
         	result.addError(error);
     	}
     	else
