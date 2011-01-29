@@ -6,6 +6,7 @@
         <field:input field="password" id="c_org_timedesk_entity_User_password" required="true" type="password" z="user-managed"/>
         <field:checkbox field="enabled" id="c_org_timedesk_entity_User_enabled" z="kJf+lQ21nYMRUg6ybptqDZXvySk="/>        
     	<field:select field="securityRoles" id="c_org_timedesk_entity_User_securityRoles" itemValue="id" items="${securityroles}" multiple="true" path="/securityroles" z="cmr6zugrD9mC+Rx84oaUW1gNkro="/>
+    	<field:simple field="employees" id="c_org_timedesk_entity_User_employees" messageCode="entity_reference_not_managed" messageCodeAttribute="Employee" render="false" z="user-managed"/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_timedesk_entity_User" render="${not empty dependencies}" z="hRsJZN+rjzBfRl51+kXnRb+1wXU="/>
 </div>

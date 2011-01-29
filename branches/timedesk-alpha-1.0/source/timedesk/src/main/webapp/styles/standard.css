@@ -205,10 +205,9 @@ h4 {
 
 .errors {
 	color: red;
-	font-weight: bold;
 	display: block;
-	margin-left: 5px;
-	padding-bottom: 15px;
+	margin-left: 130px;
+	padding-top: 10px;
 }
 
 a {

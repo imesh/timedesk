@@ -29,6 +29,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Email;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.tostring.RooToString;
@@ -47,6 +48,10 @@ public class Employee
 	@NotNull
 	@Column(name = "employee_id")
     private String employeeId;
+	
+	@ManyToOne
+	@JoinColumn(name = "username", referencedColumnName = "username")
+	private User user;
 
 	@Column(name = "first_name")
     private String firstName;
@@ -54,6 +59,7 @@ public class Employee
 	@Column(name = "last_name")
     private String lastName;
 
+	@Email
 	@Column(name = "email")
     private String email;
 

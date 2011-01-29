@@ -172,3 +172,7 @@ entity --class ~.entity.ProjectMemberRole
 controller all --package ~.web
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-01-29 21:28:03
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-01-29 22:41:42
+metadata status
+logging setup --level INFO 
+logging setup --level TRACE 
+logging setup --level WARN 

@@ -19,12 +19,15 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.javabean.RooJavaBean;
+import org.springframework.roo.addon.json.RooJson;
 import org.springframework.roo.addon.tostring.RooToString;
 
 @RooJavaBean
@@ -46,6 +49,9 @@ public class User
 
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<SecurityRole> securityRoles = new HashSet<SecurityRole>();
+    
+    @OneToMany(mappedBy = "user")
+    private Set<Employee> employees = new HashSet<Employee>();
     
     public String toString() 
     {

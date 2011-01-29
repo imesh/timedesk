@@ -32,6 +32,7 @@ import org.timedesk.entity.EmployeeLeave;
 import org.timedesk.entity.EmployeeRole;
 import org.timedesk.entity.EmployeeVisa;
 import org.timedesk.entity.Skill;
+import org.timedesk.entity.User;
 
 privileged aspect EmployeeController_Roo_Controller {
     
@@ -133,6 +134,11 @@ privileged aspect EmployeeController_Roo_Controller {
         return Skill.findAllSkills();
     }
     
+    @ModelAttribute("users")
+    public Collection<User> EmployeeController.populateUsers() {
+        return User.findAllUsers();
+    }
+    
     Converter<CompanySite, String> EmployeeController.getCompanySiteConverter() {
         return new Converter<CompanySite, String>() {
             public String convert(CompanySite companySite) {
@@ -181,6 +187,14 @@ privileged aspect EmployeeController_Roo_Controller {
         };
     }
     
+    Converter<User, String> EmployeeController.getUserConverter() {
+        return new Converter<User, String>() {
+            public String convert(User user) {
+                return new StringBuilder().append(user.getUsername()).append(" ").append(user.getPassword()).toString();
+            }
+        };
+    }
+    
     @PostConstruct
     void EmployeeController.registerConverters() {
         conversionService.addConverter(getCompanySiteConverter());
@@ -189,6 +203,7 @@ privileged aspect EmployeeController_Roo_Controller {
         conversionService.addConverter(getEmployeeRoleConverter());
         conversionService.addConverter(getEmployeeVisaConverter());
         conversionService.addConverter(getSkillConverter());
+        conversionService.addConverter(getUserConverter());
     }
     
     private String EmployeeController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {
