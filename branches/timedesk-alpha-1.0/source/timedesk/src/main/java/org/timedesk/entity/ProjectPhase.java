@@ -64,4 +64,11 @@ public class ProjectPhase
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "projectPhase")
     private Set<ProjectPhaseMember> projectPhaseMembers = new HashSet<ProjectPhaseMember>();
+    
+    public String toString() 
+    {
+        StringBuilder sb = new StringBuilder();        
+        sb.append(getDescription());
+        return sb.toString();
+    }
 }
