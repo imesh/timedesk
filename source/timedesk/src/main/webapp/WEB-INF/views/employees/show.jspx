@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_org_timedesk_entity_Employee" object="${employee}" path="/employees" z="eYG6EfdmyMtQVHoTC5Ls/Ie3nVw=">
         <field:display field="companySite" id="s_org_timedesk_entity_Employee_companySite" object="${employee}" z="nERgIbR4ujF2dNfHYNB/beBWfxg="/>
@@ -14,10 +14,29 @@
         <field:display field="phoneResidence" id="s_org_timedesk_entity_Employee_phoneResidence" object="${employee}" z="Uwcf7ZTumJY9BG7OKDLOJT3fRxY="/>
         <field:display field="phoneMobile" id="s_org_timedesk_entity_Employee_phoneMobile" object="${employee}" z="R10n2/B8NnarEz8+8AYneD/LY4s="/>
         <field:display field="officeExtension" id="s_org_timedesk_entity_Employee_officeExtension" object="${employee}" z="uWAxg2e6SyQUfLCtvs2DP9SvG+Q="/>
-        <field:display field="employeeSkills" id="s_org_timedesk_entity_Employee_employeeSkills" object="${employee}" z="obs1XA1+Uek4fmq1A/YuxFgxMFo="/>
-        <field:display field="employeeRoles" id="s_org_timedesk_entity_Employee_employeeRoles" object="${employee}" z="FOwcOLm5gyJgKQR7M9X+4LZ9yZ4="/>
-        <field:display field="preEmployeeRoles" id="s_org_timedesk_entity_Employee_preEmployeeRoles" object="${employee}" z="Z4tolQT2Da0bG5mIMarAwbD2zDw="/>
+        
+        <field:display field="employeeSkills" id="s_org_timedesk_entity_Employee_employeeSkills" object="${employee}" render="false" z="user-managed"/>
+        <field:display field="employeeRoles" id="s_org_timedesk_entity_Employee_employeeRoles" object="${employee}" render="false" z="user-managed"/>
+        <field:display field="preEmployeeRoles" id="s_org_timedesk_entity_Employee_preEmployeeRoles" object="${employee}" render="false" z="user-managed"/>
         <field:display field="visas" id="s_org_timedesk_entity_Employee_visas" object="${employee}" render="false" z="user-managed"/>
         <field:display field="leaves" id="s_org_timedesk_entity_Employee_leaves" object="${employee}" render="false" z="user-managed"/>
+        
+        <p class="data-grid-label">Employee Skills:</p>
+        <table:table create="false" delete="false" update="false" data="${employee.employeeSkills}" id="l_org_timedesk_entity_Skill" path="/skills" z="kT4hzPNzZGGzC6xbpLSHYvwJmP8=">
+            <table:column id="c_org_timedesk_entity_Skill_skillId" property="skillId" z="dR7jolWxMvPTSfgCOi1Txp6I0F0="/>
+            <table:column id="c_org_timedesk_entity_Skill_description" property="description" maxLength="200" z="user-managed"/>
+        </table:table>
+        
+        <p class="data-grid-label">Employee Roles:</p>
+        <table:table create="false" delete="false" update="false" data="${employee.employeeRoles}" id="l_org_timedesk_entity_EmployeeRole" path="/employeeroles" z="hkejVp0dnbZbsmyGvpZLkoLmzlI=">            
+            <table:column id="c_org_timedesk_entity_EmployeeRole_roleId" property="roleId" z="NSbH/QckgVdMen1M4om+r6I59sk="/>
+            <table:column id="c_org_timedesk_entity_EmployeeRole_name" property="name" maxLength="100" z="user-managed"/>
+        </table:table>
+        
+        <p class="data-grid-label">Pre Employee Roles:</p>
+        <table:table create="false" delete="false" update="false" data="${employee.preEmployeeRoles}" id="l_org_timedesk_entity_EmployeeRole" path="/employeeroles" z="hkejVp0dnbZbsmyGvpZLkoLmzlI=">            
+            <table:column id="c_org_timedesk_entity_EmployeeRole_roleId" property="roleId" z="NSbH/QckgVdMen1M4om+r6I59sk="/>
+            <table:column id="c_org_timedesk_entity_EmployeeRole_name" property="name" maxLength="100" z="user-managed"/>
+        </table:table>
     </page:show>
 </div>
