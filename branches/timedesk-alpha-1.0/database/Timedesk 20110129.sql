@@ -592,7 +592,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (3,'IMESH','Gunaratne','',3,'Colombo','Sri Lanka','','First Street','imesh.gunaratne@gmail.com','','Imesh','','CMB'),(16,'CHAMIL','Disanayake','',2,'Colombo','Sri Lanka','','Second Street','chamil.disanayake@gmail.com','','Chamil','','CMB'),(17,'THILINA','Ranaweera','',1,'Piliyandala','Sri Lanka','','First Cross Street','thilina.ranaweera@gmail.com','','Thilina','','CMB'),(18,'CHANNA','Senavirathna','',2,'Kandy','Sri Lanka','','New Kandy Road','channa.senavirathna@gmail.com','','Channa','','CMB');
+INSERT INTO `employee` VALUES (3,'IMESH','Gunaratne','',3,'Colombo','Sri Lanka','','First Street','imesh.gunaratne@timedeskonline.com','','Imesh','','CMB'),(16,'CHAMIL','Disanayake','',2,'Colombo','Sri Lanka','','Second Street','chamil.disanayake@timedeskonline.com','','Chamil','','CMB'),(17,'THILINA','Ranaweera','',1,'Piliyandala','Sri Lanka','','First Cross Street','thilina.ranaweera@timedeskonline.com','','Thilina','','CMB'),(18,'CHANNA','Senavirathna','',2,'Kandy','Sri Lanka','','New Kandy Road','channa.senavirathna@timedeskonline.com','','Channa','','CMB');
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
