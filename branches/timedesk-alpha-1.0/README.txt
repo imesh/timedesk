@@ -11,6 +11,7 @@ It is specially designed for managing software projects in IT organizations.
 
 http://code.google.com/p/timedesk/
 
+
 New Features of Timedesk Alpha 1.0
 ====================================
 1. Ability to define child records after defining parent records. In the earlier version of the product
@@ -20,6 +21,11 @@ one to many relationships were mapped as many to many.
 4. Project members can be allocated to project phases.
 5. Security roles can be defined and added to users.
 6. Application features can be defined and added to security roles.
+
+
+Known Issues of Timedesk Alpha 1.0
+====================================
+1. Master detail record structures do not get refreshed once new child records are added.
 
 
 Technology Stack
