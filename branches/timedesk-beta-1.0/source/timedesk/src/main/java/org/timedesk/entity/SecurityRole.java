@@ -50,4 +50,13 @@ public class SecurityRole
         sb.append(getName());        
         return sb.toString();
     }
+    
+    public static SecurityRole findSecurityRole(Long id) 
+    {
+        if (id == null) return null;
+        SecurityRole entity = entityManager().find(SecurityRole.class, id);
+        if(entity != null)
+        	entity.entityManager().refresh(entity);
+        return entity;
+    }
 }

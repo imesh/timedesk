@@ -94,11 +94,6 @@ privileged aspect CompanySite_Roo_Entity {
         return entityManager().createQuery("select o from CompanySite o", CompanySite.class).getResultList();
     }
     
-    public static CompanySite CompanySite.findCompanySite(Long id) {
-        if (id == null) return null;
-        return entityManager().find(CompanySite.class, id);
-    }
-    
     public static List<CompanySite> CompanySite.findCompanySiteEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("select o from CompanySite o", CompanySite.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }

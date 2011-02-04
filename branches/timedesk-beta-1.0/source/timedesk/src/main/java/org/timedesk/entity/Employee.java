@@ -115,4 +115,13 @@ public class Employee
         sb.append(getLastName());       
         return sb.toString();
     }
+    
+    public static Employee findEmployee(Long id) 
+    {
+        if (id == null) return null;
+        Employee entity = entityManager().find(Employee.class, id);
+        if(entity != null)
+        	entityManager().refresh(entity);
+        return entity;
+    }
 }

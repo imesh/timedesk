@@ -64,4 +64,13 @@ public class CompanySite
         sb.append(getSiteId());        
         return sb.toString();
     }
+    
+    public static CompanySite findCompanySite(Long id) 
+    {
+        if (id == null) return null;
+        CompanySite entity = entityManager().find(CompanySite.class, id);
+        if(entity != null)
+        	entityManager().refresh(entity);
+        return entity;
+    }
 }

@@ -94,11 +94,6 @@ privileged aspect SecurityRole_Roo_Entity {
         return entityManager().createQuery("select o from SecurityRole o", SecurityRole.class).getResultList();
     }
     
-    public static SecurityRole SecurityRole.findSecurityRole(Long id) {
-        if (id == null) return null;
-        return entityManager().find(SecurityRole.class, id);
-    }
-    
     public static List<SecurityRole> SecurityRole.findSecurityRoleEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("select o from SecurityRole o", SecurityRole.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }

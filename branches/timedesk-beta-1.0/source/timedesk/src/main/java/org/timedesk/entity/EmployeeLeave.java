@@ -59,4 +59,13 @@ public class EmployeeLeave
         sb.append(getToTime());
         return sb.toString();
     }
+    
+    public static EmployeeLeave findEmployeeLeave(Long id) 
+    {
+        if (id == null) return null;
+        EmployeeLeave entity = entityManager().find(EmployeeLeave.class, id);
+        if(entity != null)
+        	entityManager().refresh(entity);
+        return entity;
+    }
 }

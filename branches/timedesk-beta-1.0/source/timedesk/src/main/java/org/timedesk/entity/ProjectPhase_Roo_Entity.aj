@@ -94,11 +94,6 @@ privileged aspect ProjectPhase_Roo_Entity {
         return entityManager().createQuery("select o from ProjectPhase o", ProjectPhase.class).getResultList();
     }
     
-    public static ProjectPhase ProjectPhase.findProjectPhase(Long id) {
-        if (id == null) return null;
-        return entityManager().find(ProjectPhase.class, id);
-    }
-    
     public static List<ProjectPhase> ProjectPhase.findProjectPhaseEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("select o from ProjectPhase o", ProjectPhase.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }

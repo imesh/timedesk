@@ -20,6 +20,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.EntityManager;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -53,5 +54,14 @@ public class Company
         StringBuilder sb = new StringBuilder();        
         sb.append(getName());     
         return sb.toString();
+    }
+    
+    public static Company findCompany(Long id) 
+    {
+        if (id == null) return null;
+        Company company = entityManager().find(Company.class, id);
+        if(company != null)
+        	entityManager().refresh(company);
+        return company;
     }
 }

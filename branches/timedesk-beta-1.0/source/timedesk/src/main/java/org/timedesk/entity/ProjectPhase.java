@@ -71,4 +71,13 @@ public class ProjectPhase
         sb.append(getDescription());
         return sb.toString();
     }
+    
+    public static ProjectPhase findProjectPhase(Long id) 
+    {
+        if (id == null) return null;
+        ProjectPhase entity = entityManager().find(ProjectPhase.class, id);
+        if(entity != null)
+        	entity.entityManager().refresh(entity);
+        return entity;
+    }
 }
