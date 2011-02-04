@@ -18,7 +18,7 @@
 	  <div class="header_menu">	      
 	      <c:if test="true">
 		  	 <div class="header_login">	
-		  	 	<span class="welcome"> Welcome <a href="/timedesk/users/${user.id}"><sec:authentication property="principal.username"/></a></span> 	    	
+		  	 	<span class="welcome"> Welcome <a href="/timedesk/users/userprofile"><sec:authentication property="principal.username"/></a></span> 	    	
 		  		<span> | <a href="/timedesk/resources/j_spring_security_logout">Logout</a></span>
 		  	 </div>
 	  	   </c:if>

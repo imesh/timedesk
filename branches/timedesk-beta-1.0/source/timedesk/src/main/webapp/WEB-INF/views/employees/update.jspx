@@ -20,5 +20,6 @@
         <field:select field="preEmployeeRoles" id="c_org_timedesk_entity_Employee_preEmployeeRoles" itemValue="id" items="${employeeroles}" multiple="true" path="/employeeroles" z="ug64NB81SKiea7Bc2HHUZ7GVyu0="/>
         <field:simple field="visas" id="c_org_timedesk_entity_Employee_visas" messageCode="entity_reference_not_managed" messageCodeAttribute="Employee Visa" render="false" z="user-managed"/>
         <field:simple field="leaves" id="c_org_timedesk_entity_Employee_leaves" messageCode="entity_reference_not_managed" messageCodeAttribute="Employee Leave" render="false" z="user-managed"/>    
+    <field:input field="maxAllocation" id="c_org_timedesk_entity_Employee_maxAllocation" validationMessageCode="field_invalid_integer" z="0uCmGt/6st/03kBqT/XWEp9i138="/>
     </form:update>
 </div>

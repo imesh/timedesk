@@ -84,6 +84,9 @@ public class Employee
 
 	@Column(name = "office_extension")
     private String officeExtension;
+	
+	@Column(name = "max_allocation")
+	private Integer maxAllocation;
 
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<Skill> employeeSkills = new HashSet<Skill>();

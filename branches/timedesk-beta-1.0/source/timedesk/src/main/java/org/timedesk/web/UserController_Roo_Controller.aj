@@ -47,13 +47,6 @@ privileged aspect UserController_Roo_Controller {
         return "users/create";
     }
     
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public String UserController.show(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("user", User.findUser(id));
-        model.addAttribute("itemId", id);
-        return "users/show";
-    }
-    
     @RequestMapping(method = RequestMethod.GET)
     public String UserController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model) {
         if (page != null || size != null) {
