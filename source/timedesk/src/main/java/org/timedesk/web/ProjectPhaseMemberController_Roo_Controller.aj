@@ -11,14 +11,12 @@ import java.util.Collection;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import org.joda.time.format.DateTimeFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.support.GenericConversionService;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,17 +32,6 @@ privileged aspect ProjectPhaseMemberController_Roo_Controller {
     
     @Autowired
     private GenericConversionService ProjectPhaseMemberController.conversionService;
-    
-    @RequestMapping(method = RequestMethod.POST)
-    public String ProjectPhaseMemberController.create(@Valid ProjectPhaseMember projectPhaseMember, BindingResult result, Model model, HttpServletRequest request) {
-        if (result.hasErrors()) {
-            model.addAttribute("projectPhaseMember", projectPhaseMember);
-            addDateTimeFormatPatterns(model);
-            return "projectphasemembers/create";
-        }
-        projectPhaseMember.persist();
-        return "redirect:/projectphasemembers/" + encodeUrlPathSegment(projectPhaseMember.getId().toString(), request);
-    }
     
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String ProjectPhaseMemberController.createForm(Model model) {
@@ -78,17 +65,6 @@ privileged aspect ProjectPhaseMemberController_Roo_Controller {
         }
         addDateTimeFormatPatterns(model);
         return "projectphasemembers/list";
-    }
-    
-    @RequestMapping(method = RequestMethod.PUT)
-    public String ProjectPhaseMemberController.update(@Valid ProjectPhaseMember projectPhaseMember, BindingResult result, Model model, HttpServletRequest request) {
-        if (result.hasErrors()) {
-            model.addAttribute("projectPhaseMember", projectPhaseMember);
-            addDateTimeFormatPatterns(model);
-            return "projectphasemembers/update";
-        }
-        projectPhaseMember.merge();
-        return "redirect:/projectphasemembers/" + encodeUrlPathSegment(projectPhaseMember.getId().toString(), request);
     }
     
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
