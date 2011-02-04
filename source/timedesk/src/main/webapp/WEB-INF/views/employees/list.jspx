@@ -9,7 +9,8 @@
             <table:column id="c_org_timedesk_entity_Employee_firstName" property="firstName" z="+2A1sBRjBYp0Bht6YHGqQakQwzU="/>
             <table:column id="c_org_timedesk_entity_Employee_lastName" property="lastName" z="TUs9R8muBdSdvBqLaGKo0x4b+7c="/>
             <table:column id="c_org_timedesk_entity_Employee_email" maxLength="60" property="email" z="user-managed"/>
-            <table:column id="c_org_timedesk_entity_Employee_address" property="address" render="false" z="user-managed"/>        
+            <table:column id="c_org_timedesk_entity_Employee_address" property="address" render="false" z="user-managed"/>
+            
         </table:table>
     </page:list>
 </div>

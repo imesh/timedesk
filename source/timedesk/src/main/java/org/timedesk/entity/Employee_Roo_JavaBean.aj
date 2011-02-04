@@ -3,6 +3,7 @@
 
 package org.timedesk.entity;
 
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Set;
 import org.timedesk.entity.CompanySite;
@@ -117,6 +118,14 @@ privileged aspect Employee_Roo_JavaBean {
     
     public void Employee.setOfficeExtension(String officeExtension) {
         this.officeExtension = officeExtension;
+    }
+    
+    public Integer Employee.getMaxAllocation() {
+        return this.maxAllocation;
+    }
+    
+    public void Employee.setMaxAllocation(Integer maxAllocation) {
+        this.maxAllocation = maxAllocation;
     }
     
     public Set<Skill> Employee.getEmployeeSkills() {
