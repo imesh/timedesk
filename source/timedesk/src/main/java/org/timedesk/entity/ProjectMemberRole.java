@@ -42,4 +42,13 @@ public class ProjectMemberRole
         sb.append(getName());
         return sb.toString();
     }
+    
+    public static ProjectMemberRole findProjectMemberRole(Long id) 
+    {
+        if (id == null) return null;
+        ProjectMemberRole entity = entityManager().find(ProjectMemberRole.class, id);
+        if(entity != null)
+        	entity.entityManager().refresh(entity);
+        return entity;
+    }
 }

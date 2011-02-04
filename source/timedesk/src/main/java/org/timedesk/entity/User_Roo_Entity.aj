@@ -94,11 +94,6 @@ privileged aspect User_Roo_Entity {
         return entityManager().createQuery("select o from User o", User.class).getResultList();
     }
     
-    public static User User.findUser(Long id) {
-        if (id == null) return null;
-        return entityManager().find(User.class, id);
-    }
-    
     public static List<User> User.findUserEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("select o from User o", User.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }

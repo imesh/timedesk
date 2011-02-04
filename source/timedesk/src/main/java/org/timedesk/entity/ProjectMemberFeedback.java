@@ -48,4 +48,13 @@ public class ProjectMemberFeedback
         sb.append(getFeedbackId());
         return sb.toString();
     }
+    
+    public static ProjectMemberFeedback findProjectMemberFeedback(Long id) 
+    {
+        if (id == null) return null;
+        ProjectMemberFeedback entity = entityManager().find(ProjectMemberFeedback.class, id);
+        if(entity != null)
+        	entity.entityManager().refresh(entity);
+        return entity;
+    }
 }

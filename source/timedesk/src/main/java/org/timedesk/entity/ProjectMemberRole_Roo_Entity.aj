@@ -94,11 +94,6 @@ privileged aspect ProjectMemberRole_Roo_Entity {
         return entityManager().createQuery("select o from ProjectMemberRole o", ProjectMemberRole.class).getResultList();
     }
     
-    public static ProjectMemberRole ProjectMemberRole.findProjectMemberRole(Long id) {
-        if (id == null) return null;
-        return entityManager().find(ProjectMemberRole.class, id);
-    }
-    
     public static List<ProjectMemberRole> ProjectMemberRole.findProjectMemberRoleEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("select o from ProjectMemberRole o", ProjectMemberRole.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }

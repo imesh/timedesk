@@ -42,4 +42,13 @@ public class Skill
         sb.append(getSkillId());
         return sb.toString();
     }
+    
+    public static Skill findSkill(Long id) 
+    {
+        if (id == null) return null;
+        Skill entity = entityManager().find(Skill.class, id);
+        if(entity != null)
+        	entity.entityManager().refresh(entity);
+        return entity;
+    }
 }

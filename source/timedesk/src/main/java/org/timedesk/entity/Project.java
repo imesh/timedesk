@@ -76,4 +76,13 @@ public class Project
         sb.append(getName());        
         return sb.toString();
     }
+    
+    public static Project findProject(Long id) 
+    {
+        if (id == null) return null;
+        Project entity = entityManager().find(Project.class, id);
+        if(entity != null)
+        	entityManager().refresh(entity);
+        return entity;
+    }
 }

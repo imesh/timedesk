@@ -94,11 +94,6 @@ privileged aspect Skill_Roo_Entity {
         return entityManager().createQuery("select o from Skill o", Skill.class).getResultList();
     }
     
-    public static Skill Skill.findSkill(Long id) {
-        if (id == null) return null;
-        return entityManager().find(Skill.class, id);
-    }
-    
     public static List<Skill> Skill.findSkillEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("select o from Skill o", Skill.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }

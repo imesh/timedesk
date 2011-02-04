@@ -94,11 +94,6 @@ privileged aspect ProjectMemberFeedback_Roo_Entity {
         return entityManager().createQuery("select o from ProjectMemberFeedback o", ProjectMemberFeedback.class).getResultList();
     }
     
-    public static ProjectMemberFeedback ProjectMemberFeedback.findProjectMemberFeedback(Long id) {
-        if (id == null) return null;
-        return entityManager().find(ProjectMemberFeedback.class, id);
-    }
-    
     public static List<ProjectMemberFeedback> ProjectMemberFeedback.findProjectMemberFeedbackEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("select o from ProjectMemberFeedback o", ProjectMemberFeedback.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }

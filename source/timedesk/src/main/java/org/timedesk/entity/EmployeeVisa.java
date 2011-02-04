@@ -66,4 +66,13 @@ public class EmployeeVisa
         sb.append(getVisaId());
         return sb.toString();
     }
+    
+    public static EmployeeVisa findEmployeeVisa(Long id) 
+    {
+        if (id == null) return null;
+        EmployeeVisa entity = entityManager().find(EmployeeVisa.class, id);
+        if(entity != null)
+        	entityManager().refresh(entity);
+        return entity;
+    }
 }

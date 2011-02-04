@@ -49,4 +49,13 @@ public class ProjectMember
         sb.append(getMemberId());        
         return sb.toString();
     }
+    
+    public static ProjectMember findProjectMember(Long id) 
+    {
+        if (id == null) return null;
+        ProjectMember entity = entityManager().find(ProjectMember.class, id);
+        if(entity != null)
+        	entity.entityManager().refresh(entity);
+        return entity;
+    }
 }

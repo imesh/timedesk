@@ -42,4 +42,13 @@ public class EmployeeRole
         sb.append(getName());
         return sb.toString();
     }
+    
+    public static EmployeeRole findEmployeeRole(Long id) 
+    {
+        if (id == null) return null;
+        EmployeeRole entity = entityManager().find(EmployeeRole.class, id);
+        if(entity != null)
+        	entityManager().refresh(entity);
+        return entity;
+    }
 }

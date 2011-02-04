@@ -94,11 +94,6 @@ privileged aspect ApplicationFeature_Roo_Entity {
         return entityManager().createQuery("select o from ApplicationFeature o", ApplicationFeature.class).getResultList();
     }
     
-    public static ApplicationFeature ApplicationFeature.findApplicationFeature(Long id) {
-        if (id == null) return null;
-        return entityManager().find(ApplicationFeature.class, id);
-    }
-    
     public static List<ApplicationFeature> ApplicationFeature.findApplicationFeatureEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("select o from ApplicationFeature o", ApplicationFeature.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }

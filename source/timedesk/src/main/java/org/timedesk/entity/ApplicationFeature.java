@@ -46,4 +46,13 @@ public class ApplicationFeature
         sb.append(getName());
         return sb.toString();
     }
+    
+    public static ApplicationFeature findApplicationFeature(Long id) 
+    {
+        if (id == null) return null;
+        ApplicationFeature entity = entityManager().find(ApplicationFeature.class, id);
+        if(entity != null)
+        	entityManager().refresh(entity);
+        return entity;
+    }
 }

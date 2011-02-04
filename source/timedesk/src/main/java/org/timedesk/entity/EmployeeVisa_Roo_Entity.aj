@@ -94,11 +94,6 @@ privileged aspect EmployeeVisa_Roo_Entity {
         return entityManager().createQuery("select o from EmployeeVisa o", EmployeeVisa.class).getResultList();
     }
     
-    public static EmployeeVisa EmployeeVisa.findEmployeeVisa(Long id) {
-        if (id == null) return null;
-        return entityManager().find(EmployeeVisa.class, id);
-    }
-    
     public static List<EmployeeVisa> EmployeeVisa.findEmployeeVisaEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("select o from EmployeeVisa o", EmployeeVisa.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }

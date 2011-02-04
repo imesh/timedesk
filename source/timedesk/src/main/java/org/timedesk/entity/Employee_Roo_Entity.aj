@@ -94,11 +94,6 @@ privileged aspect Employee_Roo_Entity {
         return entityManager().createQuery("select o from Employee o", Employee.class).getResultList();
     }
     
-    public static Employee Employee.findEmployee(Long id) {
-        if (id == null) return null;
-        return entityManager().find(Employee.class, id);
-    }
-    
     public static List<Employee> Employee.findEmployeeEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("select o from Employee o", Employee.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }

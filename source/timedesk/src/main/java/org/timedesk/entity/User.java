@@ -61,6 +61,15 @@ public class User
         return sb.toString();
     }
     
+    public static User findUser(Long id) 
+    {
+        if (id == null) return null;
+        User entity = entityManager().find(User.class, id);
+        if(entity != null)
+        	entity.entityManager().refresh(entity);
+        return entity;
+    }
+    
     public static User findUser(String username) 
     {
         if (username != null) 
