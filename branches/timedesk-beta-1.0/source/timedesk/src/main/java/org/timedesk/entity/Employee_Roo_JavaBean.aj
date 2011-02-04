@@ -128,6 +128,14 @@ privileged aspect Employee_Roo_JavaBean {
         this.maxAllocation = maxAllocation;
     }
     
+    public Integer Employee.getCurrentAllocation() {
+        return this.currentAllocation;
+    }
+    
+    public void Employee.setCurrentAllocation(Integer currentAllocation) {
+        this.currentAllocation = currentAllocation;
+    }
+    
     public Set<Skill> Employee.getEmployeeSkills() {
         return this.employeeSkills;
     }

@@ -206,8 +206,8 @@ h4 {
 .errors {
 	color: red;
 	display: block;
-	margin-left: 130px;
-	padding-top: 10px;
+	margin-left: 5px;
+	padding-bottom: 15px;
 }
 
 a {

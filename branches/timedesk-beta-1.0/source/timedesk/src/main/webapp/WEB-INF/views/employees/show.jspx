@@ -15,6 +15,7 @@
         <field:display field="phoneResidence" id="s_org_timedesk_entity_Employee_phoneResidence" object="${employee}" z="Uwcf7ZTumJY9BG7OKDLOJT3fRxY="/>
         <field:display field="phoneMobile" id="s_org_timedesk_entity_Employee_phoneMobile" object="${employee}" z="R10n2/B8NnarEz8+8AYneD/LY4s="/>
         <field:display field="officeExtension" id="s_org_timedesk_entity_Employee_officeExtension" object="${employee}" z="uWAxg2e6SyQUfLCtvs2DP9SvG+Q="/>
+        <field:display field="currentAllocation" id="s_org_timedesk_entity_Employee_currentAllocation" object="${employee}" z="user-managed"/>
         <field:display field="maxAllocation" id="s_org_timedesk_entity_Employee_maxAllocation" object="${employee}" z="VCsWLMmtWre7QoBdOl0y2Jef4G8="/>
         <field:display field="employeeSkills" id="s_org_timedesk_entity_Employee_employeeSkills" object="${employee}" render="false" z="user-managed"/>
         <field:display field="employeeRoles" id="s_org_timedesk_entity_Employee_employeeRoles" object="${employee}" render="false" z="user-managed"/>
