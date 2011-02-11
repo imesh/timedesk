@@ -5,6 +5,11 @@
   <util:panel id="title" title="${title}">
     <spring:message code="application_name" var="app_name"/>
     <h3>Online Help</h3>
-    <p>The online help will be written here.</p>
+    <a href='#1'>Welcome</a>
+    <p><span>Welcome to the Time Desk Application</span></p>
+    <a href='#2'>Create new Company</a>
+    <p><span>Create new Company with Company ID and Name</span></p>
+     <a href='#3'>Company Information</a>
+    <p><span>Company Information List with the EDIT/DELETE Options </span></p>
   </util:panel>
 </div>
