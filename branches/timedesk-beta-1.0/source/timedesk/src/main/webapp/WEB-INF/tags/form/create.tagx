@@ -14,7 +14,7 @@
     </c:if>    
     <spring:message arguments="${label}" code="entity_create" var="title_msg"/>
     <util:panel id="${id}" title="" openPane="${openPane}">
-    <h3>${title_msg}</h3>
+    <h3>${title_msg}</h3><a href="/timedesk/help"><img src="images/help.png" align="right"/></a>
     <p>Enter below information to create a new ${label}.</p>
       <spring:url value="${path}" var="form_url"/>
       <form:form action="${fn:escapeXml(form_url)}" method="POST" modelAttribute="${modelAttribute}">
@@ -24,7 +24,7 @@
           <spring:message code="button_save" var="save_button"/>
           <script type="text/javascript">Spring.addDecoration(new Spring.ValidateAllDecoration({elementId:'proceed', event:'onclick'}));</script>
           <input id="proceed" type="submit" value="${fn:escapeXml(save_button)}"/>
-        </div>
+        </div>        
       </form:form>
     </util:panel>
   </c:if>

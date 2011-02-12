@@ -38,7 +38,7 @@
 
     <spring:message arguments="${label}" code="entity_show" var="title_msg" />    
     <util:panel id="${id}" title="" openPane="${openPane}">
-    <h3>${label} Information</h3>
+    <h3>${label} Information</h3><a href="/timedesk/help"><img src="images/help.png" align="right"/></a>
       <c:choose>
         <c:when test="${not empty object}">
           <jsp:doBody />
