@@ -191,3 +191,7 @@ hint
 perform tests
 quit
 // Spring Roo UNKNOWN VERSION log closed at 2011-02-05 22:47:29
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-12 10:31:10
+perform package
+quit
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-12 10:34:18
