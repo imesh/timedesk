@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
-    <jsp:output omit-xml-declaration="yes"/>
-    
+    <jsp:output omit-xml-declaration="yes"/>  
 <page:list id="pl_org_timedesk_entity_CompanySite" items="${companysites}" z="qAWFiQ/YGBKcCRRefc/DY35ctTM=">
         <table:table data="${companysites}" id="l_org_timedesk_entity_CompanySite" path="/companysites" z="e6RwqDfkwsF52uPVQ2uSncVUpKY=">
             <table:column id="c_org_timedesk_entity_CompanySite_company" maxLength="100" property="company" z="user-managed"/>
