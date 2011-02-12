@@ -26,7 +26,7 @@
       <spring:url value="${path}" var="form_url" />
       <form:form action="${fn:escapeXml(form_url)}" method="PUT" modelAttribute="${modelAttribute}">
         
-        <h3>${title_msg}</h3><a href="/timedesk/help"><img src="images/help.png" align="right"/></a>
+        <h3>${title_msg}</h3><a href="/timedesk/help"><img src="../images/help.png" align="right"/></a>
         <p>Update required fields and press the Save button to confirm.</p>
         <form:errors cssClass="errors" delimiter="&lt;p/&gt;" />
         <jsp:doBody />
