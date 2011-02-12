@@ -1,5 +1,5 @@
-CREATE DATABASE  IF NOT EXISTS `timedesk` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `timedesk`;
+CREATE DATABASE  IF NOT EXISTS `timedesk_beta` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `timedesk_beta`;
 -- MySQL dump 10.13  Distrib 5.1.40, for Win32 (ia32)
 --
 -- Host: localhost    Database: timedesk
