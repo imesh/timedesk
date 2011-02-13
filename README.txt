@@ -1,8 +1,8 @@
 ==================================================================
-                   Timedesk Alpha 1.0
+                   Timedesk Beta 1.0
 ==================================================================
 
-Welcome to the Timedesk Alpha 1.0 release.
+Welcome to the Timedesk Beta 1.0 release.
 
 Timedesk is a web based project resource management system developed using
 Spring MVC. It provides features for Human Resource Management, Project
@@ -10,23 +10,29 @@ Management, Training Management and Employee Role Readiness Management.
 It is specially designed for managing software projects in IT organizations.
 
 http://code.google.com/p/timedesk/
+http://timedeskonline.com/timedesk/
 
 
-New Features of Timedesk Alpha 1.0
+New Features of Timedesk Beta 1.0
 ====================================
-1. Ability to define child records after defining parent records. In the earlier version of the product
-one to many relationships were mapped as many to many.
-2. Employee leave information can be managed.
-3. Project phases can be added to projects to manage iterations.
-4. Project members can be allocated to project phases.
-5. Security roles can be defined and added to users.
-6. Application features can be defined and added to security roles.
+1. Added new attribute to Employee entity to hold Maximum Allocation.
+2. Added validations to Project Member Allocation process to verify available allocation percentage before
+allocating a member to a project.
+3. Added user profile page to display logged in user information linked it to the header. This will list out user 
+security roles and employees of the user.
+4. Added help text and links to all pages.
 
 
-Known Issues of Timedesk Alpha 1.0
+Issues Fixed in Timedesk Beta 1.0
 ====================================
 1. Master detail record structures do not get refreshed once new child records are added.
 
+
+Knows Issues of Timedesk Beta 1.0
+====================================
+1. Employee max allocation does not consider the time period. As a result an employee can only be allocated 
+to the given maximum amount for all projects.
+2. When creating and updating child records parent key is not properly set. This is set to the first parent record.
 
 Technology Stack
 ==================
@@ -69,7 +75,7 @@ Installation
 3. Append Maven path and Spring Roo path including the bin folder to the 
    global path variable.
 4. Download and install MySQL Community Server 5.5.8.
-5. Extract timedesk-prototype-1.0.zip and go to the extracted directory.
+5. Extract timedesk-beta-1.0.zip and go to the extracted directory.
 6. Deploy latest sql file found in database folder in the MySQL server.
    This will create the timedesk database and insert sample data.
 7. Update database url, username and password in source\timedesk\src\main\resources\META-INF\spring\database.properties file.  
