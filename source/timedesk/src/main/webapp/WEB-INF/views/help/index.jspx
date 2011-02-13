@@ -40,7 +40,7 @@
 	 </dl>
 	 
 	 <a name='4'>Leave Information</a>
-     <p><span>Leave Information section allow user to handle employee leave related information. Mainly two functionalities are facilitated under Leave Information section</span></p>
+     <p><span>Leave Information section allows user to handle employee leave related information. Mainly two functionalities are facilitated under Leave Information section</span></p>
      <dl>
 		<dt>Create new Employee Leave</dt>
 			<dd>Allows user to insert employee leave records. It is required to select Employee from drop down menu. The From Time and To Time should be given. A calendar will popup when clicks on From Time and To Time fields which allows user to select the specific date and time from the calendar</dd>
