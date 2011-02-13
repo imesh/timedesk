@@ -18,7 +18,7 @@ New Features of Timedesk Beta 1.0
 1. Added new attribute to Employee entity to hold Maximum Allocation.
 2. Added validations to Project Member Allocation process to verify available allocation percentage before
 allocating a member to a project.
-3. Added user profile page to display logged in user information linked it to the header. This will list out user 
+3. Added user profile page to display logged in user information and linked it to the header. This will list out user 
 security roles and employees of the user.
 4. Added help text and links to all pages.
 
