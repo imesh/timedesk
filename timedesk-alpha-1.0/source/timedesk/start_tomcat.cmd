@@ -1,2 +1,0 @@
-mvn tomcat:run
-pause
