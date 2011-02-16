@@ -15,7 +15,7 @@ http://timedeskonline.com/timedesk/
 
 New Features of Timedesk Final 1.0
 ====================================
-
+ 1) Report
 
 Issues Fixed in Timedesk Final 1.0
 ====================================
@@ -46,13 +46,13 @@ System Requirements
 =====================
 
 Operating System
-– Fedora 14/Ubuntu 10.10/Windows 7 Ultimate
+ï¿½ Fedora 14/Ubuntu 10.10/Windows 7 Ultimate
 Database Server
-– MySQL Community Server 5.5.8
+ï¿½ MySQL Community Server 5.5.8
 Application Server
-– Apache Tomcat 6.0.29
+ï¿½ Apache Tomcat 6.0.29
 Runtime Environment
-– Java (JDK 1.6.23)
+ï¿½ Java (JDK 1.6.23)
 - Maven 2.2.1
 - Spring Roo 1.1.0
 
