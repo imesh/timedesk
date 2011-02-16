@@ -1,8 +1,8 @@
 ==================================================================
-                   Timedesk Beta 1.0
+                   Timedesk Final 1.0
 ==================================================================
 
-Welcome to the Timedesk Beta 1.0 release.
+Welcome to the Timedesk Final 1.0 release.
 
 Timedesk is a web based project resource management system developed using
 Spring MVC. It provides features for Human Resource Management, Project
@@ -13,26 +13,17 @@ http://code.google.com/p/timedesk/
 http://timedeskonline.com/timedesk/
 
 
-New Features of Timedesk Beta 1.0
+New Features of Timedesk Final 1.0
 ====================================
-1. Added new attribute to Employee entity to hold Maximum Allocation.
-2. Added validations to Project Member Allocation process to verify available allocation percentage before
-allocating a member to a project.
-3. Added user profile page to display logged in user information and linked it to the header. This will list out user 
-security roles and employees of the user.
-4. Added help text and links to all pages.
 
 
-Issues Fixed in Timedesk Beta 1.0
+Issues Fixed in Timedesk Final 1.0
 ====================================
-1. Master detail record structures do not get refreshed once new child records are added.
 
 
-Knows Issues of Timedesk Beta 1.0
+Knows Issues of Timedesk Final 1.0
 ====================================
-1. Employee max allocation does not consider the time period. As a result an employee can only be allocated 
-to the given maximum amount for all projects.
-2. When creating and updating child records parent key is not properly set. This is set to the first parent record.
+
 
 Technology Stack
 ==================
@@ -75,7 +66,7 @@ Installation
 3. Append Maven path and Spring Roo path including the bin folder to the 
    global path variable.
 4. Download and install MySQL Community Server 5.5.8.
-5. Extract timedesk-beta-1.0.zip and go to the extracted directory.
+5. Extract timedesk-Final-1.0.zip and go to the extracted directory.
 6. Deploy latest sql file found in database folder in the MySQL server.
    This will create the timedesk database and insert sample data.
 7. Update database url, username and password in source\timedesk\src\main\resources\META-INF\spring\database.properties file.  
