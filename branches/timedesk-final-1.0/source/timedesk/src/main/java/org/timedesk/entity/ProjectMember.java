@@ -1,3 +1,18 @@
+/*
+ *  Time Desk
+ *  Project Resource Management System
+ *  http://code.google.com/p/timedesk
+ *   
+ *  Masters in Enterprise Applications Development
+ *  Sri Lanka Institute of Information Technology, Sri Lanka
+ *  Sheffield Hallam University, United Kingdom
+ *  
+ *  History:
+ *  2010 Dec 27 - Imesh - Created
+ *  2011 Feb 16 - Imesh - Changed referenced column names to id.
+ *
+ */
+
 package org.timedesk.entity;
 
 import java.util.HashSet;
@@ -25,7 +40,7 @@ public class ProjectMember
 {
 	@NotNull
 	@ManyToOne
-	@JoinColumn(name = "project_id", referencedColumnName = "project_id")
+	@JoinColumn(name = "project_id", referencedColumnName = "id")
 	private Project project;
 	
     @NotNull
@@ -33,7 +48,7 @@ public class ProjectMember
     private String memberId;
     
     @OneToOne
-    @JoinColumn(name = "employee_id", referencedColumnName = "employee_id")
+    @JoinColumn(name = "employee_id", referencedColumnName = "id")
     private Employee employee;
 
     @ManyToMany(cascade = CascadeType.ALL)

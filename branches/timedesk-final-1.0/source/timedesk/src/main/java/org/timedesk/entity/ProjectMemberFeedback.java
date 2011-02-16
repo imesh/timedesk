@@ -9,6 +9,7 @@
  *  
  *  History:
  *  2010 Dec 27 - Imesh - Created
+ *  2011 Feb 16 - Imesh - Changed referenced column names to id.
  *
  */
 
@@ -32,7 +33,7 @@ public class ProjectMemberFeedback
 {
 	@NotNull
 	@ManyToOne
-	@JoinColumn(name = "member_id", referencedColumnName = "member_id")
+	@JoinColumn(name = "member_id", referencedColumnName = "id")
 	private ProjectMember projectMember;
 	
 	@NotNull

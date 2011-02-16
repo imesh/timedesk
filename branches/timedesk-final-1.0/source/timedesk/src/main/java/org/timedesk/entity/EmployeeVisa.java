@@ -9,6 +9,7 @@
  *  
  *  History:
  *  2011 Jan 22 - Imesh - Created
+ *  2011 Feb 16 - Imesh - Changed referenced column names to id.
  *
  */
 
@@ -37,7 +38,7 @@ public class EmployeeVisa
 {
 	@NotNull
 	@ManyToOne
-    @JoinColumn(name = "employee_id", referencedColumnName = "employee_id")
+    @JoinColumn(name = "employee_id", referencedColumnName = "id")
 	private Employee employee;
 	
 	@NotNull

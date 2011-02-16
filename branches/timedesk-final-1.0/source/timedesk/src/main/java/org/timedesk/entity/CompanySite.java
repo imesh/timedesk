@@ -9,6 +9,7 @@
  *  
  *  History:
  *  2010 Dec 30 - Imesh - Created
+ *  2011 Feb 16 - Imesh - Changed referenced column names to id.
  *
  */
 
@@ -19,7 +20,6 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -39,7 +39,7 @@ public class CompanySite
 {
 	@NotNull
 	@ManyToOne
-    @JoinColumn(name = "company_id", referencedColumnName = "company_id")
+    @JoinColumn(name = "company_id", referencedColumnName = "id")
     private Company company;
 	
 	@NotNull

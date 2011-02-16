@@ -9,6 +9,7 @@
  *  
  *  History:
  *  2010 Jan 27 - Imesh - Created
+ *  2011 Feb 16 - Imesh - Changed referenced column names to id.
  *
  */
 package org.timedesk.entity;
@@ -16,7 +17,6 @@ package org.timedesk.entity;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -37,7 +37,7 @@ public class EmployeeLeave
 {
 	@NotNull
 	@ManyToOne
-	@JoinColumn(name = "employee_id", referencedColumnName = "employee_id")
+	@JoinColumn(name = "employee_id", referencedColumnName = "id")
     private Employee employee;
 		
 	@NotNull

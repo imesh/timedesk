@@ -9,6 +9,7 @@
  *  
  *  History:
  *  2011 Jan 29 - Imesh - Created
+ *  2011 Feb 16 - Imesh - Changed referenced column names to id.
  *
  */
 
@@ -38,7 +39,7 @@ public class ProjectPhaseMember
 {
 	@NotNull
 	@ManyToOne
-	@JoinColumn(name = "phase_id", referencedColumnName = "phase_id")
+	@JoinColumn(name = "phase_id", referencedColumnName = "id")
 	private ProjectPhase projectPhase;
 	
 	@NotNull
@@ -46,7 +47,7 @@ public class ProjectPhaseMember
 	private String phaseMemberId;
 	
 	@OneToOne
-	@JoinColumn(name = "member_id", referencedColumnName = "member_id")
+	@JoinColumn(name = "member_id", referencedColumnName = "id")
 	private ProjectMember projectMember;
 	
 	@NotNull

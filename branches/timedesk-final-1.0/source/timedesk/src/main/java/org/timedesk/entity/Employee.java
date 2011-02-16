@@ -9,6 +9,7 @@
  *  
  *  History:
  *  2010 Dec 27 - Imesh - Created
+ *  2011 Feb 16 - Imesh - Changed referenced column names to id.
  *
  */
 
@@ -42,7 +43,7 @@ public class Employee
 {
 	@NotNull
 	@ManyToOne
-    @JoinColumn(name = "site_id", referencedColumnName = "site_id")
+    @JoinColumn(name = "site_id", referencedColumnName = "id")
 	private CompanySite companySite;
 	
 	@NotNull
@@ -50,7 +51,7 @@ public class Employee
     private String employeeId;
 	
 	@ManyToOne
-	@JoinColumn(name = "username", referencedColumnName = "username")
+	@JoinColumn(name = "username", referencedColumnName = "id")
 	private User user;
 
 	@Column(name = "first_name")

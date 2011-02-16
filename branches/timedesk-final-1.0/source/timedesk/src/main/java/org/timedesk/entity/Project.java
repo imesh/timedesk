@@ -9,6 +9,7 @@
  *  
  *  History:
  *  2010 Dec 27 - Imesh - Created
+ *  2011 Feb 16 - Imesh - Changed referenced column names to id.
  *
  */
 
@@ -41,7 +42,7 @@ public class Project
 {
 	@NotNull
 	@ManyToOne
-	@JoinColumn(name = "company_id", referencedColumnName = "company_id")
+	@JoinColumn(name = "company_id", referencedColumnName = "id")
 	private Company company;
 	
     @NotNull

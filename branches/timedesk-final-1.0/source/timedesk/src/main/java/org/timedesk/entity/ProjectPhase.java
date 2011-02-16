@@ -9,6 +9,7 @@
  *  
  *  History:
  *  2010 Dec 27 - Imesh - Created
+ *  2011 Feb 16 - Imesh - Changed referenced column names to id.
  *
  */
 
@@ -21,9 +22,8 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -42,7 +42,7 @@ public class ProjectPhase
 {
 	@NotNull
 	@ManyToOne
-	@JoinColumn(name = "project_id", referencedColumnName = "project_id")
+	@JoinColumn(name = "project_id", referencedColumnName = "id")
 	private Project project;
 	
 	@NotNull
