@@ -9,15 +9,24 @@
         <field:display field="city" id="s_org_timedesk_entity_CompanySite_city" object="${companysite}" z="kBb9o6qXO0NrKbXkr3ckmuQjQi0="/>
         <field:display field="country" id="s_org_timedesk_entity_CompanySite_country" object="${companysite}" z="29fV2UwVP0fiDkBWlEr2Sr97gh0="/>
         <field:display field="employees" id="s_org_timedesk_entity_CompanySite_employees" object="${companysite}" render="false" z="user-managed"/>
+        <field:display field="holidays" id="s_org_timedesk_entity_CompanySite_holidays" object="${companysite}" render="false" z="user-managed"/>
         
         <p class="data-grid-label">Employees:</p>
         <table:table data="${companysite.employees}" id="l_org_timedesk_entity_Employee" path="/employees" z="user-managed">
             <table:column id="c_org_timedesk_entity_Employee_companySite" property="companySite" render="false" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_Employee_employeeId" property="employeeId" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_Employee_firstName" property="firstName" z="user-managed"/>
-            <table:column id="c_org_timedesk_entity_Employee_lastName" property="lastName" maxLength="60" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_Employee_lastName" maxLength="60" property="lastName" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_Employee_email" maxLength="50" property="email" z="user-managed"/>            
         </table:table>
-        <br />
+        <br/>
+        
+        <p class="data-grid-label">Holidays:</p>
+        <table:table data="${holidays}" id="l_org_timedesk_entity_Holiday" path="/holidays" z="Vz8dJhBlogEQyCkutVN0dkVIWXg=">
+            <table:column id="c_org_timedesk_entity_Holiday_companySite" property="companySite" z="XIu2uC08nlSXTeZxtYpf1DjaY4U="/>
+            <table:column id="c_org_timedesk_entity_Holiday_date" property="date" z="Ar3MJEsYDj+MQ7hzYPSNbonpIcM="/>
+        </table:table>
+        <br/>
+    	
     </page:show>
 </div>

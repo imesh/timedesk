@@ -7,6 +7,7 @@ import java.lang.String;
 import java.util.Set;
 import org.timedesk.entity.Company;
 import org.timedesk.entity.Employee;
+import org.timedesk.entity.Holiday;
 
 privileged aspect CompanySite_Roo_JavaBean {
     
@@ -56,6 +57,14 @@ privileged aspect CompanySite_Roo_JavaBean {
     
     public void CompanySite.setEmployees(Set<Employee> employees) {
         this.employees = employees;
+    }
+    
+    public Set<Holiday> CompanySite.getHolidays() {
+        return this.holidays;
+    }
+    
+    public void CompanySite.setHolidays(Set<Holiday> holidays) {
+        this.holidays = holidays;
     }
     
 }

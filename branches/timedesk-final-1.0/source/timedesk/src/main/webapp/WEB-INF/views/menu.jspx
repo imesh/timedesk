@@ -99,5 +99,10 @@
    <menu:category id="c_projectmemberrole" render="false" z="user-managed"/>
    <menu:category id="c_employeerole" render="false" z="user-managed"/>
    <menu:category id="c_skill" render="false" z="user-managed"/>
-</menu:menu>
+
+   <menu:category id="c_holiday" render="false" z="user-managed">
+        <menu:item id="i_holiday_new" messageCode="global_menu_new" url="/holidays?form" render="false" z="user-managed"/>
+        <menu:item id="i_holiday_list" messageCode="global_menu_list" url="/holidays?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" render="false" z="user-managed"/>
+   </menu:category>
+   </menu:menu>
 </div>

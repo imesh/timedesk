@@ -58,6 +58,9 @@ public class CompanySite
     @OneToMany(cascade = CascadeType.ALL, mappedBy="companySite")
     private Set<Employee> employees = new HashSet<Employee>();
     
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="companySite")
+    private Set<Holiday> holidays = new HashSet<Holiday>();
+    
     public String toString() 
     {
         StringBuilder sb = new StringBuilder();        

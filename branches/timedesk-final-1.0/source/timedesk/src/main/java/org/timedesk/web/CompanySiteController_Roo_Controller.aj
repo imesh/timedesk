@@ -27,6 +27,7 @@ import org.springframework.web.util.WebUtils;
 import org.timedesk.entity.Company;
 import org.timedesk.entity.CompanySite;
 import org.timedesk.entity.Employee;
+import org.timedesk.entity.Holiday;
 
 privileged aspect CompanySiteController_Roo_Controller {
     
@@ -98,6 +99,11 @@ privileged aspect CompanySiteController_Roo_Controller {
         return Employee.findAllEmployees();
     }
     
+    @ModelAttribute("holidays")
+    public Collection<Holiday> CompanySiteController.populateHolidays() {
+        return Holiday.findAllHolidays();
+    }
+    
     Converter<Company, String> CompanySiteController.getCompanyConverter() {
         return new Converter<Company, String>() {
             public String convert(Company company) {
@@ -122,11 +128,20 @@ privileged aspect CompanySiteController_Roo_Controller {
         };
     }
     
+    Converter<Holiday, String> CompanySiteController.getHolidayConverter() {
+        return new Converter<Holiday, String>() {
+            public String convert(Holiday holiday) {
+                return new StringBuilder().append(holiday.getDate()).toString();
+            }
+        };
+    }
+    
     @PostConstruct
     void CompanySiteController.registerConverters() {
         conversionService.addConverter(getCompanyConverter());
         conversionService.addConverter(getCompanySiteConverter());
         conversionService.addConverter(getEmployeeConverter());
+        conversionService.addConverter(getHolidayConverter());
     }
     
     private String CompanySiteController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {

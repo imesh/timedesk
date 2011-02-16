@@ -9,6 +9,7 @@
         <field:input field="city" id="c_org_timedesk_entity_CompanySite_city" z="tKIdaneKyqtNKVYPP+78as1LhY0="/>
         <field:input field="country" id="c_org_timedesk_entity_CompanySite_country" z="LhfzAHrRJYyusl+vmIKO+SkaRGI="/>
         <field:simple field="employees" id="c_org_timedesk_entity_CompanySite_employees" messageCode="entity_reference_not_managed" messageCodeAttribute="Employee" render="false" z="user-managed"/>
+    <field:simple field="holidays" id="c_org_timedesk_entity_CompanySite_holidays" messageCode="entity_reference_not_managed" messageCodeAttribute="Holiday" z="Ebi/WCeJAGKP+m95uaKO5MDZnmc="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_timedesk_entity_CompanySite" render="${not empty dependencies}" z="Ok8aDwhEMTR7DUyvVnXRoYkiDcg="/>
 </div>

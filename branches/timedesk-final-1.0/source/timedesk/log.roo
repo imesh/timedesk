@@ -198,3 +198,6 @@ quit
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-13 09:53:50
 perform package
 perform package
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-16 22:35:09
+entity --class ~.entity.Holiday
+controller all --package ~.web
