@@ -50,10 +50,9 @@ public class ProjectMember
     @OneToOne
     @JoinColumn(name = "employee_id", referencedColumnName = "id")
     private Employee employee;
-
+    
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<ProjectMemberRole> roles = new HashSet<ProjectMemberRole>();
-
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "projectMember")
     private Set<ProjectMemberFeedback> feedbacks = new HashSet<ProjectMemberFeedback>();
