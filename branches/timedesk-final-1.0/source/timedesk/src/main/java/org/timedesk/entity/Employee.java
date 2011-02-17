@@ -58,9 +58,11 @@ public class Employee
 	@JoinColumn(name = "username", referencedColumnName = "id")
 	private User user;
 
+	@NotNull
 	@Column(name = "first_name")
     private String firstName;
 
+	@NotNull
 	@Column(name = "last_name")
     private String lastName;
 
