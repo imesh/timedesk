@@ -104,5 +104,12 @@
         <menu:item id="i_holiday_new" messageCode="global_menu_new" url="/holidays?form" render="false" z="user-managed"/>
         <menu:item id="i_holiday_list" messageCode="global_menu_list" url="/holidays?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" render="false" z="user-managed"/>
    </menu:category>
-   </menu:menu>
+
+    <!-- Reports -->
+    <!-- TODO: have to format as previous menu items -->
+    <menu:category id="c_report" z="8xNieVP/BzDL/guYOIU8nXCkMTw=">
+        <menu:item id="i_report_project_report_com_site" messageCode="project_report_com_site_menu" url="/reports?form" z="grbN9R4DcnYvsfSDTpkNlmZVbY4="/>
+        <menu:item id="i_report_project_report_employee" messageCode="project_report_employee_menu" url="/reports?list" z="q5hPOr+H6jgrnIc09Jw1JuGDXcY="/>
+    </menu:category>
+    </menu:menu>
 </div>

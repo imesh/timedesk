@@ -527,3 +527,43 @@ fieldset th {
 /* data grid */
 .data-grid-label, .data-grid{
 	margin-left: 5px;
+
+
+/* reporting */
+/* TODO - need to define styles proper way */
+    
+.report_space {
+    text-align: center;
+    color: #51638E;
+    background-color: #ffffff;
+    height: 18;
+}
+
+.report-title-big {
+    text-align: center;
+    font-size: 28pt;
+    color: #51638E;
+    background-color: #ffffff;
+    height: 25;
+}
+
+.report-striped-background {
+    text-align: right;
+    background-color: #ffffff;
+    height: 18;
+    width: 30%;
+}
+
+.report-col2 {
+    text-align: left;
+    font-weight: bold;
+    color: #555555;
+    background-color: #ffffff;
+    height: 18;
+    width: 20%;
+}
+
+.report-col3 {
+    background-color: #a9b8cb;
+    width: 20%;
+}
