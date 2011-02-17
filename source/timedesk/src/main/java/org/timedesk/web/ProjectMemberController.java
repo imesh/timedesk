@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.timedesk.entity.Employee;
 import org.timedesk.entity.Project;
 import org.timedesk.entity.ProjectMember;
 import org.timedesk.web.util.ApplicationTrace;
@@ -69,14 +70,17 @@ public class ProjectMemberController
     }
     
     @RequestMapping(params = "form", method = RequestMethod.GET)
-    public String createForm(Model model, @RequestParam(value = "parentId", required = false) String parentId) 
+    public String createForm(Model model, @RequestParam(value = "parentId", required = false) Long parentId) 
     {
     	ProjectMember member = new ProjectMember();
     	if(parentId != null)
     	{
-    		Project project = Project.findProject(Long.valueOf(parentId));
+    		Project project = Project.findProject(parentId);
     		if(project != null)
     			member.setProject(project);
+    		List<Employee> employeeList = Employee.findAllEmployees();
+    		if((employeeList != null) && (employeeList.size() > 0))
+    			member.setEmployee(employeeList.get(0));
     	}
         model.addAttribute("projectMember", member);
         List dependencies = new ArrayList();
