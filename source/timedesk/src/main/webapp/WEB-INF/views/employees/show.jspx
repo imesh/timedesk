@@ -2,9 +2,9 @@
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_org_timedesk_entity_Employee" object="${employee}" path="/employees" z="eYG6EfdmyMtQVHoTC5Ls/Ie3nVw=">
-        <a href="/timedesk/companysites/${employee.companySite.id}"><field:display field="companySite" id="s_org_timedesk_entity_Employee_companySite" object="${employee}" z="nERgIbR4ujF2dNfHYNB/beBWfxg="/></a>
+        <field:display field="companySite" id="s_org_timedesk_entity_Employee_companySite" object="${employee}" z="nERgIbR4ujF2dNfHYNB/beBWfxg="/>
+        <field:display field="employeeId" id="s_org_timedesk_entity_Employee_employeeId" object="${employee}" z="CahzlQm8K8k1R/IdQHTsn3fp+u4="/>
         <field:display field="user" id="s_org_timedesk_entity_Employee_user" object="${employee}" z="iFMtZm7fXXjpzO1q4MGVA/RKS9g="/>
-        <field:display field="employeeId" id="s_org_timedesk_entity_Employee_employeeId" object="${employee}" z="CahzlQm8K8k1R/IdQHTsn3fp+u4="/>        
         <field:display field="firstName" id="s_org_timedesk_entity_Employee_firstName" object="${employee}" z="EFvf7hE4B9iQdxbDEshnQcikbZk="/>
         <field:display field="lastName" id="s_org_timedesk_entity_Employee_lastName" object="${employee}" z="LXD1G43BqtXWB7rlx6/++NNlT7A="/>
         <field:display field="email" id="s_org_timedesk_entity_Employee_email" object="${employee}" z="/qf5OHTuoS1tFc839m15bfK3wug="/>
@@ -15,7 +15,6 @@
         <field:display field="phoneResidence" id="s_org_timedesk_entity_Employee_phoneResidence" object="${employee}" z="Uwcf7ZTumJY9BG7OKDLOJT3fRxY="/>
         <field:display field="phoneMobile" id="s_org_timedesk_entity_Employee_phoneMobile" object="${employee}" z="R10n2/B8NnarEz8+8AYneD/LY4s="/>
         <field:display field="officeExtension" id="s_org_timedesk_entity_Employee_officeExtension" object="${employee}" z="uWAxg2e6SyQUfLCtvs2DP9SvG+Q="/>
-        <field:display field="currentAllocation" id="s_org_timedesk_entity_Employee_currentAllocation" object="${employee}" z="user-managed"/>
         <field:display field="maxAllocation" id="s_org_timedesk_entity_Employee_maxAllocation" object="${employee}" z="VCsWLMmtWre7QoBdOl0y2Jef4G8="/>
         <field:display field="employeeSkills" id="s_org_timedesk_entity_Employee_employeeSkills" object="${employee}" render="false" z="user-managed"/>
         <field:display field="employeeRoles" id="s_org_timedesk_entity_Employee_employeeRoles" object="${employee}" render="false" z="user-managed"/>
