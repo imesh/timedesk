@@ -78,3 +78,40 @@ Installation
 11. Login using username:admin and password:admin.
 
 
+Reporting
+===========
+
+Set up
+-------
+1) Go to "http://download.eclipse.org/birt/downloads/build.php?build=R-R1-2_6_1-201009171723" and download the "birt-runtime-2_6_1".
+   NB: When BIRT runtime version change, some of maven dependencies versions also will be change.
+
+2) Go to "$TIMEDESK_HOME/source/timedesk/pom.xml" and set "birt.runtime.location" property with your "birt-runtime-2_6_1" as,
+
+   <birt.runtime.location>/home/channa/Desktop/birt-runtime-2_6_1/WebViewerExample</birt.runtime.location>
+
+3) Go to "$TIMEDESK_HOME/source/timedesk/src/main/webapp/report/report_library.rptlibrary" and set your db properties.
+   Note: We have to give our db password "base64" manner as,
+         <encrypted-property name="odaPassword" encryptionID="base64">cGFzc3dvcmQ=</encrypted-property>
+         For convert your password to "base64" use, http://www.motobit.com/util/base64-decoder-encoder.asp
+
+Deployment
+----------
+1) NB: Due to some "maven tomcat" plugin issue, application will not up with "mvn clean install tomcat:run" command.
+       -Therefore do install new tomcat ex: apache-tomcat-6.0.16
+       -Go to "$TIMEDESK_HOME/source/timedesk" and do "mvn clean install"
+       -Then copy that war file as
+        cp $TIMEDESK_HOME/source/timedesk/target/timedesk-0.1.0.BUILD-SNAPSHOT.war $CATALINA_HOME/webapps/
+       -Then go to $CATALINA_HOME/bin/ and run "./catalina.sh run"
+       -Then try url "http://localhost:8080/timedesk-0.1.0.BUILD-SNAPSHOT"
+
+2) If you get any memory exceptions,
+   Go to "$CATALINA_HOME/bin/catalina.sh" and set JAVA_OPTS as,
+
+    # JAVA_OPTS="$JAVA_OPTS "-Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager" "-Djava.util.logging.config.file="$CATALINA_BASE/conf/logging.properties"
+    # Set juli LogManager if it is present
+      if [ -r "$CATALINA_BASE"/conf/logging.properties ]; then
+         JAVA_OPTS="-Xmx1024m $JAVA_OPTS -Djava.awt.headless=true "
+       fi
+
+
