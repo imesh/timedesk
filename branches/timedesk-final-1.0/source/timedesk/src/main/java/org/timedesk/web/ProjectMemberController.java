@@ -25,8 +25,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.timedesk.entity.Project;
 import org.timedesk.entity.ProjectMember;
 import org.timedesk.web.util.ApplicationTrace;
@@ -45,6 +47,13 @@ public class ProjectMemberController
             model.addAttribute("projectMember", projectMember);
             return "projectmembers/create";
         }
+        if(projectMember.getEmployee() == null)
+        {
+        	ObjectError error = new ObjectError("ProjectMember", "Employee should be set to continue.");
+       	 	result.addError(error);
+       	 	model.addAttribute("projectMember", projectMember);
+       	 	return "projectmembers/create";
+        }
         String memberId = generateMemberId(projectMember);
         if(memberId != null)
         	projectMember.setMemberId(memberId);
@@ -56,7 +65,7 @@ public class ProjectMemberController
        	 	return "projectmembers/create";
         }
         projectMember.persist();
-        return "redirect:/projectmembers/" + UrlEncoder.encodeUrlPathSegment(projectMember.getId().toString(), request);
+        return "redirect:/projects/" + UrlEncoder.encodeUrlPathSegment(projectMember.getProject().getId().toString(), request);
     }
     
     @RequestMapping(params = "form", method = RequestMethod.GET)
@@ -69,6 +78,28 @@ public class ProjectMemberController
         }
         model.addAttribute("dependencies", dependencies);
         return "projectmembers/create";
+    }
+    
+    @RequestMapping(method = RequestMethod.PUT)
+    public String update(@Valid ProjectMember projectMember, BindingResult result, Model model, HttpServletRequest request) 
+    {
+        if (result.hasErrors()) 
+        {
+            model.addAttribute("projectMember", projectMember);
+            return "projectmembers/update";
+        }
+        projectMember.merge();
+        return "redirect:/projects/" + UrlEncoder.encodeUrlPathSegment(projectMember.getProject().getId().toString(), request);
+    }
+    
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model) 
+    {
+    	ProjectMember member = ProjectMember.findProjectMember(id);
+    	String projectId = member.getProject().getId().toString();
+    	
+        ProjectMember.findProjectMember(id).remove();        
+        return "redirect:/projects/" + projectId;        
     }
     
     private String generateMemberId(ProjectMember member)
