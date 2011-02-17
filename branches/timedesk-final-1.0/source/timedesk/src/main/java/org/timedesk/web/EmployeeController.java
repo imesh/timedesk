@@ -68,7 +68,7 @@ public class EmployeeController
     		String employeeId = employee.getFirstName().substring(0, 2).toUpperCase() +
     							employee.getLastName().substring(0, 2).toUpperCase() +
     							employee.getCompanySite().getSiteId().substring(0, 3).toUpperCase();
-    		ApplicationTrace.trace(employeeId);
+    		ApplicationTrace.trace("New Employee ID: " + employeeId);
     		while(Employee.findEmployee(employeeId) != null)
     		{
     			employeeId += "" + (i++);

@@ -16,11 +16,13 @@
 package org.timedesk.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Query;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -80,5 +82,18 @@ public class ProjectPhaseMember
         if(entity != null)
         	entity.entityManager().refresh(entity);
         return entity;
+    }
+    
+    public static ProjectPhaseMember findProjectPhaseMember(String phaseMemberId) 
+    {        
+        if(phaseMemberId != null)
+        {
+        	Query query = entityManager().createQuery("SELECT ph FROM ProjectPhaseMember ph WHERE ph.phaseMemberId = ?1");    	
+        	query.setParameter(1, phaseMemberId);
+        	List<ProjectPhaseMember> list = query.getResultList();
+        	if((list != null) && (list.size() > 0))
+        		return list.get(0);
+        }
+        return null;
     }
 }

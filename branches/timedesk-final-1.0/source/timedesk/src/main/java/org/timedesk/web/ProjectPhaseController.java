@@ -66,13 +66,13 @@ public class ProjectPhaseController
     	if(phase != null)
     	{
     		int i = 1;
-    		String phaseId = phase.getProject().getProjectId().toUpperCase();
-    		phaseId += "PH" + i;
+    		String phaseKey = phase.getProject().getProjectId().toUpperCase() + "PH";
+    		String phaseId = phaseKey + (i++);
     		
-    		ApplicationTrace.trace(phaseId);
+    		ApplicationTrace.trace("New Phase ID: " + phaseId);
     		while(ProjectPhase.findProjectPhase(phaseId) != null)
     		{
-    			phaseId += "" + (i++);
+    			phaseId = phaseKey + (i++);
     			ApplicationTrace.trace("New Phase ID: " + phaseId);
     		}
     		return phaseId; 
