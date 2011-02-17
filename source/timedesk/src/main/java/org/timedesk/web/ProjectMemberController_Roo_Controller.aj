@@ -6,9 +6,7 @@ package org.timedesk.web;
 import java.io.UnsupportedEncodingException;
 import java.lang.Long;
 import java.lang.String;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -34,27 +32,6 @@ privileged aspect ProjectMemberController_Roo_Controller {
     
     @Autowired
     private GenericConversionService ProjectMemberController.conversionService;
-    
-    @RequestMapping(method = RequestMethod.POST)
-    public String ProjectMemberController.create(@Valid ProjectMember projectMember, BindingResult result, Model model, HttpServletRequest request) {
-        if (result.hasErrors()) {
-            model.addAttribute("projectMember", projectMember);
-            return "projectmembers/create";
-        }
-        projectMember.persist();
-        return "redirect:/projectmembers/" + encodeUrlPathSegment(projectMember.getId().toString(), request);
-    }
-    
-    @RequestMapping(params = "form", method = RequestMethod.GET)
-    public String ProjectMemberController.createForm(Model model) {
-        model.addAttribute("projectMember", new ProjectMember());
-        List dependencies = new ArrayList();
-        if (Project.countProjects() == 0) {
-            dependencies.add(new String[]{"project", "projects"});
-        }
-        model.addAttribute("dependencies", dependencies);
-        return "projectmembers/create";
-    }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String ProjectMemberController.show(@PathVariable("id") Long id, Model model) {
