@@ -12,7 +12,7 @@
         <field:display field="company" id="s_org_timedesk_entity_Project_company" object="${project}" render="false" z="user-managed"/>
         
         <p class="data-grid-label">Project Members:</p>
-        <table:table data="${project.projectMembers}" id="l_org_timedesk_entity_ProjectMember" path="/projectmembers" z="user-managed">
+        <table:table data="${project.projectMembers}" parentId="${project.id}" id="l_org_timedesk_entity_ProjectMember" path="/projectmembers" z="user-managed">
         	<table:column id="c_org_timedesk_entity_ProjectMember_memberId" property="memberId" z="user-managed"/>                                         
         	<table:column id="c_org_timedesk_entity_ProjectMember_employee" maxLength="100" property="employee" z="user-managed"/>
         </table:table>
