@@ -22,9 +22,9 @@
         <br/>
         
         <p class="data-grid-label">Holidays:</p>
-        <table:table data="${holidays}" id="l_org_timedesk_entity_Holiday" path="/holidays" z="Vz8dJhBlogEQyCkutVN0dkVIWXg=">
-            <table:column id="c_org_timedesk_entity_Holiday_companySite" property="companySite" z="XIu2uC08nlSXTeZxtYpf1DjaY4U="/>
-            <table:column id="c_org_timedesk_entity_Holiday_date" property="date" z="Ar3MJEsYDj+MQ7hzYPSNbonpIcM="/>
+        <table:table data="${holidays}" id="l_org_timedesk_entity_Holiday" path="/holidays" z="user-managed">
+            <table:column id="c_org_timedesk_entity_Holiday_companySite" property="companySite" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_Holiday_date" property="date" z="user-managed"/>
         </table:table>
         <br/>
     	

@@ -202,3 +202,10 @@ perform package
 entity --class ~.entity.Holiday
 controller all --package ~.web
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-17 02:13:22
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-17 11:43:21
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-17 12:13:03
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-17 12:27:22
+entity --class ~.entity.EmployeeAllocation 
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-17 12:37:28
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-17 13:06:37
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-17 17:02:40
