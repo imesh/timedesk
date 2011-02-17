@@ -3,7 +3,7 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_timedesk_entity_ProjectMember" modelAttribute="projectMember" path="/projectmembers" render="${empty dependencies}" z="Q2W8Mga2mvl4uMaJF5NkKyKHnJ4=">
         <field:select field="project" id="c_org_timedesk_entity_ProjectMember_project" itemValue="id" items="${projects}" path="/projects" required="true" z="user-managed"/>
-        <field:input field="memberId" id="c_org_timedesk_entity_ProjectMember_memberId" required="true" z="a21yyrvNfZeEAqvCSDEliGscMaI="/>       
+        <field:input field="memberId" id="c_org_timedesk_entity_ProjectMember_memberId" render="false" z="user-managed"/>       
         <field:select field="employee" id="c_org_timedesk_entity_ProjectMember_employee" itemValue="id" items="${employees}" path="/employees" z="CDudXbFAOtENzUQadQ8wDz3A0M4="/>                
         <field:simple field="feedbacks" id="c_org_timedesk_entity_ProjectMember_feedbacks" messageCode="entity_reference_not_managed" messageCodeAttribute="Project Member Feedback" render="false" z="user-managed"/>   
     <field:select field="roles" id="c_org_timedesk_entity_ProjectMember_roles" itemValue="id" items="${projectmemberroles}" multiple="true" path="/projectmemberroles" z="O6rJ8U2gWWqss7yK6M/ph2obTCQ="/>

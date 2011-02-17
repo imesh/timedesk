@@ -3,8 +3,8 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_org_timedesk_entity_Employee" modelAttribute="employee" path="/employees" z="fiNcuYYABnUHgAKFID0vuzBDcPE=">
         <field:select field="companySite" id="c_org_timedesk_entity_Employee_companySite" itemValue="id" items="${companysites}" path="/companysites" required="true" z="wsASqvhqvsC0h0B+cXXrkpHvl2I="/>
-        <field:input disabled="true" field="employeeId" id="c_org_timedesk_entity_Employee_employeeId" required="true" z="user-managed"/>
-        <field:select field="user" id="c_org_timedesk_entity_Employee_user" itemValue="id" items="${users}" path="/users" z="+sFeYpCEkYDfCpq2/MGn+AvGzWQ="/>
+        <field:input field="employeeId" id="c_org_timedesk_entity_Employee_employeeId" required="true" z="user-managed"/>
+    	<field:select field="user" id="c_org_timedesk_entity_Employee_user" itemValue="id" items="${users}" path="/users" z="+sFeYpCEkYDfCpq2/MGn+AvGzWQ="/>    
         <field:input field="firstName" id="c_org_timedesk_entity_Employee_firstName" required="true" z="EVR0IIUwIC+QuwZlnjPwR5vSGRo="/>
         <field:input field="lastName" id="c_org_timedesk_entity_Employee_lastName" required="true" z="5v/4d66yfgQ67wWuGZPoNPrZYQ0="/>
         <field:input field="email" id="c_org_timedesk_entity_Employee_email" validationMessageCode="field_invalid_email" z="9D9+nveCSTH+j/8326xuLMS2yfA="/>
@@ -20,6 +20,6 @@
         <field:select field="employeeRoles" id="c_org_timedesk_entity_Employee_employeeRoles" itemValue="id" items="${employeeroles}" multiple="true" path="/employeeroles" z="3iadrAtyPLUJB7DbB+tnD/PVb0o="/>
         <field:select field="preEmployeeRoles" id="c_org_timedesk_entity_Employee_preEmployeeRoles" itemValue="id" items="${employeeroles}" multiple="true" path="/employeeroles" z="ug64NB81SKiea7Bc2HHUZ7GVyu0="/>
         <field:simple field="visas" id="c_org_timedesk_entity_Employee_visas" messageCode="entity_reference_not_managed" messageCodeAttribute="Employee Visa" render="false" z="user-managed"/>
-        <field:simple field="leaves" id="c_org_timedesk_entity_Employee_leaves" messageCode="entity_reference_not_managed" messageCodeAttribute="Employee Leave" render="false" z="user-managed"/>
+        <field:simple field="leaves" id="c_org_timedesk_entity_Employee_leaves" messageCode="entity_reference_not_managed" messageCodeAttribute="Employee Leave" render="false" z="user-managed"/>    
     </form:update>
 </div>

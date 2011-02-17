@@ -17,6 +17,7 @@ package org.timedesk.entity;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -24,6 +25,7 @@ import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Query;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -45,7 +47,6 @@ public class ProjectPhase
 	@JoinColumn(name = "project_id", referencedColumnName = "id")
 	private Project project;
 	
-	@NotNull
 	@Column(name = "phase_id")
     private String phaseId;
 
@@ -79,5 +80,18 @@ public class ProjectPhase
         if(entity != null)
         	entity.entityManager().refresh(entity);
         return entity;
+    }
+    
+    public static ProjectPhase findProjectPhase(String phaseId) 
+    {        
+        if(phaseId != null)
+        {
+        	Query query = entityManager().createQuery("SELECT ph FROM ProjectPhase ph WHERE ph.phaseId = ?1");    	
+        	query.setParameter(1, phaseId);
+        	List<ProjectPhase> list = query.getResultList();
+        	if((list != null) && (list.size() > 0))
+        		return list.get(0);
+        }
+        return null;
     }
 }

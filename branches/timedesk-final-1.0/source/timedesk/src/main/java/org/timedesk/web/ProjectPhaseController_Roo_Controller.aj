@@ -6,9 +6,7 @@ package org.timedesk.web;
 import java.io.UnsupportedEncodingException;
 import java.lang.Long;
 import java.lang.String;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -34,29 +32,6 @@ privileged aspect ProjectPhaseController_Roo_Controller {
     
     @Autowired
     private GenericConversionService ProjectPhaseController.conversionService;
-    
-    @RequestMapping(method = RequestMethod.POST)
-    public String ProjectPhaseController.create(@Valid ProjectPhase projectPhase, BindingResult result, Model model, HttpServletRequest request) {
-        if (result.hasErrors()) {
-            model.addAttribute("projectPhase", projectPhase);
-            addDateTimeFormatPatterns(model);
-            return "projectphases/create";
-        }
-        projectPhase.persist();
-        return "redirect:/projectphases/" + encodeUrlPathSegment(projectPhase.getId().toString(), request);
-    }
-    
-    @RequestMapping(params = "form", method = RequestMethod.GET)
-    public String ProjectPhaseController.createForm(Model model) {
-        model.addAttribute("projectPhase", new ProjectPhase());
-        addDateTimeFormatPatterns(model);
-        List dependencies = new ArrayList();
-        if (Project.countProjects() == 0) {
-            dependencies.add(new String[]{"project", "projects"});
-        }
-        model.addAttribute("dependencies", dependencies);
-        return "projectphases/create";
-    }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String ProjectPhaseController.show(@PathVariable("id") Long id, Model model) {
