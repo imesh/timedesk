@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_timedesk_entity_Holiday" object="${holiday}" path="/holidays" z="817Bqt8WBY9CDfGHHFBjddGshVU=">
+        <field:display field="companySite" id="s_org_timedesk_entity_Holiday_companySite" object="${holiday}" z="17J5p/5HBsnE+sk5k19siMpJObQ="/>
+        <field:display date="true" dateTimePattern="${holiday_date_date_format}" field="date" id="s_org_timedesk_entity_Holiday_date" object="${holiday}" z="Pq75utMwpv4q649afTpTUZxPDKo="/>
+    </page:show>
+</div>

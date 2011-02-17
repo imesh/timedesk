@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_timedesk_entity_Holiday" items="${holidays}" z="pJG7bF9sNzQgq2x8klnbicJOlRQ=">
+        <table:table data="${holidays}" id="l_org_timedesk_entity_Holiday" path="/holidays" z="Vz8dJhBlogEQyCkutVN0dkVIWXg=">
+            <table:column id="c_org_timedesk_entity_Holiday_companySite" property="companySite" z="XIu2uC08nlSXTeZxtYpf1DjaY4U="/>
+            <table:column id="c_org_timedesk_entity_Holiday_date" property="date" z="Ar3MJEsYDj+MQ7hzYPSNbonpIcM="/>
+        </table:table>
+    </page:list>
+</div>
