@@ -46,18 +46,18 @@
 				<TR><TD></TD></TR>
 				<TR>
 					<TD WIDTH="6px"/>
-					<TD WIDTH="15px">
-					   <INPUT TYPE="image" NAME='toc' SRC="birt/images/Toc.gif"
-					   		TITLE="<%= BirtResources.getHtmlMessage( "birt.viewer.toolbar.toc" )%>"
-					   		ALT="<%= BirtResources.getHtmlMessage( "birt.viewer.toolbar.toc" )%>" CLASS="birtviewer_clickable">
-					</TD>
-					<TD WIDTH="6px"/>
-					<TD WIDTH="15px">
-					   <INPUT TYPE="image" NAME='parameter' SRC="birt/images/Report_parameters.gif"
-					   		TITLE="<%= BirtResources.getHtmlMessage( "birt.viewer.toolbar.parameter" )%>"	
-					   		ALT="<%= BirtResources.getHtmlMessage( "birt.viewer.toolbar.parameter" )%>" CLASS="birtviewer_clickable">
-					</TD>
-					<TD WIDTH="6px"/>
+					<%--<TD WIDTH="15px">--%>
+					   <%--<INPUT TYPE="image" NAME='toc' SRC="birt/images/Toc.gif"--%>
+					   		<%--TITLE="<%= BirtResources.getHtmlMessage( "birt.viewer.toolbar.toc" )%>"--%>
+					   		<%--ALT="<%= BirtResources.getHtmlMessage( "birt.viewer.toolbar.toc" )%>" CLASS="birtviewer_clickable">--%>
+					<%--</TD>--%>
+					<%--<TD WIDTH="6px"/>--%>
+					<%--<TD WIDTH="15px">--%>
+					   <%--<INPUT TYPE="image" NAME='parameter' SRC="birt/images/Report_parameters.gif"--%>
+					   		<%--TITLE="<%= BirtResources.getHtmlMessage( "birt.viewer.toolbar.parameter" )%>"	--%>
+					   		<%--ALT="<%= BirtResources.getHtmlMessage( "birt.viewer.toolbar.parameter" )%>" CLASS="birtviewer_clickable">--%>
+					<%--</TD>--%>
+					<%--<TD WIDTH="6px"/>--%>
 					<TD WIDTH="15px">
 					   <INPUT TYPE="image" NAME='export' SRC="birt/images/Export.gif"
 					   		TITLE="<%= BirtResources.getHtmlMessage( "birt.viewer.toolbar.export" )%>"
