@@ -15,6 +15,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.timedesk.entity.Employee;
+import org.timedesk.entity.ProjectPhase;
 import org.timedesk.entity.ProjectPhaseMember;
 import org.timedesk.web.util.ApplicationTrace;
 import org.timedesk.web.util.UrlEncoder;
@@ -32,7 +33,19 @@ public class ProjectPhaseMemberController
             model.addAttribute("projectPhaseMember", projectPhaseMember);
             addDateTimeFormatPatterns(model);
             return "projectphasemembers/create";
-        }        
+        }      
+        String phaseMemberId = generatePhaseMemberId(projectPhaseMember);
+        if(phaseMemberId != null)
+        	projectPhaseMember.setPhaseMemberId(phaseMemberId);
+        else
+        {
+        	ObjectError error = new ObjectError("ProjectPhaseMember", "Error in generating Phase Member ID, please review below information and try again.");
+       	 	result.addError(error);
+       	 	model.addAttribute("projectPhaseMember", projectPhaseMember);
+       	 	addDateTimeFormatPatterns(model);
+       	 	return "projectphasemembers/create";
+        }
+        
         ObjectError error = validateEmployeeAllocation(projectPhaseMember, result, model);
         if(error != null)
         {
@@ -45,6 +58,25 @@ public class ProjectPhaseMemberController
         return "redirect:/projectphasemembers/" + UrlEncoder.encodeUrlPathSegment(projectPhaseMember.getId().toString(), request);
     }
 	
+	private String generatePhaseMemberId(ProjectPhaseMember projectPhaseMember)
+	{
+		if(projectPhaseMember != null)
+    	{
+    		int i = 1;
+    		String phaseMemberKey = projectPhaseMember.getProjectPhase().getPhaseId().toUpperCase() + "MEM";
+    		String phaseMemberId = phaseMemberKey + (i++);
+    		
+    		ApplicationTrace.trace("New Phase Member ID: " + phaseMemberId);
+    		while(ProjectPhaseMember.findProjectPhaseMember(phaseMemberId) != null)
+    		{
+    			phaseMemberId = phaseMemberKey + (i++);
+    			ApplicationTrace.trace("New Phase Member ID: " + phaseMemberId);
+    		}
+    		return phaseMemberId; 
+    	}
+    	return null;
+	}
+
 	@RequestMapping(method = RequestMethod.PUT)
     public String update(@Valid ProjectPhaseMember projectPhaseMember, BindingResult result, Model model, HttpServletRequest request) 
     {

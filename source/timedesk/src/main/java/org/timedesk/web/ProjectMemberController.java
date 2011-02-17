@@ -75,16 +75,20 @@ public class ProjectMemberController
     {
     	if(member != null)
     	{
-    		int i = 1;
+    		int i = 1;    		
     		String memberId = member.getProject().getProjectId().toUpperCase();
+    		String memberKey = null;
     		if(member.getEmployee() != null)
-    			memberId += member.getEmployee().getEmployeeId().toUpperCase();
+    			memberKey = memberId += member.getEmployee().getEmployeeId().toUpperCase();
     		else
-    			memberId += "MEM" + i;
-    		ApplicationTrace.trace(memberId);
+    		{
+    			memberKey = memberId += "MEM";
+    			memberId = memberId + (i++);
+    		}
+    		ApplicationTrace.trace("New Member ID: " + memberId);
     		while(ProjectMember.findProjectMember(memberId) != null)
     		{
-    			memberId += "" + (i++);
+    			memberId = memberKey + (i++);
     			ApplicationTrace.trace("New Member ID: " + memberId);
     		}
     		return memberId;    		
