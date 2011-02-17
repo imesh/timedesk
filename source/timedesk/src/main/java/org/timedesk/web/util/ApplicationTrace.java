@@ -16,7 +16,7 @@ package org.timedesk.web.util;
 
 public class ApplicationTrace
 {
-	private static boolean enabled = false;
+	private static boolean enabled = true;
 	
 	public static void trace(String message)
 	{

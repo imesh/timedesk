@@ -50,8 +50,7 @@ public class Employee
 	@ManyToOne
     @JoinColumn(name = "site_id", referencedColumnName = "id")
 	private CompanySite companySite;
-	
-	@NotNull
+
 	@Column(name = "employee_id")
     private String employeeId;
 	
@@ -126,6 +125,19 @@ public class Employee
         if(entity != null)
         	entityManager().refresh(entity);
         return entity;
+    }
+    
+    public static Employee findEmployee(String employeeId) 
+    {        
+        if(employeeId != null)
+        {
+        	Query query = entityManager().createQuery("SELECT e FROM Employee e WHERE e.employeeId = ?1");    	
+        	query.setParameter(1, employeeId);
+        	List<Employee> list = query.getResultList();
+        	if((list != null) && (list.size() > 0))
+        		return list.get(0);
+        }
+        return null;
     }
     
     public int findAllocation(Long phmId, Date fromDate, Date toDate)

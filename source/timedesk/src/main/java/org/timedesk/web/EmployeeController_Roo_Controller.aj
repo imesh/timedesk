@@ -6,10 +6,8 @@ package org.timedesk.web;
 import java.io.UnsupportedEncodingException;
 import java.lang.Long;
 import java.lang.String;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -38,27 +36,6 @@ privileged aspect EmployeeController_Roo_Controller {
     
     @Autowired
     private GenericConversionService EmployeeController.conversionService;
-    
-    @RequestMapping(method = RequestMethod.POST)
-    public String EmployeeController.create(@Valid Employee employee, BindingResult result, Model model, HttpServletRequest request) {
-        if (result.hasErrors()) {
-            model.addAttribute("employee", employee);
-            return "employees/create";
-        }
-        employee.persist();
-        return "redirect:/employees/" + encodeUrlPathSegment(employee.getId().toString(), request);
-    }
-    
-    @RequestMapping(params = "form", method = RequestMethod.GET)
-    public String EmployeeController.createForm(Model model) {
-        model.addAttribute("employee", new Employee());
-        List dependencies = new ArrayList();
-        if (CompanySite.countCompanySites() == 0) {
-            dependencies.add(new String[]{"companySite", "companysites"});
-        }
-        model.addAttribute("dependencies", dependencies);
-        return "employees/create";
-    }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String EmployeeController.show(@PathVariable("id") Long id, Model model) {

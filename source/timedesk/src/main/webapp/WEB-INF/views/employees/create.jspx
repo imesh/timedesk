@@ -3,7 +3,7 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_timedesk_entity_Employee" modelAttribute="employee" path="/employees" render="${empty dependencies}" z="6BblmITh7a1qtqu3K0WzoUX/WLE=">
         <field:select field="companySite" id="c_org_timedesk_entity_Employee_companySite" itemValue="id" items="${companysites}" path="/companysites" required="true" z="wsASqvhqvsC0h0B+cXXrkpHvl2I="/>
-        <field:input field="employeeId" id="c_org_timedesk_entity_Employee_employeeId" required="true" z="UbDLzycm3YwdM3WSR71LfyrO09w="/>
+        <field:input field="employeeId" id="c_org_timedesk_entity_Employee_employeeId" required="true" render="false" z="user-managed"/>
         <field:select field="user" id="c_org_timedesk_entity_Employee_user" itemValue="id" items="${users}" path="/users" z="+sFeYpCEkYDfCpq2/MGn+AvGzWQ="/>
         <field:input field="firstName" id="c_org_timedesk_entity_Employee_firstName" z="+6v0dUKEs2+clm11RUA5+oEGPz4="/>
         <field:input field="lastName" id="c_org_timedesk_entity_Employee_lastName" z="ZMmbr/V/Qhxu2Var+k+twDId+F4="/>
