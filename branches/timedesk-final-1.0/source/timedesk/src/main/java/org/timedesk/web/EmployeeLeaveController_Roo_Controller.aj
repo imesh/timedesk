@@ -6,19 +6,15 @@ package org.timedesk.web;
 import java.io.UnsupportedEncodingException;
 import java.lang.Long;
 import java.lang.String;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import org.joda.time.format.DateTimeFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.support.GenericConversionService;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,29 +29,6 @@ privileged aspect EmployeeLeaveController_Roo_Controller {
     
     @Autowired
     private GenericConversionService EmployeeLeaveController.conversionService;
-    
-    @RequestMapping(method = RequestMethod.POST)
-    public String EmployeeLeaveController.create(@Valid EmployeeLeave employeeLeave, BindingResult result, Model model, HttpServletRequest request) {
-        if (result.hasErrors()) {
-            model.addAttribute("employeeLeave", employeeLeave);
-            addDateTimeFormatPatterns(model);
-            return "employeeleaves/create";
-        }
-        employeeLeave.persist();
-        return "redirect:/employeeleaves/" + encodeUrlPathSegment(employeeLeave.getId().toString(), request);
-    }
-    
-    @RequestMapping(params = "form", method = RequestMethod.GET)
-    public String EmployeeLeaveController.createForm(Model model) {
-        model.addAttribute("employeeLeave", new EmployeeLeave());
-        addDateTimeFormatPatterns(model);
-        List dependencies = new ArrayList();
-        if (Employee.countEmployees() == 0) {
-            dependencies.add(new String[]{"employee", "employees"});
-        }
-        model.addAttribute("dependencies", dependencies);
-        return "employeeleaves/create";
-    }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String EmployeeLeaveController.show(@PathVariable("id") Long id, Model model) {
@@ -79,32 +52,13 @@ privileged aspect EmployeeLeaveController_Roo_Controller {
         return "employeeleaves/list";
     }
     
-    @RequestMapping(method = RequestMethod.PUT)
-    public String EmployeeLeaveController.update(@Valid EmployeeLeave employeeLeave, BindingResult result, Model model, HttpServletRequest request) {
-        if (result.hasErrors()) {
-            model.addAttribute("employeeLeave", employeeLeave);
-            addDateTimeFormatPatterns(model);
-            return "employeeleaves/update";
-        }
-        employeeLeave.merge();
-        return "redirect:/employeeleaves/" + encodeUrlPathSegment(employeeLeave.getId().toString(), request);
-    }
-    
     @RequestMapping(value = "/{id}", params = "form", method = RequestMethod.GET)
     public String EmployeeLeaveController.updateForm(@PathVariable("id") Long id, Model model) {
         model.addAttribute("employeeLeave", EmployeeLeave.findEmployeeLeave(id));
         addDateTimeFormatPatterns(model);
         return "employeeleaves/update";
     }
-    
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public String EmployeeLeaveController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model) {
-        EmployeeLeave.findEmployeeLeave(id).remove();
-        model.addAttribute("page", (page == null) ? "1" : page.toString());
-        model.addAttribute("size", (size == null) ? "10" : size.toString());
-        return "redirect:/employeeleaves?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
-    }
-    
+        
     @ModelAttribute("employees")
     public Collection<Employee> EmployeeLeaveController.populateEmployees() {
         return Employee.findAllEmployees();
