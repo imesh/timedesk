@@ -5,7 +5,7 @@
         <table:table data="${companysites}" id="l_org_timedesk_entity_CompanySite" path="/companysites" z="e6RwqDfkwsF52uPVQ2uSncVUpKY=">
             <table:column id="c_org_timedesk_entity_CompanySite_company" maxLength="100" property="company" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_CompanySite_siteId" property="siteId" z="YbgXKRul4jDf08g4qcOF6/Nyljw="/>
-            <table:column id="c_org_timedesk_entity_CompanySite_location" property="location" z="MjEfFiyHLJJy1N5Jlr8yCmvIkzs="/>
+            <table:column id="c_org_timedesk_entity_CompanySite_location" property="location" maxLength="60" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_CompanySite_city" property="city" z="4y9RwZUDfP70Qx1S3U7Oz1hRVbw="/>
             <table:column id="c_org_timedesk_entity_CompanySite_country" maxLength="100" property="country" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_CompanySite_employees" property="employees" render="false" z="user-managed"/>
