@@ -18,7 +18,7 @@
         </table:table>
 		
 		<p class="data-grid-label">Project Phases:</p>
-        <table:table data="${project.projectPhases}" id="l_org_timedesk_entity_ProjectPhase" path="/projectphases" z="user-managed">
+        <table:table data="${project.projectPhases}" parentId="${project.id}" id="l_org_timedesk_entity_ProjectPhase" path="/projectphases" z="user-managed">
             <table:column id="c_org_timedesk_entity_ProjectPhase_phaseId" property="phaseId" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_ProjectPhase_description" property="description" maxLength="200" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_ProjectPhase_startDate" property="startDate" z="user-managed"/>
