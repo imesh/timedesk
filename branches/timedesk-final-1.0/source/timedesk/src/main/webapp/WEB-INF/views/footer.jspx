@@ -4,6 +4,6 @@
 
   <spring:url value="/" var="home"/>
   <span>
-    <p>Timedesk Beta Release | Copyright © 2011 Timedesk </p>
+    <p>Timedesk Final Release 0.9.0218 | Copyright © 2011 Timedesk </p>
   </span>
 </div>
