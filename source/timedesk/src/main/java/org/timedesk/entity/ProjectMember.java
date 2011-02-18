@@ -53,7 +53,7 @@ public class ProjectMember
     @JoinColumn(name = "employee_id", referencedColumnName = "id")
     private Employee employee;
     
-    @ManyToMany(cascade = CascadeType.DETACH)
+    @ManyToMany
     private Set<ProjectMemberRole> roles = new HashSet<ProjectMemberRole>();
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "projectMember")

@@ -232,3 +232,53 @@ quit
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-18 17:42:04
 quit
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-18 18:27:14
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-18 18:47:45
+quit
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-18 18:54:38
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-18 18:54:44
+// [failed] quit
+// [failed] test integration --entity  Employee
+test integration --entity ~.entity.Employee
+perform test
+perform test
+test integration
+// [failed] quit
+quit
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-18 19:17:03
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-18 19:17:07
+// [failed] test integration --entity ApplicationFeature
+test integration --entity ~.entity.ApplicationFeature
+test integration --entity ~.entity.Company
+test integration --entity ~.entity.CompanySite
+// [failed] test integration --entity ~.entity.Employee
+test integration --entity ~.entity.EmployeeAllocation
+test integration --entity ~.entity.EmployeeLeave
+test integration --entity ~.entity.EmployeeRole
+test integration --entity ~.entity.EmployeeVisa
+// [failed] test integration --entity ~.entity.Holiday
+test integration --entity ~.entity.Project
+// [failed] test integration --entity ~.entity.ProjectMember
+test integration --entity ~.entity.ProjectMemberFeedback
+test integration --entity ~.entity.ProjectPhase
+test integration --entity ~.entity.ProjectPhaseMember
+test integration --entity ~.entity.SecurityRole
+test integration --entity ~.entity.Skill
+// [failed] test integration --entity ~.entity.User
+test integration --entity ~.entity.User --permitReservedWords 
+test integration --entity ~.entity.Holiday
+test integration --entity ~.entity.EmployeeVisa
+test integration --entity ~.entity.ProjectMember
+test integration --entity ~.entity.ProjectMemberFeedback
+test integration --entity ~.entity.ProjectMemberRole
+test integration --entity ~.entity.ProjectPhase
+test integration --entity ~.entity.ProjectPhaseMember
+test integration --entity ~.entity.SecurityRole
+perform test
+perform test
+perform test -e
+perform test -e
+perform test -e
+perform test -e
+// [failed] perform test -e
+perform test -e
+perform test -e

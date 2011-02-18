@@ -97,13 +97,13 @@ public class Employee
 	@Column(name = "max_allocation")
 	private Integer maxAllocation = 100;
 	
-    @ManyToMany(cascade = CascadeType.DETACH)
+    @ManyToMany
     private Set<Skill> employeeSkills = new HashSet<Skill>();
 
-    @ManyToMany(cascade = CascadeType.DETACH)
+    @ManyToMany
     private Set<EmployeeRole> employeeRoles = new HashSet<EmployeeRole>();
     
-    @ManyToMany(cascade = CascadeType.DETACH)
+    @ManyToMany
     @JoinTable(name = "employee_pre_em_role")
     private Set<EmployeeRole> preEmployeeRoles = new HashSet<EmployeeRole>();
     

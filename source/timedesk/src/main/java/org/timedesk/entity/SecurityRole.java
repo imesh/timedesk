@@ -42,7 +42,7 @@ public class SecurityRole
 	@Column(name = "name")
     private String name;
 	
-	@ManyToMany(cascade = CascadeType.DETACH)
+	@ManyToMany
     private Set<ApplicationFeature> applicationFeatures = new HashSet<ApplicationFeature>();
 	
     public String toString() 
