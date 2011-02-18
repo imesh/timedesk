@@ -3,8 +3,8 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_org_timedesk_entity_Employee" modelAttribute="employee" path="/employees" z="fiNcuYYABnUHgAKFID0vuzBDcPE=">
         <field:select field="companySite" id="c_org_timedesk_entity_Employee_companySite" itemValue="id" items="${companysites}" path="/companysites" required="true" z="wsASqvhqvsC0h0B+cXXrkpHvl2I="/>
-        <field:input field="employeeId" id="c_org_timedesk_entity_Employee_employeeId" required="true" z="user-managed"/>
-    	<field:select field="user" id="c_org_timedesk_entity_Employee_user" itemValue="id" items="${users}" path="/users" z="+sFeYpCEkYDfCpq2/MGn+AvGzWQ="/>    
+        <field:input field="employeeId" id="c_org_timedesk_entity_Employee_employeeId" z="ZpVerfxfpQ+r2wJUCONecIpHH9U="/>
+        <field:select field="user" id="c_org_timedesk_entity_Employee_user" itemValue="id" items="${users}" path="/users" z="+sFeYpCEkYDfCpq2/MGn+AvGzWQ="/>
         <field:input field="firstName" id="c_org_timedesk_entity_Employee_firstName" required="true" z="EVR0IIUwIC+QuwZlnjPwR5vSGRo="/>
         <field:input field="lastName" id="c_org_timedesk_entity_Employee_lastName" required="true" z="5v/4d66yfgQ67wWuGZPoNPrZYQ0="/>
         <field:input field="email" id="c_org_timedesk_entity_Employee_email" validationMessageCode="field_invalid_email" z="9D9+nveCSTH+j/8326xuLMS2yfA="/>
