@@ -6,9 +6,8 @@ package org.timedesk.web;
 import java.io.UnsupportedEncodingException;
 import java.lang.Long;
 import java.lang.String;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -26,6 +25,7 @@ import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 import org.timedesk.entity.Company;
 import org.timedesk.entity.CompanySite;
+import org.timedesk.entity.CountryEnum;
 import org.timedesk.entity.Employee;
 import org.timedesk.entity.Holiday;
 
@@ -33,17 +33,6 @@ privileged aspect CompanySiteController_Roo_Controller {
     
     @Autowired
     private GenericConversionService CompanySiteController.conversionService;
-    
-    @RequestMapping(params = "form", method = RequestMethod.GET)
-    public String CompanySiteController.createForm(Model model) {
-        model.addAttribute("companySite", new CompanySite());
-        List dependencies = new ArrayList();
-        if (Company.countCompanys() == 0) {
-            dependencies.add(new String[]{"company", "companys"});
-        }
-        model.addAttribute("dependencies", dependencies);
-        return "companysites/create";
-    }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String CompanySiteController.show(@PathVariable("id") Long id, Model model) {
@@ -92,6 +81,11 @@ privileged aspect CompanySiteController_Roo_Controller {
     @ModelAttribute("companys")
     public Collection<Company> CompanySiteController.populateCompanys() {
         return Company.findAllCompanys();
+    }
+    
+    @ModelAttribute("countryenums")
+    public Collection<CountryEnum> CompanySiteController.populateCountryEnums() {
+        return Arrays.asList(CountryEnum.class.getEnumConstants());
     }
     
     @ModelAttribute("employees")

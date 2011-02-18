@@ -6,9 +6,7 @@ package org.timedesk.web;
 import java.io.UnsupportedEncodingException;
 import java.lang.Long;
 import java.lang.String;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import org.joda.time.format.DateTimeFormat;
@@ -32,18 +30,6 @@ privileged aspect ProjectPhaseMemberController_Roo_Controller {
     
     @Autowired
     private GenericConversionService ProjectPhaseMemberController.conversionService;
-    
-    @RequestMapping(params = "form", method = RequestMethod.GET)
-    public String ProjectPhaseMemberController.createForm(Model model) {
-        model.addAttribute("projectPhaseMember", new ProjectPhaseMember());
-        addDateTimeFormatPatterns(model);
-        List dependencies = new ArrayList();
-        if (ProjectPhase.countProjectPhases() == 0) {
-            dependencies.add(new String[]{"projectPhase", "projectphases"});
-        }
-        model.addAttribute("dependencies", dependencies);
-        return "projectphasemembers/create";
-    }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String ProjectPhaseMemberController.show(@PathVariable("id") Long id, Model model) {

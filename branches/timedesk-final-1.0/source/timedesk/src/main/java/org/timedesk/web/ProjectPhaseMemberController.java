@@ -2,7 +2,9 @@ package org.timedesk.web;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -14,6 +16,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.timedesk.entity.Employee;
 import org.timedesk.entity.ProjectPhase;
 import org.timedesk.entity.ProjectPhaseMember;
@@ -24,7 +27,28 @@ import org.timedesk.web.util.UrlEncoder;
 @RequestMapping("/projectphasemembers")
 @Controller
 public class ProjectPhaseMemberController 
-{
+{	
+	@RequestMapping(params = "form", method = RequestMethod.GET)
+    public String createForm(Model model, @RequestParam(value = "parentId", required = false) Long parentId) 
+	{
+		ProjectPhaseMember phaseMember = new ProjectPhaseMember();
+		if(parentId != null)
+		{
+			ProjectPhase projectPhase = ProjectPhase.findProjectPhase(parentId);
+			if(projectPhase != null)
+				phaseMember.setProjectPhase(projectPhase);
+		}
+		
+        model.addAttribute("projectPhaseMember", phaseMember);
+        addDateTimeFormatPatterns(model);
+        List dependencies = new ArrayList();
+        if (ProjectPhase.countProjectPhases() == 0) {
+            dependencies.add(new String[]{"projectPhase", "projectphases"});
+        }
+        model.addAttribute("dependencies", dependencies);
+        return "projectphasemembers/create";
+    }
+	
 	@RequestMapping(method = RequestMethod.POST)
     public String create(@Valid ProjectPhaseMember projectPhaseMember, BindingResult result, Model model, HttpServletRequest request) 
     {

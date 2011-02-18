@@ -20,6 +20,8 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -52,8 +54,9 @@ public class CompanySite
 	@Column(name = "city")
     private String city;
 
+	@Enumerated(EnumType.STRING)
 	@Column(name = "country")
-    private String country;
+    private CountryEnum country;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy="companySite")
     private Set<Employee> employees = new HashSet<Employee>();
