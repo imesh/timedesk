@@ -7,7 +7,7 @@
         <field:input field="siteId" id="c_org_timedesk_entity_CompanySite_siteId" required="true" z="Z+OA6YoI8vOS6Ep4Yx+TgiU+1lA="/>
         <field:input field="location" id="c_org_timedesk_entity_CompanySite_location" z="k2dfA1J/P8CyR6Ko35ASmVYoZ/0="/>
         <field:input field="city" id="c_org_timedesk_entity_CompanySite_city" z="tKIdaneKyqtNKVYPP+78as1LhY0="/>
-        <field:input field="country" id="c_org_timedesk_entity_CompanySite_country" z="LhfzAHrRJYyusl+vmIKO+SkaRGI="/>
+        <field:select field="country" id="c_org_timedesk_entity_CompanySite_country" items="${countryenums}" path="countryenums" z="ksdje7/LKMV2fl7smaWpxX8IEYY="/>
         <field:simple field="employees" id="c_org_timedesk_entity_CompanySite_employees" messageCode="entity_reference_not_managed" messageCodeAttribute="Employee" render="false" z="user-managed"/>
     	<field:simple field="holidays" id="c_org_timedesk_entity_CompanySite_holidays" messageCode="entity_reference_not_managed" messageCodeAttribute="Holiday" render="false" z="user-managed"/>
     </form:create>

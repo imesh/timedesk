@@ -8,7 +8,7 @@
         <field:display field="projects" id="s_org_timedesk_entity_Company_projects" object="${company}" render="false" z="user-managed"/>
         
         <p class="data-grid-label">Company Sites:</p>
-        <table:table data="${company.companySites}" id="l_org_timedesk_entity_CompanySite" path="/companysites" z="user-managed">
+        <table:table data="${company.companySites}" parentId="${company.id}" id="l_org_timedesk_entity_CompanySite" path="/companysites" z="user-managed">
             <table:column id="c_org_timedesk_entity_CompanySite_company" property="company" render="flase" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_CompanySite_siteId" property="siteId" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_CompanySite_location" property="location" z="user-managed"/>

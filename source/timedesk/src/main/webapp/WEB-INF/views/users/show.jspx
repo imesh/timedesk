@@ -15,10 +15,10 @@
         </table:table>    
     
     	<p class="data-grid-label">Employees:</p>
-    	<table:table data="${user.employees}" id="l_org_timedesk_entity_Employee" path="/employees" z="user-managed">
-            <table:column id="c_org_timedesk_entity_Employee_companySite" property="companySite" z="user-managed"/>
+    	<table:table data="${user.employees}" parentId="${user.id}" id="l_org_timedesk_entity_Employee" path="/employees" z="user-managed">
+            <table:column id="c_org_timedesk_entity_Employee_companySite" property="companySite" render="false" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_Employee_employeeId" property="employeeId" z="user-managed"/>
-            <table:column id="c_org_timedesk_entity_Employee_user" property="user" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_Employee_user" property="user" render="false" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_Employee_firstName" property="firstName" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_Employee_lastName" property="lastName" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_Employee_email" maxLength="60" property="email" z="user-managed"/>

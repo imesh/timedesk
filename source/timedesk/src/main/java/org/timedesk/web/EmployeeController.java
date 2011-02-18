@@ -13,8 +13,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.timedesk.entity.CompanySite;
 import org.timedesk.entity.Employee;
+import org.timedesk.entity.User;
 import org.timedesk.web.util.ApplicationTrace;
 import org.timedesk.web.util.UrlEncoder;
 
@@ -24,9 +26,16 @@ import org.timedesk.web.util.UrlEncoder;
 public class EmployeeController 
 {
     @RequestMapping(params = "form", method = RequestMethod.GET)
-    public String createForm(Model model) 
+    public String createForm(Model model, @RequestParam(value = "parentId", required = false) Long parentId) 
     {
     	Employee employee = new Employee();
+    	if(parentId != null)
+    	{
+    		User user = User.findUser(parentId);
+    		if(user != null)
+    			employee.setUser(user);
+    	}
+    	
         model.addAttribute("employee", employee);
         List dependencies = new ArrayList();
         if (CompanySite.countCompanySites() == 0) 

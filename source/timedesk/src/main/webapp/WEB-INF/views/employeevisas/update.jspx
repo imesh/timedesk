@@ -8,6 +8,6 @@
         <field:input field="visaId" id="c_org_timedesk_entity_EmployeeVisa_visaId" required="true" z="/3xjZwU96XJqP8rnILjSssIgqO0="/>
         <field:datetime dateTimePattern="${employeeVisa_validfrom_date_format}" field="validFrom" id="c_org_timedesk_entity_EmployeeVisa_validFrom" required="true" z="CmK+wSTAnWQVIHkzw4rCotwFEpk="/>
         <field:datetime dateTimePattern="${employeeVisa_validto_date_format}" field="validTo" id="c_org_timedesk_entity_EmployeeVisa_validTo" required="true" z="9HfbqSMXbrtgAvs+jGb6KWwQe0Q="/>
-        <field:input field="country" id="c_org_timedesk_entity_EmployeeVisa_country" required="true" z="25DjkMQ/4n49HeR5H0nz1hoYN5w="/>
+        <field:select field="country" id="c_org_timedesk_entity_EmployeeVisa_country" items="${countryenums}" path="countryenums" required="true" z="Vmwfxb4f8hRgP1Ppf6xJE2AwawE="/>
     </form:update>
 </div>

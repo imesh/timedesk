@@ -6,6 +6,7 @@ package org.timedesk.entity;
 import java.lang.String;
 import java.util.Set;
 import org.timedesk.entity.Company;
+import org.timedesk.entity.CountryEnum;
 import org.timedesk.entity.Employee;
 import org.timedesk.entity.Holiday;
 
@@ -43,11 +44,11 @@ privileged aspect CompanySite_Roo_JavaBean {
         this.city = city;
     }
     
-    public String CompanySite.getCountry() {
+    public CountryEnum CompanySite.getCountry() {
         return this.country;
     }
     
-    public void CompanySite.setCountry(String country) {
+    public void CompanySite.setCountry(CountryEnum country) {
         this.country = country;
     }
     

@@ -7,6 +7,7 @@ import java.io.UnsupportedEncodingException;
 import java.lang.Long;
 import java.lang.String;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -26,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
+import org.timedesk.entity.CountryEnum;
 import org.timedesk.entity.Employee;
 import org.timedesk.entity.EmployeeVisa;
 
@@ -103,6 +105,11 @@ privileged aspect EmployeeVisaController_Roo_Controller {
         model.addAttribute("page", (page == null) ? "1" : page.toString());
         model.addAttribute("size", (size == null) ? "10" : size.toString());
         return "redirect:/employeevisas?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
+    }
+    
+    @ModelAttribute("countryenums")
+    public Collection<CountryEnum> EmployeeVisaController.populateCountryEnums() {
+        return Arrays.asList(CountryEnum.class.getEnumConstants());
     }
     
     @ModelAttribute("employees")

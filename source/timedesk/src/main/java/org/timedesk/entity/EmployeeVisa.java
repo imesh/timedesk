@@ -21,6 +21,8 @@ import org.springframework.roo.addon.entity.RooEntity;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -58,8 +60,9 @@ public class EmployeeVisa
     private Date validTo;
 
     @NotNull
-    @Column(name = "country")
-    private String country;
+    @Enumerated(EnumType.STRING)
+	@Column(name = "country")
+    private CountryEnum country;
     
     public String toString() 
     {

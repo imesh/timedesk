@@ -5,6 +5,7 @@ package org.timedesk.entity;
 
 import java.lang.String;
 import java.util.Date;
+import org.timedesk.entity.CountryEnum;
 import org.timedesk.entity.Employee;
 
 privileged aspect EmployeeVisa_Roo_JavaBean {
@@ -41,11 +42,11 @@ privileged aspect EmployeeVisa_Roo_JavaBean {
         this.validTo = validTo;
     }
     
-    public String EmployeeVisa.getCountry() {
+    public CountryEnum EmployeeVisa.getCountry() {
         return this.country;
     }
     
-    public void EmployeeVisa.setCountry(String country) {
+    public void EmployeeVisa.setCountry(CountryEnum country) {
         this.country = country;
     }
     
