@@ -11,7 +11,7 @@
         <table:table data="${company.companySites}" parentId="${company.id}" id="l_org_timedesk_entity_CompanySite" path="/companysites" z="user-managed">
             <table:column id="c_org_timedesk_entity_CompanySite_company" property="company" render="flase" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_CompanySite_siteId" property="siteId" z="user-managed"/>
-            <table:column id="c_org_timedesk_entity_CompanySite_location" property="location" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_CompanySite_location" maxLength="60" property="location" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_CompanySite_city" property="city" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_CompanySite_country" property="country" maxLength="50" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_CompanySite_employees" property="employees" render="false" z="user-managed"/>

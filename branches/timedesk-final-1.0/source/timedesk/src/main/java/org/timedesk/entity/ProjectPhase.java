@@ -29,8 +29,10 @@ import javax.persistence.Query;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.core.annotation.Order;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.roo.addon.entity.RooEntity;
 import org.springframework.roo.addon.javabean.RooJavaBean;
@@ -39,7 +41,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooJavaBean
 @RooToString
 @RooEntity
-@Table(name = "project_phase")
+@Table(name = "project_phase", uniqueConstraints = @UniqueConstraint(columnNames = "project_id,phase_id"))
 public class ProjectPhase 
 {
 	@NotNull

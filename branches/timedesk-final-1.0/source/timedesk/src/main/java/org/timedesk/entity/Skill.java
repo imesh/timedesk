@@ -16,6 +16,7 @@ package org.timedesk.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.entity.RooEntity;
@@ -25,7 +26,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooJavaBean
 @RooToString
 @RooEntity
-@Table(name = "skill")
+@Table(name = "skill", uniqueConstraints = @UniqueConstraint(columnNames = "skill_id"))
 public class Skill 
 {
 	@NotNull

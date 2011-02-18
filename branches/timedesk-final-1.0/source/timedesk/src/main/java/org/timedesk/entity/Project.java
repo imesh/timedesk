@@ -25,6 +25,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
+
 import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Set;
 import org.timedesk.entity.ProjectMember;
@@ -37,7 +39,7 @@ import org.timedesk.entity.ProjectPhase;
 @RooJavaBean
 @RooToString
 @RooEntity
-@Table(name = "project")
+@Table(name = "project", uniqueConstraints = @UniqueConstraint(columnNames = "company_id,project_id"))
 public class Project 
 {
 	@NotNull

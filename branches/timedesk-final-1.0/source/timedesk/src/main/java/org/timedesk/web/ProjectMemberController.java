@@ -72,16 +72,18 @@ public class ProjectMemberController
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String createForm(Model model, @RequestParam(value = "parentId", required = false) Long parentId) 
     {
+    	Project project = null;
     	ProjectMember member = new ProjectMember();
     	if(parentId != null)
     	{
-    		Project project = Project.findProject(parentId);
+    		project = Project.findProject(parentId);
     		if(project != null)
     			member.setProject(project);    		
     	}
         model.addAttribute("projectMember", member);
         List dependencies = new ArrayList();
-        if (Project.countProjects() == 0) {
+        if (Project.countProjects() == 0) 
+        {
             dependencies.add(new String[]{"project", "projects"});
         }
         model.addAttribute("dependencies", dependencies);

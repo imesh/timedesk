@@ -21,6 +21,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.javabean.RooJavaBean;
@@ -30,7 +31,7 @@ import org.springframework.roo.addon.entity.RooEntity;
 @RooJavaBean
 @RooToString
 @RooEntity
-@Table(name = "security_role")
+@Table(name = "security_role", uniqueConstraints = @UniqueConstraint(columnNames = "security_role_id"))
 public class SecurityRole 
 {
 	@NotNull
@@ -41,7 +42,7 @@ public class SecurityRole
 	@Column(name = "name")
     private String name;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.DETACH)
     private Set<ApplicationFeature> applicationFeatures = new HashSet<ApplicationFeature>();
 	
     public String toString() 

@@ -32,6 +32,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Query;
 import javax.persistence.Table;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
@@ -43,7 +44,7 @@ import org.timedesk.web.util.ApplicationTrace;
 @RooJavaBean
 @RooToString
 @RooEntity
-@Table(name = "employee")
+@Table(name = "employee", uniqueConstraints = @UniqueConstraint(columnNames = "employee_id"))
 public class Employee 
 {
 	@NotNull
@@ -96,13 +97,13 @@ public class Employee
 	@Column(name = "max_allocation")
 	private Integer maxAllocation = 100;
 	
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.DETACH)
     private Set<Skill> employeeSkills = new HashSet<Skill>();
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.DETACH)
     private Set<EmployeeRole> employeeRoles = new HashSet<EmployeeRole>();
     
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.DETACH)
     @JoinTable(name = "employee_pre_em_role")
     private Set<EmployeeRole> preEmployeeRoles = new HashSet<EmployeeRole>();
     

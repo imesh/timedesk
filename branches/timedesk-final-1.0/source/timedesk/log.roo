@@ -214,3 +214,19 @@ entity --class ~.entity.EmployeeAllocation
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-18 00:25:41
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-18 01:47:45
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-18 01:51:07
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-18 13:09:44
+quit
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-18 13:35:07
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-18 13:50:18
+quit
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-18 14:38:17
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-18 14:38:46
+perform package
+quit
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-18 14:44:26
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-18 14:58:06
+perform package
+// [failed] quit
+quit
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-18 15:24:12
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-18 17:42:04

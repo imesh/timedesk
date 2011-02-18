@@ -28,6 +28,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Query;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.roo.addon.entity.RooEntity;
@@ -37,7 +38,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooJavaBean
 @RooToString
 @RooEntity
-@Table(name = "project_member")
+@Table(name = "project_member", uniqueConstraints = @UniqueConstraint(columnNames = "project_id,member_id"))
 public class ProjectMember 
 {
 	@NotNull
@@ -48,11 +49,11 @@ public class ProjectMember
     @Column(name = "member_id")
     private String memberId;
     
-    @OneToOne
+    @OneToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "employee_id", referencedColumnName = "id")
     private Employee employee;
     
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.DETACH)
     private Set<ProjectMemberRole> roles = new HashSet<ProjectMemberRole>();
     
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "projectMember")
