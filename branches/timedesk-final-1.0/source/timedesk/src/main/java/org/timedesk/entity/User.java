@@ -49,10 +49,10 @@ public class User
     @Column(name = "enabled")
     private Boolean enabled;
 
-    @ManyToMany(cascade = CascadeType.DETACH)
+    @ManyToMany
     private Set<SecurityRole> securityRoles = new HashSet<SecurityRole>();
     
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Employee> employees = new HashSet<Employee>();
     
     public String toString() 

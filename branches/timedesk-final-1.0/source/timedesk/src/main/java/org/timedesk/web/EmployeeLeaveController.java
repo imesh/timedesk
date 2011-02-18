@@ -32,7 +32,7 @@ public class EmployeeLeaveController
             model.addAttribute("employeeLeave", employeeLeave);
             addDateTimeFormatPatterns(model);
             return "employeeleaves/create";
-        }
+        }        
         employeeLeave.persist();
         return "redirect:/employees/" + UrlEncoder.encodeUrlPathSegment(employeeLeave.getEmployee().getId().toString(), request);
     }
