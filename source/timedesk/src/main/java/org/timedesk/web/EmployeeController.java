@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,12 +29,13 @@ public class EmployeeController
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String createForm(Model model, @RequestParam(value = "parentId", required = false) Long parentId) 
     {
+    	CompanySite companySite = null;
     	Employee employee = new Employee();
     	if(parentId != null)
     	{
-    		User user = User.findUser(parentId);
-    		if(user != null)
-    			employee.setUser(user);
+    		companySite = CompanySite.findCompanySite(parentId);
+    		if(companySite != null)
+    			employee.setCompanySite(companySite);
     	}
     	
         model.addAttribute("employee", employee);
@@ -66,7 +68,28 @@ public class EmployeeController
              return "employees/create";
         }
         employee.persist();
-        return "redirect:/employees/" + UrlEncoder.encodeUrlPathSegment(employee.getId().toString(), request);
+        return "redirect:/companysites/" + UrlEncoder.encodeUrlPathSegment(employee.getCompanySite().getId().toString(), request);
+    }
+    
+    @RequestMapping(method = RequestMethod.PUT)
+    public String update(@Valid Employee employee, BindingResult result, Model model, HttpServletRequest request)
+    {
+        if (result.hasErrors()) 
+        {
+            model.addAttribute("employee", employee);
+            return "employees/update";
+        }
+        employee.merge();
+        return "redirect:/companysites/" + UrlEncoder.encodeUrlPathSegment(employee.getCompanySite().getId().toString(), request);
+    }
+    
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model) 
+    {
+    	Employee employee = Employee.findEmployee(id);
+    	String companySiteId = employee.getCompanySite().getId().toString();
+        employee.remove();
+        return "redirect:/companysites/" + companySiteId;
     }
     
     private String generateEmployeeId(Employee employee)

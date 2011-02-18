@@ -28,6 +28,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -35,7 +36,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @RooJavaBean
 @RooToString
 @RooEntity
-@Table(name = "employee_visa")
+@Table(name = "employee_visa", uniqueConstraints = @UniqueConstraint(columnNames = "employee_id,visa_id"))
 public class EmployeeVisa 
 {
 	@NotNull

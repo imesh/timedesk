@@ -13,6 +13,7 @@ import org.timedesk.web.util.ErrorHandler;
 import org.timedesk.web.util.UrlEncoder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,16 +27,18 @@ public class CompanySiteController
 	@RequestMapping(params = "form", method = RequestMethod.GET)
     public String createForm(Model model, @RequestParam(value = "parentId", required = false) Long parentId) 
     {
+		Company company = null;
 		CompanySite site = new CompanySite();
 		if(parentId != null)
 		{
-			Company company = Company.findCompany(parentId);
+			company = Company.findCompany(parentId);
 			if(company != null)
 				site.setCompany(company);
 		}
         model.addAttribute("companySite", site);
         List dependencies = new ArrayList();
-        if (Company.countCompanys() == 0) {
+        if (Company.countCompanys() == 0) 
+        {
             dependencies.add(new String[]{"company", "companys"});
         }
         model.addAttribute("dependencies", dependencies);
@@ -58,6 +61,27 @@ public class CompanySiteController
         	ErrorHandler.addError(companySite, result, e);        	
         }
         model.addAttribute("companySite", companySite);
-        return "companysites/create";
+        return "redirect:/companies/" + UrlEncoder.encodeUrlPathSegment(companySite.getCompany().getId().toString(), request);
+    }
+	
+	@RequestMapping(method = RequestMethod.PUT)
+    public String update(@Valid CompanySite companySite, BindingResult result, Model model, HttpServletRequest request) 
+	{
+        if (result.hasErrors()) 
+        {
+            model.addAttribute("companySite", companySite);
+            return "companysites/update";
+        }
+        companySite.merge();
+        return "redirect:/companies/" + UrlEncoder.encodeUrlPathSegment(companySite.getCompany().getId().toString(), request);
+    }
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model) 
+    {
+		CompanySite companySite = CompanySite.findCompanySite(id);
+		String companyId = companySite.getCompany().getId().toString();		
+		companySite.remove();
+        return "redirect:/companies/" + companyId;
     }
 }

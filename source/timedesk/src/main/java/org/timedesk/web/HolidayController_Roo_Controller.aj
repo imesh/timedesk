@@ -6,9 +6,7 @@ package org.timedesk.web;
 import java.io.UnsupportedEncodingException;
 import java.lang.Long;
 import java.lang.String;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -33,29 +31,6 @@ privileged aspect HolidayController_Roo_Controller {
     
     @Autowired
     private GenericConversionService HolidayController.conversionService;
-    
-    @RequestMapping(method = RequestMethod.POST)
-    public String HolidayController.create(@Valid Holiday holiday, BindingResult result, Model model, HttpServletRequest request) {
-        if (result.hasErrors()) {
-            model.addAttribute("holiday", holiday);
-            addDateTimeFormatPatterns(model);
-            return "holidays/create";
-        }
-        holiday.persist();
-        return "redirect:/holidays/" + encodeUrlPathSegment(holiday.getId().toString(), request);
-    }
-    
-    @RequestMapping(params = "form", method = RequestMethod.GET)
-    public String HolidayController.createForm(Model model) {
-        model.addAttribute("holiday", new Holiday());
-        addDateTimeFormatPatterns(model);
-        List dependencies = new ArrayList();
-        if (CompanySite.countCompanySites() == 0) {
-            dependencies.add(new String[]{"companySite", "companysites"});
-        }
-        model.addAttribute("dependencies", dependencies);
-        return "holidays/create";
-    }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String HolidayController.show(@PathVariable("id") Long id, Model model) {
@@ -95,14 +70,6 @@ privileged aspect HolidayController_Roo_Controller {
         model.addAttribute("holiday", Holiday.findHoliday(id));
         addDateTimeFormatPatterns(model);
         return "holidays/update";
-    }
-    
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public String HolidayController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model) {
-        Holiday.findHoliday(id).remove();
-        model.addAttribute("page", (page == null) ? "1" : page.toString());
-        model.addAttribute("size", (size == null) ? "10" : size.toString());
-        return "redirect:/holidays?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
     @ModelAttribute("companysites")
