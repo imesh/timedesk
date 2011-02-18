@@ -15,7 +15,7 @@
 		<li><a href='#6'>Project Resource Information</a> </li>
 		<li><a href='#7'>User Information</a> </li>
 	</ol> 
-    <a name='2'>Company</a>
+    <a href='#TOP'><img src="images/top.png" /></a><a name='2'>Company</a>
     <p><span>Company Information section allows user to handle company related information. Mainly four functionalities are facilitated under this category.</span></p>
      <dl>
 		<dt>Create new Company</dt>
@@ -28,7 +28,7 @@
 			<dd>Allows user to view all company sites. There are three icons provided to view employees connected to the company site record, edit company site record, and delete company site record. Below the list of company sites, an icon is provided to create a new company site.</dd>
 	 	
 	 </dl>
-	 <a name='3'>Employees</a>
+	 <a href='#TOP'><img src="images/top.png" /></a><a name='3'>Employees</a>
      <p><span>Employee Information section allows user to handle employee related information. Mainly four functionalities are facilitated under this category.</span></p>
      <dl>
 		<dt>Create new Employee</dt>
@@ -42,7 +42,7 @@
 	 	
 	 </dl>
 	 
-	 <a name='4'>Leave Information</a>
+	 <a href='#TOP'><img src="images/top.png" /></a><a name='4'>Leave Information</a>
      <p><span>Leave Information section allows user to handle employee leave related information. Mainly two functionalities are facilitated under this category.</span></p>
      <dl>
 		<dt>Create new Employee Leave</dt>
@@ -52,7 +52,7 @@
 	 	
 	 </dl>
 	 
-	 <a name='5'>Project Information</a>
+	 <a href='#TOP'><img src="images/top.png" /></a><a name='5'>Project Information</a>
      <p><span>Project Information section allows user to handle project related information. Mainly four functionalities are facilitated under this category.</span></p>
      <dl>
 		<dt>Create new Project</dt>
@@ -66,7 +66,7 @@
 	 	
 	 </dl>
 	 
-	 <a name='6'>Project Resource Information</a>
+	 <a href='#TOP'><img src="images/top.png" /></a><a name='6'>Project Resource Information</a>
      <p><span>Project Resource Information section allows user to handle project resource related information. Mainly six functionalities are facilitated under this category.</span></p>
      <dl>
 		<dt>Create new Project Member</dt>
@@ -84,7 +84,7 @@
 	 	
 	 </dl>
 	 
-	 <a name='7'>User Information</a>
+	 <a href='#TOP'><img src="images/top.png" /></a><a name='7'>User Information</a>
      <p><span>User Information section allows user to handle user related information. Mainly two functionalities are facilitated under this category.</span></p>
      <dl>
 		<dt>Create new User</dt>
