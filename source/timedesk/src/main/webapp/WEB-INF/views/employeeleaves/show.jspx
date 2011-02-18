@@ -4,7 +4,7 @@
     
 
 <page:show id="ps_org_timedesk_entity_EmployeeLeave" object="${employeeleave}" path="/employeeleaves" z="IqSdkp/XgyLZDK53Y05GTqniqt8=">
-        <field:display field="employee" id="s_org_timedesk_entity_EmployeeLeave_employee" object="${employeeleave}" z="nz9VSoL0FlTyiMoZeuDGq8YOJgI="/>
+        <a href="/timedesk/employees/${employeeleave.employee.id}"><field:display field="employee" id="s_org_timedesk_entity_EmployeeLeave_employee" object="${employeeleave}" z="nz9VSoL0FlTyiMoZeuDGq8YOJgI="/></a>
         <field:display date="true" dateTimePattern="${employeeLeave_fromtime_date_format}" field="fromTime" id="s_org_timedesk_entity_EmployeeLeave_fromTime" object="${employeeleave}" z="Ir/WdIkJslJhB+XHKhpoTKLlR7A="/>
         <field:display date="true" dateTimePattern="${employeeLeave_totime_date_format}" field="toTime" id="s_org_timedesk_entity_EmployeeLeave_toTime" object="${employeeleave}" z="0/E23N3ZCMZriBC8Kj29ufy00Yg="/>
     </page:show>
