@@ -77,10 +77,7 @@ public class ProjectMemberController
     	{
     		Project project = Project.findProject(parentId);
     		if(project != null)
-    			member.setProject(project);
-    		List<Employee> employeeList = Employee.findAllEmployees();
-    		if((employeeList != null) && (employeeList.size() > 0))
-    			member.setEmployee(employeeList.get(0));
+    			member.setProject(project);    		
     	}
         model.addAttribute("projectMember", member);
         List dependencies = new ArrayList();
