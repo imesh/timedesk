@@ -23,22 +23,24 @@
         <field:display field="leaves" id="s_org_timedesk_entity_Employee_leaves" object="${employee}" render="false" z="user-managed"/>
         
         <p class="data-grid-label">Employee Skills:</p>
-        <table:table create="false" data="${employee.employeeSkills}" delete="false" id="l_org_timedesk_entity_Skill" path="/skills" update="false" z="kT4hzPNzZGGzC6xbpLSHYvwJmP8=">
-            
+        <table:table create="false" data="${employee.employeeSkills}" delete="false" id="l_org_timedesk_entity_Skill" path="/skills" update="false" z="kT4hzPNzZGGzC6xbpLSHYvwJmP8=">            
             <table:column id="c_org_timedesk_entity_Skill_description" maxLength="200" property="description" z="user-managed"/>
         </table:table>
         
         <p class="data-grid-label">Employee Roles:</p>
-        <table:table create="false" data="${employee.employeeRoles}" delete="false" id="l_org_timedesk_entity_EmployeeRole" path="/employeeroles" update="false" z="hkejVp0dnbZbsmyGvpZLkoLmzlI=">            
-            
+        <table:table create="false" data="${employee.employeeRoles}" delete="false" id="l_org_timedesk_entity_EmployeeRole" path="/employeeroles" update="false" z="hkejVp0dnbZbsmyGvpZLkoLmzlI=">           
             <table:column id="c_org_timedesk_entity_EmployeeRole_name" maxLength="100" property="name" z="user-managed"/>
         </table:table>
         
         <p class="data-grid-label">Pre Employee Roles:</p>
-        <table:table create="false" data="${employee.preEmployeeRoles}" delete="false" id="l_org_timedesk_entity_EmployeeRole" path="/employeeroles" update="false" z="hkejVp0dnbZbsmyGvpZLkoLmzlI=">            
-            
+        <table:table create="false" data="${employee.preEmployeeRoles}" delete="false" id="l_org_timedesk_entity_EmployeeRole" path="/employeeroles" update="false" z="hkejVp0dnbZbsmyGvpZLkoLmzlI=">           
             <table:column id="c_org_timedesk_entity_EmployeeRole_name" maxLength="100" property="name" z="user-managed"/>
         </table:table>   
     
+    	<p class="data-grid-label">Employee Leave:</p>
+    	<table:table data="${employee.leaves}" parentId="${employee.id}" id="l_org_timedesk_entity_EmployeeLeave" path="/employeeleaves" z="user-managed">            
+            <table:column id="c_org_timedesk_entity_EmployeeLeave_fromTime" maxLength="100" property="fromTime" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_EmployeeLeave_toTime" maxLength="100" property="toTime" z="user-managed"/>
+        </table:table>
     </page:show>
 </div>
