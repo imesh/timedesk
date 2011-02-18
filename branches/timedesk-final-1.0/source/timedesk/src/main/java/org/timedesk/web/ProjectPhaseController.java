@@ -51,9 +51,16 @@ public class ProjectPhaseController
     }
     
     @RequestMapping(params = "form", method = RequestMethod.GET)
-    public String createForm(Model model) 
+    public String createForm(Model model, @RequestParam(value = "parentId", required = false) Long parentId) 
     {
-        model.addAttribute("projectPhase", new ProjectPhase());
+		ProjectPhase phase = new ProjectPhase();
+    	if(parentId != null)
+    	{
+    		Project project = Project.findProject(parentId);
+    		if(project != null)
+    			phase.setProject(project);    		
+    	}
+        model.addAttribute("projectPhase", phase);
         addDateTimeFormatPatterns(model);
         List dependencies = new ArrayList();
         if (Project.countProjects() == 0) {
