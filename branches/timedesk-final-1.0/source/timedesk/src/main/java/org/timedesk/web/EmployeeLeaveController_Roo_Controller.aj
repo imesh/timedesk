@@ -58,7 +58,7 @@ privileged aspect EmployeeLeaveController_Roo_Controller {
         addDateTimeFormatPatterns(model);
         return "employeeleaves/update";
     }
-        
+    
     @ModelAttribute("employees")
     public Collection<Employee> EmployeeLeaveController.populateEmployees() {
         return Employee.findAllEmployees();
