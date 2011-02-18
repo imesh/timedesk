@@ -45,7 +45,6 @@ public class ProjectPhaseMember
 	@JoinColumn(name = "phase_id", referencedColumnName = "id")
 	private ProjectPhase projectPhase;
 	
-	@NotNull
 	@Column(name = "phase_member_id")
 	private String phaseMemberId;
 	

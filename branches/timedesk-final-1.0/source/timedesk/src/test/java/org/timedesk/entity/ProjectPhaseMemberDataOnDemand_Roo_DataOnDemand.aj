@@ -25,7 +25,7 @@ privileged aspect ProjectPhaseMemberDataOnDemand_Roo_DataOnDemand {
         org.timedesk.entity.ProjectPhaseMember obj = new org.timedesk.entity.ProjectPhaseMember();
         obj.setAllocation(new Integer(index));
         obj.setEndDate(new java.util.Date());
-        obj.setPhaseMemberId("phaseMemberId_" + index);
+        obj.setPhaseMemberId(null);
         obj.setProjectMember(null);
         obj.setProjectPhase(projectPhaseDataOnDemand.getRandomProjectPhase());
         obj.setStartDate(new java.util.Date());
