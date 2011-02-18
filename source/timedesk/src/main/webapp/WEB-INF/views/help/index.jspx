@@ -11,6 +11,9 @@
 		<li><a href='#2'>Company</a> </li>
 		<li><a href='#3'>Employees</a> </li>
 		<li><a href='#4'>Leave Information</a> </li>
+		<li><a href='#5'>Project Information</a> </li>
+		<li><a href='#6'>Project Resource Information</a> </li>
+		<li><a href='#7'>User Information</a> </li>
 	</ol> 
     <a name='2'>Company</a>
     <p><span>Company Information section allows user to handle company related information. Mainly four functionalities are facilitated under this category.</span></p>
@@ -48,5 +51,48 @@
 			<dd>Allows user to view list of employee leave records. There are three icons provided to view detailed information of the employee leave record, edit employee leave record, and delete employee leave record. Below the list of employee leave records, an icon is provided to create a new record.</dd>
 	 	
 	 </dl>
+	 
+	 <a name='5'>Project Information</a>
+     <p><span>Project Information section allows user to handle project related information. Mainly four functionalities are facilitated under this category.</span></p>
+     <dl>
+		<dt>Create new Project</dt>
+			<dd>Allows user to create a new project. Existing companies will be listed in a drop down menu where user has to select a value for Company. In addition values should be entered for Project ID, Name, Description, Start Date and End Date. A calendar will popup when clicks on Start Date, and End Date fields which allows user to select a specific date from the calendar.</dd>
+		<dt>List all Projects</dt>
+			<dd>Allows user to view list of project records. There are three icons provided to view detailed information of the project record, edit project record, and delete project record. Below the list of project records, an icon is provided to create a new project record.</dd>
+		<dt>Create new Project Phase</dt>
+			<dd>Allows user to create a new project phase. Existing projects will be listed in a drop down menu where user has to select a value for Project. In addition values should be entered for Description, Start Date and End Date. A calendar will popup when clicks on Start Date, and End Date fields which allows user to select a specific date from the calendar.</dd>
+		<dt>List all Project Phases</dt>
+			<dd>Allows user to view list of project phase records. There are three icons provided to view detailed information of the project phase record, edit project phase record, and delete project phase record. Below the list of project phase records, an icon is provided to create a new project phase record.</dd>
+	 	
+	 </dl>
+	 
+	 <a name='6'>Project Resource Information</a>
+     <p><span>Project Resource Information section allows user to handle project resource related information. Mainly six functionalities are facilitated under this category.</span></p>
+     <dl>
+		<dt>Create new Project Member</dt>
+			<dd>Allows user to create a new project member. Existing projects will be listed in a drop down menu where user has to select a value for Project. Exiting employees will be also presented in a drop down menu and user has to select a value for Employee. It is possible to save multiple roles for a project member.</dd>
+		<dt>List all Project Members</dt>
+			<dd>Allows user to view list of project member records. There are three icons provided to view detailed information of the project member record, edit project member record, and delete project member record. Below the list of project member records, an icon is provided to create a new project member record.</dd>
+		<dt>Create new Project Phase Member</dt>
+			<dd>Allows creating new project phase members. Values for Project Phase and Project Member should be selected from drop down menus which list existing Project Phases and Project Members. In addition values should be given for Phase Member ID, Start Date, End Date, Allocation (%).A calendar will popup when clicks on Start Date, and End Date fields which allows user to select a specific date from the calendar.</dd>
+		<dt>List all Project Phase Members</dt>
+			<dd>Allows user to view list of project phase member records. There are three icons provided to view detailed information of the project phase member record, edit project phase member record, and delete project phase member record. Below the list of project phase member records, an icon is provided to create a new project phase member record.</dd>
+		<dt>Create new Project Member Feedback</dt>
+			<dd>Allows user to insert project member feedbacks. Existing project members will be listed in a drop down menu where user has to select a value for Project Member. In addition values should be given for Feedback Id and Description fields.</dd>
+		<dt>List all Project Member Feedbacks</dt>
+			<dd>Allows user to view all project member feedback records. There are three icons provided to view detailed information of the project member feedback record, edit project member feedback record, and delete project member feedback record. Below the list of project member feedback records, an icon is provided to create a new project member feedback record.</dd>
+	 	
+	 </dl>
+	 
+	 <a name='7'>User Information</a>
+     <p><span>User Information section allows user to handle user related information. Mainly two functionalities are facilitated under this category.</span></p>
+     <dl>
+		<dt>Create new User</dt>
+			<dd>Allows creating new users. Values should be given for Username, Password fields. It is possible to save multiple security roles for a user. User can be enable by checking Enabled check box.</dd>
+		<dt>List all Users</dt>
+			<dd>Allows user to view all user records. There are three icons provided to view detailed information of the user record, edit user record, and delete user record. Below the list of user records, an icon is provided to create a new user record</dd>
+	 	
+	 </dl>
+	 
   </util:panel>
 </div>
