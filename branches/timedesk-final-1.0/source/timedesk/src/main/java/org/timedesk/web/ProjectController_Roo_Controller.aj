@@ -6,9 +6,7 @@ package org.timedesk.web;
 import java.io.UnsupportedEncodingException;
 import java.lang.Long;
 import java.lang.String;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -35,29 +33,6 @@ privileged aspect ProjectController_Roo_Controller {
     
     @Autowired
     private GenericConversionService ProjectController.conversionService;
-    
-    @RequestMapping(method = RequestMethod.POST)
-    public String ProjectController.create(@Valid Project project, BindingResult result, Model model, HttpServletRequest request) {
-        if (result.hasErrors()) {
-            model.addAttribute("project", project);
-            addDateTimeFormatPatterns(model);
-            return "projects/create";
-        }
-        project.persist();
-        return "redirect:/projects/" + encodeUrlPathSegment(project.getId().toString(), request);
-    }
-    
-    @RequestMapping(params = "form", method = RequestMethod.GET)
-    public String ProjectController.createForm(Model model) {
-        model.addAttribute("project", new Project());
-        addDateTimeFormatPatterns(model);
-        List dependencies = new ArrayList();
-        if (Company.countCompanys() == 0) {
-            dependencies.add(new String[]{"company", "companys"});
-        }
-        model.addAttribute("dependencies", dependencies);
-        return "projects/create";
-    }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String ProjectController.show(@PathVariable("id") Long id, Model model) {
