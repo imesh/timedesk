@@ -98,7 +98,7 @@ privileged aspect EmployeeAllocationController_Roo_Controller {
     Converter<EmployeeAllocation, String> EmployeeAllocationController.getEmployeeAllocationConverter() {
         return new Converter<EmployeeAllocation, String>() {
             public String convert(EmployeeAllocation employeeAllocation) {
-                return new StringBuilder().append(employeeAllocation.getEmpId()).append(" ").append(employeeAllocation.getEmployeeId()).append(" ").append(employeeAllocation.getPhmId()).toString();
+                return new StringBuilder().append(employeeAllocation.getEmpId()).append(" ").append(employeeAllocation.getEmployeeId()).append(" ").append(employeeAllocation.getFirstName()).toString();
             }
         };
     }
