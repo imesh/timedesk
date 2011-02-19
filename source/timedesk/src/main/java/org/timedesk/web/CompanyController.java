@@ -24,6 +24,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.timedesk.entity.Company;
 import org.timedesk.web.util.ErrorHandler;
 import org.timedesk.web.util.UrlEncoder;
@@ -51,7 +52,7 @@ public class CompanyController
 		model.addAttribute("company", company);
 		return "companies/create";
 	}
-
+	
 	Converter<Company, String> getCompanyConverter()
 	{
 		return new Converter<Company, String>()
