@@ -17,6 +17,7 @@ package org.timedesk.web;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.springframework.core.convert.converter.Converter;
 import org.springframework.roo.addon.web.mvc.controller.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,24 +31,35 @@ import org.timedesk.web.util.UrlEncoder;
 @RooWebScaffold(path = "companies", formBackingObject = Company.class)
 @RequestMapping("/companies")
 @Controller
-public class CompanyController 
+public class CompanyController
 {
 	@RequestMapping(method = RequestMethod.POST)
-    public String create(@Valid Company company, BindingResult result, Model model, HttpServletRequest request) 
+	public String create(@Valid Company company, BindingResult result, Model model, HttpServletRequest request)
 	{
-        try
-        {
-        	if (!result.hasErrors())
-        	{
-        		company.persist();
-        		return "redirect:/companies/" + UrlEncoder.encodeUrlPathSegment(company.getId().toString(), request);
-        	}
-        }
-        catch(Exception e)
-        {
-        	ErrorHandler.addError(company, result, e);        	
-        }
-        model.addAttribute("company", company);
-        return "companies/create";
-    }
+		try
+		{
+			if (!result.hasErrors())
+			{
+				company.persist();
+				return "redirect:/companies/" + UrlEncoder.encodeUrlPathSegment(company.getId().toString(), request);
+			}
+		}
+		catch (Exception e)
+		{
+			ErrorHandler.addError(company, result, e);
+		}
+		model.addAttribute("company", company);
+		return "companies/create";
+	}
+
+	Converter<Company, String> getCompanyConverter()
+	{
+		return new Converter<Company, String>()
+		{
+			public String convert(Company company)
+			{
+				return new StringBuilder().append(company.getName()).toString();
+			}
+		};
+	}
 }

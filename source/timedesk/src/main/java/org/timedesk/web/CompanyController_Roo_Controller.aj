@@ -90,15 +90,7 @@ privileged aspect CompanyController_Roo_Controller {
     public Collection<Project> CompanyController.populateProjects() {
         return Project.findAllProjects();
     }
-    
-    Converter<Company, String> CompanyController.getCompanyConverter() {
-        return new Converter<Company, String>() {
-            public String convert(Company company) {
-                return new StringBuilder().append(company.getCompanyId()).append(" ").append(company.getName()).toString();
-            }
-        };
-    }
-    
+        
     Converter<CompanySite, String> CompanyController.getCompanySiteConverter() {
         return new Converter<CompanySite, String>() {
             public String convert(CompanySite companySite) {
