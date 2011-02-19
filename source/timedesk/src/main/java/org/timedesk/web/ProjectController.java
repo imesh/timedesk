@@ -15,7 +15,9 @@
 package org.timedesk.web;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -23,6 +25,8 @@ import javax.validation.Valid;
 import org.springframework.roo.addon.web.mvc.controller.RooWebScaffold;
 import org.timedesk.entity.Company;
 import org.timedesk.entity.Project;
+import org.timedesk.entity.ProjectPhase;
+import org.timedesk.web.util.ApplicationTrace;
 import org.timedesk.web.util.UrlEncoder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -44,8 +48,21 @@ public class ProjectController
             model.addAttribute("project", project);
             addDateTimeFormatPatterns(model);
             return "projects/create";
-        }
+        }        
         project.persist();
+        if(!project.getMultiplePhases().booleanValue())
+        {
+        	// Create Default Project Phase        	
+        	ProjectPhase phase = new ProjectPhase();        	
+        	phase.setProject(project);
+        	phase.setPhaseId("DEFPH");
+        	phase.setDescription("Default Project Phase");
+        	phase.setStartDate(project.getStartDate());
+        	phase.setEndDate(project.getEndDate());
+        	phase.persist();
+        	
+        	project = Project.findProject(project.getId());
+        }
         return "redirect:/projects/" + UrlEncoder.encodeUrlPathSegment(project.getId().toString(), request);
     }
 	 
@@ -59,6 +76,7 @@ public class ProjectController
     		if(company != null)
     			project.setCompany(company);
     	}
+    	project.setMultiplePhases(true);
         model.addAttribute("project", project);
         addDateTimeFormatPatterns(model);
         List dependencies = new ArrayList();

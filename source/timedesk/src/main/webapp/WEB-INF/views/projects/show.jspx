@@ -12,17 +12,18 @@
         <field:display field="company" id="s_org_timedesk_entity_Project_company" object="${project}" render="false" z="user-managed"/>
         
         <p class="data-grid-label">Project Members:</p>
-        <table:table data="${project.projectMembers}" parentId="${project.id}" id="l_org_timedesk_entity_ProjectMember" path="/projectmembers" z="user-managed">
+        <table:table data="${project.projectMembers}" id="l_org_timedesk_entity_ProjectMember" parentId="${project.id}" path="/projectmembers" z="user-managed">
         	<table:column id="c_org_timedesk_entity_ProjectMember_memberId" property="memberId" z="user-managed"/>                                         
         	<table:column id="c_org_timedesk_entity_ProjectMember_employee" maxLength="100" property="employee" z="user-managed"/>
         </table:table>
 		
 		<p class="data-grid-label">Project Phases:</p>
-        <table:table data="${project.projectPhases}" parentId="${project.id}" id="l_org_timedesk_entity_ProjectPhase" path="/projectphases" z="user-managed">
+        <table:table data="${project.projectPhases}" id="l_org_timedesk_entity_ProjectPhase" parentId="${project.id}" path="/projectphases" z="user-managed">
             <table:column id="c_org_timedesk_entity_ProjectPhase_phaseId" property="phaseId" z="user-managed"/>
-            <table:column id="c_org_timedesk_entity_ProjectPhase_description" property="description" maxLength="200" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_ProjectPhase_description" maxLength="200" property="description" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_ProjectPhase_startDate" property="startDate" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_ProjectPhase_endDate" property="endDate" z="user-managed"/>
         </table:table>    
+    	<field:display field="multiplePhases" id="s_org_timedesk_entity_Project_multiplePhases" object="${project}" render="false" z="user-managed"/>
     </page:show>
 </div>

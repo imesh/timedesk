@@ -15,26 +15,26 @@
 
 package org.timedesk.entity;
 
-import org.springframework.roo.addon.javabean.RooJavaBean;
-import org.springframework.roo.addon.tostring.RooToString;
-import org.springframework.roo.addon.entity.RooEntity;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import java.util.Set;
-import org.timedesk.entity.ProjectMember;
-import java.util.HashSet;
-import javax.persistence.OneToMany;
-import javax.persistence.CascadeType;
-import javax.validation.constraints.NotNull;
-import org.timedesk.entity.ProjectPhase;
+import org.springframework.roo.addon.entity.RooEntity;
+import org.springframework.roo.addon.javabean.RooJavaBean;
+import org.springframework.roo.addon.tostring.RooToString;
 
 @RooJavaBean
 @RooToString
@@ -51,21 +51,27 @@ public class Project
     @Column(name = "project_id")
     private String projectId;
 
+    @NotNull
     @Column(name = "name")
     private String name;
 
     @Column(name = "description")
     private String description;
 
+    @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "S-")
     @Column(name = "start_date")
     private Date startDate;
 
+    @NotNull
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "S-")
     @Column(name = "end_date")
     private Date endDate;
+    
+    @Transient
+    private Boolean multiplePhases;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "project")
     private Set<ProjectMember> projectMembers = new HashSet<ProjectMember>();
