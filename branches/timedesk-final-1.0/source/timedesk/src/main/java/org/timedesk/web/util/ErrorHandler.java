@@ -1,5 +1,7 @@
 package org.timedesk.web.util;
 
+import java.util.List;
+
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 
@@ -31,5 +33,16 @@ public class ErrorHandler
 			}
 		}
 		return buffer.toString();
+	}
+
+	public static void printErrors(List<ObjectError> errors) 
+	{
+		if(errors != null)
+		{
+			for(ObjectError error : errors)
+			{
+				ApplicationTrace.trace(" [ERROR] " + error.getDefaultMessage());
+			}
+		}
 	}
 }

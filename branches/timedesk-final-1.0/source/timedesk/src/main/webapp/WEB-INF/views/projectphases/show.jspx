@@ -12,6 +12,7 @@
     	<p class="data-grid-label">Phase Members:</p>
         <table:table data="${projectphase.projectPhaseMembers}" parentId="${projectphase.id}" id="l_org_timedesk_entity_ProjectPhaseMember" path="/projectphasemembers" z="user-managed">			
             <table:column id="c_org_timedesk_entity_ProjectPhaseMember_phaseMemberId" property="phaseMemberId" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_ProjectPhaseMember_projectMember" maxLength="100" property="projectMember" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_ProjectPhaseMember_startDate" property="startDate" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_ProjectPhaseMember_endDate" property="endDate" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_ProjectPhaseMember_allocation" property="allocation" z="user-managed"/>

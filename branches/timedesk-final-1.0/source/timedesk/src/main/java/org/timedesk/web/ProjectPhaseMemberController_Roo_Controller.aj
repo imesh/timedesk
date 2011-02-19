@@ -6,7 +6,6 @@ package org.timedesk.web;
 import java.io.UnsupportedEncodingException;
 import java.lang.Long;
 import java.lang.String;
-import java.util.Collection;
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import org.joda.time.format.DateTimeFormat;
@@ -15,7 +14,6 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.core.convert.support.GenericConversionService;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -66,16 +64,6 @@ privileged aspect ProjectPhaseMemberController_Roo_Controller {
         model.addAttribute("page", (page == null) ? "1" : page.toString());
         model.addAttribute("size", (size == null) ? "10" : size.toString());
         return "redirect:/projectphasemembers?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
-    }
-    
-    @ModelAttribute("projectmembers")
-    public Collection<ProjectMember> ProjectPhaseMemberController.populateProjectMembers() {
-        return ProjectMember.findAllProjectMembers();
-    }
-    
-    @ModelAttribute("projectphases")
-    public Collection<ProjectPhase> ProjectPhaseMemberController.populateProjectPhases() {
-        return ProjectPhase.findAllProjectPhases();
     }
     
     Converter<ProjectPhase, String> ProjectPhaseMemberController.getProjectPhaseConverter() {

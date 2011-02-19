@@ -15,6 +15,7 @@
 
 package org.timedesk.entity;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -62,7 +63,7 @@ public class ProjectMember
     public String toString() 
     {
         StringBuilder sb = new StringBuilder();        
-        sb.append(getMemberId());        
+        sb.append(getEmployee().getFirstName() + " " + getEmployee().getLastName());        
         return sb.toString();
     }
     
@@ -84,6 +85,18 @@ public class ProjectMember
         	List<ProjectMember> list = query.getResultList();
         	if((list != null) && (list.size() > 0))
         		return list.get(0);
+        }
+        return null;
+    }
+    
+    public static Collection<ProjectMember> findProjectMemberByProject(Long projectId) 
+    {        
+        if(projectId != null)
+        {
+        	Query query = entityManager().createQuery("SELECT m FROM ProjectMember m WHERE m.project.id = ?1");    	
+        	query.setParameter(1, projectId);
+        	List<ProjectMember> list = query.getResultList();
+        	return list;
         }
         return null;
     }
