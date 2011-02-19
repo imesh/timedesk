@@ -77,15 +77,7 @@ privileged aspect CompanySiteController_Roo_Controller {
     public Collection<Holiday> CompanySiteController.populateHolidays() {
         return Holiday.findAllHolidays();
     }
-    
-    Converter<Company, String> CompanySiteController.getCompanyConverter() {
-        return new Converter<Company, String>() {
-            public String convert(Company company) {
-                return new StringBuilder().append(company.getCompanyId()).append(" ").append(company.getName()).toString();
-            }
-        };
-    }
-    
+        
     Converter<CompanySite, String> CompanySiteController.getCompanySiteConverter() {
         return new Converter<CompanySite, String>() {
             public String convert(CompanySite companySite) {
