@@ -58,8 +58,11 @@
         <security:authorize ifAnyGranted="PROJECT.VIEW">
         <menu:item id="i_project_list" messageCode="global_menu_list" url="/projects?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="edE+fukZ/0U9dbZhEdhY4tgH6qI="/>    	    	
         <menu:item id="i_projectphase_list" messageCode="global_menu_list" url="/projectphases?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="xLJFcNbFVoNUw0Ed2lqb04Mt5a0="/>
-        </security:authorize>       
-    </menu:category>    	
+        <menu:item id="fi_project_company" messageCode="global_menu_find" url="/projects?find=ByCompany&amp;form" z="0PPMmiy1eMdyN8OVIlMEBtjcjXI="/>
+        <menu:item id="fi_project_name" messageCode="global_menu_find" url="/projects?find=ByName&amp;form" z="QyHwcHOjCwFDy4P1wiRFj2/ahOY="/>
+        </security:authorize>
+    
+    </menu:category>       	
     </security:authorize>
     
     <!-- Project Resource Management -->
@@ -132,7 +135,7 @@
    <menu:category id="c_holiday" render="false" z="user-managed"/>
 
    <menu:category id="c_employeeallocation" render="false" z="user-managed">
-      <menu:item id="i_employeeallocation_new" messageCode="global_menu_new" url="/employeeallocations?form" render="false" z="user-managed"/>        
+      <menu:item id="i_employeeallocation_new" messageCode="global_menu_new" render="false" url="/employeeallocations?form" z="user-managed"/>        
    </menu:category>
    </menu:menu>
 </div>

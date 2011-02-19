@@ -41,7 +41,7 @@ public class ErrorHandler
 		{
 			for(ObjectError error : errors)
 			{
-				ApplicationTrace.trace(" [ERROR] " + error.getDefaultMessage());
+				ApplicationTrace.trace("[ERROR] " + error.getDefaultMessage());
 			}
 		}
 	}

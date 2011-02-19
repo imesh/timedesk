@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.timedesk.entity.ProjectMemberDataOnDemand;
 import org.timedesk.entity.ProjectPhaseDataOnDemand;
 import org.timedesk.entity.ProjectPhaseMember;
 
@@ -19,6 +20,9 @@ privileged aspect ProjectPhaseMemberDataOnDemand_Roo_DataOnDemand {
     private List<ProjectPhaseMember> ProjectPhaseMemberDataOnDemand.data;
     
     @Autowired
+    private ProjectMemberDataOnDemand ProjectPhaseMemberDataOnDemand.projectMemberDataOnDemand;
+    
+    @Autowired
     private ProjectPhaseDataOnDemand ProjectPhaseMemberDataOnDemand.projectPhaseDataOnDemand;
     
     public ProjectPhaseMember ProjectPhaseMemberDataOnDemand.getNewTransientProjectPhaseMember(int index) {
@@ -26,7 +30,7 @@ privileged aspect ProjectPhaseMemberDataOnDemand_Roo_DataOnDemand {
         obj.setAllocation(new Integer(index));
         obj.setEndDate(new java.util.Date());
         obj.setPhaseMemberId(null);
-        obj.setProjectMember(null);
+        obj.setProjectMember(projectMemberDataOnDemand.getSpecificProjectMember(index));
         obj.setProjectPhase(projectPhaseDataOnDemand.getRandomProjectPhase());
         obj.setStartDate(new java.util.Date());
         return obj;

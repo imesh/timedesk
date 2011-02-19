@@ -82,6 +82,29 @@ privileged aspect ProjectController_Roo_Controller {
         return "redirect:/projects?page=" + ((page == null) ? "1" : page.toString()) + "&size=" + ((size == null) ? "10" : size.toString());
     }
     
+    @RequestMapping(params = { "find=ByCompany", "form" }, method = RequestMethod.GET)
+    public String ProjectController.findProjectsByCompanyForm(Model model) {
+        model.addAttribute("companys", Company.findAllCompanys());
+        return "projects/findProjectsByCompany";
+    }
+    
+    @RequestMapping(params = "find=ByCompany", method = RequestMethod.GET)
+    public String ProjectController.findProjectsByCompany(@RequestParam("company") Company company, Model model) {
+        model.addAttribute("projects", Project.findProjectsByCompany(company).getResultList());
+        return "projects/list";
+    }
+    
+    @RequestMapping(params = { "find=ByName", "form" }, method = RequestMethod.GET)
+    public String ProjectController.findProjectsByNameForm(Model model) {
+        return "projects/findProjectsByName";
+    }
+    
+    @RequestMapping(params = "find=ByName", method = RequestMethod.GET)
+    public String ProjectController.findProjectsByName(@RequestParam("name") String name, Model model) {
+        model.addAttribute("projects", Project.findProjectsByName(name).getResultList());
+        return "projects/list";
+    }
+    
     @ModelAttribute("companys")
     public Collection<Company> ProjectController.populateCompanys() {
         return Company.findAllCompanys();

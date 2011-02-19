@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" version="2.0">
+  <jsp:output omit-xml-declaration="yes"/>
+  <spring:message code="label_search_index" var="title"/>
+  <util:panel id="title" title="${title}">    
+    <h3>Search Projects:</h3>
+    <field:input id="c_org_timedesk_entity_Project_projectId" disableFormBinding="true" field="projectId" />
+    <field:input id="c_org_timedesk_entity_Project_name" disableFormBinding="true" field="projectName" />
+  </util:panel>
+</div>
