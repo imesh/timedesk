@@ -18,11 +18,13 @@ privileged aspect EmployeeAllocationDataOnDemand_Roo_DataOnDemand {
     
     public EmployeeAllocation EmployeeAllocationDataOnDemand.getNewTransientEmployeeAllocation(int index) {
         org.timedesk.entity.EmployeeAllocation obj = new org.timedesk.entity.EmployeeAllocation();
-        obj.setAllocation(new Integer(index));
-        obj.setEmpId(new Integer(index).longValue());
-        obj.setEmployeeId("employeeId_" + index);
+        obj.setAllocation(null);
+        obj.setEmpId(null);
+        obj.setEmployeeId(null);
         obj.setEndDate(new java.util.Date());
-        obj.setPhmId(new Integer(index).longValue());
+        obj.setFirstName(null);
+        obj.setLastName(null);
+        obj.setPhmId(null);
         obj.setStartDate(new java.util.Date());
         return obj;
     }

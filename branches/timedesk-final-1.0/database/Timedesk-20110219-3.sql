@@ -93,7 +93,7 @@ CREATE TABLE `sequence` (
 
 LOCK TABLES `sequence` WRITE;
 /*!40000 ALTER TABLE `sequence` DISABLE KEYS */;
-INSERT INTO `sequence` VALUES ('SEQ_GEN','5550');
+INSERT INTO `sequence` VALUES ('SEQ_GEN','5600');
 /*!40000 ALTER TABLE `sequence` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -265,6 +265,7 @@ CREATE TABLE `project_phase_member` (
 
 LOCK TABLES `project_phase_member` WRITE;
 /*!40000 ALTER TABLE `project_phase_member` DISABLE KEYS */;
+INSERT INTO `project_phase_member` VALUES (5566,'2011-01-01 00:00:00','OCEANPH1MEM1',50,'2011-01-10 00:00:00',1,5563,1801),(5569,'2011-01-05 00:00:00','SKYPH1MEM1',50,'2011-02-15 00:00:00',1,5555,1801);
 /*!40000 ALTER TABLE `project_phase_member` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -291,7 +292,7 @@ CREATE TABLE `pm_role` (
 
 LOCK TABLES `pm_role` WRITE;
 /*!40000 ALTER TABLE `pm_role` DISABLE KEYS */;
-INSERT INTO `pm_role` VALUES (1752,'Project Manager','PM',1),(1753,'Team Leader','TL',1),(1754,'Package Manager','PKGM',1),(1903,'Project Member','PMEM',1),(1904,'Tech Lead','TCL',1),(1905,'Project Technician','PT',1);
+INSERT INTO `pm_role` VALUES (1752,'Project Manager','PM',1),(1753,'Team Leader','TL',1),(1754,'Package Manager','PKGM',1),(1903,'Project Member','PMEM',1),(1904,'Tech Lead','TCL',1),(1905,'Project Technician','PT',1),(5552,'Business System Analyst','BSA',1),(5559,'Quality Assurance Engineer','QAE',1);
 /*!40000 ALTER TABLE `pm_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -345,7 +346,7 @@ CREATE TABLE `project_member_pm_role` (
 
 LOCK TABLES `project_member_pm_role` WRITE;
 /*!40000 ALTER TABLE `project_member_pm_role` DISABLE KEYS */;
-INSERT INTO `project_member_pm_role` VALUES (1801,1753),(5301,1753),(5302,1903),(2301,1904);
+INSERT INTO `project_member_pm_role` VALUES (5558,1752),(1801,1753),(5551,1753),(5567,1753),(5553,1903),(5554,1903),(5561,1903),(5562,1903),(5557,5552),(5560,5559);
 /*!40000 ALTER TABLE `project_member_pm_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -404,7 +405,7 @@ CREATE TABLE `project_phase` (
 
 LOCK TABLES `project_phase` WRITE;
 /*!40000 ALTER TABLE `project_phase` DISABLE KEYS */;
-INSERT INTO `project_phase` VALUES (902,'2011-01-01 00:00:00','Prototype Development','2011-01-15 00:00:00','OCEAN_PH2',1,201),(1301,'2011-02-15 00:00:00','Second Stage','2011-02-19 00:00:00','OCEANPH1',1,201),(1651,'2011-02-20 00:00:00','Evaluation Stage','2011-02-24 00:00:00','SKYPH1',1,351),(1702,'2011-02-14 00:00:00','Beta Testing','2011-02-18 00:00:00','SKYPH2',1,351),(1851,'2011-03-01 00:00:00','SOA Designing Phase','2011-03-30 00:00:00','IMAGINEPH1',1,1751),(1902,'2011-03-01 00:00:00','Fourth Stage','2011-02-21 00:00:00','OCEANPH2',1,201),(2252,'2011-02-15 00:00:00','Third Stage','2011-02-20 00:00:00','OCEANPH3',1,201);
+INSERT INTO `project_phase` VALUES (1851,'2011-03-01 00:00:00','SOA Designing Phase','2011-03-30 00:00:00','IMAGINEPH1',1,1751),(5555,'2011-01-01 00:00:00','Report Designing','2011-01-31 00:00:00','SKYPH1',3,351),(5556,'2011-02-01 00:00:00','Report Implementation','2011-02-21 00:00:00','SKYPH2',2,351),(5563,'2011-01-01 00:00:00','Phase 1','2011-02-15 00:00:00','OCEANPH1',1,201),(5564,'2011-01-16 00:00:00','Phase 2','2011-01-31 00:00:00','OCEANPH2',1,201),(5565,'2011-02-01 00:00:00','Phase 3','2011-02-15 00:00:00','OCEANPH3',1,201);
 /*!40000 ALTER TABLE `project_phase` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -495,7 +496,7 @@ CREATE TABLE `project` (
 
 LOCK TABLES `project` WRITE;
 /*!40000 ALTER TABLE `project` DISABLE KEYS */;
-INSERT INTO `project` VALUES (201,'2010-12-18 00:00:00','Timedesk Version 1.0','Project Ocean','2011-01-18 00:00:00','OCEAN',2,101),(351,'2010-12-20 00:00:00','Timedesk Reporting','Project Sky','2011-01-01 00:00:00','SKY',1,101),(1751,'2011-02-01 00:00:00','Timedesk Web Services Implementation','Project Imagine','2011-02-28 00:00:00','IMAGINE',1,101);
+INSERT INTO `project` VALUES (201,'2010-12-18 00:00:00','Timedesk Version 1.0','Project Ocean','2011-02-21 00:00:00','OCEAN',3,101),(351,'2010-12-20 00:00:00','Timedesk Reporting','Project Sky','2011-01-01 00:00:00','SKY',1,101),(1751,'2011-02-01 00:00:00','Timedesk Web Services Implementation','Project Imagine','2011-02-28 00:00:00','IMAGINE',1,101);
 /*!40000 ALTER TABLE `project` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -583,7 +584,7 @@ CREATE TABLE `project_member` (
 
 LOCK TABLES `project_member` WRITE;
 /*!40000 ALTER TABLE `project_member` DISABLE KEYS */;
-INSERT INTO `project_member` VALUES (214,'OCEANIM',3,103,201),(251,'OCEANCH',3,104,201),(1801,'IMAGINEIMGUCMB',1,103,1751),(2301,'OCEANCHN',1,NULL,201),(5301,'SKYIMGUCMB1',1,103,351),(5302,'SKYCHDICMB',1,104,351);
+INSERT INTO `project_member` VALUES (1801,'IMAGINEIMGUCMB',1,103,1751),(5551,'OCEANIMGUCMB',1,103,201),(5553,'SKYCHSECMB',1,5402,351),(5554,'SKYCHDICMB',1,104,351),(5557,'OCEANCHDICMB',1,104,201),(5558,'OCEANTHRACMB',1,5351,201),(5560,'OCEANNINACMB',1,5401,201),(5561,'OCEANCHSECMB',1,5402,201),(5562,'OCEANERSACMB',1,5403,201),(5567,'SKYIMGUCMB',1,103,351);
 /*!40000 ALTER TABLE `project_member` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -727,13 +728,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-02-19 11:22:38
-
---
--- Create Employee Allocation View
---
-
-CREATE OR REPLACE VIEW employee_allocation AS
-SELECT (CAST(CONCAT(e.id, p.id, phm.id) AS CHAR)) as 'id', e.version, e.id as 'emp_id', e.employee_id, e.first_name, e.last_name, p.id as 'p_id', p.name, phm.id as 'phm_id', phm.phase_member_id, phm.start_date, phm.end_date, phm.allocation 
-FROM employee e, project_member m, project_phase_member phm, project p
-WHERE e.id = m.employee_id AND m.id = phm.member_id AND m.project_id = p.id;
+-- Dump completed on 2011-02-19 12:32:43

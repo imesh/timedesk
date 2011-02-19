@@ -35,15 +35,18 @@ import org.springframework.roo.addon.entity.RooEntity;
 @Table(name = "employee_allocation") // This is a database view
 public class EmployeeAllocation 
 {
-	@NotNull
 	@Column(name = "emp_id")
     private Long empId;
 	
-	@NotNull
 	@Column(name = "employee_id")
     private String employeeId;
 	
-	@NotNull
+	@Column(name = "first_name")
+    private String firstName;
+
+	@Column(name = "last_name")
+    private String lastName;
+
 	@Column(name = "phm_id")
     private Long phmId;
 	
@@ -57,7 +60,6 @@ public class EmployeeAllocation
 	@Column(name = "end_date")
     private Date endDate;
 	
-	@NotNull
 	@Column(name = "allocation")
     private Integer allocation;
 }

@@ -132,7 +132,7 @@ public class ProjectPhaseMemberController
 		{
 			public String convert(ProjectMember projectMember)
 			{
-				return new StringBuilder().append(projectMember.getEmployee().getFirstName()).append(" ").append(projectMember.getEmployee().getLastName()).toString();
+				return new StringBuilder().append(projectMember.getMemberId()).append(" ").append(projectMember.getEmployee().getFirstName()).append(" ").append(projectMember.getEmployee().getLastName()).toString();
 			}
 		};
 	}
