@@ -69,7 +69,7 @@ CREATE TABLE `employee_leave` (
 
 LOCK TABLES `employee_leave` WRITE;
 /*!40000 ALTER TABLE `employee_leave` DISABLE KEYS */;
-INSERT INTO `employee_leave` VALUES (2602,'2011-02-16 00:00:00','2011-02-17 00:00:00',1,2601);
+INSERT INTO `employee_leave` VALUES (2602,'2011-02-16 00:00:00','2011-02-17 00:00:00',1,2601),(5701,'2011-02-16 08:00:00','2011-02-17 08:00:00',1,103);
 /*!40000 ALTER TABLE `employee_leave` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,7 +93,7 @@ CREATE TABLE `sequence` (
 
 LOCK TABLES `sequence` WRITE;
 /*!40000 ALTER TABLE `sequence` DISABLE KEYS */;
-INSERT INTO `sequence` VALUES ('SEQ_GEN','5600');
+INSERT INTO `sequence` VALUES ('SEQ_GEN','5850');
 /*!40000 ALTER TABLE `sequence` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -265,7 +265,7 @@ CREATE TABLE `project_phase_member` (
 
 LOCK TABLES `project_phase_member` WRITE;
 /*!40000 ALTER TABLE `project_phase_member` DISABLE KEYS */;
-INSERT INTO `project_phase_member` VALUES (5566,'2011-01-01 00:00:00','OCEANPH1MEM1',50,'2011-01-10 00:00:00',1,5563,1801),(5569,'2011-01-05 00:00:00','SKYPH1MEM1',50,'2011-02-15 00:00:00',1,5555,1801);
+INSERT INTO `project_phase_member` VALUES (5566,'2011-01-01 00:00:00','OCEANPH1MEM1',50,'2011-01-10 00:00:00',1,5563,1801),(5569,'2011-01-05 00:00:00','SKYPH1MEM1',50,'2011-02-15 00:00:00',1,5555,1801),(5601,'2011-02-01 00:00:00','OCEANPH1MEM2',70,'2011-02-05 00:00:00',1,5563,5560),(5602,'2011-01-01 00:00:00','OCEANPH1MEM3',30,'2011-02-10 00:00:00',1,5563,5558);
 /*!40000 ALTER TABLE `project_phase_member` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -308,8 +308,8 @@ CREATE TABLE `employee_em_role` (
   `employeeRoles_id` bigint(20) NOT NULL,
   PRIMARY KEY (`Employee_id`,`employeeRoles_id`),
   KEY `FK_employee_em_role_employeeRoles_id` (`employeeRoles_id`),
-  CONSTRAINT `FK_employee_em_role_Employee_id` FOREIGN KEY (`Employee_id`) REFERENCES `employee` (`id`),
-  CONSTRAINT `FK_employee_em_role_employeeRoles_id` FOREIGN KEY (`employeeRoles_id`) REFERENCES `em_role` (`id`)
+  CONSTRAINT `FK_employee_em_role_employeeRoles_id` FOREIGN KEY (`employeeRoles_id`) REFERENCES `em_role` (`id`),
+  CONSTRAINT `FK_employee_em_role_Employee_id` FOREIGN KEY (`Employee_id`) REFERENCES `employee` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -346,7 +346,7 @@ CREATE TABLE `project_member_pm_role` (
 
 LOCK TABLES `project_member_pm_role` WRITE;
 /*!40000 ALTER TABLE `project_member_pm_role` DISABLE KEYS */;
-INSERT INTO `project_member_pm_role` VALUES (5558,1752),(1801,1753),(5551,1753),(5567,1753),(5553,1903),(5554,1903),(5561,1903),(5562,1903),(5557,5552),(5560,5559);
+INSERT INTO `project_member_pm_role` VALUES (5558,1752),(1801,1753),(5551,1753),(5567,1753),(5652,1753),(5553,1903),(5561,1903),(5562,1903),(5557,5552),(5560,5559);
 /*!40000 ALTER TABLE `project_member_pm_role` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -362,8 +362,8 @@ CREATE TABLE `employee_skill` (
   `employeeSkills_id` bigint(20) NOT NULL,
   PRIMARY KEY (`Employee_id`,`employeeSkills_id`),
   KEY `FK_employee_skill_employeeSkills_id` (`employeeSkills_id`),
-  CONSTRAINT `FK_employee_skill_Employee_id` FOREIGN KEY (`Employee_id`) REFERENCES `employee` (`id`),
-  CONSTRAINT `FK_employee_skill_employeeSkills_id` FOREIGN KEY (`employeeSkills_id`) REFERENCES `skill` (`id`)
+  CONSTRAINT `FK_employee_skill_employeeSkills_id` FOREIGN KEY (`employeeSkills_id`) REFERENCES `skill` (`id`),
+  CONSTRAINT `FK_employee_skill_Employee_id` FOREIGN KEY (`Employee_id`) REFERENCES `employee` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -405,7 +405,7 @@ CREATE TABLE `project_phase` (
 
 LOCK TABLES `project_phase` WRITE;
 /*!40000 ALTER TABLE `project_phase` DISABLE KEYS */;
-INSERT INTO `project_phase` VALUES (1851,'2011-03-01 00:00:00','SOA Designing Phase','2011-03-30 00:00:00','IMAGINEPH1',1,1751),(5555,'2011-01-01 00:00:00','Report Designing','2011-01-31 00:00:00','SKYPH1',3,351),(5556,'2011-02-01 00:00:00','Report Implementation','2011-02-21 00:00:00','SKYPH2',2,351),(5563,'2011-01-01 00:00:00','Phase 1','2011-02-15 00:00:00','OCEANPH1',1,201),(5564,'2011-01-16 00:00:00','Phase 2','2011-01-31 00:00:00','OCEANPH2',1,201),(5565,'2011-02-01 00:00:00','Phase 3','2011-02-15 00:00:00','OCEANPH3',1,201);
+INSERT INTO `project_phase` VALUES (1851,'2011-03-01 00:00:00','SOA Designing Phase','2011-03-30 00:00:00','IMAGINEPH1',1,1751),(5555,'2011-01-01 00:00:00','Report Designing','2011-01-31 00:00:00','SKYPH1',3,351),(5556,'2011-02-01 00:00:00','Report Implementation','2011-02-21 00:00:00','SKYPH2',2,351),(5563,'2011-01-01 00:00:00','Phase 1','2011-02-15 00:00:00','OCEANPH1',1,201),(5564,'2011-01-16 00:00:00','Phase 2','2011-01-31 00:00:00','OCEANPH2',1,201),(5565,'2011-02-01 00:00:00','Phase 3','2011-02-15 00:00:00','OCEANPH3',1,201),(5653,'2011-01-01 00:00:00','Phase 1','2011-01-31 00:00:00','T1PH1',1,5651);
 /*!40000 ALTER TABLE `project_phase` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -421,8 +421,8 @@ CREATE TABLE `employee_pre_em_role` (
   `preEmployeeRoles_id` bigint(20) NOT NULL,
   PRIMARY KEY (`Employee_id`,`preEmployeeRoles_id`),
   KEY `FK_employee_pre_em_role_preEmployeeRoles_id` (`preEmployeeRoles_id`),
-  CONSTRAINT `FK_employee_pre_em_role_preEmployeeRoles_id` FOREIGN KEY (`preEmployeeRoles_id`) REFERENCES `em_role` (`id`),
-  CONSTRAINT `FK_employee_pre_em_role_Employee_id` FOREIGN KEY (`Employee_id`) REFERENCES `employee` (`id`)
+  CONSTRAINT `FK_employee_pre_em_role_Employee_id` FOREIGN KEY (`Employee_id`) REFERENCES `employee` (`id`),
+  CONSTRAINT `FK_employee_pre_em_role_preEmployeeRoles_id` FOREIGN KEY (`preEmployeeRoles_id`) REFERENCES `em_role` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -496,7 +496,7 @@ CREATE TABLE `project` (
 
 LOCK TABLES `project` WRITE;
 /*!40000 ALTER TABLE `project` DISABLE KEYS */;
-INSERT INTO `project` VALUES (201,'2010-12-18 00:00:00','Timedesk Version 1.0','Project Ocean','2011-02-21 00:00:00','OCEAN',3,101),(351,'2010-12-20 00:00:00','Timedesk Reporting','Project Sky','2011-01-01 00:00:00','SKY',1,101),(1751,'2011-02-01 00:00:00','Timedesk Web Services Implementation','Project Imagine','2011-02-28 00:00:00','IMAGINE',1,101);
+INSERT INTO `project` VALUES (201,'2010-12-18 00:00:00','Timedesk Version 1.0','Project Ocean','2011-02-21 00:00:00','OCEAN',3,101),(351,'2010-12-20 00:00:00','Timedesk Reporting','Project Sky','2011-01-01 00:00:00','SKY',1,101),(1751,'2011-02-01 00:00:00','Timedesk Web Services Implementation','Project Imagine','2011-02-28 00:00:00','IMAGINE',1,101),(5651,'2011-01-01 00:00:00','Test Project 1','Apache T1','2011-01-31 00:00:00','T1',2,2001);
 /*!40000 ALTER TABLE `project` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -541,8 +541,8 @@ CREATE TABLE `user_security_role` (
   `securityRoles_id` bigint(20) NOT NULL,
   PRIMARY KEY (`User_id`,`securityRoles_id`),
   KEY `FK_user_security_role_securityRoles_id` (`securityRoles_id`),
-  CONSTRAINT `FK_user_security_role_User_id` FOREIGN KEY (`User_id`) REFERENCES `user` (`id`),
-  CONSTRAINT `FK_user_security_role_securityRoles_id` FOREIGN KEY (`securityRoles_id`) REFERENCES `security_role` (`id`)
+  CONSTRAINT `FK_user_security_role_securityRoles_id` FOREIGN KEY (`securityRoles_id`) REFERENCES `security_role` (`id`),
+  CONSTRAINT `FK_user_security_role_User_id` FOREIGN KEY (`User_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -584,7 +584,7 @@ CREATE TABLE `project_member` (
 
 LOCK TABLES `project_member` WRITE;
 /*!40000 ALTER TABLE `project_member` DISABLE KEYS */;
-INSERT INTO `project_member` VALUES (1801,'IMAGINEIMGUCMB',1,103,1751),(5551,'OCEANIMGUCMB',1,103,201),(5553,'SKYCHSECMB',1,5402,351),(5554,'SKYCHDICMB',1,104,351),(5557,'OCEANCHDICMB',1,104,201),(5558,'OCEANTHRACMB',1,5351,201),(5560,'OCEANNINACMB',1,5401,201),(5561,'OCEANCHSECMB',1,5402,201),(5562,'OCEANERSACMB',1,5403,201),(5567,'SKYIMGUCMB',1,103,351);
+INSERT INTO `project_member` VALUES (1801,'IMAGINEIMGUCMB',1,103,1751),(5551,'OCEANIMGUCMB',1,103,201),(5553,'SKYCHSECMB',1,5402,351),(5557,'OCEANCHDICMB',1,104,201),(5558,'OCEANTHRACMB',1,5351,201),(5560,'OCEANNINACMB',1,5401,201),(5561,'OCEANCHSECMB',1,5402,201),(5562,'OCEANERSACMB',1,5403,201),(5567,'SKYIMGUCMB',1,103,351),(5652,'T1IMGUCMB',1,103,5651);
 /*!40000 ALTER TABLE `project_member` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -728,7 +728,7 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-02-19 12:32:43
+-- Dump completed on 2011-02-19 16:36:16
 
 --
 -- Create Employee Allocation View
