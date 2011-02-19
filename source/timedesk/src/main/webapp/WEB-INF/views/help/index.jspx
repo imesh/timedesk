@@ -14,6 +14,7 @@
 		<li><a href='#5'>Project Information</a> </li>
 		<li><a href='#6'>Project Resource Information</a> </li>
 		<li><a href='#7'>User Information</a> </li>
+		<li><a href='#8'>Basic Information</a> </li>
 	</ol> 
     <a href='#TOP'><img src="images/top.png" /></a><a name='2'>Company</a>
     <p><span>Company Information section allows user to handle company related information. Mainly four functionalities are facilitated under this category.</span></p>
@@ -23,7 +24,7 @@
 		<dt>List all Companies</dt>
 			<dd>User can view a list of companies. There are three icons provided to view sites connected to the company record, edit company record, and delete company record. Below the list of companies, an icon is provided to create a new company.</dd>
 	 	<dt>Create new  Company Sites</dt>
-			<dd>Allows user to create company sites. Existing companies will be listed in a drop down menu where user has to select a value for Company ID. In addition values should be entered for Site ID, Location, City and Country.</dd>
+			<dd>Allows user to create company sites. Existing companies will be listed in a drop down menu where user has to select a value for Company ID. In addition values should be entered for Site ID, Location, City, and Country.</dd>
 	 	<dt>List all Company Sites</dt>
 			<dd>Allows user to view all company sites. There are three icons provided to view employees connected to the company site record, edit company site record, and delete company site record. Below the list of company sites, an icon is provided to create a new company site.</dd>
 	 	
@@ -36,7 +37,7 @@
 		<dt>List all Employees</dt>
 			<dd>Allows user to view list of all employees. There are three icons provided to view detailed information of the employee, edit employee record, and delete employee record. Below the list of employees, an icon is provided to create a new employee.</dd>
 	 	<dt>Create new Employee Visa</dt>
-			<dd>Allows user to create employee visa records. Employee ID should be selected from a drop down menu and values should be provided for Visa ID, Valid From, Valid To, and Country fields. A calendar will popup when clicks on Valid From, and Valid To fields which allows user to select the specific date from the calendar.</dd>
+			<dd>Allows user to create employee visa records. Employee ID should be selected from a drop down menu and values should be provided for Visa ID, Valid From, Valid To, and Country fields. A calendar will popup when clicks on Valid From and Valid To fields which allows user to select the specific date from the calendar.</dd>
 	 	<dt>List all Employee Visas</dt>
 			<dd>Allows user to view list of visa records. There are three icons provided to view detailed information of the visa record, edit visa record, and delete visa record. Below the list of visa records, an icon is provided to create a new visa record.</dd>
 	 	
@@ -56,11 +57,11 @@
      <p><span>Project Information section allows user to handle project related information. Mainly four functionalities are facilitated under this category.</span></p>
      <dl>
 		<dt>Create new Project</dt>
-			<dd>Allows user to create a new project. Existing companies will be listed in a drop down menu where user has to select a value for Company. In addition values should be entered for Project ID, Name, Description, Start Date and End Date. A calendar will popup when clicks on Start Date, and End Date fields which allows user to select a specific date from the calendar.</dd>
+			<dd>Allows user to create a new project. Existing companies will be listed in a drop down menu where user has to select a value for Company. In addition values should be entered for Project ID, Name, Description, Start Date, and End Date. A calendar will popup when clicks on Start Date and End Date fields which allows user to select a specific date from the calendar.</dd>
 		<dt>List all Projects</dt>
 			<dd>Allows user to view list of project records. There are three icons provided to view detailed information of the project record, edit project record, and delete project record. Below the list of project records, an icon is provided to create a new project record.</dd>
 		<dt>Create new Project Phase</dt>
-			<dd>Allows user to create a new project phase. Existing projects will be listed in a drop down menu where user has to select a value for Project. In addition values should be entered for Description, Start Date and End Date. A calendar will popup when clicks on Start Date, and End Date fields which allows user to select a specific date from the calendar.</dd>
+			<dd>Allows user to create a new project phase. Existing projects will be listed in a drop down menu where user has to select a value for Project. In addition values should be entered for Description, Start Date, and End Date. A calendar will popup when clicks on Start Date and End Date fields which allows user to select a specific date from the calendar.</dd>
 		<dt>List all Project Phases</dt>
 			<dd>Allows user to view list of project phase records. There are three icons provided to view detailed information of the project phase record, edit project phase record, and delete project phase record. Below the list of project phase records, an icon is provided to create a new project phase record.</dd>
 	 	
@@ -74,7 +75,7 @@
 		<dt>List all Project Members</dt>
 			<dd>Allows user to view list of project member records. There are three icons provided to view detailed information of the project member record, edit project member record, and delete project member record. Below the list of project member records, an icon is provided to create a new project member record.</dd>
 		<dt>Create new Project Phase Member</dt>
-			<dd>Allows creating new project phase members. Values for Project Phase and Project Member should be selected from drop down menus which list existing Project Phases and Project Members. In addition values should be given for Phase Member ID, Start Date, End Date, Allocation (%).A calendar will popup when clicks on Start Date, and End Date fields which allows user to select a specific date from the calendar.</dd>
+			<dd>Allows creating new project phase members. Values for Project Phase and Project Member should be selected from drop down menus which list existing Project Phases and Project Members. In addition values should be given for Phase Member ID, Start Date, End Date, Allocation (%).A calendar will popup when clicks on Start Date and End Date fields which allows user to select a specific date from the calendar.</dd>
 		<dt>List all Project Phase Members</dt>
 			<dd>Allows user to view list of project phase member records. There are three icons provided to view detailed information of the project phase member record, edit project phase member record, and delete project phase member record. Below the list of project phase member records, an icon is provided to create a new project phase member record.</dd>
 		<dt>Create new Project Member Feedback</dt>
@@ -90,8 +91,33 @@
 		<dt>Create new User</dt>
 			<dd>Allows creating new users. Values should be given for Username, Password fields. It is possible to save multiple security roles for a user. User can be enable by checking Enabled check box.</dd>
 		<dt>List all Users</dt>
-			<dd>Allows user to view all user records. There are three icons provided to view detailed information of the user record, edit user record, and delete user record. Below the list of user records, an icon is provided to create a new user record</dd>
+			<dd>Allows user to view all user records. There are three icons provided to view detailed information of the user record, edit user record, and delete user record. Below the list of user records, an icon is provided to create a new user record.</dd>
 	 	
+	 </dl>
+	 
+	 <a href='#TOP'><img src="images/top.png" /></a><a name='8'>Basic Information</a>
+     <p><span>Basic Information section allows user to handle basic information of the system. Mainly ten functionalities are listed under this category.</span></p>
+     <dl>
+		<dt>Create new Employee Role</dt>
+			<dd>Allows creating new employee roles. Values should be provided for Role ID and Name fields.</dd>
+		<dt>List all Employee Roles</dt>
+			<dd>Allows user to view all employee role records. There are three icons provided to view detailed information of the employee role record, edit employee role record, and delete employee role record. Below the list of employee role records, an icon is provided to create a new employee role record.</dd>
+		<dt>Create new Skill</dt>
+			<dd>Allows user to create new skills. Values should be provided for Skill ID and Description fields.</dd>
+	 	<dt>List all Skills</dt>
+			<dd>Allows user to view all skills records. There are three icons provided to view detailed information of the skills record, edit skills record, and delete skills record. Below the list of skills records, an icon is provided to create a new skills record.</dd>
+		<dt>Create new Project Member Role</dt>
+			<dd>Allows creating new project member roles. Values should be provided for Role ID and Name fields.</dd>
+		<dt>List all Project Member Roles</dt>
+			<dd>Allows user to view all project member role records. There are three icons provided to view detailed information of the project member role record, edit project member role record, and delete project member role record. Below the list of project member role records, an icon is provided to create a new project member role record.</dd>
+		<dt>Create new Security Role</dt>
+			<dd>Allows creating new security roles. Require to provide values for Security Role ID, Name, and Application Features fields. It is possible to save multiple application features for a security role.</dd>
+		<dt>List all Security Roles</dt>
+			<dd>Allows user to view all security role records. There are three icons provided to view detailed information of the security role record, edit security role record, and delete security role record. Below the list of security role records, an icon is provided to create a new security role record.</dd>
+		<dt>Create new Application Feature</dt>
+			<dd>Allows creating new application features. Values should be provided for Feature ID, Name, and Description fields.</dd>
+		<dt>List all Application Features</dt>
+			<dd>Allows user to view all application features. There are three icons provided to view detailed information of the application feature record, edit application feature record, and delete application feature record. Below the list of application feature records, an icon is provided to create a new application feature record.</dd>
 	 </dl>
 	 
   </util:panel>
