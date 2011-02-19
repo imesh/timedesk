@@ -4,7 +4,7 @@
     <form:update id="fu_org_timedesk_entity_ProjectMember" modelAttribute="projectMember" path="/projectmembers" z="iih27G4Ub65dPfH27sDsRxQBV9s=">
         
         <field:input field="memberId" id="c_org_timedesk_entity_ProjectMember_memberId" z="DrVZ6dIRPeNmCT8lDL69bYuf6aE="/>       
-    	<field:select field="employee" id="c_org_timedesk_entity_ProjectMember_employee" itemValue="id" items="${employees}" path="/employees" z="CDudXbFAOtENzUQadQ8wDz3A0M4="/>    	
+    	<field:select field="employee" id="c_org_timedesk_entity_ProjectMember_employee" itemValue="id" items="${employees}" path="/employees" required="true" z="RNjk1dOOvd0Q6AoMsrueam8tKLs="/>    	
     	<field:simple field="feedbacks" id="c_org_timedesk_entity_ProjectMember_feedbacks" messageCode="entity_reference_not_managed" messageCodeAttribute="Project Member Feedback" render="false" z="user-managed"/>
     
     <field:select field="project" id="c_org_timedesk_entity_ProjectMember_project" itemValue="id" items="${projects}" path="/projects" required="true" z="/0RV0P6ZfanlaR41ge5zeFDiC88="/>

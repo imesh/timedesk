@@ -3,10 +3,10 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_timedesk_entity_ProjectMember" modelAttribute="projectMember" path="/projectmembers" render="${empty dependencies}" z="Q2W8Mga2mvl4uMaJF5NkKyKHnJ4=">
         <field:select field="project" id="c_org_timedesk_entity_ProjectMember_project" itemValue="id" items="${projects}" path="/projects" required="true" z="/0RV0P6ZfanlaR41ge5zeFDiC88="/>
-        <field:input field="memberId" id="c_org_timedesk_entity_ProjectMember_memberId" render="false" z="user-managed"/>
-        <field:select field="employee" id="c_org_timedesk_entity_ProjectMember_employee" itemValue="id" items="${employees}" path="/employees" z="CDudXbFAOtENzUQadQ8wDz3A0M4="/>
+        <field:input field="memberId" id="c_org_timedesk_entity_ProjectMember_memberId" z="DrVZ6dIRPeNmCT8lDL69bYuf6aE="/>
+        <field:select field="employee" id="c_org_timedesk_entity_ProjectMember_employee" itemValue="id" items="${employees}" path="/employees" required="true" z="RNjk1dOOvd0Q6AoMsrueam8tKLs="/>
         <field:select field="roles" id="c_org_timedesk_entity_ProjectMember_roles" itemValue="id" items="${projectmemberroles}" multiple="true" path="/projectmemberroles" z="O6rJ8U2gWWqss7yK6M/ph2obTCQ="/>
-        <field:simple field="feedbacks" id="c_org_timedesk_entity_ProjectMember_feedbacks" messageCode="entity_reference_not_managed" messageCodeAttribute="Project Member Feedback" render="false" z="user-managed"/>
+        <field:simple field="feedbacks" id="c_org_timedesk_entity_ProjectMember_feedbacks" messageCode="entity_reference_not_managed" messageCodeAttribute="Project Member Feedback" z="b21cCRIWKz6DRbqUXRLpUJDyupA="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_timedesk_entity_ProjectMember" render="${not empty dependencies}" z="h7rM7Y214Qb5BD46ZM8TUNVYfGw="/>
 </div>

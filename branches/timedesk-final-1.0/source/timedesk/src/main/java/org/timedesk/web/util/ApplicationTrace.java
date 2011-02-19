@@ -23,4 +23,9 @@ public class ApplicationTrace
 		if(enabled)
 			System.out.println("[APPTRACE] " + message);
 	}
+
+	public static void trace(Exception e)
+	{
+		trace("[ERROR] " + e.getMessage());		
+	}
 }

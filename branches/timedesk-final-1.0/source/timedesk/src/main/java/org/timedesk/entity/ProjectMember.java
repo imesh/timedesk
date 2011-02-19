@@ -50,7 +50,8 @@ public class ProjectMember
     @Column(name = "member_id")
     private String memberId;
     
-    @OneToOne(cascade = CascadeType.DETACH)
+    @NotNull
+    @OneToOne
     @JoinColumn(name = "employee_id", referencedColumnName = "id")
     private Employee employee;
     
