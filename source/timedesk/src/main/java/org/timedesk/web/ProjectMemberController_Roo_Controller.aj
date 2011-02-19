@@ -92,15 +92,7 @@ privileged aspect ProjectMemberController_Roo_Controller {
             }
         };
     }
-    
-    Converter<ProjectMember, String> ProjectMemberController.getProjectMemberConverter() {
-        return new Converter<ProjectMember, String>() {
-            public String convert(ProjectMember projectMember) {
-                return new StringBuilder().append(projectMember.getMemberId()).toString();
-            }
-        };
-    }
-    
+        
     Converter<ProjectMemberFeedback, String> ProjectMemberController.getProjectMemberFeedbackConverter() {
         return new Converter<ProjectMemberFeedback, String>() {
             public String convert(ProjectMemberFeedback projectMemberFeedback) {

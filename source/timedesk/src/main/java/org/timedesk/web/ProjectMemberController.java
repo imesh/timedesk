@@ -20,6 +20,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.springframework.core.convert.converter.Converter;
 import org.springframework.roo.addon.web.mvc.controller.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,102 +39,114 @@ import org.timedesk.web.util.UrlEncoder;
 @RooWebScaffold(path = "projectmembers", formBackingObject = ProjectMember.class)
 @RequestMapping("/projectmembers")
 @Controller
-public class ProjectMemberController 
+public class ProjectMemberController
 {
 	@RequestMapping(method = RequestMethod.POST)
-    public String create(@Valid ProjectMember projectMember, BindingResult result, Model model, HttpServletRequest request) 
+	public String create(@Valid ProjectMember projectMember, BindingResult result, Model model, HttpServletRequest request)
 	{
-        if (result.hasErrors()) 
-        {
-            model.addAttribute("projectMember", projectMember);
-            return "projectmembers/create";
-        }
-        if(projectMember.getEmployee() == null)
-        {
-        	ObjectError error = new ObjectError("ProjectMember", "Employee should be set to continue.");
-       	 	result.addError(error);
-       	 	model.addAttribute("projectMember", projectMember);
-       	 	return "projectmembers/create";
-        }
-        String memberId = generateMemberId(projectMember);
-        if(memberId != null)
-        	projectMember.setMemberId(memberId);
-        else
-        {
-        	ObjectError error = new ObjectError("ProjectMember", "Error in generating Member ID, please review below information and try again.");
-       	 	result.addError(error);
-       	 	model.addAttribute("projectMember", projectMember);
-       	 	return "projectmembers/create";
-        }
-        projectMember.persist();
-        return "redirect:/projects/" + UrlEncoder.encodeUrlPathSegment(projectMember.getProject().getId().toString(), request);
-    }
-    
-    @RequestMapping(params = "form", method = RequestMethod.GET)
-    public String createForm(Model model, @RequestParam(value = "parentId", required = false) Long parentId) 
-    {
-    	Project project = null;
-    	ProjectMember member = new ProjectMember();
-    	if(parentId != null)
-    	{
-    		project = Project.findProject(parentId);
-    		if(project != null)
-    			member.setProject(project);    		
-    	}
-        model.addAttribute("projectMember", member);
-        List dependencies = new ArrayList();
-        if (Project.countProjects() == 0) 
-        {
-            dependencies.add(new String[]{"project", "projects"});
-        }
-        model.addAttribute("dependencies", dependencies);
-        return "projectmembers/create";
-    }
-    
-    @RequestMapping(method = RequestMethod.PUT)
-    public String update(@Valid ProjectMember projectMember, BindingResult result, Model model, HttpServletRequest request) 
-    {
-        if (result.hasErrors()) 
-        {
-            model.addAttribute("projectMember", projectMember);
-            return "projectmembers/update";
-        }
-        projectMember.merge();
-        return "redirect:/projects/" + UrlEncoder.encodeUrlPathSegment(projectMember.getProject().getId().toString(), request);
-    }
-    
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model) 
-    {
-    	ProjectMember member = ProjectMember.findProjectMember(id);
-    	String projectId = member.getProject().getId().toString();
-    	
-        ProjectMember.findProjectMember(id).remove();        
-        return "redirect:/projects/" + projectId;        
-    }
-    
-    private String generateMemberId(ProjectMember member)
-    {
-    	if(member != null)
-    	{
-    		int i = 1;    		
-    		String memberId = member.getProject().getProjectId().toUpperCase();
-    		String memberKey = null;
-    		if(member.getEmployee() != null)
-    			memberKey = memberId += member.getEmployee().getEmployeeId().toUpperCase();
-    		else
-    		{
-    			memberKey = memberId += "MEM";
-    			memberId = memberId + (i++);
-    		}
-    		ApplicationTrace.trace("New Member ID: " + memberId);
-    		while(ProjectMember.findProjectMember(memberId) != null)
-    		{
-    			memberId = memberKey + (i++);
-    			ApplicationTrace.trace("New Member ID: " + memberId);
-    		}
-    		return memberId;    		
-    	}
-    	return null;
-    }
+		if (result.hasErrors())
+		{
+			model.addAttribute("projectMember", projectMember);
+			return "projectmembers/create";
+		}
+		if (projectMember.getEmployee() == null)
+		{
+			ObjectError error = new ObjectError("ProjectMember", "Employee should be set to continue.");
+			result.addError(error);
+			model.addAttribute("projectMember", projectMember);
+			return "projectmembers/create";
+		}
+		String memberId = generateMemberId(projectMember);
+		if (memberId != null)
+			projectMember.setMemberId(memberId);
+		else
+		{
+			ObjectError error = new ObjectError("ProjectMember", "Error in generating Member ID, please review below information and try again.");
+			result.addError(error);
+			model.addAttribute("projectMember", projectMember);
+			return "projectmembers/create";
+		}
+		projectMember.persist();
+		return "redirect:/projects/" + UrlEncoder.encodeUrlPathSegment(projectMember.getProject().getId().toString(), request);
+	}
+
+	@RequestMapping(params = "form", method = RequestMethod.GET)
+	public String createForm(Model model, @RequestParam(value = "parentId", required = false) Long parentId)
+	{
+		Project project = null;
+		ProjectMember member = new ProjectMember();
+		if (parentId != null)
+		{
+			project = Project.findProject(parentId);
+			if (project != null)
+				member.setProject(project);
+		}
+		model.addAttribute("projectMember", member);
+		List dependencies = new ArrayList();
+		if (Project.countProjects() == 0)
+		{
+			dependencies.add(new String[]
+			{ "project", "projects" });
+		}
+		model.addAttribute("dependencies", dependencies);
+		return "projectmembers/create";
+	}
+
+	@RequestMapping(method = RequestMethod.PUT)
+	public String update(@Valid ProjectMember projectMember, BindingResult result, Model model, HttpServletRequest request)
+	{
+		if (result.hasErrors())
+		{
+			model.addAttribute("projectMember", projectMember);
+			return "projectmembers/update";
+		}
+		projectMember.merge();
+		return "redirect:/projects/" + UrlEncoder.encodeUrlPathSegment(projectMember.getProject().getId().toString(), request);
+	}
+
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model)
+	{
+		ProjectMember member = ProjectMember.findProjectMember(id);
+		String projectId = member.getProject().getId().toString();
+
+		ProjectMember.findProjectMember(id).remove();
+		return "redirect:/projects/" + projectId;
+	}
+
+	Converter<ProjectMember, String> getProjectMemberConverter()
+	{
+		return new Converter<ProjectMember, String>()
+		{
+			public String convert(ProjectMember projectMember)
+			{
+				return new StringBuilder().append(projectMember.getEmployee().getFirstName()).append(" ").append(projectMember.getEmployee().getLastName()).toString();
+			}
+		};
+	}
+
+	private String generateMemberId(ProjectMember member)
+	{
+		if (member != null)
+		{
+			int i = 1;
+			String memberId = member.getProject().getProjectId().toUpperCase();
+			String memberKey = null;
+			if (member.getEmployee() != null)
+				memberKey = memberId += member.getEmployee().getEmployeeId().toUpperCase();
+			else
+			{
+				memberKey = memberId += "MEM";
+				memberId = memberId + (i++);
+			}
+			ApplicationTrace.trace("New Member ID: " + memberId);
+			while (ProjectMember.findProjectMember(memberId) != null)
+			{
+				memberId = memberKey + (i++);
+				ApplicationTrace.trace("New Member ID: " + memberId);
+			}
+			return memberId;
+		}
+		return null;
+	}
 }
