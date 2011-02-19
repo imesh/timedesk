@@ -143,7 +143,7 @@ privileged aspect EmployeeController_Roo_Controller {
             }
         };
     }
-            
+    
     @PostConstruct
     void EmployeeController.registerConverters() {
         conversionService.addConverter(getCompanySiteConverter());
@@ -152,7 +152,6 @@ privileged aspect EmployeeController_Roo_Controller {
         conversionService.addConverter(getEmployeeRoleConverter());
         conversionService.addConverter(getEmployeeVisaConverter());
         conversionService.addConverter(getSkillConverter());
-        conversionService.addConverter(getUserConverter());
     }
     
     private String EmployeeController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {

@@ -3,9 +3,9 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_org_timedesk_entity_ApplicationFeature" items="${applicationfeatures}" z="n0MiUf/tEknZYWgjejxJPZe0W8o=">
         <table:table data="${applicationfeatures}" id="l_org_timedesk_entity_ApplicationFeature" path="/applicationfeatures" z="Q9AnZX2EyTSuUzvwb8/+OWLQJyg=">
-            <table:column id="c_org_timedesk_entity_ApplicationFeature_featureId" property="featureId" maxLength="60" z="JorFGi6JEMYc63y8H4if6CNomXc="/>
-            <table:column id="c_org_timedesk_entity_ApplicationFeature_name" property="name" maxLength="100" z="user-managed"/>
-            <table:column id="c_org_timedesk_entity_ApplicationFeature_description" property="description" maxLength="200" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_ApplicationFeature_featureId" maxLength="60" property="featureId" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_ApplicationFeature_name" maxLength="100" property="name" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_ApplicationFeature_description" maxLength="200" property="description" z="user-managed"/>
         </table:table>
     </page:list>
 </div>

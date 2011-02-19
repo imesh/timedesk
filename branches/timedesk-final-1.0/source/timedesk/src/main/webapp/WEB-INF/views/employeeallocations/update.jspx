@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_org_timedesk_entity_EmployeeAllocation" modelAttribute="employeeAllocation" path="/employeeallocations" z="hJyHr72izc0XAUdMWEgIaKzASPE=">
+        <field:input field="empId" id="c_org_timedesk_entity_EmployeeAllocation_empId" required="true" validationMessageCode="field_invalid_integer" z="KWpNmX4aZruMtm+j3Td1GNC8LmI="/>
+        <field:input field="employeeId" id="c_org_timedesk_entity_EmployeeAllocation_employeeId" required="true" z="1DnWQgX23lVkpSScpVswIoZ4eXI="/>
+        <field:input field="phmId" id="c_org_timedesk_entity_EmployeeAllocation_phmId" required="true" validationMessageCode="field_invalid_integer" z="cAWSEJKu92BdhYnQk7Gy6EKTqn4="/>
+        <field:datetime dateTimePattern="${employeeAllocation_startdate_date_format}" field="startDate" id="c_org_timedesk_entity_EmployeeAllocation_startDate" z="9xX0hza+s96JuuvI096WVspdcvo="/>
+        <field:datetime dateTimePattern="${employeeAllocation_enddate_date_format}" field="endDate" id="c_org_timedesk_entity_EmployeeAllocation_endDate" z="EJwjAiOC8OfZ2hM8o4Z9phGqefw="/>
+        <field:input field="allocation" id="c_org_timedesk_entity_EmployeeAllocation_allocation" required="true" validationMessageCode="field_invalid_integer" z="rfzIcA0U6TP7rmiOPUlaWSPFALU="/>
+    </form:update>
+</div>
