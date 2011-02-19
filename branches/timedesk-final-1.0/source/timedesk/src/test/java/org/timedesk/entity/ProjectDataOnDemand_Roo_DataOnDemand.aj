@@ -26,7 +26,7 @@ privileged aspect ProjectDataOnDemand_Roo_DataOnDemand {
         obj.setCompany(companyDataOnDemand.getRandomCompany());
         obj.setDescription(null);
         obj.setEndDate(new java.util.Date());
-        obj.setName(null);
+        obj.setName("name_" + index);
         obj.setProjectId("projectId_" + index);
         obj.setStartDate(new java.util.Date());
         return obj;

@@ -3,6 +3,7 @@
 
 package org.timedesk.entity;
 
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Date;
 import java.util.Set;
@@ -58,6 +59,14 @@ privileged aspect Project_Roo_JavaBean {
     
     public void Project.setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+    
+    public Boolean Project.getMultiplePhases() {
+        return this.multiplePhases;
+    }
+    
+    public void Project.setMultiplePhases(Boolean multiplePhases) {
+        this.multiplePhases = multiplePhases;
     }
     
     public Set<ProjectMember> Project.getProjectMembers() {
