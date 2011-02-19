@@ -287,3 +287,8 @@ perform test -e
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-19 12:21:42
 controller scaffold --entity ~.entity.EmployeeAllocation --class ~.web.EmployeeAllocation
 controller scaffold --entity ~.entity.EmployeeAllocation --class ~.web.EmployeeAllocationController
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-19 12:46:33
+perform package
+quit
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-19 12:47:54
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-19 12:48:15
