@@ -143,15 +143,7 @@ privileged aspect EmployeeController_Roo_Controller {
             }
         };
     }
-    
-    Converter<User, String> EmployeeController.getUserConverter() {
-        return new Converter<User, String>() {
-            public String convert(User user) {
-                return new StringBuilder().append(user.getUsername()).append(" ").append(user.getPassword()).toString();
-            }
-        };
-    }
-    
+            
     @PostConstruct
     void EmployeeController.registerConverters() {
         conversionService.addConverter(getCompanySiteConverter());

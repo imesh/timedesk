@@ -9,6 +9,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.springframework.core.convert.converter.Converter;
 import org.springframework.roo.addon.web.mvc.controller.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.timedesk.entity.Employee;
+import org.timedesk.entity.ProjectMember;
 import org.timedesk.entity.ProjectPhase;
 import org.timedesk.entity.ProjectPhaseMember;
 import org.timedesk.web.util.ApplicationTrace;
@@ -26,109 +28,122 @@ import org.timedesk.web.util.UrlEncoder;
 @RooWebScaffold(path = "projectphasemembers", formBackingObject = ProjectPhaseMember.class)
 @RequestMapping("/projectphasemembers")
 @Controller
-public class ProjectPhaseMemberController 
-{	
+public class ProjectPhaseMemberController
+{
 	@RequestMapping(params = "form", method = RequestMethod.GET)
-    public String createForm(Model model, @RequestParam(value = "parentId", required = false) Long parentId) 
+	public String createForm(Model model, @RequestParam(value = "parentId", required = false) Long parentId)
 	{
 		ProjectPhaseMember phaseMember = new ProjectPhaseMember();
-		if(parentId != null)
+		if (parentId != null)
 		{
 			ProjectPhase projectPhase = ProjectPhase.findProjectPhase(parentId);
-			if(projectPhase != null)
+			if (projectPhase != null)
 				phaseMember.setProjectPhase(projectPhase);
 		}
-		
-        model.addAttribute("projectPhaseMember", phaseMember);
-        addDateTimeFormatPatterns(model);
-        List dependencies = new ArrayList();
-        if (ProjectPhase.countProjectPhases() == 0) {
-            dependencies.add(new String[]{"projectPhase", "projectphases"});
-        }
-        model.addAttribute("dependencies", dependencies);
-        return "projectphasemembers/create";
-    }
-	
+
+		model.addAttribute("projectPhaseMember", phaseMember);
+		addDateTimeFormatPatterns(model);
+		List dependencies = new ArrayList();
+		if (ProjectPhase.countProjectPhases() == 0)
+		{
+			dependencies.add(new String[]
+			{ "projectPhase", "projectphases" });
+		}
+		model.addAttribute("dependencies", dependencies);
+		return "projectphasemembers/create";
+	}
+
 	@RequestMapping(method = RequestMethod.POST)
-    public String create(@Valid ProjectPhaseMember projectPhaseMember, BindingResult result, Model model, HttpServletRequest request) 
-    {
-        if (result.hasErrors()) 
-        {
-            model.addAttribute("projectPhaseMember", projectPhaseMember);
-            addDateTimeFormatPatterns(model);
-            return "projectphasemembers/create";
-        }      
-        String phaseMemberId = generatePhaseMemberId(projectPhaseMember);
-        if(phaseMemberId != null)
-        	projectPhaseMember.setPhaseMemberId(phaseMemberId);
-        else
-        {
-        	ObjectError error = new ObjectError("ProjectPhaseMember", "Error in generating Phase Member ID, please review below information and try again.");
-       	 	result.addError(error);
-       	 	model.addAttribute("projectPhaseMember", projectPhaseMember);
-       	 	addDateTimeFormatPatterns(model);
-       	 	return "projectphasemembers/create";
-        }
-        
-        ObjectError error = validateEmployeeAllocation(projectPhaseMember, result, model);
-        if(error != null)
-        {
-        	result.addError(error);
+	public String create(@Valid ProjectPhaseMember projectPhaseMember, BindingResult result, Model model, HttpServletRequest request)
+	{
+		if (result.hasErrors())
+		{
 			model.addAttribute("projectPhaseMember", projectPhaseMember);
 			addDateTimeFormatPatterns(model);
 			return "projectphasemembers/create";
-        }
-        projectPhaseMember.persist();        
-        return "redirect:/projectphasemembers/" + UrlEncoder.encodeUrlPathSegment(projectPhaseMember.getId().toString(), request);
-    }
-	
+		}
+		String phaseMemberId = generatePhaseMemberId(projectPhaseMember);
+		if (phaseMemberId != null)
+			projectPhaseMember.setPhaseMemberId(phaseMemberId);
+		else
+		{
+			ObjectError error = new ObjectError("ProjectPhaseMember", "Error in generating Phase Member ID, please review below information and try again.");
+			result.addError(error);
+			model.addAttribute("projectPhaseMember", projectPhaseMember);
+			addDateTimeFormatPatterns(model);
+			return "projectphasemembers/create";
+		}
+
+		ObjectError error = validateEmployeeAllocation(projectPhaseMember, result, model);
+		if (error != null)
+		{
+			result.addError(error);
+			model.addAttribute("projectPhaseMember", projectPhaseMember);
+			addDateTimeFormatPatterns(model);
+			return "projectphasemembers/create";
+		}
+		projectPhaseMember.persist();
+		return "redirect:/projectphasemembers/" + UrlEncoder.encodeUrlPathSegment(projectPhaseMember.getId().toString(), request);
+	}
+
 	private String generatePhaseMemberId(ProjectPhaseMember projectPhaseMember)
 	{
-		if(projectPhaseMember != null)
-    	{
-    		int i = 1;
-    		String phaseMemberKey = projectPhaseMember.getProjectPhase().getPhaseId().toUpperCase() + "MEM";
-    		String phaseMemberId = phaseMemberKey + (i++);
-    		
-    		ApplicationTrace.trace("New Phase Member ID: " + phaseMemberId);
-    		while(ProjectPhaseMember.findProjectPhaseMember(phaseMemberId) != null)
-    		{
-    			phaseMemberId = phaseMemberKey + (i++);
-    			ApplicationTrace.trace("New Phase Member ID: " + phaseMemberId);
-    		}
-    		return phaseMemberId; 
-    	}
-    	return null;
+		if (projectPhaseMember != null)
+		{
+			int i = 1;
+			String phaseMemberKey = projectPhaseMember.getProjectPhase().getPhaseId().toUpperCase() + "MEM";
+			String phaseMemberId = phaseMemberKey + (i++);
+
+			ApplicationTrace.trace("New Phase Member ID: " + phaseMemberId);
+			while (ProjectPhaseMember.findProjectPhaseMember(phaseMemberId) != null)
+			{
+				phaseMemberId = phaseMemberKey + (i++);
+				ApplicationTrace.trace("New Phase Member ID: " + phaseMemberId);
+			}
+			return phaseMemberId;
+		}
+		return null;
 	}
 
 	@RequestMapping(method = RequestMethod.PUT)
-    public String update(@Valid ProjectPhaseMember projectPhaseMember, BindingResult result, Model model, HttpServletRequest request) 
-    {
-        if (result.hasErrors()) 
-        {
-            model.addAttribute("projectPhaseMember", projectPhaseMember);
-            addDateTimeFormatPatterns(model);
-            return "projectphasemembers/update";
-        }        
-        ObjectError error = validateEmployeeAllocation(projectPhaseMember, result, model);
-        if(error != null)
-        {
-        	result.addError(error);
+	public String update(@Valid ProjectPhaseMember projectPhaseMember, BindingResult result, Model model, HttpServletRequest request)
+	{
+		if (result.hasErrors())
+		{
 			model.addAttribute("projectPhaseMember", projectPhaseMember);
 			addDateTimeFormatPatterns(model);
 			return "projectphasemembers/update";
-        }        
-        projectPhaseMember.merge();        
-        return "redirect:/projectphasemembers/" + UrlEncoder.encodeUrlPathSegment(projectPhaseMember.getId().toString(), request);
-    }
+		}
+		ObjectError error = validateEmployeeAllocation(projectPhaseMember, result, model);
+		if (error != null)
+		{
+			result.addError(error);
+			model.addAttribute("projectPhaseMember", projectPhaseMember);
+			addDateTimeFormatPatterns(model);
+			return "projectphasemembers/update";
+		}
+		projectPhaseMember.merge();
+		return "redirect:/projectphasemembers/" + UrlEncoder.encodeUrlPathSegment(projectPhaseMember.getId().toString(), request);
+	}
+
+	Converter<ProjectMember, String> getProjectMemberConverter()
+	{
+		return new Converter<ProjectMember, String>()
+		{
+			public String convert(ProjectMember projectMember)
+			{
+				return new StringBuilder().append(projectMember.getEmployee().getFirstName()).append(" ").append(projectMember.getEmployee().getLastName()).toString();
+			}
+		};
+	}
 
 	private ObjectError validateEmployeeAllocation(ProjectPhaseMember projectPhaseMember, BindingResult result, Model model)
 	{
 		Employee employee = projectPhaseMember.getProjectMember().getEmployee();
-        if(employee != null)
-        {       	
-        	// Check employee max allocation
-	        Integer maxAllocation = employee.getMaxAllocation();
+		if (employee != null)
+		{
+			// Check employee max allocation
+			Integer maxAllocation = employee.getMaxAllocation();
 			if (maxAllocation != null)
 			{
 				if (projectPhaseMember.getAllocation().intValue() > maxAllocation.intValue())
@@ -139,10 +154,10 @@ public class ProjectPhaseMemberController
 				// Check current allocation
 				int currentAllocation = employee.findAllocation(projectPhaseMember.getId(), projectPhaseMember.getStartDate(), projectPhaseMember.getEndDate());
 				int allowed = maxAllocation.intValue() - currentAllocation;
-				
-				ApplicationTrace.trace("Max Allocation: " +  maxAllocation.intValue());
+
+				ApplicationTrace.trace("Max Allocation: " + maxAllocation.intValue());
 				ApplicationTrace.trace("Current Allocation: " + currentAllocation);
-				
+
 				if (maxAllocation.intValue() == currentAllocation)
 				{
 					ObjectError error = new ObjectError(projectPhaseMember.toString(), "There is no space to allocate " + employee.getFirstName() + " " + employee.getLastName() + " from " + shortDate(projectPhaseMember.getStartDate()) + " to " + shortDate(projectPhaseMember.getEndDate()) + ".");
@@ -155,14 +170,14 @@ public class ProjectPhaseMemberController
 				}
 			}
 		}
-        return null;
+		return null;
 	}
-	
+
 	private String shortDate(Date date)
 	{
-		if(date != null)
+		if (date != null)
 		{
-			DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");			
+			DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 			return formatter.format(date);
 		}
 		return "";

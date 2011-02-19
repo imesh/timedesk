@@ -77,15 +77,7 @@ privileged aspect ProjectPhaseMemberController_Roo_Controller {
     public Collection<ProjectPhase> ProjectPhaseMemberController.populateProjectPhases() {
         return ProjectPhase.findAllProjectPhases();
     }
-    
-    Converter<ProjectMember, String> ProjectPhaseMemberController.getProjectMemberConverter() {
-        return new Converter<ProjectMember, String>() {
-            public String convert(ProjectMember projectMember) {
-                return new StringBuilder().append(projectMember.getMemberId()).toString();
-            }
-        };
-    }
-    
+        
     Converter<ProjectPhase, String> ProjectPhaseMemberController.getProjectPhaseConverter() {
         return new Converter<ProjectPhase, String>() {
             public String convert(ProjectPhase projectPhase) {
