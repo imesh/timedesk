@@ -90,7 +90,7 @@ privileged aspect CompanyController_Roo_Controller {
     public Collection<Project> CompanyController.populateProjects() {
         return Project.findAllProjects();
     }
-        
+    
     Converter<CompanySite, String> CompanyController.getCompanySiteConverter() {
         return new Converter<CompanySite, String>() {
             public String convert(CompanySite companySite) {
@@ -109,7 +109,6 @@ privileged aspect CompanyController_Roo_Controller {
     
     @PostConstruct
     void CompanyController.registerConverters() {
-        conversionService.addConverter(getCompanyConverter());
         conversionService.addConverter(getCompanySiteConverter());
         conversionService.addConverter(getProjectConverter());
     }

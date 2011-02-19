@@ -92,7 +92,7 @@ privileged aspect ProjectMemberController_Roo_Controller {
             }
         };
     }
-        
+    
     Converter<ProjectMemberFeedback, String> ProjectMemberController.getProjectMemberFeedbackConverter() {
         return new Converter<ProjectMemberFeedback, String>() {
             public String convert(ProjectMemberFeedback projectMemberFeedback) {
@@ -113,7 +113,6 @@ privileged aspect ProjectMemberController_Roo_Controller {
     void ProjectMemberController.registerConverters() {
         conversionService.addConverter(getEmployeeConverter());
         conversionService.addConverter(getProjectConverter());
-        conversionService.addConverter(getProjectMemberConverter());
         conversionService.addConverter(getProjectMemberFeedbackConverter());
         conversionService.addConverter(getProjectMemberRoleConverter());
     }

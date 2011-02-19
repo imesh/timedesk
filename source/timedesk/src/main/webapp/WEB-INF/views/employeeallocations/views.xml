@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="default" name="employeeallocations/list">
+        <put-attribute name="body" value="/WEB-INF/views/employeeallocations/list.jspx"/>
+    </definition>
+<definition extends="default" name="employeeallocations/show">
+        <put-attribute name="body" value="/WEB-INF/views/employeeallocations/show.jspx"/>
+    </definition>
+<definition extends="default" name="employeeallocations/create">
+        <put-attribute name="body" value="/WEB-INF/views/employeeallocations/create.jspx"/>
+    </definition>
+<definition extends="default" name="employeeallocations/update">
+        <put-attribute name="body" value="/WEB-INF/views/employeeallocations/update.jspx"/>
+    </definition>
+</tiles-definitions>

@@ -77,7 +77,7 @@ privileged aspect CompanySiteController_Roo_Controller {
     public Collection<Holiday> CompanySiteController.populateHolidays() {
         return Holiday.findAllHolidays();
     }
-        
+    
     Converter<CompanySite, String> CompanySiteController.getCompanySiteConverter() {
         return new Converter<CompanySite, String>() {
             public String convert(CompanySite companySite) {
@@ -104,7 +104,6 @@ privileged aspect CompanySiteController_Roo_Controller {
     
     @PostConstruct
     void CompanySiteController.registerConverters() {
-        conversionService.addConverter(getCompanyConverter());
         conversionService.addConverter(getCompanySiteConverter());
         conversionService.addConverter(getEmployeeConverter());
         conversionService.addConverter(getHolidayConverter());

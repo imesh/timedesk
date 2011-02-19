@@ -77,7 +77,7 @@ privileged aspect ProjectPhaseMemberController_Roo_Controller {
     public Collection<ProjectPhase> ProjectPhaseMemberController.populateProjectPhases() {
         return ProjectPhase.findAllProjectPhases();
     }
-        
+    
     Converter<ProjectPhase, String> ProjectPhaseMemberController.getProjectPhaseConverter() {
         return new Converter<ProjectPhase, String>() {
             public String convert(ProjectPhase projectPhase) {
@@ -96,7 +96,6 @@ privileged aspect ProjectPhaseMemberController_Roo_Controller {
     
     @PostConstruct
     void ProjectPhaseMemberController.registerConverters() {
-        conversionService.addConverter(getProjectMemberConverter());
         conversionService.addConverter(getProjectPhaseConverter());
         conversionService.addConverter(getProjectPhaseMemberConverter());
     }

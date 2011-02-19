@@ -109,12 +109,11 @@ privileged aspect UserController_Roo_Controller {
             }
         };
     }
-        
+    
     @PostConstruct
     void UserController.registerConverters() {
         conversionService.addConverter(getEmployeeConverter());
         conversionService.addConverter(getSecurityRoleConverter());
-        conversionService.addConverter(getUserConverter());
     }
     
     private String UserController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {
