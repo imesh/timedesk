@@ -2,7 +2,8 @@
 				 xmlns:sec="http://www.springframework.org/security/tags"
                  xmlns:fn="http://java.sun.com/jsp/jstl/functions" 
                  xmlns:c="http://java.sun.com/jsp/jstl/core" 
-                 xmlns:spring="http://www.springframework.org/tags" version="2.0">
+                 xmlns:spring="http://www.springframework.org/tags"
+                 xmlns:security="http://www.springframework.org/security/tags" version="2.0">
   <jsp:output omit-xml-declaration="yes" />
   
   <div class="header_banner">
@@ -24,8 +25,12 @@
 	  	   </c:if>
 		   <ul>
 				<li><a href="/timedesk/" id="current">Home</a></li>
+				<security:authorize ifAnyGranted="COMPANY.EDIT,COMPANY.VIEW" >
 				<li><a href="/timedesk/companies" >Company</a></li>	  
+				</security:authorize>
+				<security:authorize ifAnyGranted="PROJECT.EDIT,PROJECT.VIEW" >
 				<li><a href="/timedesk/projects">Projects</a></li>
+				</security:authorize>
 				<li><a href="/timedesk/help">Help</a></li>
 				<li><a href="/timedesk/about">About</a></li>
 			</ul>
