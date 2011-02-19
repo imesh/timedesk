@@ -3,7 +3,7 @@
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_org_timedesk_entity_ProjectPhaseMember" modelAttribute="projectPhaseMember" path="/projectphasemembers" render="${empty dependencies}" z="958wU3+e7fyXZKR/91VIsQFjEoM=">
         <field:select field="projectPhase" id="c_org_timedesk_entity_ProjectPhaseMember_projectPhase" itemValue="id" items="${projectphases}" path="/projectphases" required="true" z="dzlAIkzHorXlU2NYSo4zmlbOcz8="/>
-        <field:input field="phaseMemberId" id="c_org_timedesk_entity_ProjectPhaseMember_phaseMemberId" required="false" render="false" z="user-managed"/>
+        <field:input field="phaseMemberId" id="c_org_timedesk_entity_ProjectPhaseMember_phaseMemberId" render="true" z="user-managed"/>
         <field:select field="projectMember" id="c_org_timedesk_entity_ProjectPhaseMember_projectMember" itemValue="id" items="${projectmembers}" path="/projectmembers" z="VbWjaAbuwD4Bca5sE1UPYPUDpDE="/>
         <field:datetime dateTimePattern="${projectPhaseMember_startdate_date_format}" field="startDate" id="c_org_timedesk_entity_ProjectPhaseMember_startDate" required="true" z="q0ZSisKGVipyScQq11w7tU6Tkw4="/>
         <field:datetime dateTimePattern="${projectPhaseMember_enddate_date_format}" field="endDate" id="c_org_timedesk_entity_ProjectPhaseMember_endDate" required="true" z="UqtmJbS65P/JhOfDvWQ4UGZg64A="/>

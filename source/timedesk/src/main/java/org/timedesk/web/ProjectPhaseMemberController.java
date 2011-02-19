@@ -3,6 +3,7 @@ package org.timedesk.web;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,13 +25,14 @@ import org.timedesk.entity.ProjectMember;
 import org.timedesk.entity.ProjectPhase;
 import org.timedesk.entity.ProjectPhaseMember;
 import org.timedesk.web.util.ApplicationTrace;
+import org.timedesk.web.util.ErrorHandler;
 import org.timedesk.web.util.UrlEncoder;
 
 @RooWebScaffold(path = "projectphasemembers", formBackingObject = ProjectPhaseMember.class)
 @RequestMapping("/projectphasemembers")
 @Controller
 public class ProjectPhaseMemberController
-{
+{	
 	@RequestMapping(params = "form", method = RequestMethod.GET)
 	public String createForm(Model model, @RequestParam(value = "parentId", required = false) Long parentId)
 	{
@@ -37,8 +40,8 @@ public class ProjectPhaseMemberController
 		if (parentId != null)
 		{
 			ProjectPhase projectPhase = ProjectPhase.findProjectPhase(parentId);
-			if (projectPhase != null)
-				phaseMember.setProjectPhase(projectPhase);
+			if (projectPhase != null)			
+				phaseMember.setProjectPhase(projectPhase);		
 		}
 
 		model.addAttribute("projectPhaseMember", phaseMember);
@@ -58,6 +61,7 @@ public class ProjectPhaseMemberController
 	{
 		if (result.hasErrors())
 		{
+			ErrorHandler.printErrors(result.getAllErrors());
 			model.addAttribute("projectPhaseMember", projectPhaseMember);
 			addDateTimeFormatPatterns(model);
 			return "projectphasemembers/create";
@@ -136,6 +140,41 @@ public class ProjectPhaseMemberController
 			}
 		};
 	}
+	
+	@ModelAttribute("projectmembers")
+    public Collection<ProjectMember> populateProjectMembers(@RequestParam(value = "parentId", required = false) Long parentId) 
+    {
+		if(parentId == null)
+		{
+			ApplicationTrace.trace("populateProjectMembers(): phaseId is null");
+			return ProjectMember.findAllProjectMembers();
+		}
+		else
+		{			
+			ApplicationTrace.trace("populateProjectMembers(): phaseId: " + parentId);
+			ProjectPhase projectPhase = ProjectPhase.findProjectPhase(parentId);
+			if (projectPhase != null)			
+				return ProjectMember.findProjectMemberByProject(projectPhase.getProject().getId());
+			else
+				return null;
+		}
+    }
+    
+    @ModelAttribute("projectphases")
+    public Collection<ProjectPhase> populateProjectPhases(@RequestParam(value = "parentId", required = false) Long parentId) 
+    {
+    	if(parentId == null)
+    	{
+    		return ProjectPhase.findAllProjectPhases();
+    	}
+    	else
+    	{			
+			ProjectPhase projectPhase = ProjectPhase.findProjectPhase(parentId);
+			Collection<ProjectPhase> collection = new ArrayList();
+			collection.add(projectPhase);
+			return collection;
+    	}
+    }
 
 	private ObjectError validateEmployeeAllocation(ProjectPhaseMember projectPhaseMember, BindingResult result, Model model)
 	{
