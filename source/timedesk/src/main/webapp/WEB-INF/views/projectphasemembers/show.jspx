@@ -2,7 +2,7 @@
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_org_timedesk_entity_ProjectPhaseMember" object="${projectphasemember}" path="/projectphasemembers" z="H+yCLMv+5pFRScqZG+fpA/1VOmI=">
-        <field:display field="projectPhase" id="s_org_timedesk_entity_ProjectPhaseMember_projectPhase" object="${projectphasemember}" z="RPoQW98HFz0pNEkTmoLYvqWFlQM="/>
+        <a href="/timedesk/projectphases/${projectphasemember.projectPhase.id}"><field:display field="projectPhase" id="s_org_timedesk_entity_ProjectPhaseMember_projectPhase" object="${projectphasemember}" z="RPoQW98HFz0pNEkTmoLYvqWFlQM="/></a>
         <field:display field="phaseMemberId" id="s_org_timedesk_entity_ProjectPhaseMember_phaseMemberId" object="${projectphasemember}" z="HQgdYnwfNgIgAc4gJOCMPNnOY5c="/>
         <field:display field="projectMember" id="s_org_timedesk_entity_ProjectPhaseMember_projectMember" object="${projectphasemember}" z="6X4qKnhwFwVUmzBCQgbYVMoxd58="/>
         <field:display date="true" dateTimePattern="${projectPhaseMember_startdate_date_format}" field="startDate" id="s_org_timedesk_entity_ProjectPhaseMember_startDate" object="${projectphasemember}" z="3GtVZhnPlmitV1+lT8bBWA9WnzE="/>

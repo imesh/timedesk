@@ -1,6 +1,7 @@
 package org.timedesk.web;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -118,6 +120,46 @@ public class ProjectMemberController
 		projectMember.remove();
 		EmailNotifier.sendMessage(mailSender, NotificationEnum.UnAssignedFromProject, mailTo, projectName);
 		return "redirect:/projects/" + projectId;
+	}
+
+	@ModelAttribute("employees")
+	public Collection<Employee> populateEmployees()
+	{
+		ApplicationTrace.trace("populateEmployees()");
+		List<Employee> list = Employee.findAllEmployees();
+		if(list != null)
+			ApplicationTrace.trace("record count: " + list.size());
+		return list;
+	}
+
+	@ModelAttribute("projects")
+	public Collection<Project> populateProjects()
+	{
+		ApplicationTrace.trace("populateProjects()");
+		List<Project> list = Project.findAllProjects();
+		if(list != null)
+			ApplicationTrace.trace("record count: " + list.size());
+		return list;
+	}
+
+	@ModelAttribute("projectmemberfeedbacks")
+	public Collection<ProjectMemberFeedback> populateProjectMemberFeedbacks()
+	{
+		ApplicationTrace.trace("populateProjectMemberFeedbacks()");
+		List<ProjectMemberFeedback> list = ProjectMemberFeedback.findAllProjectMemberFeedbacks();
+		if(list != null)
+			ApplicationTrace.trace("record count: " + list.size());
+		return list;
+	}
+
+	@ModelAttribute("projectmemberroles")
+	public Collection<ProjectMemberRole> populateProjectMemberRoles()
+	{
+		ApplicationTrace.trace("populateProjectMemberRoles()");
+		List<ProjectMemberRole> list = ProjectMemberRole.findAllProjectMemberRoles();
+		if(list != null)
+			ApplicationTrace.trace("record count: " + list.size());
+		return list;
 	}
 
 	Converter<ProjectMember, String> getProjectMemberConverter()

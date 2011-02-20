@@ -76,6 +76,12 @@ public class ProjectPhaseMember
         return sb.toString();
     }
     
+    public static List<ProjectPhaseMember> findAllProjectPhaseMembers() 
+    {
+    	entityManager().clear();
+        return entityManager().createQuery("select o from ProjectPhaseMember o", ProjectPhaseMember.class).getResultList();
+    }
+    
     public static ProjectPhaseMember findProjectPhaseMember(Long id) 
     {
         if (id == null) return null;
