@@ -3,9 +3,8 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_org_timedesk_entity_ProjectMemberFeedback" items="${projectmemberfeedbacks}" z="WQuw2MHcnPu/9jQncxVRtHJOZPI=">
         <table:table data="${projectmemberfeedbacks}" id="l_org_timedesk_entity_ProjectMemberFeedback" path="/projectmemberfeedbacks" z="/OATsu88mb1oCgSlU9L16hZJ4TE=">
-            <table:column id="c_org_timedesk_entity_ProjectMemberFeedback_projectMember" property="projectMember" z="tBxpMEFEswCfRvvHQfYwNzXPzU8="/>
-            <table:column id="c_org_timedesk_entity_ProjectMemberFeedback_feedbackId" property="feedbackId" z="qQ1bC0bao0ReE4YTQaHE4ZEKXpk="/>
-            <table:column id="c_org_timedesk_entity_ProjectMemberFeedback_description" property="description" z="xtngHRizDqXIGhOzkI72kVwjKSE="/>
+            <table:column id="c_org_timedesk_entity_ProjectMemberFeedback_projectMember" maxLength="60" property="projectMember" z="user-managed"/>            
+            <table:column id="c_org_timedesk_entity_ProjectMemberFeedback_description" maxLength="100" property="description" z="xtngHRizDqXIGhOzkI72kVwjKSE="/>
         </table:table>
     </page:list>
 </div>

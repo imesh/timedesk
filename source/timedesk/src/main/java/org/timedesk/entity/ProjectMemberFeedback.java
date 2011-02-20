@@ -37,17 +37,13 @@ public class ProjectMemberFeedback
 	@JoinColumn(name = "member_id", referencedColumnName = "id")
 	private ProjectMember projectMember;
 	
-	@NotNull
-	@Column(name = "feedback_id")
-    private Integer feedbackId;
-
 	@Column(name = "description")
     private String description;
 	
     public String toString() 
     {
         StringBuilder sb = new StringBuilder();       
-        sb.append(getFeedbackId());
+        sb.append(getDescription());
         return sb.toString();
     }
     

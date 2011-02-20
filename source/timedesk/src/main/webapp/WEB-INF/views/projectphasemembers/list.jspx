@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:security="http://www.springframework.org/security/tags" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_org_timedesk_entity_ProjectPhaseMember" items="${projectphasemembers}" z="k5Indo2D3pOMjik5VmsCfcSrzaw=">
-        <table:table data="${projectphasemembers}" id="l_org_timedesk_entity_ProjectPhaseMember" path="/projectphasemembers" z="JI4aY1Xu7tiK6dXEE3Hp16H5OcU=">
+    <c:set var="fedit" value="false" />
+	<security:authorize ifAnyGranted="PROJECTRESOURCE.EDIT">
+	  	<c:set var="fedit" value="true" />
+	</security:authorize>
+	<page:list id="pl_org_timedesk_entity_ProjectPhaseMember" items="${projectphasemembers}" z="k5Indo2D3pOMjik5VmsCfcSrzaw=">
+        <table:table data="${projectphasemembers}" id="l_org_timedesk_entity_ProjectPhaseMember" create="${fedit}" delete="${fedit}" update="${fedit}" path="/projectphasemembers" z="JI4aY1Xu7tiK6dXEE3Hp16H5OcU=">
             <table:column id="c_org_timedesk_entity_ProjectPhaseMember_projectPhase" property="projectPhase" z="2rZIwn6vavsJMtL75Hv4+LTxTeg="/>
             <table:column id="c_org_timedesk_entity_ProjectPhaseMember_phaseMemberId" property="phaseMemberId" z="ZndayBXq8naW90VerTmujuj1tFM="/>
             <table:column id="c_org_timedesk_entity_ProjectPhaseMember_projectMember" property="projectMember" z="UadAUXq7DOj1x5/skisaPn03Tt0="/>
