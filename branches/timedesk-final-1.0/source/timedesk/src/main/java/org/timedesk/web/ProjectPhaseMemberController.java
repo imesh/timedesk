@@ -221,16 +221,26 @@ public class ProjectPhaseMemberController
 		if (parentId == null)
 		{
 			ApplicationTrace.trace("populateProjectMembers(): phaseId is null");
-			return ProjectMember.findAllProjectMembers();
+			List<ProjectMember> list = ProjectMember.findAllProjectMembers();
+			ApplicationTrace.trace("record count: " + list.size());
+			return list;
 		}
 		else
 		{
 			ApplicationTrace.trace("populateProjectMembers(): phaseId: " + parentId);
 			ProjectPhase projectPhase = ProjectPhase.findProjectPhase(parentId);
 			if (projectPhase != null)
+			{
+				ApplicationTrace.trace("phase found");
 				return ProjectMember.findProjectMemberByProject(projectPhase.getProject().getId());
+			}
 			else
-				return null;
+			{
+				ApplicationTrace.trace("phase not found returning all");
+				List<ProjectMember> list = ProjectMember.findAllProjectMembers();
+				ApplicationTrace.trace("record count: " + list.size());
+				return list;
+			}
 		}
 	}
 
@@ -239,14 +249,24 @@ public class ProjectPhaseMemberController
 	{
 		if (parentId == null)
 		{
+			ApplicationTrace.trace("populateProjectPhases(): phaseId is null");
 			return ProjectPhase.findAllProjectPhases();
 		}
 		else
 		{
 			ProjectPhase projectPhase = ProjectPhase.findProjectPhase(parentId);
-			Collection<ProjectPhase> collection = new ArrayList();
-			collection.add(projectPhase);
-			return collection;
+			if(projectPhase != null)
+			{
+				ApplicationTrace.trace("phase found");
+				Collection<ProjectPhase> collection = new ArrayList();
+				collection.add(projectPhase);
+				return collection;
+			}
+			else
+			{
+				ApplicationTrace.trace("phase not found returning all");
+				return ProjectPhase.findAllProjectPhases();
+			}
 		}
 	}
 
