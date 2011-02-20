@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:security="http://www.springframework.org/security/tags" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
+    <c:set var="fedit" value="false" />
+	<security:authorize ifAnyGranted="PROJECT.EDIT">
+	  	<c:set var="fedit" value="true" />
+	</security:authorize>
+    
     <page:list id="pl_org_timedesk_entity_ProjectPhase" items="${projectphases}" z="LU+V0uXQpTf3YZwUAjBn+L4ED2c=">
-        <table:table data="${projectphases}" id="l_org_timedesk_entity_ProjectPhase" path="/projectphases" z="ds/aPEHMeCxgqwo9ZJRr+Hb2N5Q=">
+        <table:table data="${projectphases}" id="l_org_timedesk_entity_ProjectPhase" create="${fedit}" delete="${fedit}" update="${fedit}" path="/projectphases" z="ds/aPEHMeCxgqwo9ZJRr+Hb2N5Q=">
             <table:column id="c_org_timedesk_entity_ProjectPhase_project" property="project" render="true" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_ProjectPhase_phaseId" property="phaseId" z="OmKNjJU3Jh2uCwJP+ROE5Q9x7Xw="/>
             <table:column id="c_org_timedesk_entity_ProjectPhase_description" property="description" maxLength="200" z="user-managed"/>
