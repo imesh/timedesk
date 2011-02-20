@@ -201,7 +201,7 @@ public class ProjectMemberController
 		{
 			public String convert(ProjectMemberFeedback projectMemberFeedback)
 			{
-				return new StringBuilder().append(projectMemberFeedback.getFeedbackId()).append(" ").append(projectMemberFeedback.getDescription()).toString();
+				return new StringBuilder().append(projectMemberFeedback.getDescription()).toString();
 			}
 		};
 	}

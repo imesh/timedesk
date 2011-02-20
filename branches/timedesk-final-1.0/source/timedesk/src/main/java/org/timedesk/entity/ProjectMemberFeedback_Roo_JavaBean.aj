@@ -16,15 +16,7 @@ privileged aspect ProjectMemberFeedback_Roo_JavaBean {
     public void ProjectMemberFeedback.setProjectMember(ProjectMember projectMember) {
         this.projectMember = projectMember;
     }
-    
-    public Integer ProjectMemberFeedback.getFeedbackId() {
-        return this.feedbackId;
-    }
-    
-    public void ProjectMemberFeedback.setFeedbackId(Integer feedbackId) {
-        this.feedbackId = feedbackId;
-    }
-    
+        
     public String ProjectMemberFeedback.getDescription() {
         return this.description;
     }

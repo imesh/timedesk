@@ -113,7 +113,7 @@ privileged aspect ProjectMemberFeedbackController_Roo_Controller {
     Converter<ProjectMemberFeedback, String> ProjectMemberFeedbackController.getProjectMemberFeedbackConverter() {
         return new Converter<ProjectMemberFeedback, String>() {
             public String convert(ProjectMemberFeedback projectMemberFeedback) {
-                return new StringBuilder().append(projectMemberFeedback.getFeedbackId()).append(" ").append(projectMemberFeedback.getDescription()).toString();
+                return new StringBuilder().append(projectMemberFeedback.getDescription()).toString();
             }
         };
     }
