@@ -137,5 +137,9 @@
    <menu:category id="c_employeeallocation" render="false" z="user-managed">
       <menu:item id="i_employeeallocation_new" messageCode="global_menu_new" render="false" url="/employeeallocations?form" z="user-managed"/>        
    </menu:category>
-   </menu:menu>
+   <menu:category id="c_notification" label="Notificaiton Information" z="user-managed">
+        <menu:item id="i_notification_new" messageCode="global_menu_new" url="/notifications?form" render="false" z="user-managed"/>
+        <menu:item id="i_notification_list" messageCode="global_menu_list" url="/notifications?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="u+W8P8B/f8L24PawYI2JbQkFEDw="/>
+        </menu:category>
+    </menu:menu>
 </div>

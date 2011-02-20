@@ -90,7 +90,7 @@ public class ProjectPhaseController
         ProjectPhase.findProjectPhase(id).remove();        
         return "redirect:/projects/" + projectId;
     }
-    
+        
     private String generatePhaseId(ProjectPhase phase)
     {
     	if(phase != null)

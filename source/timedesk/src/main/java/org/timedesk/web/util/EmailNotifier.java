@@ -4,6 +4,7 @@ import java.util.Date;
 
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
+import org.timedesk.entity.Notification;
 
 public class EmailNotifier
 {
@@ -17,7 +18,7 @@ public class EmailNotifier
 		ApplicationTrace.trace("sendMessage() start");
 		if(notification == NotificationEnum.AssignedToProject)
 		{
-			String subject = "[Timedesk] Project Assignment - ";
+			String subject = "[Timedesk] Project Assignment - " + project;
 			StringBuffer message = new StringBuffer();
 			message.append("Notification: You have been assigned to project ").append(project).append(". \nTime: ").append(new Date());
 			message.append("\n\n").append("http://www.timedeskonline.com");
@@ -46,6 +47,13 @@ public class EmailNotifier
 			simpleMailMessage.setTo(mailTo);
 			simpleMailMessage.setText(message);
 			mailSender.send(simpleMailMessage);
+			
+			Notification notification = new Notification();
+			notification.setSentTime(new Date());
+			notification.setMailTo(mailTo);
+			notification.setSubject(subject);
+			notification.setMessage(message);
+			notification.persist();
 			ApplicationTrace.trace("Mail sent to " + mailTo);
 		}
 		catch(Exception e)

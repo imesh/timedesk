@@ -313,3 +313,20 @@ quit
 quit
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-20 03:18:50
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-20 03:18:56
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-20 09:04:59
+entity --class ~.entity.Notification
+field string mailTo
+// [failed] field string message
+field string message
+controller scaffold --entity ~.entity.Notification --class ~.web.NotificationController
+// [failed] quit
+quit
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-20 09:12:38
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-20 09:12:44
+// [failed] quit
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-20 09:15:12
+quit
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-20 09:16:30
+quit
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-20 09:17:54
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-20 09:37:59
