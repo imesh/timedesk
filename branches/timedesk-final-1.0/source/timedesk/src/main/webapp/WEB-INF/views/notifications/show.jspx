@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_timedesk_entity_Notification" create="false" update="false" object="${notification}" path="/notifications" z="WwkVANQV0/ZLO647JavzI3QiCGU=">
+    	<field:display date="true" dateTimePattern="${notification_senttime_date_format}" field="sentTime" id="s_org_timedesk_entity_Notification_sentTime" object="${notification}" z="xocwh2G4vAbTWoqKs5LG1OGSd1s="/>
+        <field:display field="mailTo" id="s_org_timedesk_entity_Notification_mailTo" object="${notification}" z="UrvVRR0JhMPn+gG9telkdCWmGqQ="/>
+        <field:display field="message" id="s_org_timedesk_entity_Notification_message" object="${notification}" z="tpphFA7fFRSd9wKdWPW2+A7Zcbk="/>   
+    	<br/>
+    	<field:display field="subject" id="s_org_timedesk_entity_Notification_subject" object="${notification}" z="POGP7HxvK+BQ8klhKrkR+QQZBko="/>
+    </page:show>
+</div>

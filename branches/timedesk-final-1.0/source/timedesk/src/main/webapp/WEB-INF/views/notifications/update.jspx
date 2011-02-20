@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_org_timedesk_entity_Notification" modelAttribute="notification" path="/notifications" z="LTE689P5lUHq7S8X0ZohwLk9K8U=">
+        <field:input field="mailTo" id="c_org_timedesk_entity_Notification_mailTo" z="TWVb3zhVXWPlGkkZJrl3RX+gblw="/>
+        <field:input field="message" id="c_org_timedesk_entity_Notification_message" z="49bJk/IdkclfT1GPgbDdbT4Ssf8="/>
+    
+    <field:datetime dateTimePattern="${notification_senttime_date_format}" field="sentTime" id="c_org_timedesk_entity_Notification_sentTime" z="IBPOU2h9AzaQdIbevoVJtkgDlfA="/>
+    <field:input field="subject" id="c_org_timedesk_entity_Notification_subject" z="ozv1yiSRNBvtK9GmUCA5GFiajNU="/>
+    </form:update>
+</div>

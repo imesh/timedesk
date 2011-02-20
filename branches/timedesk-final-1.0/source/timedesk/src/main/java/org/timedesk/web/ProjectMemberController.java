@@ -63,7 +63,7 @@ public class ProjectMemberController
 		}
 		projectMember.persist();
 		
-		EmailNotifier.sendMessage(mailSender, NotificationEnum.AllocatedToProject, projectMember.getEmployee().getEmail(), projectMember.getProject().getName());
+		EmailNotifier.sendMessage(mailSender, NotificationEnum.AssignedToProject, projectMember.getEmployee().getEmail(), projectMember.getProject().getName());
 		return "redirect:/projects/" + UrlEncoder.encodeUrlPathSegment(projectMember.getProject().getId().toString(), request);
 	}
 
