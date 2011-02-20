@@ -43,6 +43,16 @@ Note: I have used "https://timedesk.googlecode.com/svn/branches/timedesk-final-1
       SQl script for this reports.
 
 
+
+Fixes for exceptions might occur at deploy time
+---------------------------
+1) If you get any "mysql driver" related exceptions during the report browsing,
+   Please copy "mysql-connector-java-5.1.13.jar" driver file to
+   "$CATALINA_HOME\webapps\birt\WEB-INF\platform\plugins\org.eclipse.birt.report.data.oda.jdbc_2.6.1.v20100909\drivers"
+   and restart the tomcat server.
+
+
+
 SQL use for reports 
 ---------------------------
 
