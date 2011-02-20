@@ -14,10 +14,13 @@
 
 package org.timedesk.web;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.core.convert.support.GenericConversionService;
 import org.springframework.roo.addon.web.mvc.controller.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,6 +29,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.timedesk.entity.Company;
+import org.timedesk.entity.CompanySite;
+import org.timedesk.entity.Project;
 import org.timedesk.web.util.ErrorHandler;
 import org.timedesk.web.util.UrlEncoder;
 
@@ -34,6 +39,9 @@ import org.timedesk.web.util.UrlEncoder;
 @Controller
 public class CompanyController
 {
+	@Autowired
+	private GenericConversionService conversionService;
+
 	@RequestMapping(method = RequestMethod.POST)
 	public String create(@Valid Company company, BindingResult result, Model model, HttpServletRequest request)
 	{
@@ -52,7 +60,7 @@ public class CompanyController
 		model.addAttribute("company", company);
 		return "companies/create";
 	}
-	
+
 	Converter<Company, String> getCompanyConverter()
 	{
 		return new Converter<Company, String>()
@@ -62,5 +70,35 @@ public class CompanyController
 				return new StringBuilder().append(company.getName()).toString();
 			}
 		};
+	}
+
+	Converter<CompanySite, String> getCompanySiteConverter()
+	{
+		return new Converter<CompanySite, String>()
+		{
+			public String convert(CompanySite companySite)
+			{
+				return new StringBuilder().append(companySite.getSiteId()).append(" ").append(companySite.getLocation()).append(" ").append(companySite.getCity()).toString();
+			}
+		};
+	}
+
+	Converter<Project, String> getProjectConverter()
+	{
+		return new Converter<Project, String>()
+		{
+			public String convert(Project project)
+			{
+				return new StringBuilder().append(project.getProjectId()).append(" ").append(project.getName()).append(" ").append(project.getDescription()).toString();
+			}
+		};
+	}
+
+	@PostConstruct
+	void registerConverters()
+	{
+		conversionService.addConverter(getCompanyConverter());
+		conversionService.addConverter(getCompanySiteConverter());
+		conversionService.addConverter(getProjectConverter());
 	}
 }

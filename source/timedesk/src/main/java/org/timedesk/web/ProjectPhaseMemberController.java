@@ -8,11 +8,13 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.core.convert.support.GenericConversionService;
 import org.springframework.mail.MailSender;
 import org.springframework.roo.addon.web.mvc.controller.RooWebScaffold;
 import org.springframework.stereotype.Controller;
@@ -43,6 +45,8 @@ public class ProjectPhaseMemberController
 {
 	@Autowired
 	private transient MailSender mailSender;
+	@Autowired
+	private GenericConversionService conversionService;
 
 	@RequestMapping(params = "form", method = RequestMethod.GET)
 	public String createForm(Model model, @RequestParam(value = "parentId", required = false) Long parentId)
@@ -76,7 +80,7 @@ public class ProjectPhaseMemberController
 			addDateTimeFormatPatterns(model);
 			return "projectphasemembers/create";
 		}
-		if(projectPhaseMember.getProjectPhase() == null)
+		if (projectPhaseMember.getProjectPhase() == null)
 		{
 			ObjectError error = new ObjectError("ProjectPhaseMember", "Project phase is not set.");
 			result.addError(error);
@@ -84,7 +88,7 @@ public class ProjectPhaseMemberController
 			addDateTimeFormatPatterns(model);
 			return "projectphasemembers/create";
 		}
-		if(projectPhaseMember.getProjectMember() == null)
+		if (projectPhaseMember.getProjectMember() == null)
 		{
 			ObjectError error = new ObjectError("ProjectPhaseMember", "Project phase member is not set.");
 			result.addError(error);
@@ -154,32 +158,61 @@ public class ProjectPhaseMemberController
 		projectPhaseMember.merge();
 		return "redirect:/projectphases/" + UrlEncoder.encodeUrlPathSegment(projectPhaseMember.getProjectPhase().getId().toString(), request);
 	}
-	
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model) 
-    {
-    	ProjectPhaseMember member = ProjectPhaseMember.findProjectPhaseMember(id);
-    	String sendTo = member.getProjectMember().getEmployee().getEmail();
-    	String projectName = member.getProjectMember().getProject().getName();
-    	String phase = member.getProjectPhase().getDescription();
-    	Date startDate = member.getStartDate();
-    	Date endDate = member.getEndDate();    	
-    	String phaseId = member.getProjectPhase().getId().toString();
-        member.remove();    
-        EmailNotifier.sendMessage(mailSender, NotificationEnum.DeAllocatedFromProject, sendTo, projectName, phase, startDate, endDate);
-        return "redirect:/projectphases/" + phaseId;
-    }
+
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model)
+	{
+		ProjectPhaseMember member = ProjectPhaseMember.findProjectPhaseMember(id);
+		String sendTo = member.getProjectMember().getEmployee().getEmail();
+		String projectName = member.getProjectMember().getProject().getName();
+		String phase = member.getProjectPhase().getDescription();
+		Date startDate = member.getStartDate();
+		Date endDate = member.getEndDate();
+		String phaseId = member.getProjectPhase().getId().toString();
+		member.remove();
+		EmailNotifier.sendMessage(mailSender, NotificationEnum.DeAllocatedFromProject, sendTo, projectName, phase, startDate, endDate);
+		return "redirect:/projectphases/" + phaseId;
+	}
 
 	Converter<ProjectMember, String> getProjectMemberConverter()
 	{
 		return new Converter<ProjectMember, String>()
 		{
-
 			public String convert(ProjectMember projectMember)
 			{
 				return new StringBuilder().append(projectMember.getMemberId()).append(" ").append(projectMember.getEmployee().getFirstName()).append(" ").append(projectMember.getEmployee().getLastName()).toString();
 			}
 		};
+	}
+
+	Converter<ProjectPhase, String> getProjectPhaseConverter()
+	{
+		return new Converter<ProjectPhase, String>()
+		{
+			public String convert(ProjectPhase projectPhase)
+			{
+				return new StringBuilder().append(projectPhase.getPhaseId()).append(" ").append(projectPhase.getDescription()).toString();
+			}
+		};
+	}
+
+	Converter<ProjectPhaseMember, String> getProjectPhaseMemberConverter()
+	{
+		return new Converter<ProjectPhaseMember, String>()
+		{
+			public String convert(ProjectPhaseMember projectPhaseMember)
+			{
+				return new StringBuilder().append(projectPhaseMember.getPhaseMemberId()).append(" ").append(projectPhaseMember.getStartDate()).append(" ").append(projectPhaseMember.getEndDate()).toString();
+			}
+		};
+	}
+
+	@PostConstruct
+	void registerConverters()
+	{
+		conversionService.addConverter(getProjectMemberConverter());
+		conversionService.addConverter(getProjectPhaseConverter());
+		conversionService.addConverter(getProjectPhaseMemberConverter());
 	}
 
 	@ModelAttribute("projectmembers")
@@ -216,7 +249,7 @@ public class ProjectPhaseMemberController
 			return collection;
 		}
 	}
-	
+
 	private ObjectError validateEmployeeAllocation(ProjectPhaseMember projectPhaseMember, BindingResult result, Model model)
 	{
 		Employee employee = projectPhaseMember.getProjectMember().getEmployee();
