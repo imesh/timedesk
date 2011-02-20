@@ -2,10 +2,10 @@
 <div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_org_timedesk_entity_Notification" items="${notifications}" z="EIYEot1jbJ4coBSw3UVp3chq21I=">
-        <table:table data="${notifications}" create="false" update="false" id="l_org_timedesk_entity_Notification" path="/notifications" z="aNPQF/UEojiHVj+KwvXGG2LFxfc=">
+        <table:table create="false" data="${notifications}" id="l_org_timedesk_entity_Notification" path="/notifications" update="false" z="user-managed">
             <table:column id="c_org_timedesk_entity_Notification_sentTime" property="sentTime" z="user-managed"/>
-            <table:column id="c_org_timedesk_entity_Notification_mailTo" property="mailTo" maxLength="100" z="user-managed"/>
-            <table:column id="c_org_timedesk_entity_Notification_subject" property="subject" maxLength="200" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_Notification_mailTo" maxLength="100" property="mailTo" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_Notification_subject" maxLength="200" property="subject" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_Notification_message" property="message" render="false" z="user-managed"/>        
         	        	
         </table:table>
