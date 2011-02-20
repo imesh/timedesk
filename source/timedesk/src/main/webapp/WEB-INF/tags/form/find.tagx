@@ -13,7 +13,8 @@
       <spring:message code="label_${fn:toLowerCase(fn:substringAfter(id,'_'))}" var="label"/>
     </c:if>
     <spring:message arguments="${fn:escapeXml(label)}" code="entity_find" var="title_msg"/>
-    <util:panel id="${id}" title="${title_msg}" openPane="${openPane}">
+    <util:panel id="${id}" title="" openPane="${openPane}">
+    <h3>${title_msg}</h3><a href="/timedesk/help"><img src="images/help.png" align="right"/></a>
       <spring:url value="${path}" var="form_url" />
       <form:form action="${fn:escapeXml(form_url)}" method="GET">
         <input type="hidden" name="find" value="${fn:escapeXml(finderName)}" />
