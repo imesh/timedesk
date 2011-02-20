@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:security="http://www.springframework.org/security/tags"
+ xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_org_timedesk_entity_ProjectMemberFeedback" items="${projectmemberfeedbacks}" z="WQuw2MHcnPu/9jQncxVRtHJOZPI=">
-        <table:table data="${projectmemberfeedbacks}" id="l_org_timedesk_entity_ProjectMemberFeedback" path="/projectmemberfeedbacks" z="/OATsu88mb1oCgSlU9L16hZJ4TE=">
+    <c:set var="fedit" value="false" />
+	<security:authorize ifAnyGranted="PROJECTRESOURCE.EDIT">
+	  	<c:set var="fedit" value="true" />
+	</security:authorize>
+	<page:list id="pl_org_timedesk_entity_ProjectMemberFeedback" items="${projectmemberfeedbacks}" z="WQuw2MHcnPu/9jQncxVRtHJOZPI=">
+        <table:table data="${projectmemberfeedbacks}" create="${fedit}" delete="${fedit}" update="${fedit}" id="l_org_timedesk_entity_ProjectMemberFeedback" path="/projectmemberfeedbacks" z="/OATsu88mb1oCgSlU9L16hZJ4TE=">
             <table:column id="c_org_timedesk_entity_ProjectMemberFeedback_projectMember" maxLength="60" property="projectMember" z="user-managed"/>            
             <table:column id="c_org_timedesk_entity_ProjectMemberFeedback_description" maxLength="100" property="description" z="xtngHRizDqXIGhOzkI72kVwjKSE="/>
         </table:table>
