@@ -22,6 +22,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -49,9 +50,9 @@ public class ProjectPhaseMemberController
 		ProjectPhaseMember phaseMember = new ProjectPhaseMember();
 		if (parentId != null)
 		{
-			ProjectPhase projectPhase = ProjectPhase.findProjectPhase(parentId);
-			if (projectPhase != null)
-				phaseMember.setProjectPhase(projectPhase);
+			//ProjectPhase projectPhase = ProjectPhase.findProjectPhase(parentId);
+			//if (projectPhase != null)
+			//	phaseMember.setProjectPhase(projectPhase);
 		}
 		model.addAttribute("projectPhaseMember", phaseMember);
 		addDateTimeFormatPatterns(model);
@@ -151,8 +152,17 @@ public class ProjectPhaseMemberController
 			return "projectphasemembers/update";
 		}
 		projectPhaseMember.merge();
-		return "redirect:/projectphasemembers/" + UrlEncoder.encodeUrlPathSegment(projectPhaseMember.getId().toString(), request);
+		return "redirect:/projectphases/" + UrlEncoder.encodeUrlPathSegment(projectPhaseMember.getProjectPhase().getId().toString(), request);
 	}
+	
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model) 
+    {
+    	ProjectPhaseMember member = ProjectPhaseMember.findProjectPhaseMember(id);
+    	String phaseId = member.getProjectPhase().getId().toString();
+        member.remove();    
+        return "redirect:/projectphases/" + phaseId;
+    }
 
 	Converter<ProjectMember, String> getProjectMemberConverter()
 	{

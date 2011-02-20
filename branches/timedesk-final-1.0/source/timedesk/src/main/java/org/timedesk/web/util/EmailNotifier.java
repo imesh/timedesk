@@ -1,5 +1,7 @@
 package org.timedesk.web.util;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.mail.MailSender;
@@ -27,10 +29,10 @@ public class EmailNotifier
 		}
 		else if(notification == NotificationEnum.AllocatedToProject)
 		{
-			String subject = "[Timedesk] Project Phase Allocation - " + projectPhase; 
+			String subject = "[Timedesk] Project Phase Allocation - " + project + " - " + projectPhase; 
 		    StringBuffer message = new StringBuffer();
 		    message.append("Notification: You have been allocated to project phase ").append(projectPhase);
-		    message.append(" of project ").append(project).append(" from ").append(startDate).append(" to ").append(endDate).append(".\nTime: ").append(new Date());
+		    message.append(" of project ").append(project).append(" from ").append(shortDate(startDate)).append(" to ").append(shortDate(endDate)).append(".\nTime: ").append(new Date());
 		    message.append("\n\n").append("http://www.timedeskonline.com");
 		    
 		    sendMessage(mailSender, subject, mailTo, message.toString());
@@ -60,5 +62,15 @@ public class EmailNotifier
 		{
 			ApplicationTrace.trace(e);
 		}
+	}
+	
+	private static String shortDate(Date date)
+	{
+		if (date != null)
+		{
+			DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+			return formatter.format(date);
+		}
+		return "";
 	}
 }
