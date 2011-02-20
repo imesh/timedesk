@@ -4,15 +4,11 @@
 package org.timedesk.web;
 
 import java.io.UnsupportedEncodingException;
-import java.lang.Long;
-import java.lang.String;
 import java.util.Arrays;
 import java.util.Collection;
-import javax.annotation.PostConstruct;
+
 import javax.servlet.http.HttpServletRequest;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.convert.converter.Converter;
-import org.springframework.core.convert.support.GenericConversionService;
+
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,10 +26,8 @@ import org.timedesk.entity.EmployeeVisa;
 import org.timedesk.entity.Skill;
 import org.timedesk.entity.User;
 
-privileged aspect EmployeeController_Roo_Controller {
+privileged aspect EmployeeController_Roo_Controller {    
     
-    @Autowired
-    private GenericConversionService EmployeeController.conversionService;
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String EmployeeController.show(@PathVariable("id") Long id, Model model) {
@@ -117,65 +111,7 @@ privileged aspect EmployeeController_Roo_Controller {
     public Collection<User> EmployeeController.populateUsers() {
         return User.findAllUsers();
     }
-    
-    Converter<CompanySite, String> EmployeeController.getCompanySiteConverter() {
-        return new Converter<CompanySite, String>() {
-            public String convert(CompanySite companySite) {
-                return new StringBuilder().append(companySite.getSiteId()).append(" ").append(companySite.getLocation()).append(" ").append(companySite.getCity()).toString();
-            }
-        };
-    }
-    
-    Converter<Employee, String> EmployeeController.getEmployeeConverter() {
-        return new Converter<Employee, String>() {
-            public String convert(Employee employee) {
-                return new StringBuilder().append(employee.getEmployeeId()).append(" ").append(employee.getFirstName()).append(" ").append(employee.getLastName()).toString();
-            }
-        };
-    }
-    
-    Converter<EmployeeLeave, String> EmployeeController.getEmployeeLeaveConverter() {
-        return new Converter<EmployeeLeave, String>() {
-            public String convert(EmployeeLeave employeeLeave) {
-                return new StringBuilder().append(employeeLeave.getFromTime()).append(" ").append(employeeLeave.getToTime()).toString();
-            }
-        };
-    }
-    
-    Converter<EmployeeRole, String> EmployeeController.getEmployeeRoleConverter() {
-        return new Converter<EmployeeRole, String>() {
-            public String convert(EmployeeRole employeeRole) {
-                return new StringBuilder().append(employeeRole.getRoleId()).append(" ").append(employeeRole.getName()).toString();
-            }
-        };
-    }
-    
-    Converter<EmployeeVisa, String> EmployeeController.getEmployeeVisaConverter() {
-        return new Converter<EmployeeVisa, String>() {
-            public String convert(EmployeeVisa employeeVisa) {
-                return new StringBuilder().append(employeeVisa.getVisaId()).append(" ").append(employeeVisa.getValidFrom()).append(" ").append(employeeVisa.getValidTo()).toString();
-            }
-        };
-    }
-    
-    Converter<Skill, String> EmployeeController.getSkillConverter() {
-        return new Converter<Skill, String>() {
-            public String convert(Skill skill) {
-                return new StringBuilder().append(skill.getSkillId()).append(" ").append(skill.getDescription()).toString();
-            }
-        };
-    }
-    
-    @PostConstruct
-    void EmployeeController.registerConverters() {
-        conversionService.addConverter(getCompanySiteConverter());
-        conversionService.addConverter(getEmployeeConverter());
-        conversionService.addConverter(getEmployeeLeaveConverter());
-        conversionService.addConverter(getEmployeeRoleConverter());
-        conversionService.addConverter(getEmployeeVisaConverter());
-        conversionService.addConverter(getSkillConverter());
-    }
-    
+       
     private String EmployeeController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {
         String enc = request.getCharacterEncoding();
         if (enc == null) {

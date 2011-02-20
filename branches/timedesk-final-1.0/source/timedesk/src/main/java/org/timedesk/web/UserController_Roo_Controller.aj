@@ -4,15 +4,11 @@
 package org.timedesk.web;
 
 import java.io.UnsupportedEncodingException;
-import java.lang.Long;
-import java.lang.String;
 import java.util.Collection;
-import javax.annotation.PostConstruct;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.convert.converter.Converter;
-import org.springframework.core.convert.support.GenericConversionService;
+
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -27,10 +23,7 @@ import org.timedesk.entity.SecurityRole;
 import org.timedesk.entity.User;
 
 privileged aspect UserController_Roo_Controller {
-    
-    @Autowired
-    private GenericConversionService UserController.conversionService;
-    
+       
     @RequestMapping(method = RequestMethod.POST)
     public String UserController.create(@Valid User user, BindingResult result, Model model, HttpServletRequest request) {
         if (result.hasErrors()) {
@@ -93,29 +86,7 @@ privileged aspect UserController_Roo_Controller {
     public Collection<SecurityRole> UserController.populateSecurityRoles() {
         return SecurityRole.findAllSecurityRoles();
     }
-    
-    Converter<Employee, String> UserController.getEmployeeConverter() {
-        return new Converter<Employee, String>() {
-            public String convert(Employee employee) {
-                return new StringBuilder().append(employee.getEmployeeId()).append(" ").append(employee.getFirstName()).append(" ").append(employee.getLastName()).toString();
-            }
-        };
-    }
-    
-    Converter<SecurityRole, String> UserController.getSecurityRoleConverter() {
-        return new Converter<SecurityRole, String>() {
-            public String convert(SecurityRole securityRole) {
-                return new StringBuilder().append(securityRole.getSecurityRoleId()).append(" ").append(securityRole.getName()).toString();
-            }
-        };
-    }
-    
-    @PostConstruct
-    void UserController.registerConverters() {
-        conversionService.addConverter(getEmployeeConverter());
-        conversionService.addConverter(getSecurityRoleConverter());
-    }
-    
+           
     private String UserController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {
         String enc = request.getCharacterEncoding();
         if (enc == null) {

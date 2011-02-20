@@ -4,14 +4,10 @@
 package org.timedesk.web;
 
 import java.io.UnsupportedEncodingException;
-import java.lang.Long;
-import java.lang.String;
 import java.util.Collection;
-import javax.annotation.PostConstruct;
+
 import javax.servlet.http.HttpServletRequest;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.convert.converter.Converter;
-import org.springframework.core.convert.support.GenericConversionService;
+
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,8 +24,6 @@ import org.timedesk.entity.ProjectMemberRole;
 
 privileged aspect ProjectMemberController_Roo_Controller {
     
-    @Autowired
-    private GenericConversionService ProjectMemberController.conversionService;
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String ProjectMemberController.show(@PathVariable("id") Long id, Model model) {
@@ -76,47 +70,7 @@ privileged aspect ProjectMemberController_Roo_Controller {
     public Collection<ProjectMemberRole> ProjectMemberController.populateProjectMemberRoles() {
         return ProjectMemberRole.findAllProjectMemberRoles();
     }
-    
-    Converter<Employee, String> ProjectMemberController.getEmployeeConverter() {
-        return new Converter<Employee, String>() {
-            public String convert(Employee employee) {
-                return new StringBuilder().append(employee.getEmployeeId()).append(" ").append(employee.getFirstName()).append(" ").append(employee.getLastName()).toString();
-            }
-        };
-    }
-    
-    Converter<Project, String> ProjectMemberController.getProjectConverter() {
-        return new Converter<Project, String>() {
-            public String convert(Project project) {
-                return new StringBuilder().append(project.getProjectId()).append(" ").append(project.getName()).append(" ").append(project.getDescription()).toString();
-            }
-        };
-    }
-    
-    Converter<ProjectMemberFeedback, String> ProjectMemberController.getProjectMemberFeedbackConverter() {
-        return new Converter<ProjectMemberFeedback, String>() {
-            public String convert(ProjectMemberFeedback projectMemberFeedback) {
-                return new StringBuilder().append(projectMemberFeedback.getFeedbackId()).append(" ").append(projectMemberFeedback.getDescription()).toString();
-            }
-        };
-    }
-    
-    Converter<ProjectMemberRole, String> ProjectMemberController.getProjectMemberRoleConverter() {
-        return new Converter<ProjectMemberRole, String>() {
-            public String convert(ProjectMemberRole projectMemberRole) {
-                return new StringBuilder().append(projectMemberRole.getRoleId()).append(" ").append(projectMemberRole.getName()).toString();
-            }
-        };
-    }
-    
-    @PostConstruct
-    void ProjectMemberController.registerConverters() {
-        conversionService.addConverter(getEmployeeConverter());
-        conversionService.addConverter(getProjectConverter());
-        conversionService.addConverter(getProjectMemberFeedbackConverter());
-        conversionService.addConverter(getProjectMemberRoleConverter());
-    }
-    
+            
     private String ProjectMemberController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {
         String enc = request.getCharacterEncoding();
         if (enc == null) {

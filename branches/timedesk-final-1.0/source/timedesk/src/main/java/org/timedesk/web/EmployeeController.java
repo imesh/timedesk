@@ -3,10 +3,13 @@ package org.timedesk.web;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.core.convert.support.GenericConversionService;
 import org.springframework.roo.addon.web.mvc.controller.RooWebScaffold;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +21,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.timedesk.entity.CompanySite;
 import org.timedesk.entity.Employee;
+import org.timedesk.entity.EmployeeLeave;
+import org.timedesk.entity.EmployeeRole;
+import org.timedesk.entity.EmployeeVisa;
+import org.timedesk.entity.Skill;
 import org.timedesk.entity.User;
 import org.timedesk.web.util.ApplicationTrace;
 import org.timedesk.web.util.UrlEncoder;
@@ -27,6 +34,9 @@ import org.timedesk.web.util.UrlEncoder;
 @Controller
 public class EmployeeController
 {
+	@Autowired
+	private GenericConversionService conversionService;
+
 	@RequestMapping(params = "form", method = RequestMethod.GET)
 	public String createForm(Model model, @RequestParam(value = "parentId", required = false) Long parentId)
 	{
@@ -103,6 +113,84 @@ public class EmployeeController
 				return new StringBuilder().append(user.getUsername()).toString();
 			}
 		};
+	}
+
+	Converter<CompanySite, String> getCompanySiteConverter()
+	{
+		return new Converter<CompanySite, String>()
+		{
+			public String convert(CompanySite companySite)
+			{
+				return new StringBuilder().append(companySite.getSiteId()).append(" ").append(companySite.getLocation()).append(" ").append(companySite.getCity()).toString();
+			}
+		};
+	}
+
+	Converter<Employee, String> getEmployeeConverter()
+	{
+		return new Converter<Employee, String>()
+		{
+			public String convert(Employee employee)
+			{
+				return new StringBuilder().append(employee.getEmployeeId()).append(" ").append(employee.getFirstName()).append(" ").append(employee.getLastName()).toString();
+			}
+		};
+	}
+
+	Converter<EmployeeLeave, String> getEmployeeLeaveConverter()
+	{
+		return new Converter<EmployeeLeave, String>()
+		{
+			public String convert(EmployeeLeave employeeLeave)
+			{
+				return new StringBuilder().append(employeeLeave.getFromTime()).append(" ").append(employeeLeave.getToTime()).toString();
+			}
+		};
+	}
+
+	Converter<EmployeeRole, String> getEmployeeRoleConverter()
+	{
+		return new Converter<EmployeeRole, String>()
+		{
+			public String convert(EmployeeRole employeeRole)
+			{
+				return new StringBuilder().append(employeeRole.getRoleId()).append(" ").append(employeeRole.getName()).toString();
+			}
+		};
+	}
+
+	Converter<EmployeeVisa, String> getEmployeeVisaConverter()
+	{
+		return new Converter<EmployeeVisa, String>()
+		{
+			public String convert(EmployeeVisa employeeVisa)
+			{
+				return new StringBuilder().append(employeeVisa.getVisaId()).append(" ").append(employeeVisa.getValidFrom()).append(" ").append(employeeVisa.getValidTo()).toString();
+			}
+		};
+	}
+
+	Converter<Skill, String> getSkillConverter()
+	{
+		return new Converter<Skill, String>()
+		{
+			public String convert(Skill skill)
+			{
+				return new StringBuilder().append(skill.getSkillId()).append(" ").append(skill.getDescription()).toString();
+			}
+		};
+	}
+
+	@PostConstruct
+	void registerConverters()
+	{
+		conversionService.addConverter(getUserConverter());
+		conversionService.addConverter(getCompanySiteConverter());
+		conversionService.addConverter(getEmployeeConverter());
+		conversionService.addConverter(getEmployeeLeaveConverter());
+		conversionService.addConverter(getEmployeeRoleConverter());
+		conversionService.addConverter(getEmployeeVisaConverter());
+		conversionService.addConverter(getSkillConverter());
 	}
 
 	private String generateEmployeeId(Employee employee)

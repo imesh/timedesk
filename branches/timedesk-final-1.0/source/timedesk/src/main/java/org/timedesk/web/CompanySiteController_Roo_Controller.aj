@@ -4,15 +4,11 @@
 package org.timedesk.web;
 
 import java.io.UnsupportedEncodingException;
-import java.lang.Long;
-import java.lang.String;
 import java.util.Arrays;
 import java.util.Collection;
-import javax.annotation.PostConstruct;
+
 import javax.servlet.http.HttpServletRequest;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.convert.converter.Converter;
-import org.springframework.core.convert.support.GenericConversionService;
+
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,10 +24,7 @@ import org.timedesk.entity.Employee;
 import org.timedesk.entity.Holiday;
 
 privileged aspect CompanySiteController_Roo_Controller {
-    
-    @Autowired
-    private GenericConversionService CompanySiteController.conversionService;
-    
+        
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String CompanySiteController.show(@PathVariable("id") Long id, Model model) {
         model.addAttribute("companysite", CompanySite.findCompanySite(id));
@@ -77,38 +70,7 @@ privileged aspect CompanySiteController_Roo_Controller {
     public Collection<Holiday> CompanySiteController.populateHolidays() {
         return Holiday.findAllHolidays();
     }
-    
-    Converter<CompanySite, String> CompanySiteController.getCompanySiteConverter() {
-        return new Converter<CompanySite, String>() {
-            public String convert(CompanySite companySite) {
-                return new StringBuilder().append(companySite.getSiteId()).append(" ").append(companySite.getLocation()).append(" ").append(companySite.getCity()).toString();
-            }
-        };
-    }
-    
-    Converter<Employee, String> CompanySiteController.getEmployeeConverter() {
-        return new Converter<Employee, String>() {
-            public String convert(Employee employee) {
-                return new StringBuilder().append(employee.getEmployeeId()).append(" ").append(employee.getFirstName()).append(" ").append(employee.getLastName()).toString();
-            }
-        };
-    }
-    
-    Converter<Holiday, String> CompanySiteController.getHolidayConverter() {
-        return new Converter<Holiday, String>() {
-            public String convert(Holiday holiday) {
-                return new StringBuilder().append(holiday.getDate()).toString();
-            }
-        };
-    }
-    
-    @PostConstruct
-    void CompanySiteController.registerConverters() {
-        conversionService.addConverter(getCompanySiteConverter());
-        conversionService.addConverter(getEmployeeConverter());
-        conversionService.addConverter(getHolidayConverter());
-    }
-    
+        
     private String CompanySiteController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {
         String enc = request.getCharacterEncoding();
         if (enc == null) {
