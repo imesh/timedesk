@@ -8,12 +8,8 @@
         <field:input field="description" id="c_org_timedesk_entity_Project_description" z="gP0cO0sXRRt0Iw554d6xBZPkqVA="/>
         <field:datetime dateTimePattern="${project_startdate_date_format}" field="startDate" id="c_org_timedesk_entity_Project_startDate" required="true" z="c6TKUCeAKJVGx14FxAhbei69Cpc="/>
         <field:datetime dateTimePattern="${project_enddate_date_format}" field="endDate" id="c_org_timedesk_entity_Project_endDate" required="true" z="/5N6WOTKUf5/chj0xxoUO/P5IjU="/>
-            
-    
-    
-    <field:simple field="projectMembers" id="c_org_timedesk_entity_Project_projectMembers" messageCode="entity_reference_not_managed" messageCodeAttribute="Project Member" render="false" z="user-managed"/>
-        <field:simple field="projectPhases" id="c_org_timedesk_entity_Project_projectPhases" messageCode="entity_reference_not_managed" messageCodeAttribute="Project Phase" render="false" z="user-managed"/>
-    
-    <field:checkbox field="multiplePhases" id="c_org_timedesk_entity_Project_multiplePhases" z="ptZ3k4FvzCSwJcHB4j5qulKIWhQ="/>
+        <field:simple field="projectMembers" id="c_org_timedesk_entity_Project_projectMembers" messageCode="entity_reference_not_managed" messageCodeAttribute="Project Member" render="false" z="user-managed"/>
+        <field:simple field="projectPhases" id="c_org_timedesk_entity_Project_projectPhases" messageCode="entity_reference_not_managed" messageCodeAttribute="Project Phase" render="false" z="user-managed"/>    
+    	<field:checkbox field="multiplePhases" id="c_org_timedesk_entity_Project_multiplePhases" render="false" z="user-managed"/>
     </form:update>
 </div>
