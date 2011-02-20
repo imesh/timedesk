@@ -27,4 +27,34 @@ privileged aspect Project_Roo_Finder {
         return q;
     }
     
+    public static TypedQuery<Project> Project.findProjectsByNameLike(String name) {
+        if (name == null || name.length() == 0) throw new IllegalArgumentException("The name argument is required");
+        name = name.replace('*', '%');
+        if (name.charAt(0) != '%') {
+            name = "%" + name;
+        }
+        if (name.charAt(name.length() -1) != '%') {
+            name = name + "%";
+        }
+        EntityManager em = Project.entityManager();
+        TypedQuery<Project> q = em.createQuery("SELECT Project FROM Project AS project WHERE LOWER(project.name) LIKE LOWER(:name)", Project.class);
+        q.setParameter("name", name);
+        return q;
+    }
+    
+    public static TypedQuery<Project> Project.findProjectsByProjectIdLike(String projectId) {
+        if (projectId == null || projectId.length() == 0) throw new IllegalArgumentException("The projectId argument is required");
+        projectId = projectId.replace('*', '%');
+        if (projectId.charAt(0) != '%') {
+            projectId = "%" + projectId;
+        }
+        if (projectId.charAt(projectId.length() -1) != '%') {
+            projectId = projectId + "%";
+        }
+        EntityManager em = Project.entityManager();
+        TypedQuery<Project> q = em.createQuery("SELECT Project FROM Project AS project WHERE LOWER(project.projectId) LIKE LOWER(:projectId)", Project.class);
+        q.setParameter("projectId", projectId);
+        return q;
+    }
+    
 }

@@ -336,3 +336,24 @@ quit
 perform package
 quit
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-20 10:53:41
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-20 13:57:16
+finder list --class ~.entity.Employee --filter employeeId,name
+finder list --class ~.entity.Employee --filter employeeId,name
+finder list --class ~.entity.Employee --filter employeeId,name
+finder list --class ~.entity.Employee --filter "Employee.employeeId"
+// [failed] finder add --finderName findEmployeeByName
+// [failed] finder add --finderName findEmployeeByFirstName
+finder add --finderName findEmployeesByFirstNameLike
+finder add --finderName findEmployeesByEmployeeIdLike
+// [failed] finder add --finderName findCompanyNameLike
+finder list --class ~.entity.Project
+// [failed] finder add --finderName findCompanyNameLike
+// [failed] finder add --finderName findProjectByNameLike
+// [failed] finder add --finderName findProjectsByNameLike
+finder add --finderName findProjectsByNameLike
+// [failed] finder add --finderName findProjectsByPorjectIdLike
+// [failed] finder add --finderName findProjectsByPorjectIdLike
+finder list --class ~.entity.Project
+finder add --finderName findProjectsByProjectIdLike
+quit
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-20 14:24:22

@@ -20,18 +20,37 @@ public class EmailNotifier
 		ApplicationTrace.trace("sendMessage() start");
 		if(notification == NotificationEnum.AssignedToProject)
 		{
-			String subject = "[Timedesk] Project Assignment - " + project;
+			String subject = "[Timedesk] Assigned to project " + project;
 			StringBuffer message = new StringBuffer();
 			message.append("Notification: You have been assigned to project ").append(project).append(". \nTime: ").append(new Date());
 			message.append("\n\n").append("http://www.timedeskonline.com");
 			
 			sendMessage(mailSender, subject, mailTo, message.toString());
 		}
+		else if(notification == NotificationEnum.UnAssignedFromProject)
+		{
+			String subject = "[Timedesk] Unassigned from project " + project;
+			StringBuffer message = new StringBuffer();
+			message.append("Notification: You have been unassigned from project ").append(project).append(". \nTime: ").append(new Date());
+			message.append("\n\n").append("http://www.timedeskonline.com");
+			
+			sendMessage(mailSender, subject, mailTo, message.toString());
+		}		
 		else if(notification == NotificationEnum.AllocatedToProject)
 		{
-			String subject = "[Timedesk] Project Phase Allocation - " + project + " - " + projectPhase; 
+			String subject = "[Timedesk] Allocation to project phase " + project + " - " + projectPhase; 
 		    StringBuffer message = new StringBuffer();
 		    message.append("Notification: You have been allocated to project phase ").append(projectPhase);
+		    message.append(" of project ").append(project).append(" from ").append(shortDate(startDate)).append(" to ").append(shortDate(endDate)).append(".\nTime: ").append(new Date());
+		    message.append("\n\n").append("http://www.timedeskonline.com");
+		    
+		    sendMessage(mailSender, subject, mailTo, message.toString());
+		}
+		else if(notification == NotificationEnum.DeAllocatedFromProject)
+		{
+			String subject = "[Timedesk] Deallocated from project phase " + project + " - " + projectPhase; 
+		    StringBuffer message = new StringBuffer();
+		    message.append("Notification: You have been deallocated from project phase ").append(projectPhase);
 		    message.append(" of project ").append(project).append(" from ").append(shortDate(startDate)).append(" to ").append(shortDate(endDate)).append(".\nTime: ").append(new Date());
 		    message.append("\n\n").append("http://www.timedeskonline.com");
 		    

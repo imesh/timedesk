@@ -159,8 +159,14 @@ public class ProjectPhaseMemberController
     public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model) 
     {
     	ProjectPhaseMember member = ProjectPhaseMember.findProjectPhaseMember(id);
+    	String sendTo = member.getProjectMember().getEmployee().getEmail();
+    	String projectName = member.getProjectMember().getProject().getName();
+    	String phase = member.getProjectPhase().getDescription();
+    	Date startDate = member.getStartDate();
+    	Date endDate = member.getEndDate();    	
     	String phaseId = member.getProjectPhase().getId().toString();
         member.remove();    
+        EmailNotifier.sendMessage(mailSender, NotificationEnum.DeAllocatedFromProject, sendTo, projectName, phase, startDate, endDate);
         return "redirect:/projectphases/" + phaseId;
     }
 

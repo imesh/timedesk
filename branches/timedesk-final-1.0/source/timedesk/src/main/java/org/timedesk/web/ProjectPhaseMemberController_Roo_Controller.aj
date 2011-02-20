@@ -57,7 +57,7 @@ privileged aspect ProjectPhaseMemberController_Roo_Controller {
         addDateTimeFormatPatterns(model);
         return "projectphasemembers/update";
     }
-        
+    
     Converter<ProjectPhase, String> ProjectPhaseMemberController.getProjectPhaseConverter() {
         return new Converter<ProjectPhase, String>() {
             public String convert(ProjectPhase projectPhase) {

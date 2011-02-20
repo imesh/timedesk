@@ -22,7 +22,7 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooJavaBean
 @RooToString
 @Table(name = "project", uniqueConstraints = @UniqueConstraint(columnNames = "company_id,project_id"))
-@RooEntity(finders = { "findProjectsByCompany", "findProjectsByName" })
+@RooEntity(finders = { "findProjectsByCompany", "findProjectsByName", "findProjectsByNameLike", "findProjectsByProjectIdLike" })
 public class Project {
 
     @NotNull

@@ -61,6 +61,28 @@ privileged aspect EmployeeController_Roo_Controller {
         return "employees/update";
     }
     
+    @RequestMapping(params = { "find=ByFirstNameLike", "form" }, method = RequestMethod.GET)
+    public String EmployeeController.findEmployeesByFirstNameLikeForm(Model model) {
+        return "employees/findEmployeesByFirstNameLike";
+    }
+    
+    @RequestMapping(params = "find=ByFirstNameLike", method = RequestMethod.GET)
+    public String EmployeeController.findEmployeesByFirstNameLike(@RequestParam("firstName") String firstName, Model model) {
+        model.addAttribute("employees", Employee.findEmployeesByFirstNameLike(firstName).getResultList());
+        return "employees/list";
+    }
+    
+    @RequestMapping(params = { "find=ByEmployeeIdLike", "form" }, method = RequestMethod.GET)
+    public String EmployeeController.findEmployeesByEmployeeIdLikeForm(Model model) {
+        return "employees/findEmployeesByEmployeeIdLike";
+    }
+    
+    @RequestMapping(params = "find=ByEmployeeIdLike", method = RequestMethod.GET)
+    public String EmployeeController.findEmployeesByEmployeeIdLike(@RequestParam("employeeId") String employeeId, Model model) {
+        model.addAttribute("employees", Employee.findEmployeesByEmployeeIdLike(employeeId).getResultList());
+        return "employees/list";
+    }
+    
     @ModelAttribute("companysites")
     public Collection<CompanySite> EmployeeController.populateCompanySites() {
         return CompanySite.findAllCompanySites();
