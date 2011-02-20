@@ -50,9 +50,9 @@ public class ProjectPhaseMemberController
 		ProjectPhaseMember phaseMember = new ProjectPhaseMember();
 		if (parentId != null)
 		{
-			//ProjectPhase projectPhase = ProjectPhase.findProjectPhase(parentId);
-			//if (projectPhase != null)
-			//	phaseMember.setProjectPhase(projectPhase);
+			ProjectPhase projectPhase = ProjectPhase.findProjectPhase(parentId);
+			if (projectPhase != null)
+				phaseMember.setProjectPhase(projectPhase);
 		}
 		model.addAttribute("projectPhaseMember", phaseMember);
 		addDateTimeFormatPatterns(model);
