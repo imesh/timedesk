@@ -3,9 +3,9 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_org_timedesk_entity_Notification" items="${notifications}" z="EIYEot1jbJ4coBSw3UVp3chq21I=">
         <table:table create="false" data="${notifications}" id="l_org_timedesk_entity_Notification" path="/notifications" update="false" z="user-managed">
-            <table:column id="c_org_timedesk_entity_Notification_sentTime" property="sentTime" z="user-managed"/>
-            <table:column id="c_org_timedesk_entity_Notification_mailTo" maxLength="100" property="mailTo" z="user-managed"/>
-            <table:column id="c_org_timedesk_entity_Notification_subject" maxLength="200" property="subject" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_Notification_sentTime" maxLength="20" property="sentTime" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_Notification_mailTo" maxLength="60" property="mailTo" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_Notification_subject" maxLength="60" property="subject" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_Notification_message" property="message" render="false" z="user-managed"/>        
         	        	
         </table:table>

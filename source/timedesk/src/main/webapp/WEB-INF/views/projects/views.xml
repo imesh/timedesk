@@ -19,4 +19,10 @@
 <definition extends="default" name="projects/findProjectsByName">
         <put-attribute name="body" value="/WEB-INF/views/projects/findProjectsByName.jspx"/>
     </definition>
+<definition extends="default" name="projects/findProjectsByNameLike">
+        <put-attribute name="body" value="/WEB-INF/views/projects/findProjectsByNameLike.jspx"/>
+    </definition>
+<definition extends="default" name="projects/findProjectsByProjectIdLike">
+        <put-attribute name="body" value="/WEB-INF/views/projects/findProjectsByProjectIdLike.jspx"/>
+    </definition>
 </tiles-definitions>

@@ -104,9 +104,12 @@ public class ProjectMemberController
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public String delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model)
 	{
-		ProjectMember member = ProjectMember.findProjectMember(id);
-		String projectId = member.getProject().getId().toString();
-		ProjectMember.findProjectMember(id).remove();
+		ProjectMember projectMember = ProjectMember.findProjectMember(id);
+		String mailTo = projectMember.getEmployee().getEmail(); 
+		String projectName = projectMember.getProject().getName();
+		String projectId = projectMember.getProject().getId().toString();
+		projectMember.remove();
+		EmailNotifier.sendMessage(mailSender, NotificationEnum.UnAssignedFromProject, mailTo, projectName);
 		return "redirect:/projects/" + projectId;
 	}
 

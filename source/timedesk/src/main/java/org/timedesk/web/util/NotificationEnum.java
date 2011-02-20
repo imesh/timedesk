@@ -2,5 +2,5 @@ package org.timedesk.web.util;
 
 public enum NotificationEnum
 {
-	AssignedToProject, AllocatedToProject
+	AssignedToProject, AllocatedToProject, UnAssignedFromProject, DeAllocatedFromProject
 }
