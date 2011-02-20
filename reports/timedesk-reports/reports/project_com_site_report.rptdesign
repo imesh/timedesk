@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
+    <property name="comments">Copyright (c) 2006 &lt;&lt;Your Company Name here>></property>
+    <property name="createdBy">Eclipse BIRT Designer Version 2.6.1.v20100902 Build &lt;2.6.1.v20100915-1750></property>
+    <simple-property-list name="includeResource">
+        <value>report</value>
+    </simple-property-list>
+    <property name="units">in</property>
+    <property name="layoutPreference">auto layout</property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">report_library.rptlibrary</property>
+            <property name="namespace">report_library</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="rp_company_id" id="198">
+            <property name="hidden">false</property>
+            <text-property name="promptText">Company ID</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="rp_site_id" id="199">
+            <property name="hidden">false</property>
+            <text-property name="promptText">Site ID</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="160"
+ extends="report_library.Data Source"/>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Data Set" id="153">
+            <text-property name="displayName">Data Set</text-property>
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">rp_company_id</property>
+                    <property name="dataType">string</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue" type="javascript">params["rp_company_id"].value</expression>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">rp_site_id</property>
+                    <property name="dataType">string</property>
+                    <property name="position">2</property>
+                    <expression name="defaultValue" type="javascript">params["rp_site_id"].value</expression>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">project_id</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">description</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">version</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">start_date</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">end_date</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">company_id</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">project_id</property>
+                    <property name="nativeName">project_id</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">name</property>
+                    <property name="nativeName">name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">description</property>
+                    <property name="nativeName">description</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">version</property>
+                    <property name="nativeName">version</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">start_date</property>
+                    <property name="nativeName">start_date</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">end_date</property>
+                    <property name="nativeName">end_date</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">company_id</property>
+                    <property name="nativeName">company_id</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[SELECT pro.project_id, pro.name, pro.description, pro.version, pro.start_date, pro.end_date, pro.company_id FROM project AS pro, company AS com, company_site AS comsite WHERE (com.company_id = ? AND (com.id = comsite.company_id AND comsite.site_id = ?)) AND (comsite.company_id = pro.company_id); ]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="button-description-text" id="144">
+            <property name="fontFamily">"Arial", "Helvetica", sans-serif</property>
+            <property name="fontSize">11px</property>
+            <property name="fontWeight">normal</property>
+            <property name="color">#449DD5</property>
+            <property name="paddingTop">5px</property>
+            <property name="paddingBottom">2px</property>
+        </style>
+        <style name="main-sub-heading-small" id="145">
+            <property name="fontFamily">"Arial", "Helvetica", sans-serif</property>
+            <property name="fontSize">14px</property>
+            <property name="fontWeight">bold</property>
+            <property name="color">#FA901D</property>
+            <property name="paddingTop">8px</property>
+            <property name="paddingBottom">8px</property>
+        </style>
+        <style name="report-header" id="146">
+            <property name="backgroundColor">#449DD5</property>
+            <property name="color">#FFFFFF</property>
+            <property name="textAlign">center</property>
+        </style>
+        <style name="report-content" id="147">
+            <property name="fontFamily">"Arial", "Helvetica", sans-serif</property>
+            <property name="fontSize">11px</property>
+            <property name="fontWeight">normal</property>
+            <property name="color">#000000</property>
+        </style>
+        <style name="white-border" id="148">
+            <property name="borderRightColor">white</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1px</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="topMargin">1in</property>
+            <property name="leftMargin">1.25in</property>
+            <property name="bottomMargin">1in</property>
+            <property name="rightMargin">1.25in</property>
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="25">
+            <property name="width">100%</property>
+            <column id="26"/>
+            <row id="27">
+                <cell id="28">
+                    <label id="35">
+                        <property name="style">button-description-text</property>
+                        <property name="fontSize">18pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="textAlign">center</property>
+                        <text-property name="text" key="project_report_com_site_header">Services Report</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="29">
+                <cell id="30"/>
+            </row>
+            <row id="31">
+                <property name="height">0.589in</property>
+                <cell id="32">
+                    <grid id="40">
+                        <property name="height">0.515in</property>
+                        <property name="width">5.926in</property>
+                        <column id="41">
+                            <property name="width">1.0729166666666667in</property>
+                        </column>
+                        <column id="49">
+                            <property name="width">2.875in</property>
+                        </column>
+                        <column id="51"/>
+                        <row id="44">
+                            <property name="height">0.515in</property>
+                            <cell id="45">
+                                <label id="54">
+                                    <property name="style">main-sub-heading-small</property>
+                                    <text-property name="text" key="project_report_com_site_para_company_id">Content Provider User Name:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="48">
+                                <data id="220">
+                                    <property name="style">button-description-text</property>
+                                    <property name="fontWeight">bold</property>
+                                    <property name="color">#449DD5</property>
+                                    <property name="paddingTop">8pt</property>
+                                    <property name="paddingBottom">0pt</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">rp_company_id</property>
+                                            <expression name="expression" type="javascript">params["rp_company_id"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">rp_company_id</property>
+                                </data>
+                            </cell>
+                            <cell id="50">
+                                <label id="159">
+                                    <text-property name="text">                          </text-property>
+                                </label>
+                            </cell>
+                        </row>
+                    </grid>
+                    <grid id="202">
+                        <property name="height">0.515in</property>
+                        <property name="width">5.926in</property>
+                        <column id="203">
+                            <property name="width">0.6458333333333334in</property>
+                        </column>
+                        <column id="204">
+                            <property name="width">3.3020833333333335in</property>
+                        </column>
+                        <column id="205"/>
+                        <row id="213">
+                            <property name="height">0.515in</property>
+                            <cell id="214">
+                                <label id="215">
+                                    <property name="style">main-sub-heading-small</property>
+                                    <text-property name="text" key="project_report_com_site_para_siti_id">Content Provider User Name:</text-property>
+                                </label>
+                            </cell>
+                            <cell id="216">
+                                <data id="221">
+                                    <property name="style">button-description-text</property>
+                                    <property name="fontWeight">bold</property>
+                                    <property name="color">#449DD5</property>
+                                    <property name="paddingTop">10px</property>
+                                    <property name="textAlign">left</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">rp_site_id</property>
+                                            <expression name="expression" type="javascript">params["rp_site_id"]</expression>
+                                            <property name="dataType">string</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">rp_site_id</property>
+                                </data>
+                            </cell>
+                            <cell id="218">
+                                <label id="219">
+                                    <text-property name="text">                          </text-property>
+                                </label>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+            </row>
+            <row id="33">
+                <cell id="34">
+                    <table id="67">
+                        <property name="width">100%</property>
+                        <property name="dataSet">Data Set</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">start_date</property>
+                                <text-property name="displayName">start_date</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["start_date"]</expression>
+                                <property name="dataType">date-time</property>
+                            </structure>
+                            <structure>
+                                <property name="name">description</property>
+                                <text-property name="displayName">description</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["description"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">name</property>
+                                <text-property name="displayName">name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["name"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">project_id</property>
+                                <text-property name="displayName">project_id</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["project_id"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">version</property>
+                                <text-property name="displayName">version</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["version"]</expression>
+                                <property name="dataType">integer</property>
+                            </structure>
+                            <structure>
+                                <property name="name">end_date</property>
+                                <text-property name="displayName">end_date</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["end_date"]</expression>
+                                <property name="dataType">date-time</property>
+                            </structure>
+                            <structure>
+                                <property name="name">company_id</property>
+                                <text-property name="displayName">company_id</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["company_id"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="pageBreakInterval">50</property>
+                        <column id="108"/>
+                        <column id="109"/>
+                        <column id="110"/>
+                        <column id="169"/>
+                        <column id="173"/>
+                        <column id="177"/>
+                        <column id="181"/>
+                        <header>
+                            <row id="68">
+                                <property name="style">report-header</property>
+                                <cell id="70">
+                                    <property name="style">white-border</property>
+                                    <label id="121">
+                                        <property name="fontFamily">fantasy</property>
+                                        <text-property name="text" key="project_report_com_site_project_id">Services</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="71">
+                                    <property name="style">white-border</property>
+                                    <label id="122">
+                                        <text-property name="text" key="project_report_com_site_name">Launched Date</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="72">
+                                    <property name="style">white-border</property>
+                                    <label id="123">
+                                        <text-property name="text" key="project_report_com_site_description">Launched or Not</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="166">
+                                    <property name="style">white-border</property>
+                                    <label id="185">
+                                        <text-property name="text" key="project_report_com_site_version">version</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="170">
+                                    <property name="style">white-border</property>
+                                    <label id="187">
+                                        <text-property name="text" key="project_report_com_site_start_date">start_date</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="174">
+                                    <property name="style">white-border</property>
+                                    <label id="189">
+                                        <text-property name="text" key="project_report_com_site_end_date">end_date</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="178">
+                                    <property name="style">white-border</property>
+                                    <label id="191">
+                                        <text-property name="text" key="project_report_com_site_company_id">company_id</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </header>
+                        <detail>
+                            <row id="81">
+                                <method name="onCreate"><![CDATA[if( (row[0]+1)%20 == 0 ) {
+    this.getStyle().pageBreakBefore = "Always";
+} else {
+    this.getStyle().pageBreakBefore = "Avoid";
+}]]></method>
+                                <property name="style">report-content</property>
+                                <property name="backgroundColor">#DAE2E3</property>
+                                <cell id="83">
+                                    <property name="style">white-border</property>
+                                    <data id="182">
+                                        <property name="textAlign">center</property>
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">project_id</property>
+                                    </data>
+                                </cell>
+                                <cell id="84">
+                                    <property name="style">white-border</property>
+                                    <data id="183">
+                                        <property name="textAlign">center</property>
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">name</property>
+                                    </data>
+                                </cell>
+                                <cell id="85">
+                                    <property name="style">white-border</property>
+                                    <data id="184">
+                                        <property name="textAlign">center</property>
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">description</property>
+                                    </data>
+                                </cell>
+                                <cell id="167">
+                                    <property name="style">white-border</property>
+                                    <data id="186">
+                                        <property name="textAlign">center</property>
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">version</property>
+                                    </data>
+                                </cell>
+                                <cell id="171">
+                                    <property name="style">white-border</property>
+                                    <data id="188">
+                                        <property name="textAlign">center</property>
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">start_date</property>
+                                    </data>
+                                </cell>
+                                <cell id="175">
+                                    <property name="style">white-border</property>
+                                    <data id="190">
+                                        <property name="textAlign">center</property>
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">end_date</property>
+                                    </data>
+                                </cell>
+                                <cell id="179">
+                                    <property name="style">white-border</property>
+                                    <data id="192">
+                                        <property name="textAlign">center</property>
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">company_id</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </detail>
+                        <footer>
+                            <row id="94">
+                                <cell id="96"/>
+                                <cell id="97"/>
+                                <cell id="98"/>
+                                <cell id="168"/>
+                                <cell id="172"/>
+                                <cell id="176"/>
+                                <cell id="180"/>
+                            </row>
+                        </footer>
+                    </table>
+                </cell>
+            </row>
+        </grid>
+    </body>
+</report>
