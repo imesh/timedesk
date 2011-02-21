@@ -103,4 +103,16 @@ public class ProjectPhaseMember
         }
         return null;
     }
+
+	public static List<ProjectPhaseMember>  findProjectPhaseMemberByMemberId(Long memberId)
+	{
+		if(memberId != null)
+        {
+        	Query query = entityManager().createQuery("SELECT ph FROM ProjectPhaseMember ph WHERE ph.member.id = ?1");    	
+        	query.setParameter(1, memberId);
+        	List<ProjectPhaseMember> list = query.getResultList();
+        	return list;
+        }
+        return null;
+	}
 }

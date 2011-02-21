@@ -101,4 +101,16 @@ public class ProjectMember
         }
         return null;
     }
+
+	public static Collection<ProjectMember> findProjectMemberByEmployee(Long empoyeeId) 
+    {        
+        if(empoyeeId != null)
+        {
+        	Query query = entityManager().createQuery("SELECT m FROM ProjectMember m WHERE m.employee.id = ?1");    	
+        	query.setParameter(1, empoyeeId);
+        	List<ProjectMember> list = query.getResultList();
+        	return list;
+        }
+        return null;
+    }
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_timedesk_entity_EmployeeWeeklyAllocation" object="${employeeweeklyallocation}" path="/employeeweeklyallocations" z="2ipUtucpUUlXte14B0eHwHqGcso=">
+        <field:display field="employeeName" id="s_org_timedesk_entity_EmployeeWeeklyAllocation_employeeName" object="${employeeweeklyallocation}" z="R/s5Q/0b0MtBMXYDgOj4KVwynUc="/>
+        <field:display field="projectName" id="s_org_timedesk_entity_EmployeeWeeklyAllocation_projectName" object="${employeeweeklyallocation}" z="fRMKDdpepOO+pMGOO1mPZStMTN8="/>
+        <field:display field="week1" id="s_org_timedesk_entity_EmployeeWeeklyAllocation_week1" object="${employeeweeklyallocation}" z="AElaxd/YcGJBafIDrwWNfAt5R5c="/>
+        <field:display field="week2" id="s_org_timedesk_entity_EmployeeWeeklyAllocation_week2" object="${employeeweeklyallocation}" z="78ZeHxqFRNU/gpgsdhSZxaaHW9w="/>
+        <field:display field="week3" id="s_org_timedesk_entity_EmployeeWeeklyAllocation_week3" object="${employeeweeklyallocation}" z="Wz2DNV19UFOT8/LgGdet8ciDQ/k="/>
+        <field:display field="week4" id="s_org_timedesk_entity_EmployeeWeeklyAllocation_week4" object="${employeeweeklyallocation}" z="JVrgzNnweK+9kVKJ0s/zwOb3NUo="/>
+        <field:display field="week5" id="s_org_timedesk_entity_EmployeeWeeklyAllocation_week5" object="${employeeweeklyallocation}" z="Etb0NIsA3AsMWKBYyBLqFw0X6XQ="/>
+        <field:display field="week6" id="s_org_timedesk_entity_EmployeeWeeklyAllocation_week6" object="${employeeweeklyallocation}" z="ZThkPxKUh+uywhBdzZmciBM0z+Q="/>
+        <field:display field="week7" id="s_org_timedesk_entity_EmployeeWeeklyAllocation_week7" object="${employeeweeklyallocation}" z="o46o7DHRKbgEu8ByP5jWIPilNHI="/>
+        <field:display field="week8" id="s_org_timedesk_entity_EmployeeWeeklyAllocation_week8" object="${employeeweeklyallocation}" z="CBdQ/UUSA0N3HGtdxXn9K3fQgSI="/>
+    </page:show>
+</div>

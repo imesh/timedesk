@@ -109,6 +109,10 @@ public class Employee {
         if (entity != null) entityManager().refresh(entity);
         return entity;
     }
+    
+    public static List<Employee> findAllEmployees() {
+        return entityManager().createQuery("select o from Employee o", Employee.class).getResultList();
+    }
 
     public static Employee findEmployee(String employeeId) {
         if (employeeId != null) {
@@ -138,4 +142,23 @@ public class Employee {
         }
         return totalAllocation;
     }
+    
+	public int findAllocation(Date fromDate, Date toDate)
+	{
+		Query query = entityManager().createQuery("SELECT ea FROM EmployeeAllocation ea WHERE ea.empId = ?1 AND ((ea.startDate > ?2 AND ea.startDate < ?3 AND ea.endDate > ?3) OR (ea.startDate <= ?2 AND ea.endDate >= ?3) OR (ea.startDate < ?2 AND ea.endDate < ?3 AND ea.endDate > ?2))");
+		query.setParameter(1, getId());
+		query.setParameter(2, fromDate, TemporalType.DATE);
+		query.setParameter(3, toDate, TemporalType.DATE);
+		List<EmployeeAllocation> list = query.getResultList();
+		int totalAllocation = 0;
+		EmployeeAllocation allocation = null;
+		for (int i = 0; i < list.size(); i++)
+		{
+			allocation = list.get(i);
+			totalAllocation += allocation.getAllocation();
+			ApplicationTrace.trace("Allocation: " + allocation.getAllocation());
+
+		}
+		return totalAllocation;
+	}
 }
