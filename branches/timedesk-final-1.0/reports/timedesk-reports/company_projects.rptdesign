@@ -118,14 +118,14 @@
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT C.COMPANY_ID, P.PROJECT_ID, P.NAME, P.START_DATE, P.END_DATE
-  FROM `timedesk_final`.company AS C, `timedesk_final`.project AS P
+  FROM `timedesk_final`.COMPANY AS C, `timedesk_final`.PROJECT AS P
   WHERE C.ID = P.COMPANY_ID
 ]]></xml-property>
             <structure name="designerState">
                 <property name="version">1.0</property>
                 <property name="stateContentAsString">&lt;?xml version="1.0" encoding="UTF-8"?>&#13;
 &lt;SQLQueryBuilder editorInputType="SQLBuilderStorageEditorInput" name="CompanyProjectsDataSet" version="1.0">&#13;
-&lt;SQLStatement>SELECT C.COMPANY_ID, P.PROJECT_ID, P.NAME, P.START_DATE, P.END_DATE&amp;#x0A;  FROM `timedesk_final`.company AS C, `timedesk_final`.project AS P&amp;#x0A;  WHERE C.ID = P.COMPANY_ID&amp;#x0A;&lt;/SQLStatement>&#13;
+&lt;SQLStatement>SELECT C.COMPANY_ID, P.PROJECT_ID, P.NAME, P.START_DATE, P.END_DATE&amp;#x0A;  FROM `timedesk_final`.COMPANY AS C, `timedesk_final`.PROJECT AS P&amp;#x0A;  WHERE C.ID = P.COMPANY_ID&amp;#x0A;&lt;/SQLStatement>&#13;
 &lt;connInfo>MySql_5.1:Transient.org.eclipse.datatools.enablement.mysql.connectionProfile30:timedesk_final:timedesk_final&lt;/connInfo>&#13;
 &lt;omitSchemaInfo>false:true:&lt;/omitSchemaInfo>&#13;
 &lt;editorInputUsageOptions>useWindowState=true&lt;/editorInputUsageOptions>&#13;
@@ -297,8 +297,9 @@
         </style>
         <style name="timedesk-table-header" id="349">
             <property name="backgroundColor">#004E80</property>
-            <property name="fontFamily">"Calibri"</property>
-            <property name="fontSize">12pt</property>
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+            <property name="fontWeight">bold</property>
             <property name="color">#FFFFFF</property>
             <property name="paddingTop">3pt</property>
             <property name="paddingLeft">3pt</property>
@@ -307,8 +308,8 @@
         </style>
         <style name="timedesk-table-row" id="350">
             <property name="backgroundColor">#DDDDDD</property>
-            <property name="fontFamily">"Calibri"</property>
-            <property name="fontSize">11pt</property>
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
             <property name="color">#000000</property>
             <property name="borderBottomColor">#FFFFFF</property>
             <property name="borderBottomStyle">solid</property>
@@ -318,16 +319,13 @@
             <property name="borderTopColor">#3A3A3A</property>
             <property name="borderTopStyle">none</property>
         </style>
-        <style name="timedesk-logo1" id="322">
-            <property name="textAlign">center</property>
-        </style>
     </styles>
     <page-setup>
         <simple-master-page name="Simple MasterPage" id="2">
             <page-footer>
                 <text id="386">
-                    <property name="fontFamily">"Calibri"</property>
-                    <property name="fontSize">11pt</property>
+                    <property name="fontFamily">sans-serif</property>
+                    <property name="fontSize">10pt</property>
                     <property name="marginTop">0px</property>
                     <property name="marginBottom">10pt</property>
                     <property name="textAlign">center</property>
@@ -349,14 +347,14 @@
             <property name="source">embed</property>
             <property name="imageName">timedesk-logo-small.png</property>
         </image>
-        <label id="245">
-            <property name="fontFamily">"Calibri"</property>
-            <property name="fontSize">14pt</property>
+        <text id="393">
+            <property name="fontSize">12pt</property>
             <property name="fontWeight">bold</property>
-            <property name="marginBottom">10pt</property>
+            <property name="marginBottom">20pt</property>
             <property name="textAlign">center</property>
-            <text-property name="text">Company Projects Report </text-property>
-        </label>
+            <property name="contentType">auto</property>
+            <text-property name="content"><![CDATA[Company Projects Report]]></text-property>
+        </text>
         <table id="352">
             <property name="style">timedesk-table</property>
             <property name="marginLeft">10pt</property>
