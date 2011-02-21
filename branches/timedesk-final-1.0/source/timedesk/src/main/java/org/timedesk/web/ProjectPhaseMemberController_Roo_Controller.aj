@@ -4,18 +4,22 @@
 package org.timedesk.web;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.joda.time.format.DateTimeFormat;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
+import org.timedesk.entity.ProjectMember;
+import org.timedesk.entity.ProjectPhase;
 import org.timedesk.entity.ProjectPhaseMember;
 
 privileged aspect ProjectPhaseMemberController_Roo_Controller {
@@ -66,4 +70,13 @@ privileged aspect ProjectPhaseMemberController_Roo_Controller {
         return pathSegment;
     }
     
+    @ModelAttribute("projectmembers")
+    public Collection<ProjectMember> ProjectPhaseMemberController.populateProjectMembers() {
+        return ProjectMember.findAllProjectMembers();
+    }
+    
+    @ModelAttribute("projectphases")
+    public Collection<ProjectPhase> ProjectPhaseMemberController.populateProjectPhases() {
+        return ProjectPhase.findAllProjectPhases();
+    }
 }
