@@ -6,32 +6,22 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-import javax.persistence.TemporalType;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.roo.addon.web.mvc.controller.RooWebScaffold;
-import org.timedesk.entity.Employee;
-import org.timedesk.entity.EmployeeAllocation;
-import org.timedesk.entity.EmployeeWeeklyAllocation;
-import org.timedesk.entity.Project;
-import org.timedesk.entity.ProjectMember;
-import org.timedesk.entity.ProjectPhase;
-import org.timedesk.entity.ProjectPhaseMember;
-import org.timedesk.web.util.ApplicationTrace;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.stereotype.Controller;
+import org.timedesk.entity.Employee;
+import org.timedesk.entity.EmployeeWeeklyAllocation;
+import org.timedesk.entity.Project;
+import org.timedesk.web.util.ApplicationTrace;
 
 @RooWebScaffold(path = "employeeweeklyallocations", formBackingObject = EmployeeWeeklyAllocation.class)
 @RequestMapping("/employeeweeklyallocations")

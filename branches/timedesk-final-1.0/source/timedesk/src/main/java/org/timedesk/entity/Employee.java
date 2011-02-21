@@ -156,8 +156,6 @@ public class Employee {
 		{
 			allocation = list.get(i);
 			totalAllocation += allocation.getAllocation();
-			ApplicationTrace.trace("Allocation: " + allocation.getAllocation());
-
 		}
 		return totalAllocation;
 	}
