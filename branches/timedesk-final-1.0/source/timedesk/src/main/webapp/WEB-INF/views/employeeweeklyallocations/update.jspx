@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_org_timedesk_entity_EmployeeWeeklyAllocation" modelAttribute="employeeWeeklyAllocation" path="/employeeweeklyallocations" z="FOmOLvx9h+fvh+NvM4RW5BIJNQ0=">
+        <field:input field="employeeName" id="c_org_timedesk_entity_EmployeeWeeklyAllocation_employeeName" z="/6c3gKR361QmOVx0So8bid1dXV4="/>
+        <field:input field="projectName" id="c_org_timedesk_entity_EmployeeWeeklyAllocation_projectName" z="KBighHZ3r+f675MZjCjYbk0P0/I="/>
+        <field:input field="week1" id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week1" z="6NVKIhhzdIqKPH8ZcPGsDUoMel4="/>
+        <field:input field="week2" id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week2" z="y9spB2MS0m04ciAQgK3jglYjyCo="/>
+        <field:input field="week3" id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week3" z="8Q+2Bu8cwJUTQLJ0em6y3X5gQU0="/>
+        <field:input field="week4" id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week4" z="PuL7oTFy/bmbDsGIRDVdbJHdPfk="/>
+        <field:input field="week5" id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week5" z="ut/pZmbvvtGkN8N1UupglBJvKSM="/>
+        <field:input field="week6" id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week6" z="a+BisIKTpPSNz9gLt2BcVC3wSvk="/>
+        <field:input field="week7" id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week7" z="odf2Mb4K7nUoykOmK675DP0gVUg="/>
+        <field:input field="week8" id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week8" z="bP93QetKl02TzJ54hLE2iNMbWOU="/>
+    </form:update>
+</div>

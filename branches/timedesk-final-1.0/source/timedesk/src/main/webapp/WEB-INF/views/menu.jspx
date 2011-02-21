@@ -87,6 +87,7 @@
         <menu:item id="i_projectphasemember_list" messageCode="global_menu_list" url="/projectphasemembers?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="tGtJ382bMObjLEHA9t0zFT2F0Uw="/>       
         <menu:item id="i_projectmemberfeedback_list" messageCode="global_menu_list" url="/projectmemberfeedbacks?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
         <menu:item id="i_employeeallocation_list" messageCode="global_menu_list" url="/employeeallocations?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="pSeqpbARdR4VgX0vkQjf0oiEfE8="/>
+        <menu:item id="i_employeeweeklyallocation_list" messageCode="global_menu_list" url="/employeeweeklyallocations?form" z="xh9C7d+luwMQLlioJc4Byo5LIWU="/>
         </security:authorize>        
     </menu:category>
     </security:authorize>

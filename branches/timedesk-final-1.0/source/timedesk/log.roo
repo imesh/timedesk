@@ -8,7 +8,6 @@ field string description
 field date startDate --type java.util.Date
 field date endDate --type java.util.Date
 entity --class ~.entity.ProjectMember
-hint
 field number memberID --type int
 field number allocation --type int
 field date startDate --type java.util.Date
@@ -26,8 +25,6 @@ field string taskID
 field string name
 field string description
 field set --class ~.entity.ProjectComponent --fieldName tasks --element ~.entity.Task
-perform eclipse
-quit
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2010-12-26 22:34:00
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2010-12-26 22:35:40
 entity --class ~.entity.ProjectMemberRole
@@ -103,7 +100,7 @@ controller class --class ~.web.ChangePasswordController
 field set --class ~.entity.Project --fieldName projectComponents --element ~.entity.ProjectComponent
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2010-12-31 22:35:52
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-01-21 00:56:20
-entity --class ~.entity.ProjectPhaseMember
+//entity --class ~.entity.ProjectPhaseMember
 controller all --package ~.web
 entity --class ~.entity.EmployeeVisa
 field string employeeVisaId
@@ -128,7 +125,7 @@ controller all --package ~.web
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-01-27 11:43:22
 // Spring Roo UNKNOWN VERSION log opened at 2011-01-27 22:47:17
 controller all --package ~.web
-// [failed] quit
+// [failed] 
 // [failed] exit
 exit
 // Spring Roo UNKNOWN VERSION log closed at 2011-01-27 22:47:59
@@ -184,16 +181,16 @@ exit
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-05 02:08:50
 // Spring Roo UNKNOWN VERSION log opened at 2011-02-05 11:03:24
 perform package
-quit
+
 // Spring Roo UNKNOWN VERSION log closed at 2011-02-05 11:47:34
 // Spring Roo UNKNOWN VERSION log opened at 2011-02-05 22:45:43
 hint
 perform tests
-quit
+
 // Spring Roo UNKNOWN VERSION log closed at 2011-02-05 22:47:29
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-12 10:31:10
 perform package
-quit
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-12 10:34:18
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-13 09:53:50
 perform package
@@ -215,35 +212,35 @@ entity --class ~.entity.EmployeeAllocation
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-18 01:47:45
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-18 01:51:07
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-18 13:09:44
-quit
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-18 13:35:07
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-18 13:50:18
-quit
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-18 14:38:17
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-18 14:38:46
 perform package
-quit
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-18 14:44:26
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-18 14:58:06
 perform package
-// [failed] quit
-quit
+// [failed] 
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-18 15:24:12
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-18 17:42:04
-quit
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-18 18:27:14
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-18 18:47:45
-quit
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-18 18:54:38
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-18 18:54:44
-// [failed] quit
+// [failed] 
 // [failed] test integration --entity  Employee
 test integration --entity ~.entity.Employee
 perform test
 perform test
 test integration
-// [failed] quit
-quit
+// [failed] 
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-18 19:17:03
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-18 19:17:07
 // [failed] test integration --entity ApplicationFeature
@@ -260,7 +257,7 @@ test integration --entity ~.entity.Project
 // [failed] test integration --entity ~.entity.ProjectMember
 test integration --entity ~.entity.ProjectMemberFeedback
 test integration --entity ~.entity.ProjectPhase
-test integration --entity ~.entity.ProjectPhaseMember
+//test integration --entity ~.entity.ProjectPhaseMember
 test integration --entity ~.entity.SecurityRole
 test integration --entity ~.entity.Skill
 // [failed] test integration --entity ~.entity.User
@@ -271,7 +268,7 @@ test integration --entity ~.entity.ProjectMember
 test integration --entity ~.entity.ProjectMemberFeedback
 test integration --entity ~.entity.ProjectMemberRole
 test integration --entity ~.entity.ProjectPhase
-test integration --entity ~.entity.ProjectPhaseMember
+//test integration --entity ~.entity.ProjectPhaseMember
 test integration --entity ~.entity.SecurityRole
 perform test
 perform test
@@ -289,28 +286,28 @@ controller scaffold --entity ~.entity.EmployeeAllocation --class ~.web.EmployeeA
 controller scaffold --entity ~.entity.EmployeeAllocation --class ~.web.EmployeeAllocationController
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-19 12:46:33
 perform package
-quit
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-19 12:47:54
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-19 12:48:15
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-19 14:16:11
 perform package
-quit
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-19 14:24:34
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-19 15:30:01
 perform package
-quit
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-19 15:35:36
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-19 16:22:21
 perform test
-quit
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-19 16:23:48
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-19 23:29:52
 // Spring Roo UNKNOWN VERSION log opened at 2011-02-20 01:02:45
-field email template --class ~.web.ProjectPhaseMemberController
-quit
+//field email template --class ~.web.ProjectPhaseMemberController
+
 // Spring Roo UNKNOWN VERSION log closed at 2011-02-20 01:04:32
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-20 03:10:54
-quit
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-20 03:18:50
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-20 03:18:56
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-20 09:04:59
@@ -319,22 +316,22 @@ field string mailTo
 // [failed] field string message
 field string message
 controller scaffold --entity ~.entity.Notification --class ~.web.NotificationController
-// [failed] quit
-quit
+// [failed] 
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-20 09:12:38
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-20 09:12:44
-// [failed] quit
+// [failed] 
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-20 09:15:12
-quit
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-20 09:16:30
-quit
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-20 09:17:54
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-20 09:37:59
-quit
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-20 10:44:13
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-20 10:44:55
 perform package
-quit
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-20 10:53:41
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-20 13:57:16
 finder list --class ~.entity.Employee --filter employeeId,name
@@ -355,29 +352,46 @@ finder add --finderName findProjectsByNameLike
 // [failed] finder add --finderName findProjectsByPorjectIdLike
 finder list --class ~.entity.Project
 finder add --finderName findProjectsByProjectIdLike
-quit
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-20 14:24:22
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-20 17:50:26
 perform package
-quit
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-20 17:52:45
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-20 19:22:20
-quit
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-20 19:24:25
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-20 19:24:32
-quit
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-20 19:26:37
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-20 19:27:16
-quit
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-20 19:27:40
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-20 19:54:38
 perform package
-quit
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-20 19:55:40
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-20 19:56:17
 perform test
 perform tests
 perform test
 perform package
-quit
+
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-20 19:59:03
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-21 14:28:54
+entity --class ~.entity.EmployeeWeeklyAllocation
+field string employeeName
+field string projectName
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-21 20:16:26
+controller scaffold --entity ~.entity.EmployeeWeeklyAllocation --class ~.web.EmployeeWeeklyAllocationController
+quit
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-21 20:17:50
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-21 20:28:58
+quit
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-21 20:29:29
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-21 20:30:01
+quit
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-21 20:30:39
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-21 20:30:42
+quit
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-21 20:33:27
