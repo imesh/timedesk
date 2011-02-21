@@ -22,60 +22,40 @@
         </oda-data-source>
     </data-sources>
     <data-sets>
-        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.dbprofile.sqbDataSet" name="CompanyProjectsDataSet" id="351">
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.dbprofile.sqbDataSet" name="Data Set" id="351">
             <list-property name="columnHints">
                 <structure>
-                    <property name="columnName">company_id</property>
-                    <text-property name="displayName">Company ID</text-property>
-                    <text-property name="heading">COMPANY_ID</text-property>
+                    <property name="columnName">sent_time</property>
+                    <text-property name="displayName">SENT_TIME</text-property>
+                    <text-property name="heading">SENT_TIME</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">project_id</property>
-                    <text-property name="displayName">Project ID</text-property>
-                    <text-property name="heading">PROJECT_ID</text-property>
+                    <property name="columnName">mail_to</property>
+                    <text-property name="displayName">MAIL_TO</text-property>
+                    <text-property name="heading">MAIL_TO</text-property>
                 </structure>
                 <structure>
-                    <property name="columnName">name</property>
-                    <text-property name="displayName">Project Name</text-property>
-                    <text-property name="heading">NAME</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">start_date</property>
-                    <text-property name="displayName">Start Date</text-property>
-                    <text-property name="heading">START_DATE</text-property>
-                </structure>
-                <structure>
-                    <property name="columnName">end_date</property>
-                    <text-property name="displayName">End Date</text-property>
-                    <text-property name="heading">END_DATE</text-property>
+                    <property name="columnName">subject</property>
+                    <text-property name="displayName">SUBJECT</text-property>
+                    <text-property name="heading">SUBJECT</text-property>
                 </structure>
             </list-property>
             <structure name="cachedMetaData">
                 <list-property name="resultSet">
                     <structure>
                         <property name="position">1</property>
-                        <property name="name">company_id</property>
-                        <property name="dataType">string</property>
+                        <property name="name">sent_time</property>
+                        <property name="dataType">date-time</property>
                     </structure>
                     <structure>
                         <property name="position">2</property>
-                        <property name="name">project_id</property>
+                        <property name="name">mail_to</property>
                         <property name="dataType">string</property>
                     </structure>
                     <structure>
                         <property name="position">3</property>
-                        <property name="name">name</property>
+                        <property name="name">subject</property>
                         <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">4</property>
-                        <property name="name">start_date</property>
-                        <property name="dataType">date-time</property>
-                    </structure>
-                    <structure>
-                        <property name="position">5</property>
-                        <property name="name">end_date</property>
-                        <property name="dataType">date-time</property>
                     </structure>
                 </list-property>
             </structure>
@@ -83,57 +63,39 @@
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
-                    <property name="name">company_id</property>
-                    <property name="nativeName">company_id</property>
-                    <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
+                    <property name="name">sent_time</property>
+                    <property name="nativeName">sent_time</property>
+                    <property name="dataType">date-time</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
-                    <property name="name">project_id</property>
-                    <property name="nativeName">project_id</property>
+                    <property name="name">mail_to</property>
+                    <property name="nativeName">mail_to</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
-                    <property name="name">name</property>
-                    <property name="nativeName">name</property>
+                    <property name="name">subject</property>
+                    <property name="nativeName">subject</property>
                     <property name="dataType">string</property>
-                    <property name="nativeDataType">12</property>
-                </structure>
-                <structure>
-                    <property name="position">4</property>
-                    <property name="name">start_date</property>
-                    <property name="nativeName">start_date</property>
-                    <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
-                </structure>
-                <structure>
-                    <property name="position">5</property>
-                    <property name="name">end_date</property>
-                    <property name="nativeName">end_date</property>
-                    <property name="dataType">date-time</property>
-                    <property name="nativeDataType">93</property>
                 </structure>
             </list-property>
-            <xml-property name="queryText"><![CDATA[SELECT C.COMPANY_ID, P.PROJECT_ID, P.NAME, P.START_DATE, P.END_DATE
-  FROM `timedesk_final`.company AS C, `timedesk_final`.project AS P
-  WHERE C.ID = P.COMPANY_ID
+            <xml-property name="queryText"><![CDATA[SELECT SENT_TIME, MAIL_TO, SUBJECT
+  FROM `timedesk_final`.notification AS N
 ]]></xml-property>
             <structure name="designerState">
                 <property name="version">1.0</property>
                 <property name="stateContentAsString">&lt;?xml version="1.0" encoding="UTF-8"?>&#13;
-&lt;SQLQueryBuilder editorInputType="SQLBuilderStorageEditorInput" name="CompanyProjectsDataSet" version="1.0">&#13;
-&lt;SQLStatement>SELECT C.COMPANY_ID, P.PROJECT_ID, P.NAME, P.START_DATE, P.END_DATE&amp;#x0A;  FROM `timedesk_final`.company AS C, `timedesk_final`.project AS P&amp;#x0A;  WHERE C.ID = P.COMPANY_ID&amp;#x0A;&lt;/SQLStatement>&#13;
-&lt;connInfo>MySql_5.1:Transient.org.eclipse.datatools.enablement.mysql.connectionProfile30:timedesk_final:timedesk_final&lt;/connInfo>&#13;
+&lt;SQLQueryBuilder editorInputType="SQLBuilderStorageEditorInput" name="Data Set" version="1.0">&#13;
+&lt;SQLStatement>SELECT SENT_TIME, MAIL_TO, SUBJECT&amp;#x0A;  FROM `timedesk_final`.notification AS N&amp;#x0A;&lt;/SQLStatement>&#13;
+&lt;connInfo>MySql_5.1:Transient.org.eclipse.datatools.enablement.mysql.connectionProfile:timedesk_final:timedesk_final&lt;/connInfo>&#13;
 &lt;omitSchemaInfo>false:true:&lt;/omitSchemaInfo>&#13;
 &lt;editorInputUsageOptions>useWindowState=true&lt;/editorInputUsageOptions>&#13;
-&lt;windowState height="468" version="1.0" width="685">&#13;
-&lt;control height="141" isHideable="true" isVisible="true" name="SQLSourceViewer" width="658"/>&#13;
-&lt;control height="147" isHideable="true" isVisible="true" name="DesignViewer" width="671"/>&#13;
-&lt;control height="142" isHideable="true" isVisible="true" name="GraphControl" width="663"/>&#13;
-&lt;control height="146" isHideable="true" isVisible="false" name="OutlineViewer" width="198"/>&#13;
+&lt;windowState height="331" version="1.0" width="569">&#13;
+&lt;control height="94" isHideable="true" isVisible="true" name="SQLSourceViewer" width="542"/>&#13;
+&lt;control height="104" isHideable="true" isVisible="true" name="DesignViewer" width="555"/>&#13;
+&lt;control height="95" isHideable="true" isVisible="true" name="GraphControl" width="547"/>&#13;
+&lt;control height="99" isHideable="true" isVisible="false" name="OutlineViewer" width="156"/>&#13;
 &lt;/windowState>&#13;
 &lt;/SQLQueryBuilder></property>
             </structure>
@@ -145,37 +107,37 @@
       <design:resultSetColumns>
         <design:resultColumnDefinitions>
           <design:attributes>
-            <design:name>company_id</design:name>
+            <design:name>sent_time</design:name>
             <design:position>1</design:position>
-            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
-            <design:precision>255</design:precision>
+            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
+            <design:precision>19</design:precision>
             <design:scale>0</design:scale>
             <design:nullability>Nullable</design:nullability>
             <design:uiHints>
-              <design:displayName>COMPANY_ID</design:displayName>
+              <design:displayName>sent_time</design:displayName>
             </design:uiHints>
           </design:attributes>
           <design:usageHints>
-            <design:label>COMPANY_ID</design:label>
+            <design:label>sent_time</design:label>
             <design:formattingHints>
-              <design:displaySize>255</design:displaySize>
+              <design:displaySize>19</design:displaySize>
             </design:formattingHints>
           </design:usageHints>
         </design:resultColumnDefinitions>
         <design:resultColumnDefinitions>
           <design:attributes>
-            <design:name>project_id</design:name>
+            <design:name>mail_to</design:name>
             <design:position>2</design:position>
             <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
             <design:precision>255</design:precision>
             <design:scale>0</design:scale>
             <design:nullability>Nullable</design:nullability>
             <design:uiHints>
-              <design:displayName>PROJECT_ID</design:displayName>
+              <design:displayName>mail_to</design:displayName>
             </design:uiHints>
           </design:attributes>
           <design:usageHints>
-            <design:label>PROJECT_ID</design:label>
+            <design:label>mail_to</design:label>
             <design:formattingHints>
               <design:displaySize>255</design:displaySize>
             </design:formattingHints>
@@ -183,58 +145,20 @@
         </design:resultColumnDefinitions>
         <design:resultColumnDefinitions>
           <design:attributes>
-            <design:name>name</design:name>
+            <design:name>subject</design:name>
             <design:position>3</design:position>
             <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
             <design:precision>255</design:precision>
             <design:scale>0</design:scale>
             <design:nullability>Nullable</design:nullability>
             <design:uiHints>
-              <design:displayName>NAME</design:displayName>
+              <design:displayName>subject</design:displayName>
             </design:uiHints>
           </design:attributes>
           <design:usageHints>
-            <design:label>NAME</design:label>
+            <design:label>subject</design:label>
             <design:formattingHints>
               <design:displaySize>255</design:displaySize>
-            </design:formattingHints>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:name>start_date</design:name>
-            <design:position>4</design:position>
-            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
-            <design:precision>19</design:precision>
-            <design:scale>0</design:scale>
-            <design:nullability>Nullable</design:nullability>
-            <design:uiHints>
-              <design:displayName>START_DATE</design:displayName>
-            </design:uiHints>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>START_DATE</design:label>
-            <design:formattingHints>
-              <design:displaySize>19</design:displaySize>
-            </design:formattingHints>
-          </design:usageHints>
-        </design:resultColumnDefinitions>
-        <design:resultColumnDefinitions>
-          <design:attributes>
-            <design:name>end_date</design:name>
-            <design:position>5</design:position>
-            <design:nativeDataTypeCode>93</design:nativeDataTypeCode>
-            <design:precision>19</design:precision>
-            <design:scale>0</design:scale>
-            <design:nullability>Nullable</design:nullability>
-            <design:uiHints>
-              <design:displayName>END_DATE</design:displayName>
-            </design:uiHints>
-          </design:attributes>
-          <design:usageHints>
-            <design:label>END_DATE</design:label>
-            <design:formattingHints>
-              <design:displaySize>19</design:displaySize>
             </design:formattingHints>
           </design:usageHints>
         </design:resultColumnDefinitions>
@@ -280,9 +204,6 @@
             <property name="borderTopStyle">solid</property>
             <property name="borderTopWidth">1pt</property>
         </style>
-        <style name="timedesk-logo" id="346">
-            <property name="textAlign">center</property>
-        </style>
         <style name="timedesk-table" id="347">
             <property name="paddingTop">10pt</property>
             <property name="paddingLeft">10pt</property>
@@ -297,8 +218,9 @@
         </style>
         <style name="timedesk-table-header" id="349">
             <property name="backgroundColor">#004E80</property>
-            <property name="fontFamily">"Calibri"</property>
-            <property name="fontSize">12pt</property>
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+            <property name="fontWeight">bold</property>
             <property name="color">#FFFFFF</property>
             <property name="paddingTop">3pt</property>
             <property name="paddingLeft">3pt</property>
@@ -307,8 +229,8 @@
         </style>
         <style name="timedesk-table-row" id="350">
             <property name="backgroundColor">#DDDDDD</property>
-            <property name="fontFamily">"Calibri"</property>
-            <property name="fontSize">11pt</property>
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
             <property name="color">#000000</property>
             <property name="borderBottomColor">#FFFFFF</property>
             <property name="borderBottomStyle">solid</property>
@@ -318,18 +240,14 @@
             <property name="borderTopColor">#3A3A3A</property>
             <property name="borderTopStyle">none</property>
         </style>
-        <style name="timedesk-logo1" id="322">
+        <style name="timedesk-logo" id="322">
             <property name="textAlign">center</property>
         </style>
     </styles>
     <page-setup>
         <simple-master-page name="Simple MasterPage" id="2">
             <page-footer>
-                <text id="386">
-                    <property name="fontFamily">"Calibri"</property>
-                    <property name="fontSize">11pt</property>
-                    <property name="marginTop">0px</property>
-                    <property name="marginBottom">10pt</property>
+                <text id="3">
                     <property name="textAlign">center</property>
                     <property name="contentType">html</property>
                     <text-property name="content"><![CDATA[Generated: <value-of>new Date()</value-of>]]></text-property>
@@ -350,166 +268,108 @@
             <property name="imageName">timedesk-logo-small.png</property>
         </image>
         <label id="245">
-            <property name="fontFamily">"Calibri"</property>
+            <property name="fontFamily">sans-serif</property>
             <property name="fontSize">14pt</property>
             <property name="fontWeight">bold</property>
             <property name="marginBottom">10pt</property>
             <property name="textAlign">center</property>
-            <text-property name="text">Company Projects Report </text-property>
+            <text-property name="text">Notifications Report </text-property>
         </label>
         <table id="352">
             <property name="style">timedesk-table</property>
             <property name="marginLeft">10pt</property>
             <property name="marginRight">10pt</property>
-            <property name="width">7.71875in</property>
-            <property name="dataSet">CompanyProjectsDataSet</property>
+            <property name="width">7.666666666666667in</property>
+            <property name="dataSet">Data Set</property>
             <list-property name="boundDataColumns">
                 <structure>
-                    <property name="name">company_id</property>
-                    <text-property name="displayName">Company ID</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["company_id"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">project_id</property>
-                    <text-property name="displayName">Project ID</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["project_id"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">name</property>
-                    <text-property name="displayName">Project Name</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["name"]</expression>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="name">start_date</property>
-                    <text-property name="displayName">Start Date</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["start_date"]</expression>
+                    <property name="name">sent_time</property>
+                    <text-property name="displayName">Send Time</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["sent_time"]</expression>
                     <property name="dataType">date-time</property>
                 </structure>
                 <structure>
-                    <property name="name">end_date</property>
-                    <text-property name="displayName">End Date</text-property>
-                    <expression name="expression" type="javascript">dataSetRow["end_date"]</expression>
-                    <property name="dataType">date-time</property>
+                    <property name="name">mail_to</property>
+                    <text-property name="displayName">Mail To</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["mail_to"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">subject</property>
+                    <text-property name="displayName">Subject</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["subject"]</expression>
+                    <property name="dataType">string</property>
                 </structure>
             </list-property>
-            <column id="381">
-                <property name="width">1.34375in</property>
+            <column id="371">
+                <property name="width">1.5520833333333333in</property>
             </column>
-            <column id="382">
-                <property name="width">1.3333333333333333in</property>
+            <column id="372">
+                <property name="width">2.1041666666666665in</property>
             </column>
-            <column id="383">
-                <property name="width">1.75in</property>
-            </column>
-            <column id="384">
-                <property name="width">1.6666666666666667in</property>
-            </column>
-            <column id="385">
-                <property name="width">1.625in</property>
+            <column id="373">
+                <property name="width">4.010416666666667in</property>
             </column>
             <header>
                 <row id="353">
                     <property name="style">timedesk-table-header</property>
                     <cell id="354">
                         <label id="355">
-                            <property name="marginLeft">5px</property>
+                            <property name="marginLeft">5pt</property>
                             <property name="textAlign">left</property>
-                            <text-property name="text">Company ID</text-property>
+                            <text-property name="text">Send Time</text-property>
                         </label>
                     </cell>
                     <cell id="356">
                         <label id="357">
-                            <property name="marginLeft">5px</property>
+                            <property name="marginLeft">5pt</property>
                             <property name="textAlign">left</property>
-                            <text-property name="text">Project ID</text-property>
+                            <text-property name="text">Mail To</text-property>
                         </label>
                     </cell>
                     <cell id="358">
                         <label id="359">
-                            <property name="marginLeft">5px</property>
+                            <property name="marginLeft">5pt</property>
                             <property name="textAlign">left</property>
-                            <text-property name="text">Project Name</text-property>
-                        </label>
-                    </cell>
-                    <cell id="360">
-                        <label id="361">
-                            <property name="marginLeft">5px</property>
-                            <property name="textAlign">left</property>
-                            <text-property name="text">Start Date</text-property>
-                        </label>
-                    </cell>
-                    <cell id="362">
-                        <label id="363">
-                            <property name="marginLeft">5px</property>
-                            <property name="textAlign">left</property>
-                            <text-property name="text">End Date</text-property>
+                            <text-property name="text">Subject</text-property>
                         </label>
                     </cell>
                 </row>
             </header>
             <detail>
-                <row id="364">
+                <row id="360">
                     <property name="style">timedesk-table-row</property>
+                    <cell id="361">
+                        <data id="362">
+                            <property name="marginLeft">5pt</property>
+                            <structure name="dateTimeFormat">
+                                <property name="category">Unformatted</property>
+                            </structure>
+                            <property name="whiteSpace">nowrap</property>
+                            <property name="resultSetColumn">sent_time</property>
+                        </data>
+                    </cell>
+                    <cell id="363">
+                        <data id="364">
+                            <property name="marginLeft">5pt</property>
+                            <property name="whiteSpace">nowrap</property>
+                            <property name="resultSetColumn">mail_to</property>
+                        </data>
+                    </cell>
                     <cell id="365">
                         <data id="366">
-                            <property name="marginLeft">5px</property>
-                            <property name="textAlign">left</property>
+                            <property name="marginLeft">5pt</property>
                             <property name="whiteSpace">nowrap</property>
-                            <property name="resultSetColumn">company_id</property>
-                        </data>
-                    </cell>
-                    <cell id="367">
-                        <data id="368">
-                            <property name="marginLeft">5px</property>
-                            <property name="textAlign">left</property>
-                            <property name="whiteSpace">nowrap</property>
-                            <property name="resultSetColumn">project_id</property>
-                        </data>
-                    </cell>
-                    <cell id="369">
-                        <data id="370">
-                            <property name="marginLeft">5px</property>
-                            <property name="textAlign">left</property>
-                            <property name="whiteSpace">nowrap</property>
-                            <property name="resultSetColumn">name</property>
-                        </data>
-                    </cell>
-                    <cell id="371">
-                        <data id="372">
-                            <property name="marginLeft">5px</property>
-                            <structure name="dateTimeFormat">
-                                <property name="category">Long Date</property>
-                                <property name="pattern">Long Date</property>
-                            </structure>
-                            <property name="textAlign">left</property>
-                            <property name="whiteSpace">nowrap</property>
-                            <property name="resultSetColumn">start_date</property>
-                        </data>
-                    </cell>
-                    <cell id="373">
-                        <data id="374">
-                            <property name="marginLeft">5px</property>
-                            <structure name="dateTimeFormat">
-                                <property name="category">Long Date</property>
-                                <property name="pattern">Long Date</property>
-                            </structure>
-                            <property name="textAlign">left</property>
-                            <property name="whiteSpace">nowrap</property>
-                            <property name="resultSetColumn">end_date</property>
+                            <property name="resultSetColumn">subject</property>
                         </data>
                     </cell>
                 </row>
             </detail>
             <footer>
-                <row id="387">
-                    <cell id="388"/>
-                    <cell id="389"/>
-                    <cell id="390"/>
-                    <cell id="391"/>
-                    <cell id="392"/>
+                <row id="367">
+                    <cell id="368"/>
+                    <cell id="369"/>
+                    <cell id="370"/>
                 </row>
             </footer>
         </table>
