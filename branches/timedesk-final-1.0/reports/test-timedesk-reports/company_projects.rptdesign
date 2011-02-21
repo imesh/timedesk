@@ -500,6 +500,15 @@
                     </cell>
                 </row>
             </detail>
+            <footer>
+                <row id="387">
+                    <cell id="388"/>
+                    <cell id="389"/>
+                    <cell id="390"/>
+                    <cell id="391"/>
+                    <cell id="392"/>
+                </row>
+            </footer>
         </table>
     </body>
     <list-property name="images">
