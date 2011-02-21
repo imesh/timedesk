@@ -38,7 +38,8 @@
             <property name="username">timedesk_final</property>
             <encrypted-property name="password" encryptionID="base64">TXNjRUFETXlTUUwx</encrypted-property>
             <property name="URL">jdbc:mysql://localhost:3306/timedesk_final</property>
-            <property name="driverClass">com.mysql.jdbc.Driver</property>            
+            <property name="driverClass">com.mysql.jdbc.Driver</property>
+            <property name="jarList">/home/timedesk/jvm/apache-tomcat-6.0.14/lib/mysql-connector-java-5.1.15-bin.jar</property>            
         </oda-data-source>
     </data-sources>
     <themes>
