@@ -215,61 +215,60 @@ public class ProjectPhaseMemberController
 		conversionService.addConverter(getProjectPhaseMemberConverter());
 	}
     
-//  Commented to avoid may not be null error
-//	@ModelAttribute("projectmembers")
-//	public Collection<ProjectMember> populateProjectMembers(@RequestParam(value = "parentId", required = false) Long parentId)
-//	{
-//		if (parentId == null)
-//		{
-//			ApplicationTrace.trace("populateProjectMembers(): phaseId is null");
-//			List<ProjectMember> list = ProjectMember.findAllProjectMembers();
-//			ApplicationTrace.trace("record count: " + list.size());
-//			return list;
-//		}
-//		else
-//		{
-//			ApplicationTrace.trace("populateProjectMembers(): phaseId: " + parentId);
-//			ProjectPhase projectPhase = ProjectPhase.findProjectPhase(parentId);
-//			if (projectPhase != null)
-//			{
-//				ApplicationTrace.trace("phase found");
-//				return ProjectMember.findProjectMemberByProject(projectPhase.getProject().getId());
-//			}
-//			else
-//			{
-//				ApplicationTrace.trace("phase not found returning all");
-//				List<ProjectMember> list = ProjectMember.findAllProjectMembers();
-//				ApplicationTrace.trace("record count: " + list.size());
-//				return list;
-//			}
-//		}
-//	}
+	@ModelAttribute("projectmembers")
+	public Collection<ProjectMember> populateProjectMembers(@RequestParam(value = "parentId", required = false) Long parentId)
+	{
+		if (parentId == null)
+		{
+			ApplicationTrace.trace("populateProjectMembers(): phaseId is null");
+			List<ProjectMember> list = ProjectMember.findAllProjectMembers();
+			ApplicationTrace.trace("record count: " + list.size());
+			return list;
+		}
+		else
+		{
+			ApplicationTrace.trace("populateProjectMembers(): phaseId: " + parentId);
+			ProjectPhase projectPhase = ProjectPhase.findProjectPhase(parentId);
+			if (projectPhase != null)
+			{
+				ApplicationTrace.trace("phase found");
+				return ProjectMember.findProjectMemberByProject(projectPhase.getProject().getId());
+			}
+			else
+			{
+				ApplicationTrace.trace("phase not found returning all");
+				List<ProjectMember> list = ProjectMember.findAllProjectMembers();
+				ApplicationTrace.trace("record count: " + list.size());
+				return list;
+			}
+		}
+	}
 
-//	@ModelAttribute("projectphases")
-//	public Collection<ProjectPhase> populateProjectPhases(@RequestParam(value = "parentId", required = false) Long parentId)
-//	{
-//		if (parentId == null)
-//		{
-//			ApplicationTrace.trace("populateProjectPhases(): phaseId is null");
-//			return ProjectPhase.findAllProjectPhases();
-//		}
-//		else
-//		{
-//			ProjectPhase projectPhase = ProjectPhase.findProjectPhase(parentId);
-//			if(projectPhase != null)
-//			{
-//				ApplicationTrace.trace("phase found");
-//				Collection<ProjectPhase> collection = new ArrayList();
-//				collection.add(projectPhase);
-//				return collection;
-//			}
-//			else
-//			{
-//				ApplicationTrace.trace("phase not found returning all");
-//				return ProjectPhase.findAllProjectPhases();
-//			}
-//		}
-//	}
+	@ModelAttribute("projectphases")
+	public Collection<ProjectPhase> populateProjectPhases(@RequestParam(value = "parentId", required = false) Long parentId)
+	{
+		if (parentId == null)
+		{
+			ApplicationTrace.trace("populateProjectPhases(): phaseId is null");
+			return ProjectPhase.findAllProjectPhases();
+		}
+		else
+		{
+			ProjectPhase projectPhase = ProjectPhase.findProjectPhase(parentId);
+			if(projectPhase != null)
+			{
+				ApplicationTrace.trace("phase found");
+				Collection<ProjectPhase> collection = new ArrayList();
+				collection.add(projectPhase);
+				return collection;
+			}
+			else
+			{
+				ApplicationTrace.trace("phase not found returning all");
+				return ProjectPhase.findAllProjectPhases();
+			}
+		}
+	}
 
 	private ObjectError validateEmployeeAllocation(ProjectPhaseMember projectPhaseMember, BindingResult result, Model model)
 	{
