@@ -152,5 +152,12 @@
         <menu:item id="i_notification_list" messageCode="global_menu_list" url="/notifications?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="u+W8P8B/f8L24PawYI2JbQkFEDw="/>
         </menu:category>
     </security:authorize>
+    <security:authorize ifAnyGranted="REPORT.VIEW">
+    <menu:category id="c_notification" label="Reports" z="user-managed">
+		<menu:item id="i_notification_new" label="Company Projects Report" url="../timedesk-reports/frameset?__report=company_projects.rptdesign" />
+		<menu:item id="i_notification_new" label="Employee Allocation for Projects Report" url="../timedesk-reports/frameset?__report=employee_allocation.rptdesign" />
+		<menu:item id="i_notification_new" label="Notifications Report" url="../timedesk-reports/frameset?__report=notifications.rptdesign" />
+    </menu:category>
+    </security:authorize>
     </menu:menu>
 </div>
