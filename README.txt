@@ -15,15 +15,25 @@ http://timedeskonline.com/timedesk/
 
 New Features of Timedesk Final 1.0
 ====================================
-
+1. Company holidays added.
+2. Default project phase creation functionality added.
+3. Added functionality to generate entity id values.
+4. Project and employee search functionality added.
+5. Three reports implemented.
+6. Employee leave management pages added.
+7. Added functionality to find employee weekly allocation.
+8. Security role based access implemented.
+9. Mail notification feature added.
 
 Issues Fixed in Timedesk Final 1.0
 ====================================
-
+1. Employee max allocation does not consider the time period. As a result an employee can only be allocated 
+to the given maximum amount for all projects.
+2. When creating and updating child records parent key is not properly set. This is set to the first parent record.
 
 Knows Issues of Timedesk Final 1.0
 ====================================
-
+1. Sometimes may not be null error is raised on Project Member and Project Phase Member creation pages.
 
 Technology Stack
 ==================
