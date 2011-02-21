@@ -150,13 +150,13 @@
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT `employee_id`, `first_name`, `last_name`, `name`, `start_date`,
   `end_date`, `allocation`
-  FROM `timedesk_final`.employee_allocation
+  FROM `timedesk_final`.EMPLOYEE_ALLOCATION
 ]]></xml-property>
             <structure name="designerState">
                 <property name="version">1.0</property>
                 <property name="stateContentAsString">&lt;?xml version="1.0" encoding="UTF-8"?>&#13;
 &lt;SQLQueryBuilder editorInputType="SQLBuilderStorageEditorInput" name="ProjectMembersDataSet" version="1.0">&#13;
-&lt;SQLStatement>SELECT `employee_id`, `first_name`, `last_name`, `name`, `start_date`,&amp;#x0A;  `end_date`, `allocation`&amp;#x0A;  FROM `timedesk_final`.employee_allocation&amp;#x0A;&lt;/SQLStatement>&#13;
+&lt;SQLStatement>SELECT `employee_id`, `first_name`, `last_name`, `name`, `start_date`,&amp;#x0A;  `end_date`, `allocation`&amp;#x0A;  FROM `timedesk_final`.EMPLOYEE_ALLOCATION&amp;#x0A;&lt;/SQLStatement>&#13;
 &lt;connInfo>MySql_5.1:Transient.org.eclipse.datatools.enablement.mysql.connectionProfile:timedesk_final:timedesk_final&lt;/connInfo>&#13;
 &lt;omitSchemaInfo>false:true:&lt;/omitSchemaInfo>&#13;
 &lt;editorInputUsageOptions>useWindowState=true&lt;/editorInputUsageOptions>&#13;
@@ -353,8 +353,9 @@
         </style>
         <style name="timedesk-table-header" id="318">
             <property name="backgroundColor">#004E80</property>
-            <property name="fontFamily">"Calibri"</property>
-            <property name="fontSize">12pt</property>
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+            <property name="fontWeight">bold</property>
             <property name="color">#FFFFFF</property>
             <property name="paddingTop">3pt</property>
             <property name="paddingLeft">3pt</property>
@@ -363,8 +364,8 @@
         </style>
         <style name="timedesk-table-row" id="319">
             <property name="backgroundColor">#DDDDDD</property>
-            <property name="fontFamily">"Calibri"</property>
-            <property name="fontSize">11pt</property>
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
             <property name="color">#000000</property>
             <property name="borderBottomColor">#FFFFFF</property>
             <property name="borderBottomStyle">solid</property>
@@ -399,8 +400,8 @@
             <property name="rightMargin">0.25in</property>
             <page-footer>
                 <text id="386">
-                    <property name="fontFamily">"Calibri"</property>
-                    <property name="fontSize">11pt</property>
+                    <property name="fontFamily">sans-serif</property>
+                    <property name="fontSize">10pt</property>
                     <property name="marginTop">0px</property>
                     <property name="marginBottom">10pt</property>
                     <property name="textAlign">center</property>
@@ -422,14 +423,15 @@
             <property name="source">embed</property>
             <property name="imageName">timedesk-logo-small.png</property>
         </image>
-        <label id="245">
-            <property name="fontFamily">"Calibri"</property>
-            <property name="fontSize">14pt</property>
+        <text id="393">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">12pt</property>
             <property name="fontWeight">bold</property>
-            <property name="marginBottom">10pt</property>
+            <property name="marginBottom">20pt</property>
             <property name="textAlign">center</property>
-            <text-property name="text">Employee Allocation for Projects Report </text-property>
-        </label>
+            <property name="contentType">auto</property>
+            <text-property name="content"><![CDATA[Employee Allocation for Projects Report]]></text-property>
+        </text>
         <table id="258">
             <property name="style">timedesk-table</property>
             <property name="marginLeft">10pt</property>
@@ -509,7 +511,7 @@
                     <property name="color">white</property>
                     <cell id="260">
                         <label id="261">
-                            <property name="fontSize">12pt</property>
+                            <property name="fontSize">11pt</property>
                             <property name="marginLeft">5pt</property>
                             <property name="textAlign">left</property>
                             <text-property name="text">Employee ID</text-property>
@@ -517,7 +519,7 @@
                     </cell>
                     <cell id="262">
                         <label id="263">
-                            <property name="fontSize">12pt</property>
+                            <property name="fontSize">11pt</property>
                             <property name="marginLeft">5pt</property>
                             <property name="textAlign">left</property>
                             <text-property name="text">First Name</text-property>
@@ -525,7 +527,7 @@
                     </cell>
                     <cell id="264">
                         <label id="265">
-                            <property name="fontSize">12pt</property>
+                            <property name="fontSize">11pt</property>
                             <property name="marginLeft">5pt</property>
                             <property name="textAlign">left</property>
                             <text-property name="text">Last Name</text-property>
@@ -533,7 +535,7 @@
                     </cell>
                     <cell id="266">
                         <label id="267">
-                            <property name="fontSize">12pt</property>
+                            <property name="fontSize">11pt</property>
                             <property name="marginLeft">5pt</property>
                             <property name="textAlign">left</property>
                             <text-property name="text">Project</text-property>
@@ -541,7 +543,7 @@
                     </cell>
                     <cell id="268">
                         <label id="269">
-                            <property name="fontSize">12pt</property>
+                            <property name="fontSize">11pt</property>
                             <property name="marginLeft">5pt</property>
                             <property name="textAlign">left</property>
                             <text-property name="text">Start Date</text-property>
@@ -549,7 +551,7 @@
                     </cell>
                     <cell id="270">
                         <label id="271">
-                            <property name="fontSize">12pt</property>
+                            <property name="fontSize">11pt</property>
                             <property name="marginLeft">5pt</property>
                             <property name="textAlign">left</property>
                             <text-property name="text">End Date</text-property>
@@ -557,7 +559,7 @@
                     </cell>
                     <cell id="272">
                         <label id="273">
-                            <property name="fontSize">12pt</property>
+                            <property name="fontSize">11pt</property>
                             <property name="marginLeft">5pt</property>
                             <property name="textAlign">left</property>
                             <text-property name="text">Allocation (%)</text-property>
@@ -571,8 +573,8 @@
                     <property name="backgroundColor">#D3D3D3</property>
                     <cell id="275">
                         <data id="276">
-                            <property name="fontFamily">"Calibri"</property>
-                            <property name="fontSize">11pt</property>
+                            <property name="fontFamily">sans-serif</property>
+                            <property name="fontSize">10pt</property>
                             <property name="marginLeft">5pt</property>
                             <property name="textAlign">left</property>
                             <property name="whiteSpace">nowrap</property>
@@ -581,8 +583,8 @@
                     </cell>
                     <cell id="277">
                         <data id="278">
-                            <property name="fontFamily">"Calibri"</property>
-                            <property name="fontSize">11pt</property>
+                            <property name="fontFamily">sans-serif</property>
+                            <property name="fontSize">10pt</property>
                             <property name="marginLeft">5pt</property>
                             <property name="textAlign">left</property>
                             <property name="whiteSpace">nowrap</property>
@@ -591,8 +593,8 @@
                     </cell>
                     <cell id="279">
                         <data id="280">
-                            <property name="fontFamily">"Calibri"</property>
-                            <property name="fontSize">11pt</property>
+                            <property name="fontFamily">sans-serif</property>
+                            <property name="fontSize">10pt</property>
                             <property name="marginLeft">5pt</property>
                             <property name="textAlign">left</property>
                             <property name="whiteSpace">nowrap</property>
@@ -601,8 +603,8 @@
                     </cell>
                     <cell id="281">
                         <data id="282">
-                            <property name="fontFamily">"Calibri"</property>
-                            <property name="fontSize">11pt</property>
+                            <property name="fontFamily">sans-serif</property>
+                            <property name="fontSize">10pt</property>
                             <property name="marginLeft">5pt</property>
                             <property name="textAlign">left</property>
                             <property name="whiteSpace">nowrap</property>
@@ -611,8 +613,8 @@
                     </cell>
                     <cell id="283">
                         <data id="284">
-                            <property name="fontFamily">"Calibri"</property>
-                            <property name="fontSize">11pt</property>
+                            <property name="fontFamily">sans-serif</property>
+                            <property name="fontSize">10pt</property>
                             <property name="marginLeft">5pt</property>
                             <structure name="dateTimeFormat">
                                 <property name="category">Short Date</property>
@@ -625,8 +627,8 @@
                     </cell>
                     <cell id="285">
                         <data id="286">
-                            <property name="fontFamily">"Calibri"</property>
-                            <property name="fontSize">11pt</property>
+                            <property name="fontFamily">sans-serif</property>
+                            <property name="fontSize">10pt</property>
                             <property name="marginLeft">5pt</property>
                             <structure name="dateTimeFormat">
                                 <property name="category">Short Date</property>
@@ -639,8 +641,8 @@
                     </cell>
                     <cell id="287">
                         <data id="288">
-                            <property name="fontFamily">"Calibri"</property>
-                            <property name="fontSize">11pt</property>
+                            <property name="fontFamily">sans-serif</property>
+                            <property name="fontSize">10pt</property>
                             <property name="marginLeft">5pt</property>
                             <property name="textAlign">left</property>
                             <property name="whiteSpace">nowrap</property>
