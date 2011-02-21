@@ -768,3 +768,11 @@ SELECT (CAST(CONCAT(e.id, p.id, phm.id) AS CHAR)) as 'id', e.version, e.id as 'e
 FROM employee e, project_member m, project_phase_member phm, project p
 WHERE e.id = m.employee_id AND m.id = phm.member_id AND m.project_id = p.id;
 
+--
+-- Create Employee Weekly Allocation Temp. View
+--
+
+CREATE OR REPLACE VIEW employee_weekly_allocation AS
+SELECT 1 as id, 1 as version, 1 as employee_name, 1 as project_name, 1 as week1, 1 as week2, 1 as week3, 1 as week4, 1 as week5, 1 as week6, 1 as week7, 1 as week8
+FROM dual
+
