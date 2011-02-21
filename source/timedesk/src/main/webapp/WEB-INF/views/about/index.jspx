@@ -8,7 +8,7 @@
     <h3>
       Time Desk
     </h3>
-    <p><b>Application Version:</b> Final Release 1.0.0220</p>
+    <p><b>Application Version:</b> Final Release 1.0.0221</p>
     <p><b>Client Implementation:</b> Spring MVC 3.0, Apache Tiles 2.0, Spring Security 3.0</p>
     <p><b>Application Server:</b> Apache Tomcat 6.0.29</p>
     <p><b>Database Server:</b> MySQL Community Server 5.5.8</p>
