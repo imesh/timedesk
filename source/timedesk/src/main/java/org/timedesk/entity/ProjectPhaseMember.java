@@ -78,7 +78,6 @@ public class ProjectPhaseMember
     
     public static List<ProjectPhaseMember> findAllProjectPhaseMembers() 
     {
-    	entityManager().clear();
         return entityManager().createQuery("select o from ProjectPhaseMember o", ProjectPhaseMember.class).getResultList();
     }
     

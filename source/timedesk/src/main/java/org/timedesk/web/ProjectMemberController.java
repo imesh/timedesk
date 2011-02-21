@@ -122,46 +122,45 @@ public class ProjectMemberController
 		return "redirect:/projects/" + projectId;
 	}
 
-//  Commented to avoid may not be null error
-//	@ModelAttribute("employees")
-//	public Collection<Employee> populateEmployees()
-//	{
-//		ApplicationTrace.trace("populateEmployees()");
-//		List<Employee> list = Employee.findAllEmployees();
-//		if(list != null)
-//			ApplicationTrace.trace("record count: " + list.size());
-//		return list;
-//	}
-//
-//	@ModelAttribute("projects")
-//	public Collection<Project> populateProjects()
-//	{
-//		ApplicationTrace.trace("populateProjects()");
-//		List<Project> list = Project.findAllProjects();
-//		if(list != null)
-//			ApplicationTrace.trace("record count: " + list.size());
-//		return list;
-//	}
-//
-//	@ModelAttribute("projectmemberfeedbacks")
-//	public Collection<ProjectMemberFeedback> populateProjectMemberFeedbacks()
-//	{
-//		ApplicationTrace.trace("populateProjectMemberFeedbacks()");
-//		List<ProjectMemberFeedback> list = ProjectMemberFeedback.findAllProjectMemberFeedbacks();
-//		if(list != null)
-//			ApplicationTrace.trace("record count: " + list.size());
-//		return list;
-//	}
-//
-//	@ModelAttribute("projectmemberroles")
-//	public Collection<ProjectMemberRole> populateProjectMemberRoles()
-//	{
-//		ApplicationTrace.trace("populateProjectMemberRoles()");
-//		List<ProjectMemberRole> list = ProjectMemberRole.findAllProjectMemberRoles();
-//		if(list != null)
-//			ApplicationTrace.trace("record count: " + list.size());
-//		return list;
-//	}
+	@ModelAttribute("employees")
+	public Collection<Employee> populateEmployees()
+	{
+		ApplicationTrace.trace("populateEmployees()");
+		List<Employee> list = Employee.findAllEmployees();
+		if(list != null)
+			ApplicationTrace.trace("record count: " + list.size());
+		return list;
+	}
+
+	@ModelAttribute("projects")
+	public Collection<Project> populateProjects()
+	{
+		ApplicationTrace.trace("populateProjects()");
+		List<Project> list = Project.findAllProjects();
+		if(list != null)
+			ApplicationTrace.trace("record count: " + list.size());
+		return list;
+	}
+
+	@ModelAttribute("projectmemberfeedbacks")
+	public Collection<ProjectMemberFeedback> populateProjectMemberFeedbacks()
+	{
+		ApplicationTrace.trace("populateProjectMemberFeedbacks()");
+		List<ProjectMemberFeedback> list = ProjectMemberFeedback.findAllProjectMemberFeedbacks();
+		if(list != null)
+			ApplicationTrace.trace("record count: " + list.size());
+		return list;
+	}
+
+	@ModelAttribute("projectmemberroles")
+	public Collection<ProjectMemberRole> populateProjectMemberRoles()
+	{
+		ApplicationTrace.trace("populateProjectMemberRoles()");
+		List<ProjectMemberRole> list = ProjectMemberRole.findAllProjectMemberRoles();
+		if(list != null)
+			ApplicationTrace.trace("record count: " + list.size());
+		return list;
+	}
 
 	Converter<ProjectMember, String> getProjectMemberConverter()
 	{

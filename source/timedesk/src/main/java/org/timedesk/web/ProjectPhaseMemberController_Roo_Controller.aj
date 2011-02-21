@@ -69,14 +69,4 @@ privileged aspect ProjectPhaseMemberController_Roo_Controller {
         catch (UnsupportedEncodingException uee) {}
         return pathSegment;
     }
-    
-    @ModelAttribute("projectmembers")
-    public Collection<ProjectMember> ProjectPhaseMemberController.populateProjectMembers() {
-        return ProjectMember.findAllProjectMembers();
-    }
-    
-    @ModelAttribute("projectphases")
-    public Collection<ProjectPhase> ProjectPhaseMemberController.populateProjectPhases() {
-        return ProjectPhase.findAllProjectPhases();
-    }
 }
