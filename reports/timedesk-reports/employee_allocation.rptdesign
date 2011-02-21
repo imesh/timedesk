@@ -150,13 +150,13 @@
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT `employee_id`, `first_name`, `last_name`, `name`, `start_date`,
   `end_date`, `allocation`
-  FROM `timedesk_final`.EMPLOYEE_ALLOCATION
+  FROM `timedesk_final`.employee_allocation
 ]]></xml-property>
             <structure name="designerState">
                 <property name="version">1.0</property>
                 <property name="stateContentAsString">&lt;?xml version="1.0" encoding="UTF-8"?>&#13;
 &lt;SQLQueryBuilder editorInputType="SQLBuilderStorageEditorInput" name="ProjectMembersDataSet" version="1.0">&#13;
-&lt;SQLStatement>SELECT `employee_id`, `first_name`, `last_name`, `name`, `start_date`,&amp;#x0A;  `end_date`, `allocation`&amp;#x0A;  FROM `timedesk_final`.EMPLOYEE_ALLOCATION&amp;#x0A;&lt;/SQLStatement>&#13;
+&lt;SQLStatement>SELECT `employee_id`, `first_name`, `last_name`, `name`, `start_date`,&amp;#x0A;  `end_date`, `allocation`&amp;#x0A;  FROM `timedesk_final`.employee_allocation&amp;#x0A;&lt;/SQLStatement>&#13;
 &lt;connInfo>MySql_5.1:Transient.org.eclipse.datatools.enablement.mysql.connectionProfile:timedesk_final:timedesk_final&lt;/connInfo>&#13;
 &lt;omitSchemaInfo>false:true:&lt;/omitSchemaInfo>&#13;
 &lt;editorInputUsageOptions>useWindowState=true&lt;/editorInputUsageOptions>&#13;
