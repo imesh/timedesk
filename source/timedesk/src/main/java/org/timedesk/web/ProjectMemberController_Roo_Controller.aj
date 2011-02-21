@@ -63,4 +63,24 @@ privileged aspect ProjectMemberController_Roo_Controller {
         return pathSegment;
     }
     
+    @ModelAttribute("employees")
+    public Collection<Employee> ProjectMemberController.populateEmployees() {
+        return Employee.findAllEmployees();
+    }
+    
+    @ModelAttribute("projects")
+    public Collection<Project> ProjectMemberController.populateProjects() {
+        return Project.findAllProjects();
+    }
+    
+    @ModelAttribute("projectmemberfeedbacks")
+    public Collection<ProjectMemberFeedback> ProjectMemberController.populateProjectMemberFeedbacks() {
+        return ProjectMemberFeedback.findAllProjectMemberFeedbacks();
+    }
+    
+    @ModelAttribute("projectmemberroles")
+    public Collection<ProjectMemberRole> ProjectMemberController.populateProjectMemberRoles() {
+        return ProjectMemberRole.findAllProjectMemberRoles();
+    }
+    
 }
