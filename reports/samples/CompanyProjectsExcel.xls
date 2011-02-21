@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Version>12.00</Version>
+ </DocumentProperties>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>10005</WindowHeight>
+  <WindowWidth>10005</WindowWidth>
+  <WindowTopX>120</WindowTopX>
+  <WindowTopY>135</WindowTopY>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s63">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="sans-serif" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s64">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="sans-serif" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s67">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" ss:Size="14" ss:Color="#000000" ss:Bold="1"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s68">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" ss:Size="12" ss:Color="#FFFFFF"/>
+   <Interior ss:Color="#004E80" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s70">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"
+     ss:Color="#FFFFFF"/>
+   </Borders>
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#DDDDDD" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s73">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top"/>
+   <Borders>
+    <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"
+     ss:Color="#FFFFFF"/>
+   </Borders>
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#DDDDDD" ss:Pattern="Solid"/>
+   <NumberFormat ss:Format="[ENG][$-409]mmmm\ d\,\ yyyy"/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s77">
+   <Alignment ss:Horizontal="Center" ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" ss:Size="11" ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Report">
+  <Table ss:ExpandedColumnCount="8" ss:ExpandedRowCount="9" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:AutoFitWidth="0" ss:Width="96" ss:Span="1"/>
+   <Column ss:Index="3" ss:Hidden="1" ss:AutoFitWidth="0"/>
+   <Column ss:AutoFitWidth="0" ss:Width="125.25"/>
+   <Column ss:AutoFitWidth="0" ss:Width="120"/>
+   <Column ss:AutoFitWidth="0" ss:Width="117"/>
+   <Column ss:AutoFitWidth="0" ss:Width="20.25"/>
+   <Column ss:Hidden="1" ss:AutoFitWidth="0"/>
+   <Row ss:AutoFitHeight="0" ss:Height="42">
+    <Cell ss:MergeAcross="2" ss:StyleID="s63"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:MergeAcross="3" ss:StyleID="s64"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="30.75">
+    <Cell ss:MergeAcross="6" ss:StyleID="s67"><Data ss:Type="String">Company Projects Report </Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Company ID</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Project ID</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s68"><Data ss:Type="String">Project Name</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">Start Date</Data></Cell>
+    <Cell ss:StyleID="s68"><Data ss:Type="String">End Date</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s70"><Data ss:Type="String">TD</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">OCEAN</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s70"><Data ss:Type="String">Ocean</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="DateTime">2011-01-01T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="DateTime">2011-02-28T00:00:00.000</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s70"><Data ss:Type="String">TD</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">SKY</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s70"><Data ss:Type="String">Sky</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="DateTime">2010-12-20T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="DateTime">2011-01-01T00:00:00.000</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s70"><Data ss:Type="String">TD</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">IMAGINE</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s70"><Data ss:Type="String">Imagine</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="DateTime">2011-02-01T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="DateTime">2011-02-28T00:00:00.000</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s70"><Data ss:Type="String">TD</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">EAGLE</Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s70"><Data ss:Type="String">Eagle</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="DateTime">2011-03-01T00:00:00.000</Data></Cell>
+    <Cell ss:StyleID="s73"><Data ss:Type="DateTime">2011-05-31T00:00:00.000</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s64"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:MergeAcross="1" ss:StyleID="s64"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String"></Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String"></Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:MergeAcross="6" ss:StyleID="s77"><Data ss:Type="String">Generated: Feb 21, 2011 12:08 PM</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <Unsynced/>
+   <Selected/>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>8</ActiveRow>
+     <RangeSelection>R9C1:R9C7</RangeSelection>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>
