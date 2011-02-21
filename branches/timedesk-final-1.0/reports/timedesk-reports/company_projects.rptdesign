@@ -118,14 +118,14 @@
                 </structure>
             </list-property>
             <xml-property name="queryText"><![CDATA[SELECT C.COMPANY_ID, P.PROJECT_ID, P.NAME, P.START_DATE, P.END_DATE
-  FROM `timedesk_final`.COMPANY AS C, `timedesk_final`.PROJECT AS P
+  FROM `timedesk_final`.company AS C, `timedesk_final`.project AS P
   WHERE C.ID = P.COMPANY_ID
 ]]></xml-property>
             <structure name="designerState">
                 <property name="version">1.0</property>
                 <property name="stateContentAsString">&lt;?xml version="1.0" encoding="UTF-8"?>&#13;
 &lt;SQLQueryBuilder editorInputType="SQLBuilderStorageEditorInput" name="CompanyProjectsDataSet" version="1.0">&#13;
-&lt;SQLStatement>SELECT C.COMPANY_ID, P.PROJECT_ID, P.NAME, P.START_DATE, P.END_DATE&amp;#x0A;  FROM `timedesk_final`.COMPANY AS C, `timedesk_final`.PROJECT AS P&amp;#x0A;  WHERE C.ID = P.COMPANY_ID&amp;#x0A;&lt;/SQLStatement>&#13;
+&lt;SQLStatement>SELECT C.COMPANY_ID, P.PROJECT_ID, P.NAME, P.START_DATE, P.END_DATE&amp;#x0A;  FROM `timedesk_final`.company AS C, `timedesk_final`.project AS P&amp;#x0A;  WHERE C.ID = P.COMPANY_ID&amp;#x0A;&lt;/SQLStatement>&#13;
 &lt;connInfo>MySql_5.1:Transient.org.eclipse.datatools.enablement.mysql.connectionProfile30:timedesk_final:timedesk_final&lt;/connInfo>&#13;
 &lt;omitSchemaInfo>false:true:&lt;/omitSchemaInfo>&#13;
 &lt;editorInputUsageOptions>useWindowState=true&lt;/editorInputUsageOptions>&#13;
