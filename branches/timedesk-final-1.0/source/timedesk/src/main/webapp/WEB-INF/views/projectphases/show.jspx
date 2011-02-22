@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:security="http://www.springframework.org/security/tags" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_org_timedesk_entity_ProjectPhase" object="${projectphase}" path="/projectphases" z="FvvEboTGZrE+M0dxDCHeDDKdlG8=">
+    <c:set var="fedit" value="false" />
+	<security:authorize ifAnyGranted="PROJECT.EDIT">
+	  	<c:set var="fedit" value="true" />
+	</security:authorize>
+	
+	<page:show id="ps_org_timedesk_entity_ProjectPhase" create="${fedit}" delete="${fedit}" update="${fedit}" object="${projectphase}" path="/projectphases" z="FvvEboTGZrE+M0dxDCHeDDKdlG8=">
     	<a href="/timedesk/projects/${projectphase.project.id}"><field:display field="project" id="s_org_timedesk_entity_ProjectPhase_project" object="${projectphase}" z="rMt5OkESwtOgSI0rXXguO4f/IGY="/></a>
         <field:display field="phaseId" id="s_org_timedesk_entity_ProjectPhase_phaseId" object="${projectphase}" z="Ppg2pjpGKrzbUJp5rOaMs3yu0Og="/>
         <field:display field="description" id="s_org_timedesk_entity_ProjectPhase_description" object="${projectphase}" z="ESbqvzt3hafeWSM0pUsKj1gA0fI="/>
@@ -10,7 +15,7 @@
     	<field:display field="projectPhaseMembers" id="s_org_timedesk_entity_ProjectPhase_projectPhaseMembers" object="${projectphase}" render="false" z="user-managed"/>
     	
     	<p class="data-grid-label">Phase Members:</p>
-        <table:table data="${projectphase.projectPhaseMembers}" parentId="${projectphase.id}" id="l_org_timedesk_entity_ProjectPhaseMember" path="/projectphasemembers" z="user-managed">			
+        <table:table data="${projectphase.projectPhaseMembers}" create="${fedit}" delete="${fedit}" update="${fedit}" parentId="${projectphase.id}" id="l_org_timedesk_entity_ProjectPhaseMember" path="/projectphasemembers" z="user-managed">			
             <table:column id="c_org_timedesk_entity_ProjectPhaseMember_phaseMemberId" property="phaseMemberId" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_ProjectPhaseMember_projectMember" maxLength="100" property="projectMember" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_ProjectPhaseMember_startDate" property="startDate" z="user-managed"/>

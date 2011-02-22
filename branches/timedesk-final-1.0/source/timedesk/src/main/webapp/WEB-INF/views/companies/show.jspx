@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:security="http://www.springframework.org/security/tags" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
-    <page:show id="ps_org_timedesk_entity_Company" object="${company}" path="/companies" z="t4vHTytfe4SZxtY/8RWEMo52INY=">
+        <c:set var="fedit" value="false" />
+	<security:authorize ifAnyGranted="COMPANY.EDIT">
+	  	<c:set var="fedit" value="true" />
+	</security:authorize> 
+	
+	<page:show id="ps_org_timedesk_entity_Company" create="${fedit}" delete="${fedit}" update="${fedit}" object="${company}" path="/companies" z="t4vHTytfe4SZxtY/8RWEMo52INY=">
         <field:display field="companyId" id="s_org_timedesk_entity_Company_companyId" object="${company}" z="oRi9GO4HInEPcLfnfZKeWWjcGxU="/>
         <field:display field="name" id="s_org_timedesk_entity_Company_name" object="${company}" z="+FmHSUL9z1dBHyLVUqcvvOQCt5s="/>
         <field:display field="companySites" id="s_org_timedesk_entity_Company_companySites" object="${company}" render="false" z="user-managed"/>
         <field:display field="projects" id="s_org_timedesk_entity_Company_projects" object="${company}" render="false" z="user-managed"/>
         
         <p class="data-grid-label">Company Sites:</p>
-        <table:table data="${company.companySites}" id="l_org_timedesk_entity_CompanySite" parentId="${company.id}" path="/companysites" z="user-managed">
+        <table:table data="${company.companySites}" create="${fedit}" delete="${fedit}" update="${fedit}" id="l_org_timedesk_entity_CompanySite" parentId="${company.id}" path="/companysites" z="user-managed">
             <table:column id="c_org_timedesk_entity_CompanySite_company" property="company" render="flase" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_CompanySite_siteId" property="siteId" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_CompanySite_location" maxLength="60" property="location" z="user-managed"/>
@@ -18,12 +23,10 @@
         </table:table>
         <br/>
         <p class="data-grid-label">Projects:</p>
-        <table:table data="${company.projects}" id="l_org_timedesk_entity_Project" parentId="${company.id}" path="/projects" z="QVC2twZAMUzOCVs35dBRHXVanlk=">            
+        <table:table data="${company.projects}" create="${fedit}" delete="${fedit}" update="${fedit}" id="l_org_timedesk_entity_Project" parentId="${company.id}" path="/projects" z="QVC2twZAMUzOCVs35dBRHXVanlk=">            
             
             <table:column id="c_org_timedesk_entity_Project_name" maxLength="100" property="name" z="user-managed"/>
-            <table:column id="c_org_timedesk_entity_Project_description" maxLength="200" property="description" z="user-managed"/>
-            
-                   
+            <table:column id="c_org_timedesk_entity_Project_description" maxLength="200" property="description" z="user-managed"/>                  
         	<table:column id="c_org_timedesk_entity_Project_company" property="company" render="false" z="user-managed"/>
         </table:table>        
     </page:show>

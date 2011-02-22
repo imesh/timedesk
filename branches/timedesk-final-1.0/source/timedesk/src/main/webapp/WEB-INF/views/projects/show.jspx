@@ -6,7 +6,7 @@
 	  	<c:set var="fedit" value="true" />
 	</security:authorize>
 	
-    <page:show id="ps_org_timedesk_entity_Project" object="${project}" path="/projects" z="f8z6YSdrWYjZkgmoNICWLU//r60=">        
+    <page:show id="ps_org_timedesk_entity_Project" create="${fedit}" delete="${fedit}" update="${fedit}" object="${project}" path="/projects" z="f8z6YSdrWYjZkgmoNICWLU//r60=">        
         <field:display field="projectId" id="s_org_timedesk_entity_Project_projectId" object="${project}" z="E1/fkHXeMcqXXIXtTLpFED3e3+s="/>
         <field:display field="name" id="s_org_timedesk_entity_Project_name" object="${project}" z="oT6QqafuPTcXYGkZtDqB6oFDiw4="/>
         <field:display field="description" id="s_org_timedesk_entity_Project_description" object="${project}" z="PiZA/nf+ZDza42v3uUbrRU2dRvY="/>

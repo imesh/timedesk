@@ -7,7 +7,7 @@
 	  	<c:set var="fedit" value="true" />
 	</security:authorize> 
 	
-<page:show id="ps_org_timedesk_entity_CompanySite" object="${companysite}" path="/companysites" z="b76OY01BoAdqygXXgjx6XEs1MSI=">
+    <page:show id="ps_org_timedesk_entity_CompanySite" create="${fedit}" delete="${fedit}" update="${fedit}" object="${companysite}" path="/companysites" z="b76OY01BoAdqygXXgjx6XEs1MSI=">
         <a href="/timedesk/companies/${companysite.company.id}"><field:display field="company" id="s_org_timedesk_entity_CompanySite_company" object="${companysite}" z="8iQs3u/hQMrUA9/eyMCxNJt72mo="/></a>
         <field:display field="siteId" id="s_org_timedesk_entity_CompanySite_siteId" object="${companysite}" z="+UtH3DIsEUauPK1kuY+v1L53qSE="/>
         <field:display field="location" id="s_org_timedesk_entity_CompanySite_location" object="${companysite}" z="xGU/59X8ZgO7Esg6pdAfjrH1oOA="/>
