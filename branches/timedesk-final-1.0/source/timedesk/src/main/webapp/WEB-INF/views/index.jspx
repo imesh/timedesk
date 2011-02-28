@@ -11,5 +11,6 @@
       Time Desk is a Project Resource Management System for managing Software Projects. Navigate to <a href="projects">Projects</a> section to view project details.
       If you cannot see any of the projects please contact your system administrator.
     </p>
+    <h3><a href="employeeweeklyallocations">Resource Allocation</a> | <a href="employeeweeklyavailabilitys">Resource Availability</a></h3>
   </util:panel>
 </div>
