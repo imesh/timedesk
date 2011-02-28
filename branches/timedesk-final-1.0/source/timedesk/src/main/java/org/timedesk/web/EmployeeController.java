@@ -34,9 +34,9 @@ import org.timedesk.web.util.UrlEncoder;
 @Controller
 public class EmployeeController
 {
-	@Autowired
-	private GenericConversionService conversionService;
-
+    @Autowired
+    private GenericConversionService conversionService_;
+    
 	@RequestMapping(params = "form", method = RequestMethod.GET)
 	public String createForm(Model model, @RequestParam(value = "parentId", required = false) Long parentId)
 	{
@@ -184,13 +184,13 @@ public class EmployeeController
 	@PostConstruct
 	void registerConverters()
 	{
-		conversionService.addConverter(getUserConverter());
-		conversionService.addConverter(getCompanySiteConverter());
-		conversionService.addConverter(getEmployeeConverter());
-		conversionService.addConverter(getEmployeeLeaveConverter());
-		conversionService.addConverter(getEmployeeRoleConverter());
-		conversionService.addConverter(getEmployeeVisaConverter());
-		conversionService.addConverter(getSkillConverter());
+		conversionService_.addConverter(getUserConverter());
+		conversionService_.addConverter(getCompanySiteConverter());
+		conversionService_.addConverter(getEmployeeConverter());
+		conversionService_.addConverter(getEmployeeLeaveConverter());
+		conversionService_.addConverter(getEmployeeRoleConverter());
+		conversionService_.addConverter(getEmployeeVisaConverter());
+		conversionService_.addConverter(getSkillConverter());
 	}
 
 	private String generateEmployeeId(Employee employee)

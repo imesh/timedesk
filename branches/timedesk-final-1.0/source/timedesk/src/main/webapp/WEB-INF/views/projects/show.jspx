@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:security="http://www.springframework.org/security/tags" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:security="http://www.springframework.org/security/tags" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
-    <c:set var="fedit" value="false" />
+    <c:set value="false" var="fedit"/>
 	<security:authorize ifAnyGranted="PROJECT.EDIT">
-	  	<c:set var="fedit" value="true" />
+	  	<c:set value="true" var="fedit"/>
 	</security:authorize>
 	
-    <page:show id="ps_org_timedesk_entity_Project" create="${fedit}" delete="${fedit}" update="${fedit}" object="${project}" path="/projects" z="f8z6YSdrWYjZkgmoNICWLU//r60=">        
+    <page:show create="${fedit}" delete="${fedit}" id="ps_org_timedesk_entity_Project" object="${project}" path="/projects" update="${fedit}" z="user-managed">        
         <field:display field="projectId" id="s_org_timedesk_entity_Project_projectId" object="${project}" z="E1/fkHXeMcqXXIXtTLpFED3e3+s="/>
         <field:display field="name" id="s_org_timedesk_entity_Project_name" object="${project}" z="oT6QqafuPTcXYGkZtDqB6oFDiw4="/>
         <field:display field="description" id="s_org_timedesk_entity_Project_description" object="${project}" z="PiZA/nf+ZDza42v3uUbrRU2dRvY="/>
@@ -17,13 +17,13 @@
         <field:display field="company" id="s_org_timedesk_entity_Project_company" object="${project}" render="false" z="user-managed"/>
         
         <p class="data-grid-label">Project Members:</p>
-        <table:table data="${project.projectMembers}" id="l_org_timedesk_entity_ProjectMember" create="${fedit}" delete="${fedit}" update="${fedit}" parentId="${project.id}" path="/projectmembers" z="user-managed">
+        <table:table create="${fedit}" data="${project.projectMembers}" delete="${fedit}" id="l_org_timedesk_entity_ProjectMember" parentId="${project.id}" path="/projectmembers" update="${fedit}" z="user-managed">
         	<table:column id="c_org_timedesk_entity_ProjectMember_memberId" property="memberId" z="user-managed"/>                                         
         	<table:column id="c_org_timedesk_entity_ProjectMember_employee" maxLength="100" property="employee" z="user-managed"/>
         </table:table>
 		
 		<p class="data-grid-label">Project Phases:</p>
-        <table:table data="${project.projectPhases}" id="l_org_timedesk_entity_ProjectPhase" create="${fedit}" delete="${fedit}" update="${fedit}" parentId="${project.id}" path="/projectphases" z="user-managed">
+        <table:table create="${fedit}" data="${project.projectPhases}" delete="${fedit}" id="l_org_timedesk_entity_ProjectPhase" parentId="${project.id}" path="/projectphases" update="${fedit}" z="user-managed">
             <table:column id="c_org_timedesk_entity_ProjectPhase_phaseId" property="phaseId" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_ProjectPhase_description" maxLength="200" property="description" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_ProjectPhase_startDate" property="startDate" z="user-managed"/>

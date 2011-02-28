@@ -15,12 +15,28 @@ privileged aspect EmployeeWeeklyAllocation_Roo_JavaBean {
         this.employeeName = employeeName;
     }
     
+    public String EmployeeWeeklyAllocation.getLocation() {
+        return this.location;
+    }
+    
+    public void EmployeeWeeklyAllocation.setLocation(String location) {
+        this.location = location;
+    }
+    
     public String EmployeeWeeklyAllocation.getProjectName() {
         return this.projectName;
     }
     
     public void EmployeeWeeklyAllocation.setProjectName(String projectName) {
         this.projectName = projectName;
+    }
+    
+    public String EmployeeWeeklyAllocation.getEffort() {
+        return this.effort;
+    }
+    
+    public void EmployeeWeeklyAllocation.setEffort(String effort) {
+        this.effort = effort;
     }
     
     public String EmployeeWeeklyAllocation.getWeek1() {

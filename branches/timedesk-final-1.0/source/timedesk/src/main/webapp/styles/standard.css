@@ -30,9 +30,9 @@ body {
 }
 
 #wrapper {
-	width: 1000px;
+	/*width: 1100px;*/
 	min-width: 1000px;
-	max-width: 1000px;
+	max-width: 1100px;
 	margin-right: auto;
 	margin-left: auto;
 	/* fix max-width incompatibility in IE6 */

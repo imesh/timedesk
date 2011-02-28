@@ -4,12 +4,12 @@
 package org.timedesk.web;
 
 import java.io.UnsupportedEncodingException;
-import java.util.Collection;
-
+import java.lang.Long;
+import java.lang.String;
 import javax.servlet.http.HttpServletRequest;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.convert.support.GenericConversionService;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -24,6 +24,8 @@ import org.timedesk.entity.ProjectMemberRole;
 
 privileged aspect ProjectMemberController_Roo_Controller {
     
+    @Autowired
+    private GenericConversionService ProjectMemberController.conversionService;
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String ProjectMemberController.show(@PathVariable("id") Long id, Model model) {
@@ -50,7 +52,7 @@ privileged aspect ProjectMemberController_Roo_Controller {
         model.addAttribute("projectMember", ProjectMember.findProjectMember(id));
         return "projectmembers/update";
     }
-                
+    
     private String ProjectMemberController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {
         String enc = request.getCharacterEncoding();
         if (enc == null) {
@@ -61,5 +63,6 @@ privileged aspect ProjectMemberController_Roo_Controller {
         }
         catch (UnsupportedEncodingException uee) {}
         return pathSegment;
-    }       
+    }
+    
 }

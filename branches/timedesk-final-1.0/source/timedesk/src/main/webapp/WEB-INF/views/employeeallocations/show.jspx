@@ -10,5 +10,7 @@
         <field:display field="allocation" id="s_org_timedesk_entity_EmployeeAllocation_allocation" object="${employeeallocation}" z="fbZnd7niN0RdjKkmClbJgQnqZb0="/>
     <field:display field="firstName" id="s_org_timedesk_entity_EmployeeAllocation_firstName" object="${employeeallocation}" z="eArCaJmh+uahybFz6se/ly5c6bc="/>
         <field:display field="lastName" id="s_org_timedesk_entity_EmployeeAllocation_lastName" object="${employeeallocation}" z="dpSqliud/46CRW+He3Tga2iTsgg="/>
+    <field:display field="PId" id="s_org_timedesk_entity_EmployeeAllocation_pId" object="${employeeallocation}" z="wbtKUJmFCOvQlnUSglioWz+3rkI="/>
+        <field:display field="projectName" id="s_org_timedesk_entity_EmployeeAllocation_projectName" object="${employeeallocation}" z="YwVmZCinreuDhmdzTTeuQoVSrbE="/>
     </page:show>
 </div>

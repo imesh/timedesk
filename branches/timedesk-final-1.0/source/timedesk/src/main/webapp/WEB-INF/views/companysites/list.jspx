@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:security="http://www.springframework.org/security/tags" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:security="http://www.springframework.org/security/tags" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
-    <c:set var="fedit" value="false" />
+    <c:set value="false" var="fedit"/>
 	<security:authorize ifAnyGranted="COMPANY.EDIT">
-	  	<c:set var="fedit" value="true" />
+	  	<c:set value="true" var="fedit"/>
 	</security:authorize>  
 
     <page:list id="pl_org_timedesk_entity_CompanySite" items="${companysites}" z="qAWFiQ/YGBKcCRRefc/DY35ctTM=">
-        <table:table data="${companysites}" id="l_org_timedesk_entity_CompanySite" create="${fedit}" delete="${fedit}" update="${fedit}" path="/companysites" z="e6RwqDfkwsF52uPVQ2uSncVUpKY=">
+        <table:table create="${fedit}" data="${companysites}" delete="${fedit}" id="l_org_timedesk_entity_CompanySite" path="/companysites" update="${fedit}" z="user-managed">
             <table:column id="c_org_timedesk_entity_CompanySite_company" maxLength="100" property="company" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_CompanySite_siteId" property="siteId" z="YbgXKRul4jDf08g4qcOF6/Nyljw="/>
-            <table:column id="c_org_timedesk_entity_CompanySite_location" property="location" maxLength="60" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_CompanySite_location" maxLength="60" property="location" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_CompanySite_city" property="city" z="4y9RwZUDfP70Qx1S3U7Oz1hRVbw="/>
             <table:column id="c_org_timedesk_entity_CompanySite_country" maxLength="100" property="country" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_CompanySite_employees" property="employees" render="false" z="user-managed"/>

@@ -87,7 +87,7 @@
         <menu:item id="i_projectphasemember_list" messageCode="global_menu_list" url="/projectphasemembers?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="tGtJ382bMObjLEHA9t0zFT2F0Uw="/>       
         <menu:item id="i_projectmemberfeedback_list" messageCode="global_menu_list" url="/projectmemberfeedbacks?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
         <menu:item id="i_employeeallocation_list" messageCode="global_menu_list" url="/employeeallocations?page=${empty param.page ? 1 : param.page}&amp;size=${empty param.size ? 10 : param.size}" z="pSeqpbARdR4VgX0vkQjf0oiEfE8="/>
-        <menu:item id="i_employeeweeklyallocation_list" messageCode="global_menu_list" url="/employeeweeklyallocations?form" z="xh9C7d+luwMQLlioJc4Byo5LIWU="/>
+        <menu:item id="i_employeeweeklyallocation_list" messageCode="global_menu_list" url="/employeeweeklyallocations?form" z="user-managed"/>
         </security:authorize>        
     </menu:category>
     </security:authorize>
@@ -154,10 +154,13 @@
     </security:authorize>
     <security:authorize ifAnyGranted="REPORT.VIEW">
     <menu:category id="c_notification" label="Reports" z="user-managed">
-		<menu:item id="i_notification_new" label="Company Projects Report" url="../timedesk-reports/frameset?__report=company_projects.rptdesign" />
-		<menu:item id="i_notification_new" label="Employee Allocation for Projects Report" url="../timedesk-reports/frameset?__report=employee_allocation.rptdesign" />
-		<menu:item id="i_notification_new" label="Notifications Report" url="../timedesk-reports/frameset?__report=notifications.rptdesign" />
+		<menu:item id="i_notification_new" label="Company Projects Report" url="../timedesk-reports/frameset?__report=company_projects.rptdesign"/>
+		<menu:item id="i_notification_new" label="Employee Allocation for Projects Report" url="../timedesk-reports/frameset?__report=employee_allocation.rptdesign"/>
+		<menu:item id="i_notification_new" label="Notifications Report" url="../timedesk-reports/frameset?__report=notifications.rptdesign"/>
     </menu:category>
     </security:authorize>
+    <menu:category id="c_employeeweeklyallocation" z="PH+V45PaUB2EoIHRTq5ek8ToQU8=">
+            <menu:item id="i_employeeweeklyallocation_new" messageCode="global_menu_new" url="/employeeweeklyallocations?form" z="SIthGPZQp6zEOn30z2lcKCXN79g="/>
+        </menu:category>
     </menu:menu>
 </div>

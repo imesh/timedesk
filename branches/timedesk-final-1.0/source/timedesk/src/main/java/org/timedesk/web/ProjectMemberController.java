@@ -40,8 +40,8 @@ public class ProjectMemberController
 {
 	@Autowired
 	private transient MailSender mailSender;
-	@Autowired
-	private GenericConversionService conversionService;
+    @Autowired
+    private GenericConversionService conversionService_;
 
 	@RequestMapping(method = RequestMethod.POST)
 	public String create(@Valid ProjectMember projectMember, BindingResult result, Model model, HttpServletRequest request)
@@ -220,11 +220,11 @@ public class ProjectMemberController
 	@PostConstruct
 	void registerConverters()
 	{
-		conversionService.addConverter(getProjectMemberConverter());
-		conversionService.addConverter(getEmployeeConverter());
-		conversionService.addConverter(getProjectConverter());
-		conversionService.addConverter(getProjectMemberFeedbackConverter());
-		conversionService.addConverter(getProjectMemberRoleConverter());
+		conversionService_.addConverter(getProjectMemberConverter());
+		conversionService_.addConverter(getEmployeeConverter());
+		conversionService_.addConverter(getProjectConverter());
+		conversionService_.addConverter(getProjectMemberFeedbackConverter());
+		conversionService_.addConverter(getProjectMemberRoleConverter());
 	}
 
 	private String generateMemberId(ProjectMember member)

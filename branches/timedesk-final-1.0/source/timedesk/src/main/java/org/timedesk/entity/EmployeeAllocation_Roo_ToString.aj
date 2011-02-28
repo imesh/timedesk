@@ -15,6 +15,8 @@ privileged aspect EmployeeAllocation_Roo_ToString {
         sb.append("EmployeeId: ").append(getEmployeeId()).append(", ");
         sb.append("FirstName: ").append(getFirstName()).append(", ");
         sb.append("LastName: ").append(getLastName()).append(", ");
+        sb.append("PId: ").append(getPId()).append(", ");
+        sb.append("ProjectName: ").append(getProjectName()).append(", ");
         sb.append("PhmId: ").append(getPhmId()).append(", ");
         sb.append("StartDate: ").append(getStartDate()).append(", ");
         sb.append("EndDate: ").append(getEndDate()).append(", ");

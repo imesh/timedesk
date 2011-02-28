@@ -42,6 +42,22 @@ privileged aspect EmployeeAllocation_Roo_JavaBean {
         this.lastName = lastName;
     }
     
+    public Long EmployeeAllocation.getPId() {
+        return this.pId;
+    }
+    
+    public void EmployeeAllocation.setPId(Long pId) {
+        this.pId = pId;
+    }
+    
+    public String EmployeeAllocation.getProjectName() {
+        return this.projectName;
+    }
+    
+    public void EmployeeAllocation.setProjectName(String projectName) {
+        this.projectName = projectName;
+    }
+    
     public Long EmployeeAllocation.getPhmId() {
         return this.phmId;
     }

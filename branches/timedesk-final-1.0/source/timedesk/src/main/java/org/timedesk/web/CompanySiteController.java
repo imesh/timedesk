@@ -30,9 +30,9 @@ import org.timedesk.web.util.UrlEncoder;
 @Controller
 public class CompanySiteController
 {
-	@Autowired
-	private GenericConversionService conversionService;
-
+    @Autowired
+    private GenericConversionService conversionService_;
+    
 	@RequestMapping(params = "form", method = RequestMethod.GET)
 	public String createForm(Model model, @RequestParam(value = "parentId", required = false) Long parentId)
 	{
@@ -142,9 +142,9 @@ public class CompanySiteController
 	@PostConstruct
 	void registerConverters()
 	{
-		conversionService.addConverter(getCompanyConverter());
-		conversionService.addConverter(getCompanySiteConverter());
-		conversionService.addConverter(getEmployeeConverter());
-		conversionService.addConverter(getHolidayConverter());
+		conversionService_.addConverter(getCompanyConverter());
+		conversionService_.addConverter(getCompanySiteConverter());
+		conversionService_.addConverter(getEmployeeConverter());
+		conversionService_.addConverter(getHolidayConverter());
 	}
 }

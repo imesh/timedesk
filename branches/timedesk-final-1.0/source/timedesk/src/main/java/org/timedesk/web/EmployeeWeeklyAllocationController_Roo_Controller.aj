@@ -26,7 +26,7 @@ privileged aspect EmployeeWeeklyAllocationController_Roo_Controller {
     
     @Autowired
     private GenericConversionService EmployeeWeeklyAllocationController.conversionService;
-        
+    
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String EmployeeWeeklyAllocationController.show(@PathVariable("id") Long id, Model model) {
         model.addAttribute("employeeweeklyallocation", EmployeeWeeklyAllocation.findEmployeeWeeklyAllocation(id));
@@ -74,7 +74,7 @@ privileged aspect EmployeeWeeklyAllocationController_Roo_Controller {
     Converter<EmployeeWeeklyAllocation, String> EmployeeWeeklyAllocationController.getEmployeeWeeklyAllocationConverter() {
         return new Converter<EmployeeWeeklyAllocation, String>() {
             public String convert(EmployeeWeeklyAllocation employeeWeeklyAllocation) {
-                return new StringBuilder().append(employeeWeeklyAllocation.getEmployeeName()).append(" ").append(employeeWeeklyAllocation.getProjectName()).append(" ").append(employeeWeeklyAllocation.getWeek1()).toString();
+                return new StringBuilder().append(employeeWeeklyAllocation.getEmployeeName()).append(" ").append(employeeWeeklyAllocation.getLocation()).append(" ").append(employeeWeeklyAllocation.getProjectName()).toString();
             }
         };
     }

@@ -12,5 +12,7 @@
         <field:display field="week6" id="s_org_timedesk_entity_EmployeeWeeklyAllocation_week6" object="${employeeweeklyallocation}" z="ZThkPxKUh+uywhBdzZmciBM0z+Q="/>
         <field:display field="week7" id="s_org_timedesk_entity_EmployeeWeeklyAllocation_week7" object="${employeeweeklyallocation}" z="o46o7DHRKbgEu8ByP5jWIPilNHI="/>
         <field:display field="week8" id="s_org_timedesk_entity_EmployeeWeeklyAllocation_week8" object="${employeeweeklyallocation}" z="CBdQ/UUSA0N3HGtdxXn9K3fQgSI="/>
+    <field:display field="effort" id="s_org_timedesk_entity_EmployeeWeeklyAllocation_effort" object="${employeeweeklyallocation}" z="vTedehzuK4vbKHgS3iL3yB5JUeY="/>
+    <field:display field="location" id="s_org_timedesk_entity_EmployeeWeeklyAllocation_location" object="${employeeweeklyallocation}" z="TcS4RZeWxCYU6XtMcRg/A42HSJo="/>
     </page:show>
 </div>

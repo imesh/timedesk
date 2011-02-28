@@ -4,11 +4,13 @@
 package org.timedesk.web;
 
 import java.io.UnsupportedEncodingException;
+import java.lang.Long;
+import java.lang.String;
 import java.util.Collection;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.convert.support.GenericConversionService;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,6 +26,8 @@ import org.timedesk.entity.Project;
 
 privileged aspect CompanyController_Roo_Controller {
     
+    @Autowired
+    private GenericConversionService CompanyController.conversionService;
     
     @RequestMapping(params = "form", method = RequestMethod.GET)
     public String CompanyController.createForm(Model model) {
@@ -84,7 +88,7 @@ privileged aspect CompanyController_Roo_Controller {
     public Collection<Project> CompanyController.populateProjects() {
         return Project.findAllProjects();
     }
-            
+    
     private String CompanyController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {
         String enc = request.getCharacterEncoding();
         if (enc == null) {

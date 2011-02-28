@@ -15,25 +15,22 @@
 package org.timedesk.web;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.roo.addon.web.mvc.controller.RooWebScaffold;
-import org.timedesk.entity.Company;
-import org.timedesk.entity.Project;
-import org.timedesk.entity.ProjectPhase;
-import org.timedesk.web.util.ApplicationTrace;
-import org.timedesk.web.util.UrlEncoder;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.stereotype.Controller;
+import org.timedesk.entity.Company;
+import org.timedesk.entity.Project;
+import org.timedesk.entity.ProjectPhase;
+import org.timedesk.web.util.UrlEncoder;
 
 @RooWebScaffold(path = "projects", formBackingObject = Project.class)
 @RequestMapping("/projects")

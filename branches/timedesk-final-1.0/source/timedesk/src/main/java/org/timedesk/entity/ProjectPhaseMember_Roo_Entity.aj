@@ -89,7 +89,7 @@ privileged aspect ProjectPhaseMember_Roo_Entity {
     public static long ProjectPhaseMember.countProjectPhaseMembers() {
         return entityManager().createQuery("select count(o) from ProjectPhaseMember o", Long.class).getSingleResult();
     }
-        
+    
     public static List<ProjectPhaseMember> ProjectPhaseMember.findProjectPhaseMemberEntries(int firstResult, int maxResults) {
         return entityManager().createQuery("select o from ProjectPhaseMember o", ProjectPhaseMember.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
