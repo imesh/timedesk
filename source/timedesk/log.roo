@@ -408,3 +408,8 @@ quit
 perform package
 quit
 // Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-28 21:18:55
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log opened at 2011-02-28 21:29:28
+perform package
+perform package
+quit
+// Spring Roo 1.1.0.RELEASE [rev 793f2b0] log closed at 2011-02-28 22:12:23
