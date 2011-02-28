@@ -7,7 +7,7 @@
         <field:display field="applicationFeatures" id="s_org_timedesk_entity_SecurityRole_applicationFeatures" object="${securityrole}" render="false" z="user-managed"/>
     	
     	<table:table create="false" delete="false" update="false" data="${securityrole.applicationFeatures}" id="l_org_timedesk_entity_ApplicationFeature" path="/applicationfeatures" z="user-managed">
-            <table:column id="c_org_timedesk_entity_ApplicationFeature_featureId" property="featureId" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_ApplicationFeature_featureId" maxLength="60" property="featureId" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_ApplicationFeature_name" property="name" maxLength="100" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_ApplicationFeature_description" property="description" maxLength="200" z="user-managed"/>
         </table:table>
