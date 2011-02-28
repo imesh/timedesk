@@ -60,13 +60,13 @@ public class IndexController
         {
         	int count = list.size();
         	if(count == 1)
-        		return " with only 1 employee allocated by now.";
+        		return " with only 1 employee allocated.";
         	else
-        		return " with " + count + " employees allocated by now.";
+        		return " with " + count + " employees allocated.";
         }
         else
         {
-        	return " and all employees are available by now.";
+        	return " and all employees are available.";
         }
 	}
 	
