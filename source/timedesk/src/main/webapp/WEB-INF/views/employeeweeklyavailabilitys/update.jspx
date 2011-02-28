@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_org_timedesk_entity_EmployeeWeeklyAvailability" modelAttribute="employeeWeeklyAvailability" path="/employeeweeklyavailabilitys" z="U+cVtdPKanj0zWcvW/SVRhBNJpY=">
+        <field:input field="employeeName" id="c_org_timedesk_entity_EmployeeWeeklyAvailability_employeeName" z="vaTakBr5DGwd4UkBcamrmsn/OA4="/>
+        <field:input field="location" id="c_org_timedesk_entity_EmployeeWeeklyAvailability_location" z="kCV4g5weya/o6upGjPIlVoeNQmg="/>
+        <field:input field="projectName" id="c_org_timedesk_entity_EmployeeWeeklyAvailability_projectName" z="nfSlYTKyBtJvog8SFQTbxsxiSyo="/>
+        <field:input field="effort" id="c_org_timedesk_entity_EmployeeWeeklyAvailability_effort" z="B46QktabIqQTXcui2EbusOrFWI4="/>
+        <field:input field="week1" id="c_org_timedesk_entity_EmployeeWeeklyAvailability_week1" z="vsj43cW4hdg5P+DM8MLAG+YF/3g="/>
+        <field:input field="week2" id="c_org_timedesk_entity_EmployeeWeeklyAvailability_week2" z="rK43ah7ekh2uqwszWh8HCVKA4vU="/>
+        <field:input field="week3" id="c_org_timedesk_entity_EmployeeWeeklyAvailability_week3" z="ev03h3NlrVysz66CVZ0/dUEzxLM="/>
+        <field:input field="week4" id="c_org_timedesk_entity_EmployeeWeeklyAvailability_week4" z="jmedX1N0AP/U4f6rH29HwARzUsw="/>
+        <field:input field="week5" id="c_org_timedesk_entity_EmployeeWeeklyAvailability_week5" z="XBNWI5SB8FQ410X/qH+aj+98Y9I="/>
+        <field:input field="week6" id="c_org_timedesk_entity_EmployeeWeeklyAvailability_week6" z="Iwlicdz0JveMaEAEN3uivoL6JRg="/>
+        <field:input field="week7" id="c_org_timedesk_entity_EmployeeWeeklyAvailability_week7" z="V8+gIt+ug9lEF18ezLgLTocBZjQ="/>
+        <field:input field="week8" id="c_org_timedesk_entity_EmployeeWeeklyAvailability_week8" z="UW9gaWgkUxMssOGAejG8lJnLDv8="/>
+    </form:update>
+</div>

@@ -34,19 +34,6 @@ privileged aspect EmployeeWeeklyAllocationController_Roo_Controller {
         return "employeeweeklyallocations/show";
     }
     
-    @RequestMapping(method = RequestMethod.GET)
-    public String EmployeeWeeklyAllocationController.list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model) {
-        if (page != null || size != null) {
-            int sizeNo = size == null ? 10 : size.intValue();
-            model.addAttribute("employeeweeklyallocations", EmployeeWeeklyAllocation.findEmployeeWeeklyAllocationEntries(page == null ? 0 : (page.intValue() - 1) * sizeNo, sizeNo));
-            float nrOfPages = (float) EmployeeWeeklyAllocation.countEmployeeWeeklyAllocations() / sizeNo;
-            model.addAttribute("maxPages", (int) ((nrOfPages > (int) nrOfPages || nrOfPages == 0.0) ? nrOfPages + 1 : nrOfPages));
-        } else {
-            model.addAttribute("employeeweeklyallocations", EmployeeWeeklyAllocation.findAllEmployeeWeeklyAllocations());
-        }
-        return "employeeweeklyallocations/list";
-    }
-    
     @RequestMapping(method = RequestMethod.PUT)
     public String EmployeeWeeklyAllocationController.update(@Valid EmployeeWeeklyAllocation employeeWeeklyAllocation, BindingResult result, Model model, HttpServletRequest request) {
         if (result.hasErrors()) {
