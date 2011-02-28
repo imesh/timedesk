@@ -14,9 +14,12 @@
 
 package org.timedesk.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Query;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -46,6 +49,12 @@ public class EmployeeAllocation
 
 	@Column(name = "last_name")
     private String lastName;
+	
+	@Column(name = "p_id")
+    private Long pId;
+	
+	@Column(name = "name")
+    private String projectName;
 
 	@Column(name = "phm_id")
     private Long phmId;
@@ -62,4 +71,54 @@ public class EmployeeAllocation
 	
 	@Column(name = "allocation")
     private Integer allocation;
+	
+    public static List<EmployeeAllocation> findAllocationsByEmployeeProject(Date fromDate, Date toDate)
+	{
+		Query query = entityManager().createQuery("SELECT ea FROM EmployeeAllocation ea WHERE (ea.startDate >= ?1 AND ea.endDate <= ?2) ORDER BY ea.empId");
+		query.setParameter(1, fromDate, TemporalType.DATE);
+		query.setParameter(2, toDate, TemporalType.DATE);
+		List<EmployeeAllocation> list = query.getResultList();
+		
+		String key = null;
+		List keyList = new ArrayList();
+		List<EmployeeAllocation> result = new ArrayList();
+		for(EmployeeAllocation allocation : list)
+		{
+			key = allocation.getEmpId().toString() + allocation.getPId();
+			if(!foundInList(keyList, key))
+			{
+				result.add(allocation);
+				keyList.add(key);
+			}
+		}
+		return result;
+	}
+    
+    private static boolean foundInList(List list, String value)
+    {
+    	for(int i = 0; i < list.size(); i++)
+    	{
+    		if((value != null) && value.equals(list.get(i).toString()))
+    			return true;
+    	}
+    	return false;
+    }
+    
+	public static double findAllocation(Date fromDate, Date toDate, Long empId, Long pId)
+	{
+		Query query = entityManager().createQuery("SELECT ea FROM EmployeeAllocation ea WHERE ea.empId = ?1 AND ea.pId = ?2 AND ((ea.startDate >= ?3 AND ea.startDate < ?4 AND ea.endDate > ?4) OR (ea.startDate <= ?3 AND ea.endDate >= ?4) OR (ea.startDate < ?3 AND ea.endDate <= ?4 AND ea.endDate > ?3))");
+		query.setParameter(1, empId);
+		query.setParameter(2, pId);
+		query.setParameter(3, fromDate, TemporalType.DATE);
+		query.setParameter(4, toDate, TemporalType.DATE);
+		List<EmployeeAllocation> list = query.getResultList();
+		int totalAllocation = 0;
+		EmployeeAllocation allocation = null;
+		for (int i = 0; i < list.size(); i++)
+		{
+			allocation = list.get(i);
+			totalAllocation += allocation.getAllocation();
+		}
+		return (totalAllocation/20);
+	}
 }

@@ -23,7 +23,7 @@ privileged aspect ProjectMemberFeedbackDataOnDemand_Roo_DataOnDemand {
     
     public ProjectMemberFeedback ProjectMemberFeedbackDataOnDemand.getNewTransientProjectMemberFeedback(int index) {
         org.timedesk.entity.ProjectMemberFeedback obj = new org.timedesk.entity.ProjectMemberFeedback();
-        obj.setDescription(null);        
+        obj.setDescription(null);
         obj.setProjectMember(projectMemberDataOnDemand.getRandomProjectMember());
         return obj;
     }

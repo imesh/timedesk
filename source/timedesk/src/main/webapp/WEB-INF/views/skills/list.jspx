@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:security="http://www.springframework.org/security/tags" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:security="http://www.springframework.org/security/tags" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
-    <c:set var="fedit" value="false" />
+    <c:set value="false" var="fedit"/>
 	<security:authorize ifAnyGranted="BASICDATA.EDIT">
-	  	<c:set var="fedit" value="true" />
+	  	<c:set value="true" var="fedit"/>
 	</security:authorize>
 	<page:list id="pl_org_timedesk_entity_Skill" items="${skills}" z="ADTAdoyu4Rg57fMBvMz4N6Aas/U=">
-        <table:table data="${skills}" id="l_org_timedesk_entity_Skill" create="${fedit}" delete="${fedit}" update="${fedit}" path="/skills" z="kT4hzPNzZGGzC6xbpLSHYvwJmP8=">
+        <table:table create="${fedit}" data="${skills}" delete="${fedit}" id="l_org_timedesk_entity_Skill" path="/skills" update="${fedit}" z="user-managed">
             <table:column id="c_org_timedesk_entity_Skill_skillId" property="skillId" z="dR7jolWxMvPTSfgCOi1Txp6I0F0="/>
-            <table:column id="c_org_timedesk_entity_Skill_description" property="description" maxLength="200" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_Skill_description" maxLength="200" property="description" z="user-managed"/>
         </table:table>
     </page:list>
 </div>

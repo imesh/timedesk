@@ -4,11 +4,13 @@
 package org.timedesk.web;
 
 import java.io.UnsupportedEncodingException;
+import java.lang.Long;
+import java.lang.String;
 import java.util.Arrays;
 import java.util.Collection;
-
 import javax.servlet.http.HttpServletRequest;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.convert.support.GenericConversionService;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,8 +28,10 @@ import org.timedesk.entity.EmployeeVisa;
 import org.timedesk.entity.Skill;
 import org.timedesk.entity.User;
 
-privileged aspect EmployeeController_Roo_Controller {    
+privileged aspect EmployeeController_Roo_Controller {
     
+    @Autowired
+    private GenericConversionService EmployeeController.conversionService;
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String EmployeeController.show(@PathVariable("id") Long id, Model model) {
@@ -111,7 +115,7 @@ privileged aspect EmployeeController_Roo_Controller {
     public Collection<User> EmployeeController.populateUsers() {
         return User.findAllUsers();
     }
-       
+    
     private String EmployeeController.encodeUrlPathSegment(String pathSegment, HttpServletRequest request) {
         String enc = request.getCharacterEncoding();
         if (enc == null) {

@@ -12,7 +12,9 @@ privileged aspect EmployeeWeeklyAllocation_Roo_ToString {
         sb.append("Id: ").append(getId()).append(", ");
         sb.append("Version: ").append(getVersion()).append(", ");
         sb.append("EmployeeName: ").append(getEmployeeName()).append(", ");
+        sb.append("Location: ").append(getLocation()).append(", ");
         sb.append("ProjectName: ").append(getProjectName()).append(", ");
+        sb.append("Effort: ").append(getEffort()).append(", ");
         sb.append("Week1: ").append(getWeek1()).append(", ");
         sb.append("Week2: ").append(getWeek2()).append(", ");
         sb.append("Week3: ").append(getWeek3()).append(", ");

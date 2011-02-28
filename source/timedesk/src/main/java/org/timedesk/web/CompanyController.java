@@ -40,8 +40,8 @@ import org.timedesk.web.util.UrlEncoder;
 public class CompanyController
 {
 	@Autowired
-	private GenericConversionService conversionService;
-
+	private GenericConversionService conversionService_;
+	
 	@RequestMapping(method = RequestMethod.POST)
 	public String create(@Valid Company company, BindingResult result, Model model, HttpServletRequest request)
 	{
@@ -93,12 +93,12 @@ public class CompanyController
 			}
 		};
 	}
-
+	
 	@PostConstruct
 	void registerConverters()
 	{
-		conversionService.addConverter(getCompanyConverter());
-		conversionService.addConverter(getCompanySiteConverter());
-		conversionService.addConverter(getProjectConverter());
+		conversionService_.addConverter(getCompanyConverter());
+		conversionService_.addConverter(getCompanySiteConverter());
+		conversionService_.addConverter(getProjectConverter());
 	}
 }

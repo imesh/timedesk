@@ -1,6 +1,5 @@
 package org.timedesk.web;
 
-import java.beans.PropertyEditorSupport;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -21,8 +20,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,8 +42,8 @@ public class ProjectPhaseMemberController
 {
 	@Autowired
 	private transient MailSender mailSender;
-	@Autowired
-	private GenericConversionService conversionService;
+    @Autowired
+    private GenericConversionService conversionService_;
 
 	@RequestMapping(params = "form", method = RequestMethod.GET)
 	public String createForm(Model model, @RequestParam(value = "parentId", required = false) Long parentId)
@@ -210,9 +207,9 @@ public class ProjectPhaseMemberController
 	@PostConstruct
 	void registerConverters()
 	{
-		conversionService.addConverter(getProjectMemberConverter());
-		conversionService.addConverter(getProjectPhaseConverter());
-		conversionService.addConverter(getProjectPhaseMemberConverter());
+		conversionService_.addConverter(getProjectMemberConverter());
+		conversionService_.addConverter(getProjectPhaseConverter());
+		conversionService_.addConverter(getProjectPhaseMemberConverter());
 	}
     
 	@ModelAttribute("projectmembers")

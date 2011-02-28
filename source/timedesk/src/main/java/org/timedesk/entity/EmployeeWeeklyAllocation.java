@@ -18,9 +18,15 @@ public class EmployeeWeeklyAllocation
 	@Column(name = "employee_name")
     private String employeeName;
 
+	@Column(name = "location")
+	private String location;
+	
 	@Column(name = "project_name")
     private String projectName;
 
+	@Column(name = "effort")
+	private String effort;
+	
 	@Column(name = "week1")
     private String week1;
 

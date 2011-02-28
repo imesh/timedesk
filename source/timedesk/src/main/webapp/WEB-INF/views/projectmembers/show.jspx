@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:security="http://www.springframework.org/security/tags" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:security="http://www.springframework.org/security/tags" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
-    <c:set var="fedit" value="false" />
+    <c:set value="false" var="fedit"/>
 	<security:authorize ifAnyGranted="PROJECTRESOURCE.EDIT">
-	  	<c:set var="fedit" value="true" />
+	  	<c:set value="true" var="fedit"/>
 	</security:authorize>
 	
-	<page:show id="ps_org_timedesk_entity_ProjectMember" create="${fedit}" delete="${fedit}" update="${fedit}" object="${projectmember}" path="/projectmembers" z="y2wM6o01eHWZVTZNTDcwe5ZrkJ4=">
+	<page:show create="${fedit}" delete="${fedit}" id="ps_org_timedesk_entity_ProjectMember" object="${projectmember}" path="/projectmembers" update="${fedit}" z="user-managed">
     	<a href="/timedesk/projects/${projectmember.project.id}">
             <field:display field="project" id="s_org_timedesk_entity_ProjectMember_project" object="${projectmember}" z="4PuPIYdm0GgD2EeTnr33gXYLLgg="/>
         </a>        

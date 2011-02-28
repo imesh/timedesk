@@ -21,9 +21,9 @@ import org.timedesk.entity.User;
 @Controller
 public class UserController
 {
-	@Autowired
-	private GenericConversionService conversionService;
-
+    @Autowired
+    private GenericConversionService conversionService_;
+    
 	@RequestMapping(value = "/userprofile", method = RequestMethod.GET)
 	public String show(Model model)
 	{
@@ -87,9 +87,9 @@ public class UserController
 	@PostConstruct
 	void registerConverters()
 	{
-		conversionService.addConverter(getUserConverter());
-		conversionService.addConverter(getEmployeeConverter());
-		conversionService.addConverter(getSecurityRoleConverter());
+		conversionService_.addConverter(getUserConverter());
+		conversionService_.addConverter(getEmployeeConverter());
+		conversionService_.addConverter(getSecurityRoleConverter());
 	}
 
 	private boolean isNumber(String value)

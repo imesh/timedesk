@@ -3,7 +3,6 @@
 
 package org.timedesk.entity;
 
-import java.lang.Integer;
 import java.lang.String;
 import org.timedesk.entity.ProjectMember;
 
@@ -16,7 +15,7 @@ privileged aspect ProjectMemberFeedback_Roo_JavaBean {
     public void ProjectMemberFeedback.setProjectMember(ProjectMember projectMember) {
         this.projectMember = projectMember;
     }
-        
+    
     public String ProjectMemberFeedback.getDescription() {
         return this.description;
     }

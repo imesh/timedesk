@@ -24,7 +24,9 @@ privileged aspect EmployeeAllocationDataOnDemand_Roo_DataOnDemand {
         obj.setEndDate(new java.util.Date());
         obj.setFirstName(null);
         obj.setLastName(null);
+        obj.setPId(null);
         obj.setPhmId(null);
+        obj.setProjectName(null);
         obj.setStartDate(new java.util.Date());
         return obj;
     }

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:security="http://www.springframework.org/security/tags" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:security="http://www.springframework.org/security/tags" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
-    <c:set var="fedit" value="false" />
+    <c:set value="false" var="fedit"/>
 	<security:authorize ifAnyGranted="BASICDATA.EDIT">
-	  	<c:set var="fedit" value="true" />
+	  	<c:set value="true" var="fedit"/>
 	</security:authorize>
 
     <page:list id="pl_org_timedesk_entity_ApplicationFeature" items="${applicationfeatures}" z="n0MiUf/tEknZYWgjejxJPZe0W8o=">
-        <table:table data="${applicationfeatures}" create="${fedit}" delete="${fedit}" update="${fedit}" id="l_org_timedesk_entity_ApplicationFeature" path="/applicationfeatures" z="Q9AnZX2EyTSuUzvwb8/+OWLQJyg=">
+        <table:table create="${fedit}" data="${applicationfeatures}" delete="${fedit}" id="l_org_timedesk_entity_ApplicationFeature" path="/applicationfeatures" update="${fedit}" z="user-managed">
             <table:column id="c_org_timedesk_entity_ApplicationFeature_featureId" maxLength="60" property="featureId" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_ApplicationFeature_name" maxLength="100" property="name" z="user-managed"/>
-            <table:column id="c_org_timedesk_entity_ApplicationFeature_description" render="false" maxLength="200" property="description" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_ApplicationFeature_description" maxLength="200" property="description" render="false" z="user-managed"/>
         </table:table>
     </page:list>
 </div>

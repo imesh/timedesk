@@ -10,6 +10,8 @@
         <field:input field="allocation" id="c_org_timedesk_entity_EmployeeAllocation_allocation" validationMessageCode="field_invalid_integer" z="nRwG4OwVFS20Jsu8zXRsDoqwaGw="/>
     <field:input field="firstName" id="c_org_timedesk_entity_EmployeeAllocation_firstName" z="U2+TUkFzAJJ1j5UGsKJ0ntqIebw="/>
         <field:input field="lastName" id="c_org_timedesk_entity_EmployeeAllocation_lastName" z="KarHXSaOI91+4TkJc0PKXTfVAdU="/>
+    <field:input field="pId" id="c_org_timedesk_entity_EmployeeAllocation_pId" validationMessageCode="field_invalid_integer" z="zAzmdCmytz1K4RC9o1HixtprL3s="/>
+        <field:input field="projectName" id="c_org_timedesk_entity_EmployeeAllocation_projectName" z="8RqbYPQT9PN7k1erQ76Yl0tJXYw="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_org_timedesk_entity_EmployeeAllocation" render="${not empty dependencies}" z="2+iwgO1Wj63w5ltbisZ3zKAOQNI="/>
 </div>

@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_org_timedesk_entity_EmployeeWeeklyAllocation" items="${employeeweeklyallocations}" z="lVD+c5mfMdPYYnb1BWSxYzxYsiU=">
         
-        <table:table data="${employeeweeklyallocations}" create="false" delete="false" update="false" id="l_org_timedesk_entity_EmployeeWeeklyAllocation" path="/employeeweeklyallocations" z="0aTBLDG8ObOhObzkiOatTFjhx7M=">
-            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_employeeName" property="employeeName" z="+ozg9e03pnBX98SjDj1Sc8RNPvk="/>
-            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_projectName" property="projectName" z="9V357OXP89P14gg5YCZLQCYVzmc="/>
-            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week1" property="week1" z="PQDK/aNDGnI0rzY7GYwQ7HACn0c="/>
-            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week2" property="week2" z="mEsc8UWNsNz49cXZl9izIHJ/aAY="/>
-            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week3" property="week3" z="TQNSvRHJbqTXQ0pzV2Oqwq8ogqs="/>
-            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week4" property="week4" z="6Ou4uJ709Jt6pICV3Xcp+KAJfE4="/>
+        <table:table create="false" data="${employeeweeklyallocations}" delete="false" id="l_org_timedesk_entity_EmployeeWeeklyAllocation" path="/employeeweeklyallocations" update="false" z="user-managed">
+            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_employeeName" property="employeeName" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_projectName" property="projectName" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week1" property="week1" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week2" property="week2" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week3" property="week3" z="user-managed"/>
+            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week4" property="week4" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week5" property="week5" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week6" property="week6" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week7" property="week7" z="user-managed"/>
             <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week8" property="week8" z="user-managed"/>
+        	<table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_effort" property="effort" z="EbQOZbDO5KiP9fp9nFwpFFXrZfI="/>
+        	<table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_location" property="location" z="eLaYjNdOSwnA5KB+1p1UaiXM5p4="/>
         </table:table>
-        </form>
     </page:list>
 </div>
