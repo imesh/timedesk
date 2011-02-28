@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_org_timedesk_entity_EmployeeWeeklyAvailability" object="${employeeweeklyavailability}" path="/employeeweeklyavailabilitys" z="zE7mvOs68KzgFj+Xv6lgBf1TE2I=">
+        <field:display field="employeeName" id="s_org_timedesk_entity_EmployeeWeeklyAvailability_employeeName" object="${employeeweeklyavailability}" z="aK83jPDiybwjHi7QIfi8GCG1w9U="/>
+        <field:display field="location" id="s_org_timedesk_entity_EmployeeWeeklyAvailability_location" object="${employeeweeklyavailability}" z="1/UK/3G80sm12nPktuTlduUDp5s="/>
+        <field:display field="projectName" id="s_org_timedesk_entity_EmployeeWeeklyAvailability_projectName" object="${employeeweeklyavailability}" z="SdNU/JPEcsotW2orZIOgoRyEcLY="/>
+        <field:display field="effort" id="s_org_timedesk_entity_EmployeeWeeklyAvailability_effort" object="${employeeweeklyavailability}" z="RGvtVTGuA0EmbE5cs1xILqhVEIM="/>
+        <field:display field="week1" id="s_org_timedesk_entity_EmployeeWeeklyAvailability_week1" object="${employeeweeklyavailability}" z="ZgL96g7oCiS85de1jNgwgCvqu+4="/>
+        <field:display field="week2" id="s_org_timedesk_entity_EmployeeWeeklyAvailability_week2" object="${employeeweeklyavailability}" z="83hEIczwsS07LAYctqxAR0h1GZs="/>
+        <field:display field="week3" id="s_org_timedesk_entity_EmployeeWeeklyAvailability_week3" object="${employeeweeklyavailability}" z="xC2Bx51k3hab9G6FYbP2WM23tQ8="/>
+        <field:display field="week4" id="s_org_timedesk_entity_EmployeeWeeklyAvailability_week4" object="${employeeweeklyavailability}" z="PDVs6zPYpRSLYY94dcb+BlJiZY0="/>
+        <field:display field="week5" id="s_org_timedesk_entity_EmployeeWeeklyAvailability_week5" object="${employeeweeklyavailability}" z="qCG9y3/w57RAyxTVNHD0BkMS154="/>
+        <field:display field="week6" id="s_org_timedesk_entity_EmployeeWeeklyAvailability_week6" object="${employeeweeklyavailability}" z="aiVGLS8XjZW35rceAFX5jo7b2F0="/>
+        <field:display field="week7" id="s_org_timedesk_entity_EmployeeWeeklyAvailability_week7" object="${employeeweeklyavailability}" z="TOLk/i8CsI8gnsubUfIxfgw740A="/>
+        <field:display field="week8" id="s_org_timedesk_entity_EmployeeWeeklyAvailability_week8" object="${employeeweeklyavailability}" z="RWtj74FIatkAyNq+lXlCpYNDbIM="/>
+    </page:show>
+</div>

@@ -45,19 +45,21 @@
             <br/>
 
 	        <table:table create="false" data="${employeeweeklyallocations}" delete="false" id="l_org_timedesk_entity_EmployeeWeeklyAllocation" path="/employeeweeklyallocations" show="false" update="false" z="user-managed">
-	            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_employeeName" maxLength="200" property="employeeName" z="user-managed"/>            
+	            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_employeeName" maxLength="150" property="employeeName" z="user-managed"/>            
 	            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_location" property="location" z="user-managed"/>
 	            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_projectName" label="Project" property="projectName" z="user-managed"/>
 	            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_effort" property="effort" z="user-managed"/>
-	            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week1" maxLength="15" label="WY ${weekOfYear} ${week1}" property="week1" z="user-managed"/>
-	            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week2" maxLength="15" label="WY ${weekOfYear + 1} ${week2}" property="week2" z="user-managed"/>
-	            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week3" maxLength="15" label="WY ${weekOfYear + 2} ${week3}" property="week3" z="user-managed"/>
-	            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week4" maxLength="15" label="WY ${weekOfYear + 3} ${week4}" property="week4" z="user-managed"/>
-	            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week5" maxLength="15" label="WY ${weekOfYear + 4} ${week5}" property="week5" z="user-managed"/>
-	            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week6" maxLength="15" label="WY ${weekOfYear + 5} ${week6}" property="week6" z="user-managed"/>
-	            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week7" maxLength="15" label="WY ${weekOfYear + 6} ${week7}" property="week7" z="user-managed"/>
-	            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week8" maxLength="15" label="WY ${weekOfYear + 7} ${week8}" property="week8" z="user-managed"/>
-	        </table:table>	        
+	            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week1" maxLength="15" label="[WY ${weekOfYear}] ${week1}" property="week1" z="user-managed"/>
+	            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week2" maxLength="15" label="[WY ${weekOfYear + 1}] ${week2}" property="week2" z="user-managed"/>
+	            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week3" maxLength="15" label="[WY ${weekOfYear + 2}] ${week3}" property="week3" z="user-managed"/>
+	            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week4" maxLength="15" label="[WY ${weekOfYear + 3}] ${week4}" property="week4" z="user-managed"/>
+	            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week5" maxLength="15" label="[WY ${weekOfYear + 4}] ${week5}" property="week5" z="user-managed"/>
+	            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week6" maxLength="15" label="[WY ${weekOfYear + 5}] ${week6}" property="week6" z="user-managed"/>
+	            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week7" maxLength="15" label="[WY ${weekOfYear + 6}] ${week7}" property="week7" z="user-managed"/>
+	            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_week8" maxLength="15" label="[WY ${weekOfYear + 7}] ${week8}" property="week8" z="user-managed"/>
+	        </table:table>
+	        <br/>
+	        WY - Week of the Year	        
         </c:if>
         
         <field:input field="employeeName" id="c_org_timedesk_entity_EmployeeWeeklyAllocation_employeeName" render="false" z="user-managed"/>

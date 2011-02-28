@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
     <jsp:output omit-xml-declaration="yes"/>
-    <page:list id="pl_org_timedesk_entity_EmployeeWeeklyAllocation" items="${employeeweeklyallocations}" z="lVD+c5mfMdPYYnb1BWSxYzxYsiU=">
+    <page:list id="pl_org_timedesk_entity_EmployeeWeeklyAllocation" items="${employeeweeklyallocations}" render="false" z="user-managed">
         
         <table:table create="false" data="${employeeweeklyallocations}" delete="false" id="l_org_timedesk_entity_EmployeeWeeklyAllocation" path="/employeeweeklyallocations" update="false" z="user-managed">
             <table:column id="c_org_timedesk_entity_EmployeeWeeklyAllocation_employeeName" property="employeeName" z="user-managed"/>

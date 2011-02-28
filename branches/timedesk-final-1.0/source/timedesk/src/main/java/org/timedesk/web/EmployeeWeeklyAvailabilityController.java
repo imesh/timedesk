@@ -19,31 +19,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.timedesk.entity.Employee;
-import org.timedesk.entity.EmployeeAllocation;
-import org.timedesk.entity.EmployeeWeeklyAllocation;
+import org.timedesk.entity.EmployeeWeeklyAvailability;
+import org.timedesk.entity.Project;
 import org.timedesk.web.util.ApplicationTrace;
 
-@RooWebScaffold(path = "employeeweeklyallocations", formBackingObject = EmployeeWeeklyAllocation.class)
-@RequestMapping("/employeeweeklyallocations")
+@RooWebScaffold(path = "employeeweeklyavailabilitys", formBackingObject = EmployeeWeeklyAvailability.class)
+@RequestMapping("/employeeweeklyavailabilitys")
 @Controller
-public class EmployeeWeeklyAllocationController
+public class EmployeeWeeklyAvailabilityController
 {
-	@RequestMapping(params = "form", method = RequestMethod.GET)
-	public String createForm(Model model)
-	{
-		model.addAttribute("employeeweeklyallocations", null);
-		return "employeeweeklyallocations/create";
-	}
-
 	@RequestMapping(method = RequestMethod.POST)
-	public String create(@Valid EmployeeWeeklyAllocation employeeWeeklyAllocation, BindingResult result, Model model, HttpServletRequest request, @RequestParam(value = "year", required = false) String year, @RequestParam(value = "month", required = false) String month)
+	public String create(@Valid EmployeeWeeklyAvailability employeeWeeklyAvailability, BindingResult result, Model model, HttpServletRequest request, @RequestParam(value = "year", required = false) String year, @RequestParam(value = "month", required = false) String month)
 	{
-		ApplicationTrace.trace("Find Employee Weekly Allocation");
+		ApplicationTrace.trace("Find Employee Weekly Availability");
 		if ((year != null) && (month != null))
 		{
 			try
 			{
-				model.addAttribute("serverInvoked", true);
 				ApplicationTrace.trace("year: " + year + "month: " + month);
 				SimpleDateFormat headerFormatter = new SimpleDateFormat("MMM d");
 				SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
@@ -51,17 +43,18 @@ public class EmployeeWeeklyAllocationController
 				Date endDate = formatter.parse(year + "/" + (Integer.parseInt(month) + 2) + "/1");
 				ApplicationTrace.trace("State date: " + formatter.format(startDate) + " End date: " + formatter.format(endDate));
 
-				List<EmployeeAllocation> list = EmployeeAllocation.findAllocationsByEmployeeProject(startDate, endDate);
-
+				List<Project> projectList = Project.findAllProjects();
+				List<Employee> list = Employee.findAllEmployees();
 				if ((list != null) && (list.size() > 0))
 				{
 					Date fromDate = null;
 					Date toDate = null;
-					int id = 1;
-					double totalEffort = 0;
-					EmployeeWeeklyAllocation weeklyAllocation = null;
-					Collection<EmployeeWeeklyAllocation> collection = new ArrayList();
 
+					int id = 1;
+					double totalRemaining = 0;
+					EmployeeWeeklyAvailability availability = null;
+					Collection<EmployeeWeeklyAvailability> collection = new ArrayList();
+					
 					fromDate = findFirstDayOfMonth(Integer.parseInt(year), Integer.parseInt(month));
 					Calendar cal = Calendar.getInstance();
 					cal.setTime(fromDate);
@@ -90,78 +83,70 @@ public class EmployeeWeeklyAllocationController
 					fromDate = toDate;
 					toDate = addWeek(fromDate);
 					model.addAttribute("week8", headerFormatter.format(fromDate));
-
-					for (EmployeeAllocation allocation : list)
+					
+					for (Employee employee : list)
 					{
-						weeklyAllocation = new EmployeeWeeklyAllocation();
-
-						weeklyAllocation.setId((long) id++);
-						weeklyAllocation.setEmployeeName(allocation.getFirstName() + " " + allocation.getLastName());
-
-						Employee employee = Employee.findEmployee(allocation.getEmpId());
-						if ((employee != null) && (employee.getCompanySite() != null))
-							weeklyAllocation.setLocation(employee.getCompanySite().getCity());
-						weeklyAllocation.setProjectName(allocation.getProjectName());
-
-						Long empId = allocation.getEmpId();
-						Long pId = allocation.getPId();
+						availability = new EmployeeWeeklyAvailability();
+						availability.setId((long) id++);
+						availability.setEmployeeName(employee.getFirstName() + " " + employee.getLastName());
+						if (employee.getCompanySite() != null)
+							availability.setLocation(employee.getCompanySite().getCity());
 
 						fromDate = findFirstDayOfMonth(Integer.parseInt(year), Integer.parseInt(month));
 						toDate = addWeek(fromDate);
-						double allocated = EmployeeAllocation.findAllocation(fromDate, toDate, empId, pId);
-						weeklyAllocation.setWeek1(String.valueOf(allocated));
-						totalEffort += allocated;
+						double remaining = employee.findAvailability(fromDate, toDate);
+						availability.setWeek1(String.valueOf(remaining));
+						totalRemaining += remaining;
 
 						fromDate = toDate;
 						toDate = addWeek(fromDate);
-						allocated = EmployeeAllocation.findAllocation(fromDate, toDate, empId, pId);
-						weeklyAllocation.setWeek2(String.valueOf(allocated));
-						totalEffort += allocated;
+						remaining = employee.findAvailability(fromDate, toDate);
+						availability.setWeek2(String.valueOf(remaining));
+						totalRemaining += remaining;
 
 						fromDate = toDate;
 						toDate = addWeek(fromDate);
-						allocated = EmployeeAllocation.findAllocation(fromDate, toDate, empId, pId);
-						weeklyAllocation.setWeek3(String.valueOf(allocated));
-						totalEffort += allocated;
+						remaining = employee.findAvailability(fromDate, toDate);
+						availability.setWeek3(String.valueOf(remaining));
+						totalRemaining += remaining;
 
 						fromDate = toDate;
 						toDate = addWeek(fromDate);
-						allocated = EmployeeAllocation.findAllocation(fromDate, toDate, empId, pId);
-						weeklyAllocation.setWeek4(String.valueOf(allocated));
-						totalEffort += allocated;
+						remaining = employee.findAvailability(fromDate, toDate);
+						availability.setWeek4(String.valueOf(remaining));
+						totalRemaining += remaining;
 
 						fromDate = toDate;
 						toDate = addWeek(fromDate);
-						allocated = EmployeeAllocation.findAllocation(fromDate, toDate, empId, pId);
-						weeklyAllocation.setWeek5(String.valueOf(allocated));
-						totalEffort += allocated;
+						remaining = employee.findAvailability(fromDate, toDate);
+						availability.setWeek5(String.valueOf(remaining));
+						totalRemaining += remaining;
 
 						fromDate = toDate;
 						toDate = addWeek(fromDate);
-						allocated = EmployeeAllocation.findAllocation(fromDate, toDate, empId, pId);
-						weeklyAllocation.setWeek6(String.valueOf(allocated));
-						totalEffort += allocated;
+						remaining = employee.findAvailability(fromDate, toDate);
+						availability.setWeek6(String.valueOf(remaining));
+						totalRemaining += remaining;
 
 						fromDate = toDate;
 						toDate = addWeek(fromDate);
-						allocated = EmployeeAllocation.findAllocation(fromDate, toDate, empId, pId);
-						weeklyAllocation.setWeek7(String.valueOf(allocated));
-						totalEffort += allocated;
+						remaining = employee.findAvailability(fromDate, toDate);
+						availability.setWeek7(String.valueOf(remaining));
+						totalRemaining += remaining;
 
 						fromDate = toDate;
 						toDate = addWeek(fromDate);
-						allocated = EmployeeAllocation.findAllocation(fromDate, toDate, empId, pId);
-						weeklyAllocation.setWeek8(String.valueOf(allocated));
-						totalEffort += allocated;
+						remaining = employee.findAvailability(fromDate, toDate);
+						availability.setWeek8(String.valueOf(remaining));
+						totalRemaining += remaining;
 
-						weeklyAllocation.setEffort(String.valueOf(totalEffort));
-						collection.add(weeklyAllocation);
-						totalEffort = 0;
+						availability.setEffort(String.valueOf(totalRemaining));
+						collection.add(availability);
 					}
 					model.addAttribute("year", year);
 					model.addAttribute("month", findMonthName(Integer.valueOf(month)) + " ");
 					model.addAttribute("weekOfYear", weekOfYear);
-					model.addAttribute("employeeweeklyallocations", collection);
+					model.addAttribute("employeeweeklyavailabilitys", collection);
 				}
 			}
 			catch (ParseException e)
@@ -169,16 +154,23 @@ public class EmployeeWeeklyAllocationController
 				ApplicationTrace.trace(e);
 			}
 		}
-		return "employeeweeklyallocations/create";
+		return "employeeweeklyavailabilitys/create";
+	}
+
+	@RequestMapping(params = "form", method = RequestMethod.GET)
+	public String createForm(Model model)
+	{
+		model.addAttribute("employeeWeeklyAvailability", new EmployeeWeeklyAvailability());
+		return "employeeweeklyavailabilitys/create";
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-    public String list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model) 
-    {
-		model.addAttribute("employeeweeklyallocations", null);
-		return "employeeweeklyallocations/create";
-    }
-	
+	public String list(@RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model model)
+	{
+		model.addAttribute("employeeWeeklyAvailability", new EmployeeWeeklyAvailability());
+		return "employeeweeklyavailabilitys/create";
+	}
+
 	private Object findMonthName(int month)
 	{
 		if (month == 1)
@@ -220,7 +212,7 @@ public class EmployeeWeeklyAllocationController
 		}
 		return null;
 	}
-
+	
 	private Date findFirstDayOfMonth(int year, int month)
 	{
 		try

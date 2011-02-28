@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_org_timedesk_entity_EmployeeWeeklyAvailability" items="${employeeweeklyavailabilitys}" z="NqmLo1Lh3a7F/9sPsCOd1rU1tIc=">
+        <table:table data="${employeeweeklyavailabilitys}" id="l_org_timedesk_entity_EmployeeWeeklyAvailability" path="/employeeweeklyavailabilitys" z="GiLRJfKTDv9/vQhegJEfKa9E5s4=">
+            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAvailability_employeeName" property="employeeName" z="CfG2dumtM76L3/2iECUhqCH2xi4="/>
+            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAvailability_location" property="location" z="YIEqxjELqXzjDK3htNfq4lcFZG4="/>
+            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAvailability_projectName" property="projectName" z="2ShJy22ej3RW34bUOHmvlcTfCSk="/>
+            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAvailability_effort" property="effort" z="fVhWKFs6jG/ka2OHDXxfwM0sc34="/>
+            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAvailability_week1" property="week1" z="z/LShmQdF+KZseC73swPqCBVfeE="/>
+            <table:column id="c_org_timedesk_entity_EmployeeWeeklyAvailability_week2" property="week2" z="VaHrFr0nMnGJoHnfj63COZ6nQoE="/>
+        </table:table>
+    </page:list>
+</div>
