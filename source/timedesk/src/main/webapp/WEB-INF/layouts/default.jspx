@@ -7,11 +7,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=8" />	
-		<spring:url value="/js/jquery-1.4.2.min.js" var="jquery_js_url"/>
-		<spring:url value="/js/menu.js" var="menu_js_url"/>
-		<script src="${jquery_js_url}" type="text/javascript">;</script>
-		<script src="${menu_js_url}" type="text/javascript">;</script>
-		
+				
 		<util:load-scripts />
 		
 		<spring:message code="application_name" var="app_name"/>
