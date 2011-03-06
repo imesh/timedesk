@@ -58,5 +58,3 @@ jcode.fn.initMenu = function() {
     );
 });
 };
-
-jcode(document).ready(function() {jcode('.menu').initMenu();});
