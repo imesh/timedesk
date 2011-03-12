@@ -9,9 +9,7 @@
   <spring:url value="/resources/spring/Spring.js" var="spring_url" />
   <spring:url value="/resources/spring/Spring-Dojo.js" var="spring_dojo_url" />
   <spring:url value="/resources/images/favicon.ico" var="favicon" />
-  <spring:url value="/js/jquery-1.4.2.min.js" var="jquery_js_url"/>
-  <spring:url value="/js/menu.js" var="menu_js_url"/>
-  
+    
   <link rel="stylesheet" type="text/css" media="screen" href="${roo_css_url}"><!-- required for FF3 and Opera --></link>
   <link rel="stylesheet" type="text/css" href="${tundra_url}"><!-- required for FF3 and Opera --></link>
   <link rel="SHORTCUT ICON" href="${favicon}" />
@@ -23,9 +21,6 @@
  
   <script src="${dojo_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
   <script src="${spring_url}" type="text/javascript"><!-- /required for FF3 and Opera --></script>
-  <script src="${spring_dojo_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
-   
-  <script src="${jquery_js_url}" type="text/javascript">;</script>
-  <script src="${menu_js_url}" type="text/javascript">;</script>
-  <script type="text/javascript"> var djConfig="${userLocale}"; jcode(document).ready(function() {jcode('.menu').initMenu();});</script>
+  <script src="${spring_dojo_url}" type="text/javascript"><!-- required for FF3 and Opera --></script> 
+  <script type="text/javascript"> var djConfig="${userLocale}";</script>
 </jsp:root>
